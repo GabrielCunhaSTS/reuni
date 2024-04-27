@@ -34,7 +34,7 @@ module.exports= {
                 const token = jwt.sign({ id: dadosUsu.id }, 'JANX7AWB12BAKX')
                     resp.cookie('token', token, { httpOnly:true, secure: true })
                     req.session.user = dadosUsu
-                    req.flash("success_msg", `Seja bem_vindo ${dadosUsu.nm_usu}`)    
+                    req.flash("success_msg", `Seja Bem-vindo(a) ${dadosUsu.nm_usu}`)    
                     return resp.redirect('/home')
 
                 }catch(erro){

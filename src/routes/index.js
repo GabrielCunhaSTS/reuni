@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const auth = require('../controllers/auth')
 const Login = require('../controllers/login')
-const Registrar = require('../controllers/registerAuth')
+const Registrar = require('../controllers/registerUsuAuth')
 const Search = require('../controllers/search')
 
 router.post('/auth/signIn', Registrar.registerUsuario)

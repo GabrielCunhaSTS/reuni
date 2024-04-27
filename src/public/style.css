@@ -18,15 +18,19 @@ body {
 
 
 .alert {
+  display:flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
 .success {
-  background-color: #d4edda; /* Cor de fundo verde claro */
-  color: #155724; /* Cor do texto verde escuro */
-  border: 1px solid #c3e6cb; /* Borda verde */
+  width: 15%;
+  background-color: #b2e2fc; /* Cor de fundo verde claro */
+  color: #215487; /* Cor do texto verde escuro */
+  border: 1px solid #86cdff; /* Borda verde */
   padding: 15px;
   border-radius: 4px;
 }
@@ -180,6 +184,15 @@ header .buttons .login:hover {
   width: 50vh;
 }
 
+.btn-saiba a:hover{
+  text-decoration: none;
+  color: #215487 ;
+}
+
+.btn-saiba a{
+  text-decoration: none;
+  color: #FFF ;
+}
 /* Estilo do botão dentro do conteúdo principal */
 .container-inicial .btn-saiba {
   width: 20vh;

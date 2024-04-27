@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="/reuni.png">
+    <link rel="stylesheet" href="/styleLogin.css">
+</head>
+<body>
+    <h2>Faça Login</h2>
+    <form id="loginForm" action="/auth/login" method="POST">
+        <label for="ds_emailUsu">Email:</label><br>
+        <input type="email" id="ds_emailUsu" name="ds_emailUsu" required><br><br>
+
+        <label for="ds_senhaUSu">Senha:</label><br>
+        <input type="password" id="ds_senhaUSu" name="ds_senhaUSu" required><br><br>
+        <button type="submit" class="btn-registrar">Entrar</button>     
+    </form> 
+     <a href="/cadastrar"><button class="login">Criar conta</button></a>
+    </script>
+</body>
+</html>

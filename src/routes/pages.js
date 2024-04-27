@@ -20,16 +20,24 @@ router.get('/cadastrar', (req, resp) => {
     resp.render('cadastrar')
 })
 
-router.get('/home', (req, resp) => {
+router.get('/home', checkAuth, (req, resp) => {
     resp.render('home')
 })
 
-router.get('/pesquisaBarra', (req, resp) => {
+router.get('/pesquisaBarra', checkAuth, (req, resp) => {
     resp.render('pesquisaBarra')
 })
 
-router.get('/pesquisa', (req, resp) => {
+router.get('/pesquisa', checkAuth, (req, resp) => {
     resp.render('pesquisa')
+})
+
+router.get('/adicionar', checkAuth, (req, resp) => {
+    resp.render('adicionar')
+})
+
+router.get('/perfil', checkAuth, (req, resp) => {
+    resp.render('perfil')
 })
 
 module.exports = router

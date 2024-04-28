@@ -32,11 +32,11 @@ router.get('/pesquisa', checkAuth, (req, resp) => {
     resp.render('pesquisa')
 })
 
-router.get('/anunciar', checkAuth, (req, resp) => {
+router.get('/anunciar',  (req, resp) => {
     resp.render('anunciar')
 })
 
-router.get('/cep', checkAuth, (req, resp) => {
+router.get('/cep',  (req, resp) => {
     resp.render('cep')
 })
 

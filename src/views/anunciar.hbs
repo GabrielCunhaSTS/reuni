@@ -135,31 +135,36 @@
               
             <div class="cont-cep">
                 <div class="cep">
-                    <p>Digite o CEP</p> 
-                    <input type="text"><a href="">Não sabe o CEP?</a>
-                </div>
+                     <form id="cepForm">
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" name="cep" required maxlength="9">
+                    </form>
                 <div class="cidade">
                     <div>
-                        <p>Cidade</p>
-                        <input type="text">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" readonly>
                     </div>
                     <div>
-                        <p>Estado</p>
-                        <input type="text" placeholder="Selecione">
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" name="estado" readonly>
                     </div>
                 </div>
                 <div class="rua">
-                    <p>Rua</p>
-                    <input type="text">
+                    <label for="logradouro">Rua:</label>
+                    <input type="text" id="logradouro" name="logradouro" readonly>
                 </div>
                 <div class="bairro">
                     <div>
-                        <p>Bairro</p>
-                        <input type="text">
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" id="bairro" name="bairro" readonly>
                     </div>
                     <div>
-                        <p>Número</p>
-                        <input type="text">
+                        <label for="numero">Numero:</label>
+                        <input type="text" id="numero" name="numero" readonly>
+                    </div>
+                    <div>
+                        <label for="complemento">complemento:</label>
+                        <input type="text" id="complemento" name="complemento" readonly>
                     </div>
                 </div>
             </div>
@@ -309,6 +314,8 @@
         </div>
         <button class="Anunciar">Anunciar República</button>   
     </main>
+
+    <script src="/cep.js"></script>
  
 </body>
 </html>

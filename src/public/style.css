@@ -35,6 +35,21 @@ body {
   border-radius: 4px;
 }
 
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  opacity: 1;
+  transition: opacity 0.5s ease; /* Adicionando uma transição de opacidade */
+}
+
+.fade-out {
+  opacity: 0;
+}
+
 /* Define o cabeçalho */
 header {
   width: 100%;

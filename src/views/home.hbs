@@ -73,7 +73,7 @@
         </div>
     </header>
     
-    <div class="alert">
+    <div class="alert {{#if success_msg}}show{{/if}}">
         {{#if success_msg}}
             <div class="success">{{success_msg}}</div>
         {{/if}}
@@ -310,7 +310,7 @@
           @ 2024 all rights reserved
         </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="/sumirMsg.js"></script>
 
 </body>
 </html>

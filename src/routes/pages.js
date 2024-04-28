@@ -36,8 +36,8 @@ router.get('/anunciar', checkAuth, (req, resp) => {
     resp.render('anunciar')
 })
 
-router.get('/perfil', checkAuth, (req, resp) => {
-    resp.render('perfil')
+router.get('/cep', checkAuth, (req, resp) => {
+    resp.render('cep')
 })
 
 module.exports = router

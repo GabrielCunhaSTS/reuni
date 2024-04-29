@@ -6,4 +6,4 @@ setTimeout(() => {
 // Removendo a mensagem do DOM após a transição
 setTimeout(() => {
     document.querySelector('.alert').remove();
-}, 5500);
+}, 2000);

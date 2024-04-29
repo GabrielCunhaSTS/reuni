@@ -35,7 +35,7 @@ module.exports= {
                     resp.cookie('token', token, { httpOnly:true, secure: true })
                     req.session.user = dadosUsu
                     req.flash("success_msg", `Seja Bem-vindo(a) ${dadosUsu.nm_usu}`)    
-                    return resp.redirect('/home')
+                    return resp.redirect('/')
 
                 }catch(erro){
                     console.error(erro)

@@ -21,6 +21,7 @@ body {
   display:flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -28,9 +29,9 @@ body {
 
 .success {
   width: 15%;
-  background-color: #b2e2fc; /* Cor de fundo verde claro */
-  color: #215487; /* Cor do texto verde escuro */
-  border: 1px solid #86cdff; /* Borda verde */
+  background-color: #b2e2fc;
+  color: #215487; 
+  border: 1px solid #86cdff; 
   padding: 15px;
   border-radius: 4px;
 }
@@ -43,7 +44,7 @@ body {
   border-radius: 5px;
   margin-bottom: 10px;
   opacity: 1;
-  transition: opacity 0.5s ease; /* Adicionando uma transição de opacidade */
+  transition: opacity 0.5s ease;
 }
 
 .fade-out {

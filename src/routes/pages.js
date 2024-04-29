@@ -13,31 +13,24 @@ function checkAuth(req, resp, next){
 }
 
 router.get('/', (req, resp) => {
-    resp.render('login')
-})
-
-router.get('/cadastrar', (req, resp) => {
-    resp.render('cadastrar')
-})
-
-router.get('/home', checkAuth, (req, resp) => {
     resp.render('home')
 })
 
-router.get('/pesquisaBarra', checkAuth, (req, resp) => {
-    resp.render('pesquisaBarra')
+router.get('/registrar', (req, resp) => {
+    resp.render('registrar')
+})
+
+router.get('/entrar', (req, resp) => {
+    resp.render('login')
 })
 
 router.get('/pesquisa', checkAuth, (req, resp) => {
     resp.render('pesquisa')
 })
 
-router.get('/anunciar',  (req, resp) => {
+router.get('/anunciar',  checkAuth, (req, resp) => {
     resp.render('anunciar')
 })
 
-router.get('/cep',  (req, resp) => {
-    resp.render('cep')
-})
 
 module.exports = router

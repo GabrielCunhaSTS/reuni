@@ -23,9 +23,6 @@ function exibirResultado(data) {
             const li = document.createElement('li');
             li.classList.add('usuario-item');
             li.innerHTML = `
-                <div class="perfil-icon">
-                    <!-- Aqui você pode adicionar o ícone do perfil, se necessário. -->
-                </div>
                 <p class="nome-usuario">${usuario.nm_usu}</p>
                 <p class="email-usuario">${usuario.ds_emailUsu}</p>
             `;

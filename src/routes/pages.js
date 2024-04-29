@@ -24,7 +24,7 @@ router.get('/entrar', (req, resp) => {
     resp.render('login')
 })
 
-router.get('/pesquisa', checkAuth, (req, resp) => {
+router.get('/pesquisa', (req, resp) => {
     resp.render('pesquisa')
 })
 

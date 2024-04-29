@@ -8,7 +8,7 @@ module.exports = {
             const resultado = await ModelUsuario.findAll({
                 where: {
                     nm_usu:{
-                    [Op.like]: `%${nm_digit}%`
+                    [Op.like]: `${nm_digit}%`
                     }
                 }
             });

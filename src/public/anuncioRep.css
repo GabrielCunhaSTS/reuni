@@ -36,15 +36,14 @@ header .fav-menu {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-right: 25px;
-    width: 250px;
+    width: 105px;
     gap: 40px;
 }
 
 header .fav-menu .a-img {
     width: 150px;
     text-align: center;
-    margin-right: -40px;
+    margin-right: -20px;
 }
 
 header .fav-menu a{
@@ -382,9 +381,15 @@ header .fav-menu p {
     line-height: normal;
 }
 
-.container-cont .cont-cep .cidade{
+.container-cont .cont-cep{
     display: flex;
     flex-direction: row;
+    gap: 20px;
+}
+
+.cidade {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -730,8 +735,6 @@ header .fav-menu p {
     height: 100%; 
     object-fit: cover; 
 }
-  
-
 
 .Anunciar{
     width: 234px;
@@ -744,7 +747,7 @@ header .fav-menu p {
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
     border-radius: 14px;
     border: none;
-    margin-left: 122vh;
+    margin-left: 112vh;
 }
 
 .Anunciar:hover{
@@ -756,5 +759,18 @@ header .fav-menu p {
 
 
 .input-dados{
-    padding: 10px;;
+    padding: 10px;
+    font-size: 18px;
+    width: 100%;
+}
+
+.cep{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 400px;
 }

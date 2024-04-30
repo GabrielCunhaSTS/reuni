@@ -111,7 +111,7 @@
               <div class="cont-dados">
                 <div>
                     <p>Nome</p>
-                    <input class="input-dados" type="text">
+                    <input class="input-dados" type="text" id="nome" maxlength="20">
                 </div>
                 <div>
                     <p>E-mail</p>
@@ -119,11 +119,11 @@
                 </div>
                 <div>
                     <p>Telefone ou Celular para contato</p>
-                    <input class="input-dados" type="text">
+                    <input class="input-dados" id="numeroTelefone" type="text">
                 </div>
                 <div>
                     <p>Ano de Criação (OBS:Ano em que sua República foi criada)</p>
-                    <input class="input-dados" type="text">
+                    <input class="input-dados" id="Ano" type="text" maxlength="4" >
                 </div>
               </div>
         </div> 
@@ -161,11 +161,11 @@
                 </div>
                 <div class="numero">
                         <label for="numero">Numero:</label>
-                        <input class="input-dados" type="text" id="numero" name="numero" readonly>
+                        <input class="input-dados" type="text" id="numero" name="numero">
                 </div>
                 <div class="complemento">
                         <label for="complemento">complemento:</label>
-                        <input type="text" id="complemento" name="complemento" readonly>
+                        <input class="input-dados" type="text" id="complemento" name="complemento">
                 </div>
                 </div>
             </div>
@@ -280,7 +280,7 @@
                 </div>
                 <div class="valor-mensal">
                   <p>Valor Mensal</p>
-                  <input type="text" placeholder="R$    0,00">
+                  <input type="text" placeholder="R$    0,00" id="valorMensal" >
                 </div>
                 <div class="radios">
                   <div class="contas">
@@ -319,6 +319,6 @@
     </main>
 
     <script src="/cepAuth.js"></script>
- 
+    <script src="/limitarCampos.js"></script>
 </body>
 </html>

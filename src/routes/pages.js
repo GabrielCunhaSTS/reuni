@@ -28,7 +28,7 @@ router.get('/pesquisa', (req, resp) => {
     resp.render('pesquisa')
 })
 
-router.get('/anunciar',  checkAuth, (req, resp) => {
+router.get('/anunciar', (req, resp) => {
     resp.render('anunciar')
 })
 

@@ -8,6 +8,6 @@ const Search = require('../controllers/search')
 router.post('/auth/signIn', Registrar.registerUsuario)
 router.post('/auth/login', Login.log)
 router.get('/auth/logout', auth.logout)
-router.get('/pesquisa/:nm_digit', Search.getUsuarioByName);
+router.get('/pesquisa/:nm_digit', Search.getRepByName);
 
 module.exports = router

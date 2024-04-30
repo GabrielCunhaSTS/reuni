@@ -1,5 +1,5 @@
 document.getElementById('inputSearch').addEventListener('input', async () => {
-    const searchTerm = document.getElementById('inputSearch').value.trim(); // Remova espaços em branco no início e no final
+    const searchTerm = document.getElementById('inputSearch').value.trim();
     if (searchTerm !== '') {
         try {
             const response = await fetch(`/pesquisa/${searchTerm}`);
@@ -23,8 +23,7 @@ function exibirResultado(data) {
             const li = document.createElement('li');
             li.classList.add('usuario-item');
             li.innerHTML = `
-                <p class="nome-usuario">${usuario.ds_nomeRepublica}</p>
-                <p class="email-usuario">${usuario.ds_emailUsu}</p>
+                <p class="nome-usuario">${usuario.ds_cidade}</p>
             `;
             resultadoDiv.appendChild(li);
         });

@@ -1,8 +1,8 @@
-const { conecSequelize } = require('../../config/bdConnection')
+const { conecBanco } = require('../config/bdConec')
 const { DataTypes} = require ('sequelize')
-const { _padraoTableBDExistence } = require('../../config/configTabelasDB')
+const { _padraoTableBDExistente } = require('../config/configTabelasBD')
 
-ModelRepublica = conecSequelize.define('tb_republica',{
+ModelRepublica = conecBanco.define('tb_republica',{
     id_republica:{
         type:DataTypes.INTEGER.UNSIGNED,
         autoIncrement:true,
@@ -44,7 +44,7 @@ ModelRepublica = conecSequelize.define('tb_republica',{
             key: 'id_valorAlguel'
         }
     },
-    id_comodidadeRepublica:{   //editar foreign key(quando descobrir)
+    id_comodidade:{   //editar foreign key(quando descobrir)
         type:DataTypes.INTEGER.UNSIGNED,
         references:{
             model:'tb_comodidades',
@@ -59,7 +59,7 @@ ModelRepublica = conecSequelize.define('tb_republica',{
         type:DataTypes.TEXT(500),
         allowNull:false
     }
-}, _padraoTableBDExistence('tb_republica')
+}, _padraoTableBDExistente('tb_republica')
 )
 
 module.exports ={

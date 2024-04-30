@@ -1,8 +1,8 @@
-const { conecSequelize } = require('../../config/bdConnection')
+const { conecBanco } = require('../config/bdConec')
 const { DataTypes} = require ('sequelize')
-const { _padraoTableBDExistence } = require('../../config/configTabelasDB')
+const { _padraoTableBDExistente } = require('../config/configTabelasBD')
 
-ModelNacionalidade = conecSequelize.define('tb_nacionalidade',{
+ModelNacionalidade = conecBanco.define('tb_nacionalidade',{
     id_nacionalidade:{
         type:DataTypes.INTEGER.UNSIGNED,
         autoIncrement:true,
@@ -13,7 +13,7 @@ ModelNacionalidade = conecSequelize.define('tb_nacionalidade',{
         type:DataTypes.TEXT,
         allowNull: false
     }
-}, _padraoTableBDExistence('tb_nacionalidade')
+}, _padraoTableBDExistente('tb_nacionalidade')
 )
 
 module.exports ={

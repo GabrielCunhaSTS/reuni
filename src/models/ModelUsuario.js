@@ -2,8 +2,6 @@ const { conecBanco } = require('../config/bdConec')
 const { DataTypes } = require('sequelize')
 const { _padraoTableBDExistente } = require('../config/configTabelasBD')
 
-
-
 const ModelUsuario = conecBanco.define('tb_usuario', {
     id_usu: {
         type: DataTypes.INTEGER.UNSIGNED, 

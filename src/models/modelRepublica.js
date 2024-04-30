@@ -1,8 +1,12 @@
 const { conecBanco } = require('../config/bdConec')
 const { DataTypes} = require ('sequelize')
 const { _padraoTableBDExistente } = require('../config/configTabelasBD')
+const { ModelDadosRepublica } =  require('../models/ModelDadosRepublicas')
+const { ModelTipoRepublica } = require('../models/ModelTipoRepublica')
+const { ModelAlguel} = require('../models/ModelAluguel')
+const { ModelLocalizacaoRepublica } = require('../models/ModelLocalizacaoRepublica')
 
-ModelRepublica = conecBanco.define('tb_republica',{
+const ModelRepublica = conecBanco.define('tb_republica',{
     id_republica:{
         type:DataTypes.INTEGER.UNSIGNED,
         autoIncrement:true,
@@ -61,6 +65,19 @@ ModelRepublica = conecBanco.define('tb_republica',{
     }
 }, _padraoTableBDExistente('tb_republica')
 )
+
+ModelDadosRepublica.hasMany(ModelRepublica, {foreignKey: 'id_dadoRepublica'})
+ModelRepublica.belongsTo(ModelDadosRepublica, {foreignKey: 'id_dadoRepublica'})
+
+ModelTipoRepublica.hasMany(ModelRepublica, {foreignKey:'id_tipoRepublica'})
+ModelRepublica.belongsTo(ModelTipoRepublica, {foreignKey:'id_tipoRepublica'})
+
+ModelAlguel.hasMany(ModelRepublica, {foreignKey:'id_valorAlguel'})
+ModelRepublica.belongsTo(ModelAlguel, {foreignKey:'id_valorAlguel'})
+
+ModelLocalizacaoRepublica.hasMany(ModelRepublica, {foreignKey: 'id_localizacao'})
+ModelRepublica.belongsTo(ModelLocalizacaoRepublica, {foreignKey:'id_localizacao'})
+
 
 module.exports ={
     ModelRepublica

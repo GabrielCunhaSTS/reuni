@@ -3,11 +3,12 @@ const router = express.Router()
 const auth = require('../controllers/auth')
 const Login = require('../controllers/login')
 const Registrar = require('../controllers/registerUsuAuth')
-const Search = require('../controllers/search')
+const search = require('../controllers/search')
 
 router.post('/auth/signIn', Registrar.registerUsuario)
 router.post('/auth/login', Login.log)
 router.get('/auth/logout', auth.logout)
-router.get('/pesquisa/:nm_digit', Search.getRepByName);
+router.get('/pesquisa/:nm_digit', search.getRepByName);
+
 
 module.exports = router

@@ -1,5 +1,5 @@
 document.getElementById('inputSearch').addEventListener('input', async () => {
-    const searchTerm = document.getElementById('inputSearch').value.trim(); // Remova espaços em branco no início e no final
+    const searchTerm = document.getElementById('inputSearch').value.trim();
     if (searchTerm !== '') {
         try {
             const response = await fetch(`/pesquisa/${searchTerm}`);
@@ -8,26 +8,25 @@ document.getElementById('inputSearch').addEventListener('input', async () => {
         } catch (error) {
             console.error(error);
         }
-    } else {
-        exibirResultado([]);
-    }   
-});
-function exibirResultado(data) {
-    const resultadoDiv = document.getElementById('resultado');
-    resultadoDiv.innerHTML = '';
-
-    if (data.message) {
-        resultadoDiv.innerText = data.message;
-    } else {
-        data.forEach(usuario => {
-            const li = document.createElement('li');
-            li.classList.add('usuario-item');
-            li.innerHTML = `
-                <p class="nome-usuario">${usuario.ds_nomeRepublica}</p>
-                <p class="email-usuario">${usuario.ds_emailUsu}</p>
-            `;
-            resultadoDiv.appendChild(li);
-        });
-        resultadoDiv.style.display = 'block';
     }
+});
+
+function exibirResultado(data) {
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = '';
+
+    data.forEach(republica => {
+        const li = document.createElement('li');
+        li.classList.add('republica-item');
+        li.innerHTML = `
+            <p>Nome da República: ${republica.ds_nomeRepublica}</p>
+            <p>Descrição da República: ${republica.ds_descricaoRepublica}</p>
+            <p>Tipo de República: ${republica.tb_tipoRepublica.ds_tipoRepublica}</p>
+            <p>Tipo de Imóvel: ${republica.tb_tipoRepublica.ds_tipoImovel}</p>
+            <p>Valor Mensal do Aluguel: ${republica.tb_aluguel.vl_valorMensal}</p>  
+        `;
+        resultadoDiv.appendChild(li);
+    });
+
+    resultadoDiv.style.display = 'block';
 }

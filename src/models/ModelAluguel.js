@@ -1,8 +1,8 @@
-const { conecSequelize } = require('../../config/bdConnection')
+const { conecBanco } = require('../config/bdConec')
 const { DataTypes} = require ('sequelize')
-const { _padraoTableBDExistence } = require('../../config/configTabelasDB')
+const { _padraoTableBDExistente } = require('../config/configTabelasBD')
 
-ModelAlguel = conecSequelize.define('tb_aluguel',{
+ModelAlguel = conecBanco.define('tb_aluguel',{
     id_valorAlguel:{
         type:DataTypes.INTEGER.UNSIGNED,
         autoIncrement:true,
@@ -19,7 +19,7 @@ ModelAlguel = conecSequelize.define('tb_aluguel',{
     ds_contasInclusas:{
         type:DataTypes.BOOLEAN
     }
-}, _padraoTableBDExistence('tb_aluguel')
+}, _padraoTableBDExistente('tb_aluguel')
 )
 
 module.exports ={

@@ -1,9 +1,8 @@
-// Adicionando a classe fade-out após 5 segundos
 setTimeout(() => {
-    document.querySelector('.alert').classList.add('fade-out');
-}, 5000);
+    const alertElement = document.querySelector('.alert');
+    alertElement.classList.add('fade-out');
 
-// Removendo a mensagem do DOM após a transição
-setTimeout(() => {
-    document.querySelector('.alert').remove();
-}, 2000);
+    setTimeout(() => {
+        alertElement.remove();
+    }, 2000); 
+}, 3000);

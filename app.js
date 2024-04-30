@@ -6,14 +6,13 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const routes = require('./src/routes/index')
 const cookieParser =  require('cookie-parser')
-const { usuario } = require('./src/models/ModelUsuario')
 const { json } = require('sequelize')
 const flash =  require ('connect-flash')
 
 appWeb.use(bodyParser.urlencoded({ extended: false }));
 appWeb.use(express.json())
 appWeb.use(cookieParser())
-
+appWeb.use(flash())
 //criando uma seção com cookies 
 appWeb.use(session({
     secret:'ReUni',
@@ -21,8 +20,6 @@ appWeb.use(session({
     saveUninitialized:true,
     cookie: {maxAge: 60 * 60 * 2300}
 }))
-
-appWeb.use(flash())
 
 appWeb.use((req,resp,next) => {
     resp.locals.success_msg =  req.flash("success_msg")

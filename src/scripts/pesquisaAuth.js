@@ -18,8 +18,12 @@ function exibirResultado(data) {
         const li = document.createElement('li');
         li.classList.add('republica-item');
         li.innerHTML = `
-            <p>Nome da República: ${republica.ds_nomeRepublica}</p>
-            <p>Descrição da República: ${republica.ds_descricaoRepublica}</p>
+            <p>Nome da República: ${republica.Nome_da_Republica}</p>
+            <p>Descrição da República: ${republica.Descricao}</p>    
+            <p>Tipo da Rep: ${republica.Tipo}</p>
+            <p>Aluguel mensal: ${republica.Aluguel_Mensal}</p>
+            <p>Cidade: ${republica.Cidade}</p>
+            <p>Bairro: ${republica.Bairro}</p>
         `;
         resultadoDiv.appendChild(li);
     });

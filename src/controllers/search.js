@@ -6,35 +6,20 @@ const { Sequelize, Op } = require('sequelize')
 const { ModelDadosRepublica } = require('../models/ModelDadosRepublicas')
 
 module.exports = {
-    // getUsuarioByName: async (req, res) => {
-    //     try {
-    //         const nm_digit = req.params.nm_digit
-    //         const resultado = await ModelUsuario.findAll({
-    //             where: {
-    //                 nm_usu:{
-    //                 [Op.like]: `${nm_digit}%`
-    //                 }
-    //             }
-    //         });
-    //         if (resultado) {
-    //             res.json(resultado); // Enviar resultado como JSON
-    //         } else {
-    //             res.status(404).json({ message: 'Usuário não encontrado' });
-    //         }
-    //     } catch (error) {
-    //         console.error(error);
-    //         res.status(500).json({ message: 'Erro interno do servidor' });
-    //     }
-    // },
-
     getRepByName: async (req, res) =>{
-        console.log("Rota getRepByName acionada"); 
         try{
             const nm_digit = req.params.nm_digit
             console.log("Termo de pesquisa:", nm_digit);
 
             const resultado = await ModelRepublica.findAll({
-                attributes:['ds_nomeRepublica', 'ds_descricaoRepublica'],
+                attributes:[
+                    [Sequelize.literal('ds_nomeRepublica'), 'Nome_da_Republica'],
+                    [Sequelize.literal('ds_descricaoRepublica'), 'Descricao'],
+                    [Sequelize.literal('ds_tipoRepublica'), 'Tipo'],
+                    [Sequelize.literal('vl_valorMensal'), 'Aluguel_Mensal'],
+                    [Sequelize.literal('ds_cidade'), 'Cidade'],
+                    [Sequelize.literal('ds_bairro'), 'Bairro'] 
+                ],
                 where: {
                     ds_nomeRepublica:{
                         [Op.like]: `${nm_digit}%`
@@ -43,7 +28,17 @@ module.exports = {
                 include:[
                     {
                         model: ModelAlguel,
-                        attributes: ['vl_valorMensal'],
+                        attributes: [],
+                        required: true
+                    },
+                    {
+                        model: ModelTipoRepublica,
+                        attributes: [],
+                        required: true
+                    },
+                    {
+                        model: ModelLocalizacaoRepublica,
+                        attributes: [],
                         required: true
                     }
                 ]

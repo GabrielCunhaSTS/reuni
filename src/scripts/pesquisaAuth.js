@@ -10,7 +10,6 @@ document.getElementById('inputSearch').addEventListener('input', async () => {
         }
     }
 });
-
 function exibirResultado(data) {
         const resultadoDiv = document.getElementById('resultado');
         resultadoDiv.innerHTML = '';

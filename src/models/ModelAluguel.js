@@ -2,7 +2,7 @@ const { conecBanco } = require('../config/bdConec')
 const { DataTypes} = require ('sequelize')
 const { _padraoTableBDExistente } = require('../config/configTabelasBD')
 
-ModelAlguel = conecBanco.define('tb_aluguel',{
+const ModelAlguel = conecBanco.define('tb_aluguel',{
     id_valorAlguel:{
         type:DataTypes.INTEGER.UNSIGNED,
         autoIncrement:true,

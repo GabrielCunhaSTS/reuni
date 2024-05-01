@@ -2,7 +2,7 @@ const { conecBanco } = require('../config/bdConec')
 const { DataTypes} = require ('sequelize')
 const { _padraoTableBDExistente } = require('../config/configTabelasBD')
 
-ModelLocalizacaoRepublica = conecBanco.define('tb_localizacaoRepublica',{
+const ModelLocalizacaoRepublica = conecBanco.define('tb_localizacaoRepublica',{
     id_localizacao:{
         type:DataTypes.INTEGER.UNSIGNED,
         autoIncrement:true,

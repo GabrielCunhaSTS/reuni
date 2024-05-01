@@ -25,14 +25,13 @@ module.exports = {
     //         console.error(error);
     //         res.status(500).json({ message: 'Erro interno do servidor' });
     //     }
-    // }
+    // },
 
     getRepByName: async (req, res) =>{
         console.log("Rota getRepByName acionada"); 
         try{
             const nm_digit = req.params.nm_digit
             console.log("Termo de pesquisa:", nm_digit);
-
 
             const resultado = await ModelRepublica.findAll({
                 attributes:['ds_nomeRepublica', 'ds_descricaoRepublica'],
@@ -63,8 +62,8 @@ module.exports = {
                     required: true
                 }
             ]
-            }) 
-            console.log("Resultados da pesquisa:", resultado); 
+            })
+
             if (resultado) {
                 res.json(resultado);
             } else {

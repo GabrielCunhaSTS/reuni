@@ -2,7 +2,7 @@ const { conecBanco } = require('../config/bdConec')
 const { DataTypes} = require ('sequelize')
 const { _padraoTableBDExistente } = require('../config/configTabelasBD')
 
-ModelRegrasRepublica = conecBanco.define('tb_regrasRepublica',{
+const ModelRegrasRepublica = conecBanco.define('tb_regrasRepublica',{
     id_regraRepublica:{
         type:DataTypes.INTEGER.UNSIGNED,
         autoIncrement:true,

@@ -37,38 +37,25 @@ module.exports = {
                 attributes:['ds_nomeRepublica', 'ds_descricaoRepublica'],
                 where: {
                     ds_nomeRepublica:{
-                        [Op.like]: `%${nm_digit}%`
+                        [Op.like]: `${nm_digit}%`
                     }
-                },
-            include: [
-                {
-                    model: ModelDadosRepublica,
-                    attributes: ['ds_nomeAnfitriao'],
-                    required: true
-                },
-                {
-                    model: ModelTipoRepublica,
-                    attributes: ['ds_tipoImovel','ds_tipoRepublica'],
-                    required: true
-                },
-                {
-                    model: ModelAlguel,
-                    attributes: ['vl_valorMensal'],
-                    required: true
-                },
-                {
-                    model: ModelLocalizacaoRepublica,
-                    attributes: ['ds_cidade', 'ds_bairro'],
-                    required: true
-                }
-            ]
+                }, raw:true,
+                include:[
+                    {
+                        model: ModelAlguel,
+                        attributes: ['vl_valorMensal'],
+                        required: true
+                    }
+                ]
             })
-            if (resultado) {
-                res.json(resultado);
-            } else {
-                console.log("Nenhum resultado encontrado.");
-                res.status(404).json({ message: 'Usuário não encontrado' });
-            }
+            console.log("Resultados da pesquisa:", resultado); 
+
+           if (resultado && resultado.length > 0) {
+            res.json(resultado);
+        } else {
+            console.log("Nenhum resultado encontrado.");
+            res.status(404).json({ message: 'Usuário não encontrado' });
+        }
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: 'Erro interno do servidor' });

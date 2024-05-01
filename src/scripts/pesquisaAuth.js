@@ -20,9 +20,6 @@ function exibirResultado(data) {
         li.innerHTML = `
             <p>Nome da República: ${republica.ds_nomeRepublica}</p>
             <p>Descrição da República: ${republica.ds_descricaoRepublica}</p>
-            <p>Tipo de República: ${republica.tb_tipoRepublica.ds_tipoRepublica}</p>
-            <p>Tipo de Imóvel: ${republica.tb_tipoRepublica.ds_tipoImovel}</p>
-            <p>Valor Mensal do Aluguel: ${republica.tb_aluguel.vl_valorMensal}</p>  
         `;
         resultadoDiv.appendChild(li);
     });

@@ -32,5 +32,9 @@ router.get('/anunciar', (req, resp) => {
     resp.render('anunciar')
 })
 
+router.get('/perfil', (req, resp) => {
+    resp.render('perfilRep')
+})
+
 
 module.exports = router

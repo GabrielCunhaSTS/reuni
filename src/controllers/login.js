@@ -36,7 +36,6 @@ module.exports= {
                     req.session.user = dadosUsu
                     req.flash("success_msg", `Seja Bem-vindo(a) ${dadosUsu.nm_usu}`)    
                     return resp.redirect('/')
-
                 }catch(erro){
                     console.error(erro)
                     console.log(req.body)

@@ -63,7 +63,6 @@ module.exports = {
                 }
             ]
             })
-
             if (resultado) {
                 res.json(resultado);
             } else {

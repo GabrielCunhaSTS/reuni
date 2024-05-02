@@ -7,6 +7,7 @@ const { ModelDadosRepublica } = require('../models/ModelDadosRepublicas')
 
 module.exports = {
     getRepByName: async (req, res) =>{
+        console.log("essa rota esta sendo usada");
         try{
             const nm_digit = req.params.nm_digit
             console.log("Termo de pesquisa:", nm_digit);
@@ -49,7 +50,7 @@ module.exports = {
             res.json(resultado);
         } else {
             console.log("Nenhum resultado encontrado.");
-            res.status(404).json({ message: 'Usuário não encontrado' });
+            res.status(404).json({ message: 'República não encontrada' });
         }
         } catch (error) {
             console.error(error);

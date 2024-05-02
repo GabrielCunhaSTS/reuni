@@ -9,6 +9,12 @@
 </head>
 <body>   
 
+    <div class="alert {{#if success_msg}}show{{/if}}">
+        {{#if success_msg}}
+            <div class="success">{{success_msg}}</div>
+        {{/if}}
+    </div>
+
     <div class="box-login">
         <div class="txt-login">
             <p class="logo_a">Re<span>Uni</span></p>
@@ -29,7 +35,6 @@
                 <input type="password" id="ds_senhaUSuConfirmar" name="ds_senhaUSuConfirmar" required><br><br>
 
                 <button type="submit" class="btn-registrar">Cadastrar</a></button>
-                <p>Ou, continue com <a>Google</a> ou <a>Facebook</a> </p>
         </div>
     </div>
 </body>

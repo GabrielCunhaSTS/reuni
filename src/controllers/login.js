@@ -11,7 +11,8 @@ module.exports= {
             try{
       
                 if (!req.body.ds_emailUsu || !req.body.ds_senhaUSu) {
-                    return resp.status(400).json({ msg: 'Campos obrigatórios não fornecidos' })
+                    req.flash("success_msg", `Preencha os campos obrigatórios`)
+                    return resp.redirect('/entrar')
                 }
 
                 const dadosUsu =  await ModelUsuario.findOne({
@@ -19,8 +20,8 @@ module.exports= {
                 })
 
                 if(!dadosUsu){
-                    return resp.status(404).json({msg: 'Usuário c/ esse email não encontrado'
-                    })  
+                    req.flash("success_msg", `Esse email não está registrado! Por favor Registre!`)
+                    return resp.redirect('/entrar') 
                 }
     
                 const compararSenha = await bcrypt.compare(
@@ -28,14 +29,15 @@ module.exports= {
                 )
     
                 if(!compararSenha){
-                    return resp.status(401).json({ msg: 'Senha Inválida!' }) 
+                    req.flash("success_msg", `Senha inválida!`)
+                    return resp.redirect('/entrar') 
                 }
                 
                 const token = jwt.sign({ id: dadosUsu.id }, 'JANX7AWB12BAKX')
                     resp.cookie('token', token, { httpOnly:true, secure: true })
                     req.session.user = dadosUsu
                     req.flash("success_msg", `Seja Bem-vindo(a) ${dadosUsu.nm_usu}`)    
-                    return resp.redirect('/')
+                    return resp.redirect('/pesquisa')
                 }catch(erro){
                     console.error(erro)
                     console.log(req.body)

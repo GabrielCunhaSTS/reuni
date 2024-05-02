@@ -9,7 +9,8 @@ module.exports = {
         try {
 
             if (!req.body.ds_emailUsu || !req.body.ds_senhaUSu) {
-                return resp.status(400).json({ msg: 'Campos obrigatórios não fornecidos' })
+                req.flash("success_msg", `Preencha os campos obrigatórios`)
+                return resp.redirect('/registrar')
             }
     
             let usuarioproposto = await ModelUsuario.findOne({
@@ -17,15 +18,18 @@ module.exports = {
             });
     
             if (usuarioproposto) {
-                return resp.status(400).json({ msg: 'Já existe um usuário com esse email!' })
+                req.flash("success_msg", `Esse email já esta sendo utilizado`)
+                return resp.redirect('/registrar')
             }
 
             if (ds_senhaUSu.length < 8) {
-                return resp.status(400).json({ msg: 'A senha deve ter pelo menos 8 caracteres'})
+                req.flash("success_msg", `A senha precisa ter ao menos 8 caracteres`)
+                return resp.redirect('/registrar')           
             }
 
             if (ds_senhaUSu !== ds_senhaUSuConfirmar) {
-                return resp.status(400).json({msg: 'As senhas não coincidem'})
+                req.flash("success_msg", `As senhas nao correspondem`)
+                return resp.redirect('/registrar')
             }
     
             const hashedPassword = await bcrypt.hash(ds_senhaUSu, 10);
@@ -38,9 +42,10 @@ module.exports = {
                 });
             }
     
-            await insertUsuario();
-    
-            return resp.status(201).json({ msg: `Usuário ${nm_usu} criado com sucesso!` })
+            await insertUsuario()
+
+            req.flash("success_msg", `${nm_usu} Cadastrado com Sucesso!`)
+            return resp.redirect('/entrar')
         } catch (error) {
             console.error(error);
             return resp.status(500).json({ msg: 'Erro no servidor...' })

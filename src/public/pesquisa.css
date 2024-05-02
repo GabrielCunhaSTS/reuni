@@ -6,6 +6,7 @@ body {
     background-image: url("fundo.jpg");
     background-repeat: no-repeat;
     height: auto;
+    width: auto;
 }
 
 nav {
@@ -34,6 +35,34 @@ header .logo_a span {
     color: #215487;
 }
 
+.alert {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 2s; 
+  }
+  .fade-out {
+    opacity: 0; /* Opacidade reduzida para 0 */
+  }
+  
+  .success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #b2e2fc;
+    color: #215487; 
+    border: 1px solid #86cdff; 
+    padding: 15px;
+    border-radius: 4px;
+  }
+  
 .navLeft{
     width: 85%;
     display: flex;
@@ -46,7 +75,7 @@ input{
     padding-left: 10px;
     font-size: 18px;
     border: 1px solid #0000;
-    margin: 15px;
+    margin: 15px 15px 15px 0px;
     border-radius: 7px;
   }
 
@@ -81,7 +110,7 @@ input{
 
 .navRight p:hover {
     color:red;
-    transition: 3s;
+    transition: 1s;
 }
 
 .exposicao {
@@ -204,7 +233,7 @@ aside {
 }
 
 .procurar {
-    width: 70%;
+    width: 100%;
     height: 6.6vw;
     border-radius: 0.4vw;
     background-color: #D8DDE0;
@@ -214,6 +243,9 @@ aside {
 .procurar h4 {
     margin: 1vw 0vw 1vw 0vw;
     text-decoration: none;
+}
+.procurar p{
+    font-size: 19px;
 }
 
 .procurar div {
@@ -276,7 +308,6 @@ aside {
 }
 
 section h2 {
-    font-weight: 100;
     margin: 0;
 }
 
@@ -383,4 +414,9 @@ section h2 {
 
 .procurar > div > ul li {
     cursor: pointer;
+}
+
+.titulo-rep{
+    display: flex;
+    justify-content: center;
 }

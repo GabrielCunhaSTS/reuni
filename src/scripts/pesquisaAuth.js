@@ -1,5 +1,7 @@
 document.getElementById('inputSearch').addEventListener('input', async () => {
     const searchTerm = document.getElementById('inputSearch').value.trim();
+    const resultadoDiv = document.getElementById('resultado');
+
     if (searchTerm !== '') {
         try {
             const response = await fetch(`/pesquisa/${searchTerm}`);
@@ -8,11 +10,16 @@ document.getElementById('inputSearch').addEventListener('input', async () => {
         } catch (error) {
             console.error(error);
         }
+    } else {
+        // Limpar os resultados
+        resultadoDiv.innerHTML = '';
+        resultadoDiv.style.display = 'none';
     }
 });
+
 function exibirResultado(data) {
-        const resultadoDiv = document.getElementById('resultado');
-        resultadoDiv.innerHTML = '';
+    const resultadoDiv = document.getElementById('resultado');
+    resultadoDiv.innerHTML = '';
 
     data.forEach(republica => {
         const li = document.createElement('li');

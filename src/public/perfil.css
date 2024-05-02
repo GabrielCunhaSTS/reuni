@@ -47,6 +47,79 @@ header .title span {
     height: 600px; 
     margin-left: 10%;
     margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.galery .content {
+    height: 620px;
+    width: 1180px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.galery .content .navigation {
+    position: relative;
+    bottom: 40px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.galery .content .navigation .bar {
+    width: 70px;
+    height: 17px;
+    border: 2px solid #ffffff;
+    margin: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .9s;
+}
+
+.galery input {
+    display: none;
+}
+
+.galery .slides {
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+
+.galery .slide {
+    width: 20%;
+    transition: .9s;
+}
+
+.galery .slide img {
+    width: 100%;
+    height: 100%;
+}
+
+#slide1:checked ~ .s1 {
+    margin-left: 0;
+}
+
+#slide2:checked ~ .s1 {
+    margin-left: -20%;
+}
+
+#slide3:checked ~ .s1 {
+    margin-left: -40%;
+}
+
+#slide4:checked ~ .s1 {
+    margin-left: -60%;
+}
+
+#slide5:checked ~ .s1 {
+    margin-left: -80%;
+}
+
+.galery .content .navigation .bar:hover {
+    background-color: #FFF;
 }
 
 .tittle-fav {
@@ -282,7 +355,6 @@ header .title span {
 .regras .tittle {
     display: flex;
     flex-direction: column;
-
 }
 
 .regras .tittle h1 {
@@ -304,3 +376,109 @@ header .title span {
     margin-top: 0px;
     margin-left: 0px;
 }
+
+.regras .grid-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
+    gap: 125px;
+    padding: 10px;
+}
+
+.sugestoes {
+    width: 85%; 
+    height: 650px; 
+    margin-top: 7%; 
+    margin-left: 6.6%;
+}
+
+.sugestoes .tittle {
+    display: flex;
+    flex-direction: column;
+}
+
+.sugestoes .tittle h1 {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 2px;
+}
+
+.sugestoes .tittle hr {
+    border-radius: 6px;
+    border: none;
+    background: rgba(110, 182, 255, 0.75);
+    width: 100px;
+    height: 3px;
+    flex-shrink: 0;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+#cards {
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5vh;
+}
+
+.card {
+    width: 400px;
+    background-color: #ffffff;
+    box-shadow: 0.5vw 0.5vw 0.5vw rgb(0, 0, 0, 0.15);
+    border-radius: 1vw;
+    margin-top: 3vw;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: center;
+    overflow: hidden;
+}
+
+.imgQuarto {
+    width: 100%;
+    position: relative;
+}
+
+.imgQuarto img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.detalhes {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.detalhes div {
+    width: 3vw;
+    display: flex;
+    justify-content: center;
+    box-shadow: -0.3vw -0.1vw 1vw rgb(0, 0, 0, 0.15);
+    height: 1.5vw;
+    align-items: center;
+    padding: 0.4vw 1vw;
+    border-radius: 0.5vw;
+    gap: 0.3vw;
+    margin-bottom: 1vw;
+}
+
+.card h4 {
+    margin-left: 2vw;
+    font-size: 1.1vw;
+}
+
+.card p {
+    margin-left: 2vw;
+    font-size: 1.1vw;
+}
+
+

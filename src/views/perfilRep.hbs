@@ -13,7 +13,38 @@
         <a href="" class="title">Re<span>Uni</span></a>
     </header>
     <main class="galery" >
+        <div class="content">
+            <div class="slides">
+                <input type="radio" name="slide" id="slide1" checked>
+                <input type="radio" name="slide" id="slide2">
+                <input type="radio" name="slide" id="slide3">
+                <input type="radio" name="slide" id="slide4">
+                <input type="radio" name="slide" id="slide5">
 
+                <div class="slide s1">
+                    <img src="/foto 1.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/foto 1.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/foto 1.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/foto 1.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="/foto 1.jpg" alt="">
+                </div>
+            </div>
+            <div class="navigation">
+                <label class="bar" for="slide1"></label>
+                <label class="bar" for="slide2"></label>
+                <label class="bar" for="slide3"></label>
+                <label class="bar" for="slide4"></label>
+                <label class="bar" for="slide5"></label>
+            </div>
+        </div>
     </main>
     <section class="tittle-fav">
         <div>
@@ -90,9 +121,73 @@
             <h1>Regras do Local</h1>
             <hr class="hr-menor">
         </div>
-    </section>
-    <section style="background-color: brown; width: 85%; height: 480px; margin-top: 1%; margin-left: 6.6%;">
 
+        <div class="grid-container">        
+            <img src="/Permitido.png" alt="">
+            <img src="/Permitido (1).png" alt="">
+            <img src="/Permitido (2).png" alt="">
+            <img src="/Permitido (3).png" alt="">
+            <img src="/Permitido7.png" alt="">
+        </div>
+    </section>
+    <section class="sugestoes">
+        <div class="tittle">
+            <h1>Sugestões</h1>
+            <hr class="hr-menor">
+        </div>
+        <container id="cards">
+            <section class="card">
+                <div>
+                    <img src="/quarto.png" alt="Quarto de uma república" class="imgQuarto ">
+                </div>
+                <div>
+                    <h4>República Gonzaga</h4>
+                    <p>R$900-1100 / mês</p>
+                    <div class="detalhes">
+                        <div>
+                            <img src="/mista.png">
+                            Mista
+                        </div>
+                            
+                        <div>
+                            <img src="/cama.png">
+                            4
+                        </div>
+                            
+                        <div>
+                            <img src="/banheiro.png">
+                            3
+                        </div>    
+                    </div>
+                </div>
+            </section>
+    
+            <section class="card">
+                <div>
+                    <img src="/quarto08.JPG" alt="Quarto de uma república" class="imgQuarto ">
+                </div>
+                <div>
+                    <h4>República Ana Costa</h4>
+                    <p>R$1000-1300 / mês</p>
+                    <div class="detalhes">
+                        <div>
+                            <img src="/mista.png">
+                            Mista
+                        </div>
+                            
+                        <div>
+                            <img src="/cama.png">
+                            3
+                        </div>
+                            
+                        <div>
+                            <img src="/banheiro.png">
+                            2
+                        </div>    
+                    </div>
+                </div>
+            </section>
+        </container>
     </section>
 </body>
 </html>

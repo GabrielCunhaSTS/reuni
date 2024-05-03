@@ -24,7 +24,6 @@
                  return response.json();
              })
              .then(data => {
-
                  logradouroInput.value = data.logradouro;
                  bairroInput.value = data.bairro;
                  cidadeInput.value = data.localidade;

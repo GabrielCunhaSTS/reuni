@@ -13,6 +13,34 @@ body, html {
   font-family: "Inter", sans-serif;
 }
 
+.alert {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 2s; 
+}
+.fade-out {
+  opacity: 0; /* Opacidade reduzida para 0 */
+}
+
+.success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #b2e2fc;
+  color: #215487; 
+  border: 1px solid #86cdff; 
+  padding: 15px;
+  border-radius: 4px;
+}
+
 .box-login {
   text-align: center ;
   background-color: #fff;

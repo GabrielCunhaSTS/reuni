@@ -17,10 +17,16 @@
         </div>
 
         <div class="navRight">
-            <p><img src="/coracao.png" alt="Coração de favoritos"> Favoritos</p>
+            <p><img src="/coracao.png" alt="Coração de favoritos">Favoritos</p>
             <img src="/menu.png" alt="Menu">
         </div>
     </header>
+
+    <div class="alert {{#if success_msg}}show{{/if}}">
+        {{#if success_msg}}
+            <div class="success">{{success_msg}}</div>
+        {{/if}}
+    </div>
 
     <section class="exposicao">
         <div class="sectionLeft">
@@ -48,7 +54,7 @@
             <div class="procurar">
                 <p clas >Procurar por nome</p>
                 <div>
-                     <input type="text" id="inputSearch" placeholder="Digite o nome do usuário">
+                     <input type="text" id="inputSearch" placeholder="Digite o nome da república">
                      <ul id="resultado" style="display: none;"></ul>
                      <img src="/lupaP.png" alt="Pesquisar por republicas" class="procurarRepublicas"><p></p>
                 </div>
@@ -56,7 +62,9 @@
         </aside>
         <div>
             <section>
-                <h2> 2,582 Repúblicas encontradas em Santos </h2>
+                <div class="titulo-rep">
+                    <h2>2,582 Repúblicas encontradas em Santos </h2>
+                </div>
                 <div class="opc">
                     <ul>
                         <li id="firt">Para você</li>
@@ -72,7 +80,7 @@
     <container id="cards">
         <section class="card">
             <div>
-                <img src="/quarto.png" alt="Quarto de uma república" class="imgQuarto ">
+                <a href="/perfil"><img src="/quarto.png" alt="Quarto de uma república" class="imgQuarto "></a>
             </div>
             <div>
                 <h4>República Gonzaga</h4>
@@ -98,7 +106,7 @@
 
         <section class="card">
             <div>
-                <img src="/quarto08.JPG" alt="Quarto de uma república" class="imgQuarto ">
+                <a href="/perfil"><img src="/quarto08.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
             </div>
             <div>
                 <h4>República Ana Costa</h4>
@@ -124,7 +132,7 @@
 
         <section class="card">
             <div>
-                <img src="/quarto06.JPG" alt="Quarto de uma república" class="imgQuarto ">
+                <a href="/perfil"><img src="/quarto06.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
             </div>
             <div>
                 <h4>República Yasumi</h4>
@@ -150,7 +158,7 @@
 
         <section class="card">
             <div>
-                <img src="/quarto07.JPG" alt="Quarto de uma república" class="imgQuarto ">
+                <a href="/perfil"><img src="/quarto07.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
             </div>
             <div>
                 <h4>República Antares</h4>
@@ -176,7 +184,7 @@
 
         <section class="card">
             <div>
-                <img src="/quarto05.JPG" alt="Quarto de uma república" class="imgQuarto ">
+                <a href="/perfil"><img src="/quarto05.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
             </div>
             <div>
                 <h4>República dos Andes</h4>
@@ -202,7 +210,7 @@
 
         <section class="card">
             <div>
-                <img src="/quarto04.JPG" alt="Quarto de uma república" class="imgQuarto ">
+                <a href="/perfil"><img src="/quarto04.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
             </div>
             <div>
                 <h4>República Estrelar</h4>
@@ -228,7 +236,7 @@
 
         <section class="card">
             <div>
-                <img src="/quarto03.JPG" alt="Quarto de uma república" class="imgQuarto ">
+                <a href="/perfil"><img src="/quarto03.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
             </div>
             <div>
                 <h4>República Esmeralda</h4>
@@ -254,7 +262,7 @@
 
         <section class="card">
             <div>
-                <img src="/quarto02.JPG" alt="Quarto de uma república" class="imgQuarto ">
+                <a href="/perfil"><img src="/quarto02.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
             </div>
             <div>
                 <h4>República Sol</h4>
@@ -304,43 +312,45 @@
                     <h3>Documentos</h3>
                 </li>
                 <li>
-                    <a href="/C:/Users/kinho/Downloads/MONOGRAFIA%20REUNI.pdf" class="footer-link">Monografia</a>
+                    <a href="MONOGRAFIA%20REUNI.pdf" class="footer-link">Monografia</a>
                 </li>
                 <li>
                     <a href="#" class="footer-link">Manual de identidade</a>
                 </li>
+            </ul>
+
+            <ul class="footer-list">
                 <li>
-                    <a href="#" class="footer-link">lorem</a>
+                    <h3>Contato</h3>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Email</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">FAQ</a>
                 </li>
             </ul>
 
             <ul class="footer-list">
                 <li>
-                    <h3>Lorem</h3>
+                    <h3>?????</h3>
                 </li>
                 <li>
-                    <a href="#" class="footer-link">lorem</a>
+                    <a href="#" class="footer-link">Politica de privacidade</a>
                 </li>
                 <li>
-                    <a href="#" class="footer-link">lorem</a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">lorem</a>
+                    <a href="#" class="footer-link">Termos de uso</a>
                 </li>
             </ul>
-
             <ul class="footer-list">
                 <li>
-                    <h3>Lorem</h3>
+                    <h3>Sobre nós</h3>
                 </li>
                 <li>
-                    <a href="#" class="footer-link">lorem</a>
+                    <a href="#" class="footer-link">Equipe</a>
                 </li>
                 <li>
-                    <a href="#" class="footer-link">lorem</a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">lorem</a>
+                    <a href="#" class="footer-link"></a>
                 </li>
             </ul>
         </div>
@@ -350,6 +360,7 @@
         </div>
     </footer>
 
+    <script src="/msgBemvindo.js"></script>
     <script src="/pesquisaAuth.js"></script>
 </body>
 </html>

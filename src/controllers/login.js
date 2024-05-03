@@ -11,7 +11,7 @@ module.exports= {
             try{
       
                 if (!req.body.ds_emailUsu || !req.body.ds_senhaUSu) {
-                    req.flash("success_msg", `Preencha os campos obrigatórios`)
+                    req.flash("error_msg", `Preencha os campos obrigatórios`)
                     return resp.redirect('/entrar')
                 }
 
@@ -20,7 +20,7 @@ module.exports= {
                 })
 
                 if(!dadosUsu){
-                    req.flash("success_msg", `Esse email não está registrado! Por favor Registre!`)
+                    req.flash("error_msg", `Esse email não está registrado! Por favor Registre!`)
                     return resp.redirect('/entrar') 
                 }
     
@@ -29,7 +29,7 @@ module.exports= {
                 )
     
                 if(!compararSenha){
-                    req.flash("success_msg", `Senha inválida!`)
+                    req.flash("error_msg", `Senha inválida!`)
                     return resp.redirect('/entrar') 
                 }
                 

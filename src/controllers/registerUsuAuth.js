@@ -9,7 +9,7 @@ module.exports = {
         try {
 
             if (!req.body.ds_emailUsu || !req.body.ds_senhaUSu) {
-                req.flash("success_msg", `Preencha os campos obrigatórios`)
+                req.flash("error_msg", `Preencha os campos obrigatórios`)
                 return resp.redirect('/registrar')
             }
     
@@ -18,17 +18,17 @@ module.exports = {
             });
     
             if (usuarioproposto) {
-                req.flash("success_msg", `Esse email já esta sendo utilizado`)
+                req.flash("error_msg", `Esse email já esta sendo utilizado`)
                 return resp.redirect('/registrar')
             }
 
             if (ds_senhaUSu.length < 8) {
-                req.flash("success_msg", `A senha precisa ter ao menos 8 caracteres`)
+                req.flash("error_msg", `A senha precisa ter ao menos 8 caracteres`)
                 return resp.redirect('/registrar')           
             }
 
             if (ds_senhaUSu !== ds_senhaUSuConfirmar) {
-                req.flash("success_msg", `As senhas nao correspondem`)
+                req.flash("error_msg", `As senhas nao correspondem`)
                 return resp.redirect('/registrar')
             }
     

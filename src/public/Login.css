@@ -41,6 +41,19 @@ body, html {
   border-radius: 4px;
 }
 
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #e7747a;
+  color: #a82626; 
+  border: 1px solid #dd6060; 
+  padding: 15px;
+  border-radius: 4px;
+}
+
+
 .box-login {
   text-align: center ;
   background-color: #fff;

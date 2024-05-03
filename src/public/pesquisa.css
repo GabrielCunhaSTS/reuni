@@ -77,7 +77,11 @@ input{
     border: 1px solid #0000;
     margin: 15px 15px 15px 0px;
     border-radius: 7px;
-  }
+}
+
+#resultado {    
+    z-index: 6;
+}
 
 .navLeft img {
     width: 7vw;
@@ -153,6 +157,8 @@ input{
     justify-content: center;
     align-items: center;
     margin-top: 10vw;
+    position: relative;
+    z-index: 9;
 }
 
 .box {

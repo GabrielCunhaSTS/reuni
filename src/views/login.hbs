@@ -9,13 +9,7 @@
 </head>
 <body>
 
-    <div class="alert {{#if success_msg}}show{{/if}}">
-        {{#if success_msg}}
-            <div class="success">{{success_msg}}</div>
-        {{else}}
-            <div class="error">{{error_msg}}</div>
-        {{/if}}
-    </div>
+    
 
     <div class="box-login">
         <div class="txt-login">
@@ -34,6 +28,14 @@
             </form> 
         </div>
     </div>
+
+    <div class="alert {{#if success_msg}}show{{/if}}">
+        {{#if success_msg}}
+            <div class="success">{{success_msg}}</div>
+        {{else}}
+            <div class="error">{{error_msg}}</div>
+        {{/if}}
+    </div>  
 
     <script src="/msgBemvindo.js"></script>
 </body>

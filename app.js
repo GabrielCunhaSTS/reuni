@@ -23,7 +23,7 @@ appWeb.use(session({
 
 appWeb.use((req,resp,next) => {
     resp.locals.success_msg =  req.flash("success_msg")
-    resp.locals.error_msg =  req.flash("error_msg ")
+    resp.locals.error_msg = req.flash("error_msg")  
     next()
 })
 

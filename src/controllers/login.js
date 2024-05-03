@@ -27,7 +27,7 @@ module.exports= {
                 const compararSenha = await bcrypt.compare(
                     ds_senhaUSu, dadosUsu.ds_senhaUSu
                 )
-    
+                
                 if(!compararSenha){
                     req.flash("error_msg", `Senha inválida!`)
                     return resp.redirect('/entrar') 

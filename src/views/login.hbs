@@ -8,34 +8,34 @@
     <link rel="stylesheet" href="/Registro.css">
 </head>
 <body>
+    <div class="img-background"></div>
 
-    
+     <div class="alert {{#if success_msg}}show{{/if}}{{#if error_msg}}show{{/if}}">
+            {{#if success_msg}}
+                <div class="success">{{success_msg}}</div>
+            {{else}}
+                {{#if error_msg}}
+                    <div class="error">{{error_msg}}</div>
+                {{/if}}
+            {{/if}}
+    </div>
 
     <div class="box-login">
         <div class="txt-login">
             <p class="logo_a">Re<span>Uni</span></p>
-            <p class="txt-registre-se">Entre</p>
+            <p class="txt-registre-se">Login</p>
             <p class="txt-fazer-login">Não possui conta? <a href="/registrar">Registra-se</a></p>
         </div>
         <div class="loginform" id="myform">
             <form id="loginForm" action="/auth/login" method="POST">
-                <label for="ds_emailUsu">Email:</label><br>
-                <input type="email" id="ds_emailUsu" name="ds_emailUsu" required><br><br>
-
-                <label for="ds_senhaUSu">Senha:</label><br>
-                <input type="password" id="ds_senhaUSu" name="ds_senhaUSu" required><br><br>
-                <button type="submit" class="btn-registrar">Entrar</button>     
+                <div class="inputs">
+                    <input  class="input-login" type="email" id="ds_emailUsu" name="ds_emailUsu"  placeholder="Digite seu e-mail" ><br><br>
+                    <input class="input-login1" type="password" id="ds_senhaUSu" name="ds_senhaUSu" placeholder="Digite sua senha" required><br><br>
+                </div>
+                <button type="submit" class="btn-registrar">Login</button>     
             </form> 
         </div>
     </div>
-
-    <div class="alert {{#if success_msg}}show{{/if}}">
-        {{#if success_msg}}
-            <div class="success">{{success_msg}}</div>
-        {{else}}
-            <div class="error">{{error_msg}}</div>
-        {{/if}}
-    </div>  
 
     <script src="/msgBemvindo.js"></script>
 </body>

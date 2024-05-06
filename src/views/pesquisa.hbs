@@ -82,8 +82,9 @@
         </div>
     </div>
 
-{{#each republicas}}
-    <section class="card">
+<div class="card-container">
+    {{#each republicas}}
+        <section class="card">
             <div>
                 <a href="/perfil?id={{id}}"><img src="/quarto.png" alt="Quarto de uma república" class="imgQuarto "></a>
             </div>
@@ -107,8 +108,9 @@
                     </div>    
                 </div>
             </div>
-    </section>
-{{/each}}
+        </section>
+    {{/each}}
+</div>
 
 
      <footer>

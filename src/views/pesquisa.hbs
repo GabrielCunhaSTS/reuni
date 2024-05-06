@@ -82,7 +82,38 @@
             </div>
         </section>
     {{/each}}
-</container> --}}
+</container>
+
+    <container id="cards">
+    {{#each republicas}}
+        <section class="card">
+            <div>
+                <a href="/perfil?id={{id}}"><img src="/quarto.png" alt="Quarto de uma república" class="imgQuarto "></a>
+            </div>
+            <div>
+                <h4>{{Nome_da_Republica}}</h4>
+                <p>R$ {{Aluguel_Mensal}} / mês</p>
+                <div class="detalhes">
+                    <div>
+                        <img src="/mista.png">
+                        {{Tipo}}
+                    </div>
+                        
+                    <div>
+                        <img src="/cama.png">
+                        {{quarto}}
+                    </div>
+                        
+                    <div>
+                        <img src="/banheiro.png">
+                        {{banheiro}}
+                    </div>    
+                </div>
+            </div>
+        </section>
+    {{/each}}
+</container>
+ --}}
 
 
     <div class="republicas">

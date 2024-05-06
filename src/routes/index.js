@@ -9,6 +9,7 @@ router.post('/auth/signIn', Registrar.registerUsuario)
 router.post('/auth/login', Login.log)
 router.get('/auth/logout', auth.logout)
 router.get('/pesquisa/:nm_digit', search.getRepByName);
+router.use('/search', search.getRepByName);
 
 
 module.exports = router

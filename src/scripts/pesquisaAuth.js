@@ -38,19 +38,19 @@ function exibirResultado(data) {
             <div class="content">
                 <div class="title-local">
                     <div>
-                        <h1>${republica.Nome_da_Republica}</h1> 
+                        <h1>${republica.nome}</h1> 
                         <img src="heart (4) 1.png" alt="" class="cora">
                     </div>
                     <div>
-                        <img src="/location 1.png" alt=""><p>${republica.Cidade}</p>
+                        <img src="/location 1.png" alt=""><p>${republica.cidade}</p>
                     </div>
                 </div>
                 <div class="valor">
-                    <p>R$ ${republica.Aluguel_Mensal}</p>
+                    <p>R$ ${republica.aluguel}</p>
                 </div>
                 <div class="cards">
                     <div>
-                        <img src="image 4.png" alt=""><p>${republica.Tipo}</p>
+                        <img src="image 4.png" alt=""><p>${republica.tipo}</p>
                     </div>
                     <div>
                         <img src="quartos.png" alt=""><p>${republica.quarto}</p>

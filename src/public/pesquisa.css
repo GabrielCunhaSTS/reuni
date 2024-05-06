@@ -258,10 +258,10 @@ aside {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 2.6vw;
     border-radius: 0.2vw;
     color: #4F4F4F;
     font-size: 1vw;
+    top: -12%;
 }
 
 .procurarRepublicas {

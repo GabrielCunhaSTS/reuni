@@ -6,6 +6,7 @@
     <link rel="icon" href="/reuni.png">
     <link rel="stylesheet" href="/pesquisa.css">
     <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/pesquisa-card.css">
 
     <title>Reuni</title>
 </head>
@@ -49,10 +50,45 @@
         </div>
     </section>
 
+    <!-- foreach de pesquisa para renderizar os perfis -->
+    {{!-- --adiconar iso no controller quando for testar --}}
+     {{!-- res.render('paginaPesquisa', { republicas: resultados }); --}}
+
+{{!-- <container id="cards">
+    {{#each republicas}}
+        <section class="card">
+            <div>
+                <a href="/perfil?id={{id_republica}}"><img src="/quarto.png" alt="Quarto de uma república" class="imgQuarto "></a>
+            </div>
+            <div>
+                <h4>{{ds_nomeRepublica}}</h4>
+                <p>R$ {{vl_valorMensal}} / mês</p>
+                <div class="detalhes">
+                    <div>
+                        <img src="/mista.png">
+                        {{ds_tipoRepublica}}
+                    </div>
+                        
+                    <div>
+                        <img src="/cama.png">
+                        {{qtd_quartoRepublica}}
+                    </div>
+                        
+                    <div>
+                        <img src="/banheiro.png">
+                        {{qtd_banheiroRepublica}}
+                    </div>    
+                </div>
+            </div>
+        </section>
+    {{/each}}
+</container> --}}
+
+
     <div class="republicas">
         <aside>
             <div class="procurar">
-                <p clas >Procurar por nome</p>
+                <p >Procurar por nome</p>
                 <div>
                      <input type="text" id="inputSearch" placeholder="Digite o nome da república">
                      <ul id="resultado" style="display: none;"></ul>

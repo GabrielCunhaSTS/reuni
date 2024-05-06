@@ -15,11 +15,12 @@ module.exports = {
             const resultado = await ModelRepublica.findAll({
                 attributes:[
                     [Sequelize.literal('ds_nomeRepublica'), 'Nome_da_Republica'],
-                    [Sequelize.literal('ds_descricaoRepublica'), 'Descricao'],
+                    [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
+                    [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],
+                    [Sequelize.literal('id_republica'), 'id'],
                     [Sequelize.literal('ds_tipoRepublica'), 'Tipo'],
                     [Sequelize.literal('vl_valorMensal'), 'Aluguel_Mensal'],
                     [Sequelize.literal('ds_cidade'), 'Cidade'],
-                    [Sequelize.literal('ds_bairro'), 'Bairro'] 
                 ],
                 where: {
                     ds_nomeRepublica:{
@@ -44,7 +45,7 @@ module.exports = {
                     }
                 ]
             })
-            console.log("Resultados da pesquisa:", resultado); 
+
 
            if (resultado && resultado.length > 0) {
             res.json(resultado);

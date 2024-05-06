@@ -25,12 +25,31 @@ function exibirResultado(data) {
         const li = document.createElement('li');
         li.classList.add('republica-item');
         li.innerHTML = `
-            <p>Nome da República: ${republica.Nome_da_Republica}</p>
-            <p>Descrição da República: ${republica.Descricao}</p>    
-            <p>Tipo da Rep: ${republica.Tipo}</p>
-            <p>Aluguel mensal: ${republica.Aluguel_Mensal}</p>
-            <p>Cidade: ${republica.Cidade}</p>
-            <p>Bairro: ${republica.Bairro}</p>
+        <div style="display: flex; flex-direction: row; background-color: #000; width: 410px; height: 150px;">
+            <div style="width: 30%; background-color: #ccc; height: 100%;">
+            <img src="" style="width: 100%; height: 100%;">
+            </div>
+            <div style="display: flex; flex-direction: column; width: 70%;">
+                <div style="width:100%; height: 35%;">
+                    <div style="display: flex; flex-direction: column;">
+                        <h1>Nome bem genérico</h1>
+                        <div style="display: flex; flex-direction: row;">
+                            <img><p>Amazonas</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img>
+                    </div>
+                </div>
+                <div style="width:100%; height: 30%; background-color: #fff;">
+                    
+                </div>
+                <div style="width:100%; height: 35%; background-color: #000;">
+                    
+                </div>
+            </div>
+
+        </div>
         `;
         resultadoDiv.appendChild(li);
     });

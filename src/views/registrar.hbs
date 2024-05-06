@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="/Registro.css">
 </head>
 <body>   
-    <div class="img-background">
-        <div class="alert {{#if success_msg}}show{{/if}}{{#if error_msg}}show{{/if}}">
-            {{#if success_msg}}
-                <div class="success">{{success_msg}}</div>
-            {{else}}
-                {{#if error_msg}}
-                    <div class="error">{{error_msg}}</div>
-                {{/if}}
+    <div class="img-background"></div>
+
+    <div class="alert {{#if success_msg}}show{{/if}}{{#if error_msg}}show{{/if}}">
+        {{#if success_msg}}
+            <div class="success">{{success_msg}}</div>
+        {{else}}
+            {{#if error_msg}}
+                <div class="error">{{error_msg}}</div>
             {{/if}}
-        </div>
+        {{/if}}
     </div>
 
     <div class="box-login">

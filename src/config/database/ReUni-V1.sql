@@ -203,19 +203,21 @@ INSERT INTO tb_localizacaoRepublica (ds_cep, ds_cidade, ds_rua, ds_bairro) VALUE
 
 
 -- Inserir na tb_tipoRepublica
-INSERT INTO tb_tipoRepublica (ds_tipoRepublica, ds_tipoImovel, ds_tipoQuarto, qtd_quartoRepublica, qtd_banheiroRepublica, qtd_moradoresRepublicas) VALUES
-('Compartilhada', 'Apartamento', 'Solteiro', 4, 2, 5),
-('Privativa', 'Casa', 'Duplo', 3, 1, 4),
-('República Mista', 'Casa', 'Individual', 5, 3, 8),
-('República Masculina', 'Apartamento', 'Compartilhado', 4, 2, 6),
-('República Feminina', 'Casa', 'Individual', 6, 4, 10),
-('República LGBT+', 'Apartamento', 'Compartilhado', 3, 2, 5),
-('República Estudantil', 'Casa', 'Compartilhado', 8, 5, 12),
-('República Jovem', 'Apartamento', 'Individual', 2, 1, 4),
-('República Universitária', 'Casa', 'Compartilhado', 7, 3, 10),
-('República Sênior', 'Apartamento', 'Individual', 3, 2, 5),
-('República Trabalhador', 'Casa', 'Compartilhado', 6, 4, 8),
-('República Criativa', 'Apartamento', 'Individual', 4, 2, 6);
+insert into tb_tipoRepublica (ds_tipoRepublica, ds_tipoImovel, ds_tipoQuarto, qtd_quartoRepublica, qtd_banheiroRepublica, qtd_moradoresRepublicas) 
+values
+('Misto', 'Apartamento', 'Solteiro', 4, 2, 5),
+('Masc', 'Casa', 'Duplo', 3, 1, 4),
+('Fem', 'Casa', 'Individual', 5, 3, 8),
+('Misto', 'Apartamento', 'Compartilhado', 4, 2, 6),
+('Fem', 'Casa', 'Individual', 6, 4, 10),
+('Misto', 'Apartamento', 'Compartilhado', 3, 2, 5),
+('Fem', 'Casa', 'Compartilhado', 8, 5, 12),
+('Masc', 'Apartamento', 'Individual', 2, 1, 4),
+('Fem', 'Casa', 'Compartilhado', 7, 3, 10),
+('Misto', 'Apartamento', 'Individual', 3, 2, 5),
+('Fem', 'Casa', 'Compartilhado', 6, 4, 8),
+('Masc', 'Apartamento', 'Individual', 4, 2, 6);
+
 
 
 -- Inserir na tb_novasRegras
@@ -294,7 +296,9 @@ INSERT INTO tb_republica (id_dadoRepublica, id_localizacao, id_tipoRepublica, id
 (7, 7, 7, 7, 7, 7, 'Comunidade do Saber', 'Casa espaçosa, com área de lazer.'),
 (8, 8, 8, 8, 8, 8, 'Babilônia', 'Apartamento confortável, com vista para o mar.'),
 (9, 9, 9, 9, 9, 9, 'Centro de Aprendizado', 'Casa charmosa, com decoração vintage.'),
-(10, 10, 10, 10, 10, 10, 'Instituto Cultural', 'Ambiente acolhedor, cercado pela natureza.');
+(10, 10, 10, 10, 10, 10, 'Instituto Cultural', 'Ambiente acolhedor, cercado pela natureza.'),
+(10, 9, 10, 8, 10, 2, 'Orquidea', 'Ambiente acolhedor, cercado pela natureza.');
+
 
 
 -- Inserir na tb_usuario
@@ -333,6 +337,9 @@ INSERT INTO tb_anfitriao (id_usu, id_republica) VALUES
 (10, 10),
 (11, 11),
 (12, 12);
+
+SELECT * FROM tb_republica WHERE ds_nomeRepublica LIKE 'C%';		
+
        
 select * from tb_usuario;
 select * from tb_anfitriao;
@@ -355,15 +362,12 @@ select nm_usu, sx_sexoUsu, qt_idade, ds_cpfUsu, ds_rgUsu
 	from tb_usuario
 		order by qt_idade;		
 
-select ds_nomeRepublica, ds_descricaoRepublica, ds_tipoRepublica , ds_bairro
+select  id_republica, ds_nomeRepublica, ds_descricaoRepublica, ds_tipoRepublica , ds_bairro
 	from tb_republica as r
 		join tb_tiporepublica as tr
 			on (tr.id_tipoRepublica = r.id_tipoRepublica)
 		join tb_localizacaoRepublica as lr
 			on (lr.id_localizacao = r.id_localizacao);
             
-
-
-
 
 	

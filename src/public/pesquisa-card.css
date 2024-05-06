@@ -2,12 +2,20 @@ ul{
     list-style: none;
 }
 
-.section-item {
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.section-item a{
     width: 450px;
-    height: 150px;
+    max-height: 150px;
     background-color: white;
     display: flex;
-    flex-direction: row;
+    text-decoration: none;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
 }
 
 .lista{
@@ -19,11 +27,12 @@ ul{
 }
 
 .section-item .img {
-    width: 35%;
+    width: 60%;
     height: 100%;
+    overflow: hidden;
 }
 
-.section-item .img img {
+.img img {
     width: 100%;
     height: 100%;
 }
@@ -34,6 +43,7 @@ ul{
     display: flex;
     flex-direction: column;
     margin-left: 3%;
+    text-align: center;
 }
 
 .section-item .content .title-local {
@@ -73,14 +83,6 @@ ul{
     align-items: center;
 }
 
-.section-item .content .title-local .cora {
-    margin-left: 30%;
-    width: 30px;
-}
-
-.section-item .content .title-local img {
-    width: 16px;
-}
 
 .section-item .content .valor {
     display: flex;
@@ -102,7 +104,7 @@ ul{
 .section-item .content .cards {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
     height: 45%;
     gap: 4%;

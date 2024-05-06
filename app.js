@@ -60,29 +60,3 @@ const port = 3001
 appWeb.listen(port, ()=> {
     console.log(`Servidor rodando na porta ${port}`)
 })  
-
-
-
-
-
-
-//  appWeb.get('/cadastrar', function(req, resp){
-//      resp.sendFile(path.join(__dirname, 'src', 'views', 'cadastrar.html'))
-//  })          
-
-//  appWeb.get('/entrar', function(req, resp){
-//      resp.sendFile(path.join(__dirname, 'src', 'views', "login.html"))
-//  })
-
-// appWeb.get('/home', function(req, resp){
-//     resp.sendFile(path.join(__dirname, 'src', 'views', "home.html"))
-// })
-
-// appWeb.get('/pesquisa', function (req, resp){
-//     resp.sendFile(path.join(__dirname, 'src', 'views', "pesquisa.html"))
-// })
-
-// appWeb.post('/cadastrar', registerUsuario )
-// appWeb.post('/entrar', login )
-// appWeb.post('/pesquisa', getUsuarioByName )
-

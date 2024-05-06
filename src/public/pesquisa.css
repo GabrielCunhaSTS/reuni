@@ -48,7 +48,7 @@ header .logo_a span {
     transition: opacity 2s; 
   }
   .fade-out {
-    opacity: 0; /* Opacidade reduzida para 0 */
+    opacity: 0;
   }
   
   .success {
@@ -416,6 +416,7 @@ section h2 {
     top: 28px;
     border-radius: 16px;
     padding-right: 30px;
+    left: -20px;
 }
 
 .procurar > div > ul li {

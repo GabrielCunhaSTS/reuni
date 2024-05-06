@@ -54,68 +54,6 @@
     {{!-- --adiconar iso no controller quando for testar --}}
      {{!-- res.render('paginaPesquisa', { republicas: resultados }); --}}
 
-{{!-- <container id="cards">
-    {{#each republicas}}
-        <section class="card">
-            <div>
-                <a href="/perfil?id={{id_republica}}"><img src="/quarto.png" alt="Quarto de uma república" class="imgQuarto "></a>
-            </div>
-            <div>
-                <h4>{{ds_nomeRepublica}}</h4>
-                <p>R$ {{vl_valorMensal}} / mês</p>
-                <div class="detalhes">
-                    <div>
-                        <img src="/mista.png">
-                        {{ds_tipoRepublica}}
-                    </div>
-                        
-                    <div>
-                        <img src="/cama.png">
-                        {{qtd_quartoRepublica}}
-                    </div>
-                        
-                    <div>
-                        <img src="/banheiro.png">
-                        {{qtd_banheiroRepublica}}
-                    </div>    
-                </div>
-            </div>
-        </section>
-    {{/each}}
-</container>
-
-    <container id="cards">
-    {{#each republicas}}
-        <section class="card">
-            <div>
-                <a href="/perfil?id={{id}}"><img src="/quarto.png" alt="Quarto de uma república" class="imgQuarto "></a>
-            </div>
-            <div>
-                <h4>{{Nome_da_Republica}}</h4>
-                <p>R$ {{Aluguel_Mensal}} / mês</p>
-                <div class="detalhes">
-                    <div>
-                        <img src="/mista.png">
-                        {{Tipo}}
-                    </div>
-                        
-                    <div>
-                        <img src="/cama.png">
-                        {{quarto}}
-                    </div>
-                        
-                    <div>
-                        <img src="/banheiro.png">
-                        {{banheiro}}
-                    </div>    
-                </div>
-            </div>
-        </section>
-    {{/each}}
-</container>
- --}}
-
-
     <div class="republicas">
         <aside>
             <div class="procurar">
@@ -144,215 +82,35 @@
         </div>
     </div>
 
-    <container id="cards">
-        <section class="card">
+{{#each republicas}}
+    <section class="card">
             <div>
-                <a href="/perfil"><img src="/quarto.png" alt="Quarto de uma república" class="imgQuarto "></a>
+                <a href="/perfil?id={{id}}"><img src="/quarto.png" alt="Quarto de uma república" class="imgQuarto "></a>
             </div>
             <div>
-                <h4>República Gonzaga</h4>
-                <p>R$900-1100 / mês</p>
+                <h4>{{nome}}</h4>
+                <p>R$ {{aluguel}} / mês</p>
                 <div class="detalhes">
                     <div>
                         <img src="/mista.png">
-                        Mista
+                        {{tipo}}
                     </div>
                         
                     <div>
                         <img src="/cama.png">
-                        4
+                        {{quarto}}
                     </div>
                         
                     <div>
                         <img src="/banheiro.png">
-                        3
+                        {{banheiro}}
                     </div>    
                 </div>
             </div>
-        </section>
+    </section>
+{{/each}}
 
-        <section class="card">
-            <div>
-                <a href="/perfil"><img src="/quarto08.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
-            </div>
-            <div>
-                <h4>República Ana Costa</h4>
-                <p>R$1000-1300 / mês</p>
-                <div class="detalhes">
-                    <div>
-                        <img src="/mista.png">
-                        Mista
-                    </div>
-                        
-                    <div>
-                        <img src="/cama.png">
-                        3
-                    </div>
-                        
-                    <div>
-                        <img src="/banheiro.png">
-                        2
-                    </div>    
-                </div>
-            </div>
-        </section>
 
-        <section class="card">
-            <div>
-                <a href="/perfil"><img src="/quarto06.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
-            </div>
-            <div>
-                <h4>República Yasumi</h4>
-                <p>R$900-1000 / mês</p>
-                <div class="detalhes">
-                    <div>
-                        <img src="/mista.png">
-                        Mista
-                    </div>
-                        
-                    <div>
-                        <img src="/cama.png">
-                        3
-                    </div>
-                        
-                    <div>
-                        <img src="/banheiro.png">
-                        1
-                    </div>    
-                </div>
-            </div>
-        </section>
-
-        <section class="card">
-            <div>
-                <a href="/perfil"><img src="/quarto07.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
-            </div>
-            <div>
-                <h4>República Antares</h4>
-                <p>R$1500-1800 / mês</p>
-                <div class="detalhes">
-                    <div>
-                        <img src="/mista.png">
-                        Mista
-                    </div>
-                        
-                    <div>
-                        <img src="/cama.png">
-                        6
-                    </div>
-                        
-                    <div>
-                        <img src="/banheiro.png">
-                        3
-                    </div>    
-                </div>
-            </div>
-        </section>
-
-        <section class="card">
-            <div>
-                <a href="/perfil"><img src="/quarto05.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
-            </div>
-            <div>
-                <h4>República dos Andes</h4>
-                <p>R$1300 / mês</p>
-                <div class="detalhes">
-                    <div>
-                        <img src="/mista.png">
-                        Mista
-                    </div>
-                        
-                    <div>
-                        <img src="/cama.png">
-                        3
-                    </div>
-                        
-                    <div>
-                        <img src="/banheiro.png">
-                        2
-                    </div>    
-                </div>
-            </div>
-        </section>
-
-        <section class="card">
-            <div>
-                <a href="/perfil"><img src="/quarto04.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
-            </div>
-            <div>
-                <h4>República Estrelar</h4>
-                <p>R$1500-1800 / mês</p>
-                <div class="detalhes">
-                    <div>
-                        <img src="/mista.png">
-                        Mista
-                    </div>
-                        
-                    <div>
-                        <img src="/cama.png">
-                        3
-                    </div>
-                        
-                    <div>
-                        <img src="/banheiro.png">
-                        1
-                    </div>    
-                </div>
-            </div>
-        </section>
-
-        <section class="card">
-            <div>
-                <a href="/perfil"><img src="/quarto03.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
-            </div>
-            <div>
-                <h4>República Esmeralda</h4>
-                <p>R$600-800 / mês</p>
-                <div class="detalhes">
-                    <div>
-                        <img src="/mista.png">
-                        Mista
-                    </div>
-                        
-                    <div>
-                        <img src="/cama.png">
-                        2
-                    </div>
-                        
-                    <div>
-                        <img src="/banheiro.png">
-                        1
-                    </div>    
-                </div>
-            </div>
-        </section>
-
-        <section class="card">
-            <div>
-                <a href="/perfil"><img src="/quarto02.JPG" alt="Quarto de uma república" class="imgQuarto"></a>
-            </div>
-            <div>
-                <h4>República Sol</h4>
-                <p>R$700-900 / mês</p>
-                <div class="detalhes">
-                    <div>
-                        <img src="/sexo-provi.png" width="20px">
-                        Fem
-                    </div>
-                        
-                    <div>
-                        <img src="/cama.png">
-                        5
-                    </div>
-                        
-                    <div>
-                        <img src="/banheiro.png">
-                        3
-                    </div>    
-                </div>
-            </div>
-        </section>
-    </container>
      <footer>
         <div id="footer_content">
             <div id="footer_contacts">

@@ -282,6 +282,7 @@ header .buttons .login:hover {
 }
 
 .filtros .filtro1 .txt{
+  font-size: 20px;
   width: 40%;
   height: 100%;
   display: flex;

@@ -24,15 +24,15 @@ router.get('/entrar', (req, resp) => {
     resp.render('login')
 })
 
-router.get('/pesquisa', (req, resp) => {
+router.get('/pesquisa', checkAuth, (req, resp) => {
     resp.render('pesquisa')
 })
 
-router.get('/anunciar', (req, resp) => {
+router.get('/anunciar', checkAuth, (req, resp) => {
     resp.render('anunciar')
 })
 
-router.get('/perfil', (req, resp) => {
+router.get('/perfil', checkAuth, (req, resp) => {
     resp.render('perfilRep')
 })
 

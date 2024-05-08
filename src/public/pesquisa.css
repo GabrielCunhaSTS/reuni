@@ -355,7 +355,7 @@ section h2 {
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .card {
@@ -425,12 +425,10 @@ section h2 {
 }
 
 .card h4 {
-    margin-left: 2vw;
     font-size: 1.1vw;
 }
 
 .card p {
-    margin-left: 2vw;
     font-size: 1.1vw;
 }
 

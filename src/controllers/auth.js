@@ -4,7 +4,7 @@ const { where, Model, Op } = require('sequelize')
 
 module.exports = {
     logout: async (req, resp) => {
-        resp.clearCookie('cookie_usuario')
-        return resp.redirect('/entrar') 
+        resp.clearCookie('token')
+        return resp.redirect('/') 
     }
 }

@@ -4,7 +4,7 @@ const { where, Model, Op } = require('sequelize')
 
 module.exports = {
     registerUsuario: async (req, resp) => {
-        const{ nm_usu,ds_emailUsu, ds_senhaUSu, ds_senhaUSuConfirmar  } = req.body;
+        const { nm_usu,ds_emailUsu, ds_senhaUSu, ds_senhaUSuConfirmar } = req.body;
     
         try {
 
@@ -15,7 +15,7 @@ module.exports = {
     
             let usuarioproposto = await ModelUsuario.findOne({
                 where: { ds_emailUsu: ds_emailUsu }
-            });
+            })
     
             if (usuarioproposto) {
                 req.flash("error_msg", `Esse email já esta sendo utilizado`)

@@ -1,5 +1,3 @@
-// controllers/search.js
-
 const { ModelRepublica } = require('../models/modelRepublica');
 const { ModelTipoRepublica } = require('../models/ModelTipoRepublica');
 const { ModelAlguel } = require('../models/ModelAluguel');

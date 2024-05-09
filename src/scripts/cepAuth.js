@@ -1,8 +1,11 @@
- const cepInput = document.getElementById('cep');
- const logradouroInput = document.getElementById('logradouro');
- const bairroInput = document.getElementById('bairro');
- const cidadeInput = document.getElementById('cidade');
- const estadoInput = document.getElementById('estado');
+ const cepInput = document.getElementById('ds_cep');
+ const estadoInput = document.getElementById('ds_estado');
+ const cidadeInput = document.getElementById('ds_cidade');
+ const bairroInput = document.getElementById('ds_bairro');
+ const ruaInput = document.getElementById('ds_rua');
+
+
+
 
  cepInput.addEventListener('input', function() {
 
@@ -24,7 +27,7 @@
                  return response.json();
              })
              .then(data => {
-                 logradouroInput.value = data.logradouro;
+                 ruaInput.value = data.logradouro;
                  bairroInput.value = data.bairro;
                  cidadeInput.value = data.localidade;
                  estadoInput.value = data.uf;
@@ -34,7 +37,7 @@
                  alert('CEP não encontrado');
              });
      } else {
-         logradouroInput.value = '';
+         ruaInput.value = '';
          bairroInput.value = '';
          cidadeInput.value = '';
          estadoInput.value = '';

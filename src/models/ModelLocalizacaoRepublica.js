@@ -24,6 +24,10 @@ const ModelLocalizacaoRepublica = conecBanco.define('tb_localizacaoRepublica',{
     ds_bairro:{
         type:DataTypes.TEXT,
         allowNull:true,
+    },
+    ds_numero:{
+        type:DataTypes.TEXT,
+        allowNull: true
     }
 },_padraoTableBDExistente('tb_localizacaoRepublica')
 )

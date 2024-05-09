@@ -94,6 +94,9 @@ module.exports = {
                     }
                 ]
             });
+
+            res.render('pesquisa',{ republicas: resultados });
+            
         } catch (error) {
             console.error("Erro ao pesquisar repúblicas:", error);
             res.status(500).json({ message: 'Erro interno do servidor' });

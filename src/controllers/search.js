@@ -6,6 +6,7 @@ const { ModelAlguel } = require('../models/ModelAluguel');
 const { ModelLocalizacaoRepublica } = require('../models/ModelLocalizacaoRepublica');
 const { Sequelize, Op } = require('sequelize');
 
+
 module.exports = {
     getRepByName: async (req, res) => {
         console.log("Rota de pesquisa acionada");
@@ -94,7 +95,7 @@ module.exports = {
                 ]
             });
     
-            res.render('pesquisa', { republicas: resultados });
+            res.render('pesquisa',{ republicas: resultados });
         } catch (error) {
             console.error("Erro ao pesquisar repúblicas:", error);
             res.status(500).json({ message: 'Erro interno do servidor' });

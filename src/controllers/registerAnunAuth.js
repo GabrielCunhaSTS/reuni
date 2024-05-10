@@ -44,6 +44,10 @@ module.exports = {
                 where: { ds_emailAnfitriao: ds_emailAnfitriao }
             })
             
+            if(anuncianteProposto){
+                req.flash("error_msg", `Esse email já esta cadastrado em outra republica`)
+                return resp.redirect('/anunciar')
+            }
 
             async function criarRepublica(){
 

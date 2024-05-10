@@ -28,6 +28,12 @@
     </div>
 </header>
 
+<div class="alert {{#if success_msg}}show{{/if}}">
+        {{#if success_msg}}
+            <div class="success">{{success_msg}}</div>
+        {{/if}}
+</div>
+
 <main class="titles">
     <svg xmlns="http://www.w3.org/2000/svg" class="polygn" width="260" height="124" viewBox="0 0 260 124" fill="none">
         <path d="M0.341309 123.511L259.341 -1.41593e-06L199.794 123.511L0.341309 123.511Z" fill="#215487"/>

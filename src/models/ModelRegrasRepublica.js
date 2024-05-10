@@ -14,7 +14,8 @@ const ModelRegrasRepublica = conecBanco.define('tb_regrasRepublica',{
     },
     ds_permissaoPets:{
         type:DataTypes.BOOLEAN
-    },ds_permissaoBebidasAlc:{
+    },
+    ds_permissaoBebidasAlc:{
         type:DataTypes.BOOLEAN
     },
     ds_permissaoVisitas:{

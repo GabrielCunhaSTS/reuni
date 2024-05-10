@@ -162,28 +162,32 @@
           <div class="cont-regras">
             <p>Tipos de República</p>  
             <div>
-              <button value="Mista" name="Mista">Mista</button>
-              <button value="Fem" name="Fem">Feminina</button>
-              <button value="Masc" name="Masc">Masculina</button>
+              <select name="tipoRep" id="option">
+                <option value="Mista">Mista</option>
+                <option value="Fem">Feminina</option>
+                <option value="Masc">Masculino</option>
+              </select>
             </div>
 
             <p>Tipos de Imóvel</p>
             <div>
-              <button value="Apartamento" name="Apartamento">Apartamento</button>
-              <button value="Casa" name="Casa">Casa</button>
+              <select name="imovel" id="option">
+                <option value="Casa">Casa</option>
+                <option value="Apto">Apartamento</option>
+              </select>
             </div>
 
             <div class="buttons-quantidade">
               <div class="quartos">
                 <p>Quartos</p>
                   <div class="button-mes">
-                    <button>-</button><p>0</p><button>+</button>
+                   <input type="text" name="qtd_quarto" id="">
                   </div>
               </div>
               <div class="banheiros">
                 <p>Banheiros</p>
                   <div class="button-mes">
-                    <button>-</button><p>0</p><button>+</button>
+                    <input type="text" name="qtd_banheiro" id="">
                   </div>
                 </div>
             </div>
@@ -193,35 +197,42 @@
               <h1>Regras da República</h1>
               <div>
                 <p>Permitido Fumar?</p>
-                <input type="radio" name="" id="">
-                <input type="radio" name="" id="">
+                <select name="fumar" id="option">
+                  <option value="1">Sim</option>
+                  <option value="0">Nao</option>
+                </select>
               </div>
               <div>
                 <p>Permitido Pets?</p>
-                <input type="radio" name="" id="">
-                <input type="radio" name="" id="">
+                <select name="pets" id="option">
+                  <option value="1">Sim</option>
+                  <option value="0">Nao</option>
+                </select>
               </div>
               <div>
                 <p>Permitido Bebidas alcoólicas?</p>
-                <input type="radio" name="" id="">
-                <input type="radio" name="" id="">
+               <select name="bebidas" id="option">
+                  <option value="1">Sim</option>
+                  <option value="0">Nao</option>
+                </select>
               </div>
               <div>
                 <p>Permitido visitas?</p>
-                <input type="radio" name="" id="">
-                <input type="radio" name="" id="">
+               <select name="visitas" id="option">
+                  <option value="1">Sim</option>
+                  <option value="0">Nao</option>
+                </select>
               </div>
             </div>
 
             <div class="comodidades">
               <h1>Comodidades</h1>
               <div>
-                <img src="/wi-fi.png" alt="" >
-                <img src="/tv.png" alt="">
-                <img src="/cozinhau.png" alt="">
-                <img src="/vagas.png" alt="">
-                <img src="/arcondicionado.png" alt="">
-                <img src="/add.png" alt="">
+                <button value="1" name="wifi"><img src="/wi-fi.png"></button> 
+                <button value="1" name="tv"><img src="/tv.png"></button>
+                <button value="1" name="cozinha"><img src="/cozinhau.png"></button>
+                <button value="1" name="estacionamento"><img src="/vagas.png"></button>
+                <button value="1" name="ar_condicionado"><img src="/arcondicionado.png" alt=""></button>
               </div>
             </div>
 
@@ -251,7 +262,7 @@
             </div>
             <div class="radios">
               <div class="contas">
-                <input type="radio" name="contas_inclu" id="contas_inclu">
+                <input type="radio"  value="1" name="contas_inclu" id="contas_inclu">
                 <p>Contas inclusas</p>
               </div>
             </div>

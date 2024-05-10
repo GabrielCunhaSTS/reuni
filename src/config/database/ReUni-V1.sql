@@ -23,24 +23,19 @@ select * from tb_DadosRepublicas;
 create table tb_localizacaoRepublica(
 	id_localizacao int auto_increment not null primary key,
     ds_cep varchar(9),
+    ds_estado varchar(3),
     ds_cidade varchar(100),
     ds_rua varchar(200),
-    ds_bairro varchar(100)
+    ds_bairro varchar(100),
+    ds_numero varchar(5)
 );
 
 create table tb_tipoRepublica(
 	id_tipoRepublica int auto_increment not null primary key,
     ds_tipoRepublica varchar(200) not null,
     ds_tipoImovel varchar(200) not null,
-    ds_tipoQuarto varchar(200) not null,
     qtd_quartoRepublica int(3),
-    qtd_banheiroRepublica int(3),
-    qtd_moradoresRepublicas int(3)
-);
-
-create table tb_novasRegras(
-	id_novaRegra int auto_increment not null primary key,
-    ds_novaRegra varchar(250)
+    qtd_banheiroRepublica int(3)
 );
 
 create table tb_regrasRepublica(
@@ -48,11 +43,7 @@ create table tb_regrasRepublica(
 	ds_permissaoFumar boolean,
     ds_permissaoPets  boolean,
     ds_permissaoBebidasAlc  boolean,
-	ds_permissaoVisitas  boolean,
-    id_novaRegra int,
-    
-    constraint foreign key (id_novaRegra)
-    references tb_novasRegras(id_novaRegra)
+	ds_permissaoVisitas  boolean
 );
 
 create table tb_comodidades(
@@ -116,18 +107,6 @@ create table tb_usuario(
     
     constraint foreign key (id_estadoOrigem)
     references tb_estadoOrigem(id_estadoOrigem)
-);
-
-create table tb_anfitriao(
-	id_anfitriao int auto_increment not null primary key,
-    id_usu int,
-    id_republica int,
-    
-    constraint foreign key (id_usu)
-    references tb_usuario (id_usu),
-    
-    constraint foreign key (id_republica)
-    references tb_republica (id_republica)
 );
 
 #INSERTS
@@ -203,54 +182,35 @@ INSERT INTO tb_localizacaoRepublica (ds_cep, ds_cidade, ds_rua, ds_bairro) VALUE
 
 
 -- Inserir na tb_tipoRepublica
-insert into tb_tipoRepublica (ds_tipoRepublica, ds_tipoImovel, ds_tipoQuarto, qtd_quartoRepublica, qtd_banheiroRepublica, qtd_moradoresRepublicas) 
-values
-('Misto', 'Apartamento', 'Solteiro', 4, 2, 5),
-('Masc', 'Casa', 'Duplo', 3, 1, 4),
-('Fem', 'Casa', 'Individual', 5, 3, 8),
-('Misto', 'Apartamento', 'Compartilhado', 4, 2, 6),
-('Fem', 'Casa', 'Individual', 6, 4, 10),
-('Misto', 'Apartamento', 'Compartilhado', 3, 2, 5),
-('Fem', 'Casa', 'Compartilhado', 8, 5, 12),
-('Masc', 'Apartamento', 'Individual', 2, 1, 4),
-('Fem', 'Casa', 'Compartilhado', 7, 3, 10),
-('Misto', 'Apartamento', 'Individual', 3, 2, 5),
-('Fem', 'Casa', 'Compartilhado', 6, 4, 8),
-('Masc', 'Apartamento', 'Individual', 4, 2, 6);
-
-
-
--- Inserir na tb_novasRegras
-INSERT INTO tb_novasRegras (ds_novaRegra) VALUES
-('Silêncio após as 22h'),
-('Proibido fumar dentro'), 
-('Aceita animais de estimação'),
-('Proibido fumar nas áreas comuns'),
-('Permitido trazer animais de estimação'),
-('Proibido o consumo de bebidas alcoólicas'),
-('Restrito a visitas somente nos finais de semana'),
-('Proibido festas após às 22h'),
-('Permitido o uso da piscina somente com autorização prévia'),
-('Proibido a utilização de drogas ilícitas'),
-('Permitido o uso do estacionamento para bicicletas'),
-('Restrito o número de hóspedes nas festas'),
-('Proibido o acesso de estranhos sem autorização');
+INSERT INTO tb_tipoRepublica (ds_tipoRepublica, ds_tipoImovel, qtd_quartoRepublica, qtd_banheiroRepublica) VALUES
+('Mista', 'Apartamento', 4, 2),
+('Fem', 'Casa', 3, 1),
+('Masc', 'Casa', 5, 3),
+('Fem', 'Apartamento', 4, 2),
+('Masc', 'Casa', 6, 4),
+('Masc', 'Apartamento', 3, 2),
+('Mista', 'Casa', 8, 5),
+('Masc', 'Apartamento', 2, 1),
+('Mista', 'Casa', 7, 3),
+('Mista', 'Apartamento', 3, 2),
+('Fem', 'Casa', 6, 4),
+('Fem', 'Apartamento', 4, 2);
 
 
 -- Inserir na tb_regrasRepublica
-INSERT INTO tb_regrasRepublica (ds_permissaoFumar, ds_permissaoPets, ds_permissaoBebidasAlc, ds_permissaoVisitas, id_novaRegra) VALUES 
-(0, 1, 1, 1, 1),
-(1, 0, 1, 0, 2),
-(0, 0, 0, 1, 1),
-(1, 1, 0, 1, 2),
-(0, 0, 1, 1, 3),
-(1, 0, 1, 1, 4),
-(0, 0, 0, 0, 5),
-(1, 1, 1, 0, 6),
-(0, 0, 1, 1, 7),
-(1, 0, 0, 1, 8),
-(0, 1, 1, 1, 9),
-(0, 0, 0, 1, 10);
+INSERT INTO tb_regrasRepublica (ds_permissaoFumar, ds_permissaoPets, ds_permissaoBebidasAlc, ds_permissaoVisitas) VALUES 
+(0, 1, 1, 1),
+(1, 0, 1, 0),
+(0, 0, 0, 1),
+(1, 1, 0, 1),
+(0, 0, 1, 1),
+(1, 0, 1, 1),
+(0, 0, 0, 0),
+(1, 1, 1, 0),
+(0, 0, 1, 1),
+(1, 0, 0, 1),
+(0, 1, 1, 1),
+(0, 0, 0, 1);
 
 
 -- Inserir na tb_comodidades
@@ -297,8 +257,11 @@ INSERT INTO tb_republica (id_dadoRepublica, id_localizacao, id_tipoRepublica, id
 (8, 8, 8, 8, 8, 8, 'Babilônia', 'Apartamento confortável, com vista para o mar.'),
 (9, 9, 9, 9, 9, 9, 'Centro de Aprendizado', 'Casa charmosa, com decoração vintage.'),
 (10, 10, 10, 10, 10, 10, 'Instituto Cultural', 'Ambiente acolhedor, cercado pela natureza.'),
-(10, 9, 10, 8, 10, 2, 'Orquidea', 'Ambiente acolhedor, cercado pela natureza.');
+(9, 7, 4, 9, 8, 5, 'REPUBLICA CHECA', 'Ambiente acolhedor, cercado pela natureza.'),
+(9, 7, 4, 9, 8, 5, 'REPUBLICA CHECA 4', 'Ambiente acolhedor, cercado pela natureza.');
 
+ INSERT INTO tb_republica (id_dadoRepublica, id_localizacao, id_tipoRepublica, id_regraRepublica, id_valorAlguel, id_comodidade, ds_nomeRepublica, ds_descricaoRepublica) VALUES 
+(9, 7, 4, 9, 8, 5, 'Republica costa Marfim', 'Ambiente acolhedor, cercado pela natureza.');
 
 
 -- Inserir na tb_usuario
@@ -323,30 +286,14 @@ INSERT INTO tb_usuario (nm_usu, sx_sexoUsu, qt_idade, ds_cpfUsu, ds_rgUsu, ds_em
 ('Simone Marlene Corte Real', 'F', 29,'868.430.800-06', '258086051', 'simone-cortereal90@supercleanlav.com.br', 'EmubhoDRIR', 'Descrição do perfil de Simone Marlene', 15),
 ('Filipe Francisco Ribeiro', 'M', 36,'564.346.373-30', '227772520', 'filipe_francisco_ribeiro@amoamar.com.br', 'e9ynxzXKMq', 'Descrição do perfil de Filipe Francisco', 14);
 
--- Inserir em anfitriao
-INSERT INTO tb_anfitriao (id_usu, id_republica) VALUES 
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10),
-(11, 11),
-(12, 12);
-
-SELECT * FROM tb_republica WHERE ds_nomeRepublica LIKE 'C%';		
-
-       
 select * from tb_usuario;
-select * from tb_anfitriao;
 
-select * from tb_DadosRepublicas 
-	where id_dadoRepublica = 3;
 
+select * from tb_DadosRepublicas;
+select * from tb_localizacaoRepublica;
+select * from tb_republica;
+select * from tb_aluguel;
+select * from tb_regrasrepublica;
 select nm_estadoOrigem, COUNT(*) as 'QTD usuarios por nacionalidade'
 	from tb_usuario 
 		join tb_estadoOrigem
@@ -362,12 +309,15 @@ select nm_usu, sx_sexoUsu, qt_idade, ds_cpfUsu, ds_rgUsu
 	from tb_usuario
 		order by qt_idade;		
 
-select  id_republica, ds_nomeRepublica, ds_descricaoRepublica, ds_tipoRepublica , ds_bairro
+select ds_nomeRepublica, ds_descricaoRepublica, ds_tipoRepublica , ds_bairro
 	from tb_republica as r
 		join tb_tiporepublica as tr
 			on (tr.id_tipoRepublica = r.id_tipoRepublica)
 		join tb_localizacaoRepublica as lr
 			on (lr.id_localizacao = r.id_localizacao);
             
+
+
+
 
 	

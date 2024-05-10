@@ -25,7 +25,7 @@ const ModelDadosRepublica = conecBanco.define('tb_DadosRepublicas',{
         type:DataTypes.CHAR,
         allowNull:false
     }
-},_padraoTableBDExistente('tb_dadoRepublica')
+},_padraoTableBDExistente('tb_DadosRepublicas')
 )
 
 module.exports ={

@@ -17,19 +17,11 @@ const ModelTipoRepublica = conecBanco.define('tb_tipoRepublica',{
         type:DataTypes.TEXT,
         allowNull:false
     },
-    ds_tipoQuarto:{
-        type:DataTypes.TEXT,
-        allowNull:false
-    },
     qtd_quartoRepublica:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
     qtd_banheiroRepublica:{
-        type:DataTypes.INTEGER,
-        allowNull:false
-    },
-    qtd_moradoresRepublica:{
         type:DataTypes.INTEGER,
         allowNull:false
     }

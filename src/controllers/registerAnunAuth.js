@@ -10,34 +10,20 @@ const { Sequelize, Op } = require('sequelize');
 module.exports = {
     registerRepublica: async(req,resp) => {
         try{
-            const { ds_nomeAnfitriao,
-                ds_emailAnfitriao,
-                nmr_telefoneAnfitriao,
-                an_anoCriacao,
-                ds_cep,
-                ds_cidade,
-                ds_estado,
-                ds_rua,
-                ds_bairro,
-                ds_numero,  
-                ValorMensal,
-                estad_min,
-                contas_inclu,
-                ds_nomeRepublica,
-                ds_descricaoRepublica,
-                tipoRep,
-                imovel,
-                fumar,
-                pets,
-                visitas,
-                bebidas,
-                qtd_banheiro,
-                qtd_quarto,
-                wifi,
-                tv,
-                cozinha,
-                estacionamento,
-                ar_condicionado
+            const { 
+                ds_nomeAnfitriao, ds_emailAnfitriao, nmr_telefoneAnfitriao, an_anoCriacao,
+
+                ds_cep, ds_cidade, ds_estado, ds_rua, ds_bairro, ds_numero,  
+
+                ValorMensal, estad_min, contas_inclu,
+
+                ds_nomeRepublica, ds_descricaoRepublica,
+
+                tipoRep, imovel,qtd_banheiro ,qtd_quarto,
+
+                fumar, pets, visitas, bebidas,
+                
+                wifi, tv, cozinha, estacionamento, ar_condicionado
             } = req.body
 
             let anuncianteProposto = await ModelDadosRepublica.findOne({

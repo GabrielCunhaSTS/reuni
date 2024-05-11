@@ -63,6 +63,19 @@ module.exports = {
     },
     getAllRep: async(req, res) =>{
         try {
+            const { femininas, masculinas, mistas } = req.query
+            const filtragem = {}
+
+            if (femininas) {
+                filtragem.ds_tipoRepublica = 'fem'
+            }
+            if (masculinas) {
+                filtragem.ds_tipoRepublica = 'masc'
+            }
+            if (mistas) {
+                filtragem.ds_tipoRepublica = 'mista'
+            }
+
             const resultados = await ModelRepublica.findAll({
                 attributes:[
                     [Sequelize.literal('id_republica'), 'id'],
@@ -83,7 +96,8 @@ module.exports = {
                     {
                         model: ModelTipoRepublica,
                         attributes: [],
-                        required: true
+                        required: true,
+                        where: filtragem
                     },
                     {
                         model: ModelLocalizacaoRepublica,
@@ -92,7 +106,7 @@ module.exports = {
                     }
                 ]
             });
-
+    
             res.render('pesquisa',{ republicas: resultados });
             
         } catch (error) {
@@ -100,4 +114,5 @@ module.exports = {
             res.status(500).json({ message: 'Erro interno do servidor' });
         }
     }
+    
 }

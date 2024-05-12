@@ -6,6 +6,7 @@ const registrar = require('../controllers/registerUsuAuth')
 const search = require('../controllers/search')
 const cadRep = require('../controllers/registerAnunAuth')
 const perfil = require('../controllers/perfil')
+const { ModelRepublica } = require('../models/modelRepublica')
 
 function checkAuth(req, resp, next){
     if(req.session.user){
@@ -23,6 +24,7 @@ router.get('/pesquisa/:nm_digit', search.getRepByName);
 router.get('/pesquisa', checkAuth, search.getAllRep);
 router.get('/perfil', checkAuth, perfil.getPerfil);
 router.post('/perfil/editar', perfil.editarPerfil);
-
+router.get('/perfil-Republica', checkAuth, search.getPerfilUrl )
+   
 
 module.exports = router

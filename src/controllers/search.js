@@ -113,6 +113,48 @@ module.exports = {
             console.error("Erro ao pesquisar repúblicas:", error);
             res.status(500).json({ message: 'Erro interno do servidor' });
         }
+
+    }, getPerfilUrl: async (req,resp) =>{
+        try {
+            const republicaId = req.query.id;
+            const republica = await ModelRepublica.findOne({
+                where: { id_republica: republicaId },
+                attributes:[
+                    [Sequelize.literal('id_republica'), 'id'],
+                    [Sequelize.literal('ds_nomeRepublica'), 'nome'],
+                    [Sequelize.literal('ds_tipoRepublica'), 'tipo'],
+                    [Sequelize.literal('vl_valorMensal'), 'aluguel'],
+                    [Sequelize.literal('ds_cidade'), 'cidade'],
+                    [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
+                    [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],
+                ],
+                raw: true,
+                include: [
+                    {
+                        model: ModelAlguel,
+                        attributes: [],
+                        required: true
+                    },
+                    {
+                        model: ModelTipoRepublica,
+                        attributes: [],
+                        required: true,
+                    },
+                    {
+                        model: ModelLocalizacaoRepublica,
+                        attributes: [],
+                        required: true
+                    }
+                ]
+            });
+            if (!republica) {
+                return resp.status(404).send('República não encontrada');
+            }
+            resp.render('perfilRep', { republica });
+        } catch (error) {
+            console.error("Erro ao buscar república:", error);
+            resp.status(500).send('Erro interno do servidor');
+        }
     }
     
 }

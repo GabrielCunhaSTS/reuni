@@ -52,10 +52,6 @@
         </div>
     </section>
 
-    <!-- foreach de pesquisa para renderizar os perfis -->
-    {{!-- --adiconar iso no controller quando for testar --}}
-     {{!-- res.render('paginaPesquisa', { republicas: resultados }); --}}
-
     <div class="republicas">
         <aside>
             <div class="procurar">
@@ -88,7 +84,7 @@
     {{#each republicas}}
         <section class="card">
             <div>
-                <a href="/perfil?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república" class="imgQuarto "></a>
+                <a href="/perfil-Republica?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república" class="imgQuarto "></a>
             </div>
             <div>
                 <h4>{{nome}}</h4>

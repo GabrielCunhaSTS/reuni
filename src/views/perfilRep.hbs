@@ -48,8 +48,8 @@
     </main>
     <section class="tittle-fav">
         <div>
-            <h1>República Republika</h1>
-            <p>Marapé, Santos - SP</p>
+            <h1>{{ republica.nome }}</h1>
+            <p>{{ republica.cidade }}, <p>{{ republica.cidade }}</p></p>
         </div>
         <div>
             <button><img src="/icon-coracao 1.png" alt="" srcset=""></button>
@@ -74,20 +74,20 @@
             <div class="box">
                 <div class="icon-nome">
                     <img src="/foto perfil.png" alt="">
-                    <h2>República Republika</h2>
+                    <h2>{{ republica.nome }}</h2>
                 </div>
                 <div class="container-infos">
                     <div>
                         <img src="/Vector 1.png" alt="" srcset=""> <p>Desde 17/11/2019</p>
                     </div>
                     <div>
-                        <img src="/Vector.png" alt="" srcset=""> <p>5 Banheiros</p>
+                        <img src="/Vector.png" alt="" srcset=""> <p>{{ republica.banheiro }} Banheiros</p>
                     </div>  
                     <div>
-                        <img src="/Vector (1).png" alt="" srcset=""> <p>6 quartos</p>
+                        <img src="/Vector (1).png" alt="" srcset=""><p>{{ republica.quarto }} Quartos</p>
                     </div>  
                     <div>
-                        <img src="/image 4.png" alt="" srcset=""> <p>Mista</p>
+                        <img src="/image 4.png" alt="" srcset=""> <p>{{ republica.tipo }}</p>
                     </div>  
                     <div>
                         <img src="/icon.png" alt="" srcset=""> <p>2 Vagas Disponíveis</p>

@@ -14,7 +14,7 @@ module.exports = {
             rg,
             descricao,
             sexo,
-            estado // Removido daqui, será passado como argumento
+            estado
         } = req.body;
 
         try {
@@ -44,12 +44,9 @@ module.exports = {
 
             const hashedPassword = await bcrypt.hash(ds_senhaUSu, 10);
 
-            async function insertUsuario(estado) { // Adicionado estado como parâmetro
+            async function insertUsuario(){
                 try {
-                    const estadoObjeto = await ModelEstado.create({
-                        nm_estadoOrigem: estado
-                    });
-
+                    
                     const usuario = await ModelUsuario.create({
                         nm_usu: nm_usu,
                         ds_emailUsu: ds_emailUsu,
@@ -59,8 +56,9 @@ module.exports = {
                         ds_rgUsu: rg,
                         ds_descricaoPerfil: descricao,
                         sx_sexoUsu: sexo,
-                        id_estadoOrigem: estadoObjeto.id_estadoOrigem // Utilizando o estadoObjeto
-                    });
+                        id_estadoOrigem: estado
+                    })
+
 
                     if (usuario) {
                         console.log("Usuário criado");
@@ -70,7 +68,7 @@ module.exports = {
                 }
             }
 
-            await insertUsuario(estado);
+            await insertUsuario();
             req.flash("success_msg", `${nm_usu} cadastrado com sucesso!`);
             return resp.redirect('/entrar');
         } catch (error) {

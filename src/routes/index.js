@@ -21,7 +21,7 @@ router.post('/auth/login', login.log)
 router.get('/auth/logout', logout.logout)
 router.get('/pesquisa/:nm_digit', search.getRepByName);
 router.get('/pesquisa', checkAuth, search.getAllRep);
-router.get('/perfil', perfil.getPerfil);
+router.get('/perfil', checkAuth, perfil.getPerfil);
 router.post('/perfil/editar', perfil.editarPerfil);
 
 

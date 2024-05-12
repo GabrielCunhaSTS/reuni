@@ -1,54 +1,81 @@
-const bcrypt =  require('bcrypt')
-const { ModelUsuario } = require ('../models/ModelUsuario')
-const { where, Model, Op } = require('sequelize')
+const bcrypt = require('bcrypt');
+const { ModelUsuario } = require('../models/ModelUsuario');
+const { ModelEstado } = require('../models/ModelEstado');
 
 module.exports = {
     registerUsuario: async (req, resp) => {
-        const { nm_usu,ds_emailUsu, ds_senhaUSu, ds_senhaUSuConfirmar } = req.body;
-    
-        try {
+        const {
+            nm_usu,
+            ds_emailUsu,
+            ds_senhaUSu,
+            ds_senhaUSuConfirmar,
+            idade,
+            cpf,
+            rg,
+            descricao,
+            sexo,
+            estado // Removido daqui, será passado como argumento
+        } = req.body;
 
-            if (!req.body.ds_emailUsu || !req.body.ds_senhaUSu) {
-                req.flash("error_msg", `Preencha os campos obrigatórios`)
-                return resp.redirect('/registrar')
+        try {
+            if (!ds_emailUsu || !ds_senhaUSu) {
+                req.flash("error_msg", `Preencha os campos obrigatórios`);
+                return resp.redirect('/registrar');
             }
-    
-            let usuarioproposto = await ModelUsuario.findOne({
+
+            const usuarioproposto = await ModelUsuario.findOne({
                 where: { ds_emailUsu: ds_emailUsu }
-            })
-    
+            });
+
             if (usuarioproposto) {
-                req.flash("error_msg", `Esse email já esta sendo utilizado`)
-                return resp.redirect('/registrar')
+                req.flash("error_msg", `Esse email já está sendo utilizado`);
+                return resp.redirect('/registrar');
             }
 
             if (ds_senhaUSu.length < 8) {
-                req.flash("error_msg", `A senha precisa ter ao menos 8 caracteres`)
-                return resp.redirect('/registrar')           
+                req.flash("error_msg", `A senha precisa ter pelo menos 8 caracteres`);
+                return resp.redirect('/registrar');
             }
 
             if (ds_senhaUSu !== ds_senhaUSuConfirmar) {
-                req.flash("error_msg", `As senhas nao correspondem`)
-                return resp.redirect('/registrar')
+                req.flash("error_msg", `As senhas não correspondem`);
+                return resp.redirect('/registrar');
             }
-    
-            const hashedPassword = await bcrypt.hash(ds_senhaUSu, 10);
-    
-            async function insertUsuario() {
-                return await ModelUsuario.create({
-                    nm_usu: nm_usu,
-                    ds_emailUsu: ds_emailUsu,
-                    ds_senhaUSu: hashedPassword
-                });
-            }
-    
-            await insertUsuario()
 
-            req.flash("success_msg", `${nm_usu} Cadastrado com Sucesso!`)
-            return resp.redirect('/entrar')
+            const hashedPassword = await bcrypt.hash(ds_senhaUSu, 10);
+
+            async function insertUsuario(estado) { // Adicionado estado como parâmetro
+                try {
+                    const estadoObjeto = await ModelEstado.create({
+                        nm_estadoOrigem: estado
+                    });
+
+                    const usuario = await ModelUsuario.create({
+                        nm_usu: nm_usu,
+                        ds_emailUsu: ds_emailUsu,
+                        ds_senhaUSu: hashedPassword,
+                        qt_idade: idade,
+                        ds_cpfUsu: cpf,
+                        ds_rgUsu: rg,
+                        ds_descricaoPerfil: descricao,
+                        sx_sexoUsu: sexo,
+                        id_estadoOrigem: estadoObjeto.id_estadoOrigem // Utilizando o estadoObjeto
+                    });
+
+                    if (usuario) {
+                        console.log("Usuário criado");
+                    }
+                } catch (error) {
+                    console.error("Erro ao criar usuário:", error);
+                }
+            }
+
+            await insertUsuario(estado);
+            req.flash("success_msg", `${nm_usu} cadastrado com sucesso!`);
+            return resp.redirect('/entrar');
         } catch (error) {
-            console.error(error);
-            return resp.status(500).json({ msg: 'Erro no servidor...' })
+            console.error("Erro no servidor:", error);
+            return resp.status(500).json({ msg: 'Erro no servidor...' });
         }
     }
-}
+};

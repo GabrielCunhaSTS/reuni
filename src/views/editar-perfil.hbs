@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+</head>
+<body>
+    <h1>Editar Perfil</h1>
+    <form action="/perfil/editar" method="POST">
+        <label for="nome">Novo Nome:</label>
+        <input type="text" id="nome" name="nome" value="{{perfil.nome}}" required>
+        
+        <label for="email">Novo Email:</label>
+        <input type="email" id="email" name="email" value="{{perfil.email}}" required>
+        
+        <label for="descricao">Nova Descrição:</label>
+        <textarea id="descricao" name="descricao" required>{{perfil.descricao}}</textarea>
+        
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

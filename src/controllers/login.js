@@ -37,7 +37,9 @@ module.exports= {
                     resp.cookie('token', token, { httpOnly:true, secure: true })
                     req.session.user = dadosUsu
                     req.flash("success_msg", `Seja Bem-vindo(a) ${dadosUsu.nm_usu}`)
-                    console.log(token)    
+                    console.log(token)
+                    
+                    console.log("ID do usuário na sessão:", req.session.user);   
                     return resp.redirect('/pesquisa')
                 }catch(erro){
                     console.error(erro)

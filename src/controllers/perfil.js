@@ -16,7 +16,6 @@ module.exports = {
                     [Sequelize.literal('ds_emailUsu'), 'email'],
                     [Sequelize.literal('qt_idade'), 'idade'],
                     [Sequelize.literal('ds_cpfUsu'), 'cpf'],
-                    [Sequelize.literal('ds_rgUsu'), 'rg'],
                     [Sequelize.literal('ds_descricaoPerfil'), 'descricao'],
                     [Sequelize.literal('nm_estadoOrigem'), 'estado']
                 ], raw:true,
@@ -35,7 +34,7 @@ module.exports = {
         }
     },
 
-    editarPerfil: async (req, res) => {
+    editPerfil: async (req, res) => {
         const { nome, email, descricao } = req.body;
         const idUsuario = req.session.user.id_usu;
 
@@ -47,5 +46,10 @@ module.exports = {
             console.error("Erro ao editar perfil:", error);
             res.status(500).send('Erro ao editar perfil');
         }
+    },
+
+    deletePerfil: async(req,res) =>{
+
     }
+
 };

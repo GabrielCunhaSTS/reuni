@@ -99,7 +99,6 @@ create table tb_usuario(
     sx_sexoUsu char(1),
     qt_idade int(2),
     ds_cpfUsu varchar(14),
-    ds_rgUsu varchar(12),
     ds_emailUsu varchar(150) not null,
     ds_senhaUsu varchar(100) not null,
     ds_descricaoPerfil varchar(500),

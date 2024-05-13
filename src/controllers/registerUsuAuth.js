@@ -11,7 +11,6 @@ module.exports = {
             ds_senhaUSuConfirmar,
             idade,
             cpf,
-            rg,
             descricao,
             sexo,
             estado
@@ -53,7 +52,6 @@ module.exports = {
                         ds_senhaUSu: hashedPassword,
                         qt_idade: idade,
                         ds_cpfUsu: cpf,
-                        ds_rgUsu: rg,
                         ds_descricaoPerfil: descricao,
                         sx_sexoUsu: sexo,
                         id_estadoOrigem: estado

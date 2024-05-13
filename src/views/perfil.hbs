@@ -6,6 +6,7 @@
     <title>Perfil do Usuário</title>
 </head>
 <body>
+    
     <h1>Perfil do Usuário</h1>
     <p>Nome: {{perfil.nome}}</p>
     <p>Sexo: {{perfil.sexo}}</p>
@@ -14,6 +15,11 @@
     <p>Email: {{perfil.email}}</p>
     <p>Descrição do Perfil: {{perfil.descricao}}</p>
     <p>Estado de Origem: {{perfil.estado}}</p>
+
+    <form action="/perfil/delete" method="delete">
+        <button type="submit">Excluir conta</button>
+    </form>
+    
 
     <a href="/editar-perfil"><button>Editar Perfil</button></a>
 </body>

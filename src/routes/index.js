@@ -23,8 +23,9 @@ router.get('/auth/logout', logout.logout)
 router.get('/pesquisa/:nm_digit', search.getRepByName);
 router.get('/pesquisa', checkAuth, search.getAllRep);
 router.get('/perfil', checkAuth, perfil.getPerfil);
-router.post('/perfil/editar', perfil.editarPerfil);
-router.get('/perfil-Republica', checkAuth, search.getPerfilUrl )
+router.post('/perfil/editar', perfil.editPerfil);
+router.get('/perfil/delete', perfil.deletePerfil);
+router.get('/perfil-Republica', checkAuth, search.getPerfilUrl)
    
 
 module.exports = router

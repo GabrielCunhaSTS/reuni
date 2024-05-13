@@ -1,6 +1,6 @@
 const { ModelUsuario } = require('../models/ModelUsuario')
 const { ModelEstado } = require('../models/ModelEstado')
-const { Sequelize, Op } = require('sequelize');
+const { Sequelize, Op, where } = require('sequelize');
 
 module.exports = {
     getPerfil: async (req, res) => {
@@ -39,7 +39,7 @@ module.exports = {
         const idUsuario = req.session.user.id_usu;
 
         try {
-            await ModelUsuario.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao }, { where: { id_usu: idUsuario } });
+            await ModelUsuario.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao}, { where: { id_usu: idUsuario } });
             
             res.redirect('/perfil');
         } catch (error) {
@@ -49,7 +49,18 @@ module.exports = {
     },
 
     deletePerfil: async(req,res) =>{
+        const idUsuario = req.session.user.id_usu
 
+        try{
+
+            await ModelUsuario.destroy({ where: { id_usu: idUsuario}})
+
+            res.redirect('/')
+
+        }catch(error){
+            console.error("Erro ao editar perfil:", error);
+            res.status(500).send('Erro ao editar perfil');
+        }
     }
 
 };

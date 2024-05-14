@@ -153,7 +153,7 @@ INSERT INTO tb_estadoOrigem (nm_estadoOrigem) VALUES
  ('Sergipe'),
  ('Tocantins');
 
-INSERT INTO tb_anunciante (nm_anunciante, ds_emailaAunci, ds_senhaAnunci, ds_cpfAnunci, qt_idadeAnunci) VALUES
+INSERT INTO tb_anunciante (nm_anunciante, ds_emailAunci, ds_senhaAnunci, ds_cpfAnunci, qt_idadeAnunci) VALUES
 ('Maria Eduarda Silva', 'mariaeduarda@example.com', 'senha123', '111.222.333-44', '19'),
 ('João Pedro Oliveira', 'joaopedro@example.com', 'abcd1234', '555.666.777-88', '27'),
 ('Amanda Souza Santos', 'amanda.souza@example.com', '987654', '123.456.789-00', '26'),
@@ -322,7 +322,7 @@ INSERT INTO tb_usuario (nm_usu, sx_sexoUsu, qt_idade, ds_cpfUsu, ds_emailUsu, ds
 ('Filipe Francisco Ribeiro', 'M', 36,'564.346.373-30', 'filipe_francisco_ribeiro@amoamar.com.br', 'e9ynxzXKMq', 'Descrição do perfil de Filipe Francisco', 14);
 
 select * from tb_usuario;
-
+select * from tb_anunciante;
 
 select * from tb_DadosRepublicas;
 select * from tb_localizacaoRepublica;
@@ -356,4 +356,4 @@ select ds_nomeRepublica, ds_descricaoRepublica, ds_tipoRepublica , ds_bairro
 
 
 
-	
+    

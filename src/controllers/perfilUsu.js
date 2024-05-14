@@ -10,24 +10,21 @@ module.exports = {
     
             const perfil = await ModelUsuario.findByPk(idPerfil, {
                 attributes: [
-                    [Sequelize.literal('id_usu'), 'id'],
-                    [Sequelize.literal('nm_usu'), 'nome'],
-                    [Sequelize.literal('sx_sexoUsu'), 'sexo'],
-                    [Sequelize.literal('ds_emailUsu'), 'email'],
-                    [Sequelize.literal('qt_idade'), 'idade'],
-                    [Sequelize.literal('ds_cpfUsu'), 'cpf'],
-                    [Sequelize.literal('ds_descricaoPerfil'), 'descricao'],
-                    [Sequelize.literal('nm_estadoOrigem'), 'estado']
-                ], raw:true,
-                include:
-                    {
-                        model: ModelEstado,
-                        attributes: [],
-                        required: true
-                    }
+                    'nm_usu',
+                    'sx_sexoUsu',
+                    'qt_idade',
+                    'ds_cpfUsu',
+                    'ds_emailUsu',
+                    'ds_descricaoPerfil',
+                    'id_estadoOrigem'
+                ],
+                include: {
+                    model: ModelEstado,
+                    attributes: ['nm_estadoOrigem']
+                }
             });
             console.log("Perfil do usuário:", perfil); 
-            res.render('perfil', { perfil: perfil });
+            res.render('perfilUsu', { perfil: perfil });
         } catch (error) {
             console.error("Erro ao obter perfil do usuário:", error);
             res.status(500).send('Erro interno do servidor');

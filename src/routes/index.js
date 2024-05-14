@@ -1,12 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const logout = require('../controllers/logout')
-const login = require('../controllers/login')
-const registrar = require('../controllers/registerUsuAuth')
+const loginU = require('../controllers/login')
+const loginA = require('../controllers/loginAnuncian')
+const registrarU = require('../controllers/registerUsuAuth')
+const registrarA = require('../controllers/registerAnuAuth')
 const search = require('../controllers/search')
-const cadRep = require('../controllers/registerAnunAuth')
+const cadRep = require('../controllers/registerRepAuth')
 const perfil = require('../controllers/perfil')
-const { ModelRepublica } = require('../models/modelRepublica')
 
 function checkAuth(req, resp, next){
     if(req.session.user){
@@ -16,9 +17,15 @@ function checkAuth(req, resp, next){
     }
 }
 
-router.post('/auth/signIn', registrar.registerUsuario)
+//registro de ambos tipos de usuario
+router.post('/auth/signInU', registrarU.registerUsuario)
+router.post('/auth/signInA', registrarA.registerAnunciante)
+
+//login de ambos os tipos de usuarios
+router.post('/auth/loginU', loginU.log)
+router.post('/auth/loginA', loginA.logAnunciante)
+
 router.post('/auth/cadRep', cadRep.registerRepublica)
-router.post('/auth/login', login.log)
 router.get('/auth/logout', logout.logout)
 router.get('/pesquisa/:nm_digit', search.getRepByName);
 router.get('/pesquisa', checkAuth, search.getAllRep);

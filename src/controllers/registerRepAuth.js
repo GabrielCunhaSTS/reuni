@@ -5,8 +5,8 @@ const { ModelLocalizacaoRepublica } = require('../models/ModelLocalizacaoRepubli
 const { ModelDadosRepublica } = require('../models/ModelDadosRepublicas')
 const { ModelRegrasRepublica } = require('../models/ModelRegrasRepublica')
 const { ModelComodidades } = require('../models/ModelComodidades')
-
 const { Sequelize, Op } = require('sequelize');
+
 module.exports = {
     registerRepublica: async(req,resp) => {
         try{

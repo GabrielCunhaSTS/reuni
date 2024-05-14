@@ -1,31 +1,31 @@
-const bcrypt =  require('bcrypt')
-const { ModelUsuario } = require ('../models/ModelUsuario')
+const { ModelAnunciante } = require ('../models/ModelAnunciante')
 const { where, Model, Op } = require('sequelize')
 const jwt = require('jsonwebtoken')
+const bcrypt =  require('bcrypt')
 
 module.exports= {
-    log: async(req,resp) => {
+    logAnunciante: async(req,resp) => {
    
-            const { ds_emailUsu, ds_senhaUSu } = req.body
+            const { ds_emailAunci, ds_senhaAnunci } = req.body
     
             try{
       
-                if (!req.body.ds_emailUsu || !req.body.ds_senhaUSu) {
+                if (!req.body.ds_emailaAunci || !req.body.ds_senhaAnunci) {
                     req.flash("error_msg", `Preencha os campos obrigatórios`)
                     return resp.redirect('/entrar')
                 }
 
-                const dadosUsu =  await ModelUsuario.findOne({
-                    where:{ds_emailUsu: ds_emailUsu} 
+                const dadosAnunciante =  await ModelAnunciante.findOne({
+                    where:{ds_emailaAunci: ds_emailAunci} 
                 })
 
-                if(!dadosUsu){
+                if(!dadosAnunciante){
                     req.flash("error_msg", `Email ou Senha inválidos!`)
                     return resp.redirect('/entrar') 
                 }
     
                 const compararSenha = await bcrypt.compare(
-                    ds_senhaUSu, dadosUsu.ds_senhaUSu
+                    ds_senhaAnunci, dadosAnunciante.ds_senhaAnunci
                 )
                 
                 if(!compararSenha){
@@ -33,10 +33,10 @@ module.exports= {
                     return resp.redirect('/entrar') 
                 }
                 
-                const token = jwt.sign({ id: dadosUsu.id }, 'JANX7AWB12BAKX')
+                const token = jwt.sign({ id: ds_senhaAnunci.id }, 'JANX7AWB12BAKX')
                     resp.cookie('token', token, { httpOnly:true, secure: true })
-                    req.session.user = dadosUsu
-                    req.flash("success_msg", `Seja Bem-vindo(a) ${dadosUsu.nm_usu}`)
+                    req.session.user = dadosAnunciante
+                    req.flash("success_msg", `Seja Bem-vindo(a) ${dadosAnunciante.nm_anunciante}`)
                     console.log(token)
                     
                     console.log("ID do usuário na sessão:", req.session.user);   

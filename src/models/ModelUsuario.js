@@ -21,10 +21,7 @@ const ModelUsuario = conecBanco.define('tb_usuario', {
     },
     ds_cpfUsu: {
         type: DataTypes.STRING(14), 
-    },
-    ds_rgUsu: {
-        type: DataTypes.STRING(12),
-    },
+    },      
     ds_emailUsu: {
         type: DataTypes.STRING(150), 
     },

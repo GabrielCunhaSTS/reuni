@@ -86,7 +86,7 @@ module.exports = {
                 })
 
                 if(republicaCriada){
-                    return resp.redirect('/pesquisa')
+                    return resp.redirect('/pesquisaAnun')
                 }else{
                     resp.render('anunciar', {msg: 'erro'})
                 }

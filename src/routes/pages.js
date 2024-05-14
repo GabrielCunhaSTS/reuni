@@ -16,16 +16,28 @@ router.get('/', (req, resp) => {
     resp.render('home')
 })
 
-router.get('/registrar', (req, resp) => {
-    resp.render('registrar')
+router.get('/registrar-Usuario', (req, resp) => {
+    resp.render('registrarUsu')
 })
 
-router.get('/entrar', (req, resp) => {
-    resp.render('login')
+router.get('/registrar-Anunciante', (req, resp) => {
+    resp.render('registrarAnun')
+})
+
+router.get('/entrar-Usuario', (req, resp) => {
+    resp.render('loginUsu') 
+})
+
+router.get('/entrar-Anunciante', (req, resp) => {
+    resp.render('loginAnun')
 })
 
 router.get('/pesquisa', checkAuth, (req, resp) => {
-    resp.render('pesquisa')
+    resp.render('pesquisaUsu')
+})
+
+router.get('/pesquisaAnun', checkAuth, (req, resp) => {
+    resp.render('pesquisaAnun')
 })
 
 router.get('/anunciar', checkAuth, (req, resp) => {
@@ -36,8 +48,8 @@ router.get('/perfil-Republica', checkAuth, (req, resp) => {
     resp.render('perfilRep')
 })
 
-router.get('/perfil', checkAuth, (req, resp) => {
-    resp.render('perfil')
+router.get('/perfil-Usuario', checkAuth, (req, resp) => {
+    resp.render('perfilUsu')
 })
 
 router.get('/editar-perfil', checkAuth,(req, resp) => {

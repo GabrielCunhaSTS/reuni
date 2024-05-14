@@ -15,7 +15,7 @@ const ModelAnunciante = conecBanco.define('tb_anunciante',{
     sg_sexoAnunci:{
         type: DataTypes.CHAR(1),
     },
-    ds_emailaAunci:{
+    ds_emailAunci:{
         type: DataTypes.STRING(150), 
     },
     ds_senhaAnunci:{

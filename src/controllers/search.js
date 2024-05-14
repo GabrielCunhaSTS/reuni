@@ -107,7 +107,7 @@ module.exports = {
                 ]
             });
     
-            res.render('pesquisa',{ republicas: resultados });
+            res.render('pesquisaUsu',{ republicas: resultados });
             
         } catch (error) {
             console.error("Erro ao pesquisar repúblicas:", error);

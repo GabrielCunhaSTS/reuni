@@ -9,12 +9,40 @@ create table tb_estadoOrigem(
     nm_estadoOrigem varchar(100)
 );
 
+create table tb_usuario(
+	id_usu int auto_increment not null primary key,
+    nm_usu varchar(100) not null,
+    sx_sexoUsu char(1),
+    qt_idade int(2),
+    ds_cpfUsu varchar(14),
+    ds_emailUsu varchar(150) not null,
+    ds_senhaUsu varchar(100) not null,
+    ds_descricaoPerfil varchar(500),
+    id_estadoOrigem int,
+    
+    constraint foreign key (id_estadoOrigem)
+    references tb_estadoOrigem(id_estadoOrigem)
+);
+
+create table tb_anunciante(
+	id_anunciante int auto_increment not null primary key,
+    nm_anunciante varchar(100),
+    sg_sexoAnunci char(2),		
+    ds_emailAunci varchar(100),
+    ds_senhaAnunci varchar(100),
+    ds_cpfAnunci varchar(14),
+    qt_idadeAnunci char(2)
+);
+
 create table tb_DadosRepublicas(
 	id_dadoRepublica int auto_increment not null primary key,
-    ds_nomeAnfitriao varchar(100) not null,
-    ds_emailAnfitriao varchar(200) not null,
-    nmr_telefoneAnfitriao varchar(20) not null,
-    an_anoCriacao char(4)
+    id_anunciante int,
+    ds_emailContato varchar(200),
+	nmr_telefoneContato varchar(20), 
+    an_anoCriacao char(4),
+    
+    foreign key (id_anunciante)
+    references tb_anunciante(id_anunciante)
 );
 
 select * from tb_DadosRepublicas;
@@ -62,7 +90,6 @@ create table tb_aluguel(
     ds_contasInclusas boolean
 );
 
-
 create table tb_republica(
 	id_republica int auto_increment not null primary key,
     id_dadoRepublica int,
@@ -93,20 +120,6 @@ create table tb_republica(
     references tb_comodidades(id_comodidade)
 );
 
-create table tb_usuario(
-	id_usu int auto_increment not null primary key,
-    nm_usu varchar(100) not null,
-    sx_sexoUsu char(1),
-    qt_idade int(2),
-    ds_cpfUsu varchar(14),
-    ds_emailUsu varchar(150) not null,
-    ds_senhaUsu varchar(100) not null,
-    ds_descricaoPerfil varchar(500),
-    id_estadoOrigem int,
-    
-    constraint foreign key (id_estadoOrigem)
-    references tb_estadoOrigem(id_estadoOrigem)
-);
 
 #INSERTS
 
@@ -140,29 +153,52 @@ INSERT INTO tb_estadoOrigem (nm_estadoOrigem) VALUES
  ('Sergipe'),
  ('Tocantins');
 
--- Inserir na tb_DadosRepublicas
-INSERT INTO tb_DadosRepublicas (ds_nomeAnfitriao, ds_emailAnfitriao, nmr_telefoneAnfitriao, an_anoCriacao) VALUES 		
-('João Silva', 'silvajoão00@gmail.com', '(68) 98687-4851', '2019'),
-('Maria Oliveira', 'mariaOlira@gmail.com', '(88) 98227-2421', '2021'),
-('Ana Silva', 'Anasilvaa@gmail.com', '(11) 1234-5678', '2020'),
-('Pedro Souza', 'pedroSouzinha@gmail.com', '(11) 9876-5432', '2018'),
-('Carla Oliveira', 'carlaOliveira708@gmail.com', '(11) 1111-2222', '2019'),
-('João Santos', 'joaoSant@gmail.com', '(21) 99836-3047', '2021'),
-('Mariana Costa', 'marianaAtsac@gmail.com', '(11) 5555-6666', '2017'),
-('Lucas Pereira', 'lucasArtes2021@gmail.com', '(31) 99766-3031', '2022'),
-('Fernanda Lima', 'fernandaMontesLim@gmail.com', '(11) 9999-0000', '2016'),
-('Gustavo Alves', 'gustavoGuanabaraAl@gmail.com', '(11) 1234-5678', '2015'),
-('Juliana Santos', 'julianaSaantos@gmail.com', '(67) 98636-7880', '2014'),
-('Rafael Oliveira', 'rafaelOliVeira@gmail.com', '(27) 98591-9806', '2013'),
-("Gabriel", "gabriel@teste.com", "13991266579", 2020),
-("david", "david@teste.com", "13991266589", 2020),
-("livia", "livia@teste.com", "13991266599", 2020),
-("Vitor Luiz Kauê Dias", "vitor_dias@celiosilva.com", "(53) 99627-9045", 2020),
-("Marcos Lorenzo Osvaldo Bernardes", "marcos_bernardes@carreira.com.br", "(64) 99575-4495", 2020),
-("Carlos Kauê Moraes", "carloskauemoraes@inglesasset.com.br", "(13) 98266-6805", 2020),
-("Nina Vitória Vera Freitas", "nina.vitoria.freitas@demasi.com.br", "(85) 98830-0696", 2020),
-("Daniela Liz Bruna da Cruz", "daniela_dacruz@comdados.com", "(63) 98512-7080", 2020),
-("Allana Vitória Betina da Costa", "allana_dacosta@steadyoffice.com.br", "(13) 98218-1084", 2020);
+INSERT INTO tb_anunciante (nm_anunciante, ds_emailaAunci, ds_senhaAnunci, ds_cpfAnunci, qt_idadeAnunci) VALUES
+('Maria Eduarda Silva', 'mariaeduarda@example.com', 'senha123', '111.222.333-44', '19'),
+('João Pedro Oliveira', 'joaopedro@example.com', 'abcd1234', '555.666.777-88', '27'),
+('Amanda Souza Santos', 'amanda.souza@example.com', '987654', '123.456.789-00', '26'),
+('Pedro Henrique Almeida', 'pedro.almeida@example.com', 'senha456', '987.654.321-00', '18'),
+('Gabriela Lima Costa', 'gabriela.lima@example.com', 'qwerty', '111.222.333-44', '20'),
+('Lucas Oliveira Pereira', 'lucas.oliveira@example.com', 'asdf123', '555.666.777-88', '20'),
+('Juliana Santos Rodrigues', 'juliana.rodrigues@example.com', 'senha1234', '999.888.777-66', '21'),
+('Mateus Pereira Souza', 'mateus.souza@example.com', 'password', '333.222.111-00', '22'),
+('Carolina Silva Lima', 'carolina.lima@example.com', 'senha12345', '444.555.666-77', '23'),
+('Felipe Santos Oliveira', 'felipe.oliveira@example.com', 'abcde', '777.888.999-00', '24'),
+('Mariana Pereira Alves', 'mariana.alves@example.com', 'senha6789', '222.111.333-44', '26'),
+('Rafaela Oliveira Ferreira', 'rafaela.ferreira@example.com', 'abcdef', '666.555.444-00', '32'),
+('Matheus Lima Santos', 'matheus.santos@example.com', 'senha123456', '123.456.789-00', '19'),
+('Giovanna Costa Rodrigues', 'giovanna.rodrigues@example.com', '1234567890', '987.654.321-00', '20'),
+('Fernando Almeida Souza', 'fernando.souza@example.com', 'abcdefg', '555.444.333-22', '21'),
+('Beatriz Oliveira Lima', 'beatriz.lima@example.com', '123456789', '490.182.514-37', '34'),
+('Ricardo Santos Pereira', 'ricardo.pereira@example.com', 'senhaabcdef', '349.664.120-72', '28'),
+('Camila Costa Oliveira', 'camila.oliveira@example.com', '123456', '868.430.800-06', '29'),
+('Vinícius Silva Lima', 'vinicius.lima@example.com', 'senhaabc', '564.346.373-30', '36'),
+('Ana Carolina Almeida', 'ana.carolina@example.com', 'password123', '111.111.111-11', '25'),
+('Marcos Oliveira Santos', 'marcos.santos@example.com', 'abc123def', '222.222.222-22', '30');
+
+-- Inserir na tb_DadosRepublicas 		
+INSERT INTO tb_DadosRepublicas (id_anunciante, ds_emailContato, nmr_telefoneContato, an_anoCriacao) VALUES 		
+(1, 'silvajoão00@gmail.com', '(68) 98687-4851', '2019'),
+(2, 'mariaOlira@gmail.com', '(88) 98227-2421', '2021'),
+(3, 'Anasilvaa@gmail.com', '(11) 1234-5678', '2020'),
+(4, 'pedroSouzinha@gmail.com', '(11) 9876-5432', '2018'),
+(5, 'carlaOliveira708@gmail.com', '(11) 1111-2222', '2019'),
+(6, 'joaoSant@gmail.com', '(21) 99836-3047', '2021'),
+(7, 'marianaAtsac@gmail.com', '(11) 5555-6666', '2017'),
+(8, 'lucasArtes2021@gmail.com', '(31) 99766-3031', '2022'),
+(9, 'fernandaMontesLim@gmail.com', '(11) 9999-0000', '2016'),
+(10, 'gustavoGuanabaraAl@gmail.com', '(11) 1234-5678', '2015'),
+(11, 'julianaSaantos@gmail.com', '(67) 98636-7880', '2014'),
+(12, 'rafaelOliVeira@gmail.com', '(27) 98591-9806', '2013'),
+(13, 'gabriel@teste.com', '13991266579', 2020),
+(14, 'david@teste.com', '13991266589', 2020),
+(15, 'livia@teste.com', '13991266599', 2020),
+(16, 'vitor_dias@celiosilva.com', '(53) 99627-9045', 2020),
+(17, 'marcos_bernardes@carreira.com.br', '(64) 99575-4495', 2020),
+(18, 'carloskauemoraes@inglesasset.com.br', '(13) 98266-6805', 2020),
+(19, 'nina.vitoria.freitas@demasi.com.br', '(85) 98830-0696', 2020),
+(20, 'daniela_dacruz@comdados.com', '(63) 98512-7080', 2020),
+(21, 'allana_dacosta@steadyoffice.com.br', '(13) 98218-1084', 2020);
 
 -- Inserir na tb_localizacaoRepublica
 INSERT INTO tb_localizacaoRepublica (ds_cep, ds_cidade, ds_rua, ds_bairro) VALUES
@@ -264,26 +300,26 @@ INSERT INTO tb_republica (id_dadoRepublica, id_localizacao, id_tipoRepublica, id
 
 
 -- Inserir na tb_usuario
-INSERT INTO tb_usuario (nm_usu, sx_sexoUsu, qt_idade, ds_cpfUsu, ds_rgUsu, ds_emailUsu, ds_senhaUsu, ds_descricaoPerfil, id_estadoOrigem) VALUES 
-('Lavínia Tatiane Adriana Aragão', 'F', 19 ,'111.222.333-44', 'A987654', 'laviniatatianearagao@pobox.com', 'FzMzHkpRnc', 'Estudante', 12),
-('Manoel Paulo Thomas da Silva', 'M', 27 ,'555.666.777-88', 'B123456', 'manoelpaulodasilva@sunrise.com.br', 'Pl9tCumXi3', 'Profissional', 9),
-('Débora Patrícia Gabrielly Ramos', 'F', 26 , '123.456.789-00', '12345678', 'debora.patricia.ramos@brasildakar.com.br', 'wxQ27BbzjF', 'Estudante universitária em busca de uma república tranquila.', 1),
-('Ana Camila Luiza Ramos', 'F', 18 , '987.654.321-00', '87654321', 'ana_ramos@abbott.com', 'bhOORe8C2Q', 'Jovem profissional em mudança para uma nova cidade.', 1),
-('Kevin Cláudio Rodrigues', 'M', 20 , '111.222.333-44', '11223344', 'kevin.claudio.rodrigues@eclatt.com.br', 'qRAymylL6I', 'Estagiária procurando um ambiente colaborativo.', 2),
-('Oliver Geraldo Oliveira', 'M', 20 ,'555.666.777-88', '55667788', 'oliver_oliveira@fojsc.unesp.br', '9qXfGHgmsY', 'Estudante de intercâmbio em busca de novas amizades.', 3),
-('Manuela Heloisa Eloá Porto', 'F', 21 ,'999.888.777-66', '99887766', 'manuelaheloisaporto@predialnet.com.br', 'xaQdd5KHYd', 'Jovem profissional em busca de uma república animada.', 2),
-('Diego Geraldo dos Santos', 'M', 22, '333.222.111-00', '33221100', 'diego_geraldo_dossantos@valeguinchos.com.br', 'Xs2F8YYR2F', 'Estudante de música procurando um ambiente criativo.', 3),
-('Yasmin Isabelle dos Santos', 'F', 23 ,'444.555.666-77', '44556677', 'yasmin_isabelle_dossantos@sp.gov.br', 'tONfKwk6bb', 'Estudante de arte buscando uma república acolhedora.', 4),
-('César Caleb Rodrigo de Paula', 'M', 24 ,'777.888.999-00', '77889900', 'cesar-depaula93@csjsistemas.com.br', '0IQrhbi0jJ', 'Jovem profissional em mudança para uma nova cidade.', 5),
-('Maya Elaine da Cruz', 'F', 26 ,'222.111.333-44', '22113344', 'maya_dacruz@jcoronel.com.br', 'N9THeo5NUa', 'Estudante universitária em busca de uma república tranquila.', 6),
-('Bernardo Joaquim Pires', 'M', 32 ,'666.555.444-00', '66554400', 'bernardo.joaquim.pires@etec.sp.gov.br', 'fYynfOFYOp', 'Jovem profissional procurando um ambiente colaborativo.', 7),
-('Bento Bento Bernardes', 'M', 19, '123.456.789-00', '123456789', 'bento.bento.bernardes@trimempresas.com.br', '5s4bLRQu13', 'Descrição do perfil de Bento Bernardes', 11),	
-('Teresinha Sabrina Oliveira', 'F', 20, '987.654.321-00', '987654321', 'teresinha-oliveira72@robertacorrea.com', 'ihHEerBbeU', 'Descrição do perfil de Teresinha Sabrina', 14),
-('Bento Kauê Bernardo Moraes', 'M', 21,'555.444.333-22', '555444333', 'bentokauemoraes@imobideal.com', 'hxg57L2oIc', 'Descrição do perfil de Kauê Bernardo', 1),
-('Vitor Noah Gael Moraes', 'M', 34, '490.182.514-37', '365556695', 'vitor-moraes94@fcfar.unesp.br', 'RgprzyXBRR', 'Descrição do perfil de Vitor Noah', 2),
-('Carlos Eduardo Renato Thiago Nascimento', 'M', 28, '349.664.120-72', '358592537', 'carlos.eduardo.nascimento@krika.com.br', '0nYWSoJazc', 'Descrição do perfil de Carlos Eduardo', 17),
-('Simone Marlene Corte Real', 'F', 29,'868.430.800-06', '258086051', 'simone-cortereal90@supercleanlav.com.br', 'EmubhoDRIR', 'Descrição do perfil de Simone Marlene', 15),
-('Filipe Francisco Ribeiro', 'M', 36,'564.346.373-30', '227772520', 'filipe_francisco_ribeiro@amoamar.com.br', 'e9ynxzXKMq', 'Descrição do perfil de Filipe Francisco', 14);
+INSERT INTO tb_usuario (nm_usu, sx_sexoUsu, qt_idade, ds_cpfUsu, ds_emailUsu, ds_senhaUsu, ds_descricaoPerfil, id_estadoOrigem) VALUES 
+('Lavínia Tatiane Adriana Aragão', 'F', 19 ,'111.222.333-44', 'laviniatatianearagao@pobox.com', 'FzMzHkpRnc', 'Estudante', 12),
+('Manoel Paulo Thomas da Silva', 'M', 27 ,'555.666.777-88', 'manoelpaulodasilva@sunrise.com.br', 'Pl9tCumXi3', 'Profissional', 9),
+('Débora Patrícia Gabrielly Ramos', 'F', 26 , '123.456.789-00', 'debora.patricia.ramos@brasildakar.com.br', 'wxQ27BbzjF', 'Estudante universitária em busca de uma república tranquila.', 1),
+('Ana Camila Luiza Ramos', 'F', 18 , '987.654.321-00', 'ana_ramos@abbott.com', 'bhOORe8C2Q', 'Jovem profissional em mudança para uma nova cidade.', 1),
+('Kevin Cláudio Rodrigues', 'M', 20 , '111.222.333-44', 'kevin.claudio.rodrigues@eclatt.com.br', 'qRAymylL6I', 'Estagiária procurando um ambiente colaborativo.', 2),
+('Oliver Geraldo Oliveira', 'M', 20 ,'555.666.777-88', 'oliver_oliveira@fojsc.unesp.br', '9qXfGHgmsY', 'Estudante de intercâmbio em busca de novas amizades.', 3),
+('Manuela Heloisa Eloá Porto', 'F', 21 ,'999.888.777-66', 'manuelaheloisaporto@predialnet.com.br', 'xaQdd5KHYd', 'Jovem profissional em busca de uma república animada.', 2),
+('Diego Geraldo dos Santos', 'M', 22, '333.222.111-00', 'diego_geraldo_dossantos@valeguinchos.com.br', 'Xs2F8YYR2F', 'Estudante de música procurando um ambiente criativo.', 3),
+('Yasmin Isabelle dos Santos', 'F', 23 ,'444.555.666-77', 'yasmin_isabelle_dossantos@sp.gov.br', 'tONfKwk6bb', 'Estudante de arte buscando uma república acolhedora.', 4),
+('César Caleb Rodrigo de Paula', 'M', 24 ,'777.888.999-00', 'cesar-depaula93@csjsistemas.com.br', '0IQrhbi0jJ', 'Jovem profissional em mudança para uma nova cidade.', 5),
+('Maya Elaine da Cruz', 'F', 26 ,'222.111.333-44', 'maya_dacruz@jcoronel.com.br', 'N9THeo5NUa', 'Estudante universitária em busca de uma república tranquila.', 6),
+('Bernardo Joaquim Pires', 'M', 32 ,'666.555.444-00', 'bernardo.joaquim.pires@etec.sp.gov.br', 'fYynfOFYOp', 'Jovem profissional procurando um ambiente colaborativo.', 7),
+('Bento Bento Bernardes', 'M', 19, '123.456.789-00', 'bento.bento.bernardes@trimempresas.com.br', '5s4bLRQu13', 'Descrição do perfil de Bento Bernardes', 11),    
+('Teresinha Sabrina Oliveira', 'F', 20, '987.654.321-00', 'teresinha-oliveira72@robertacorrea.com', 'ihHEerBbeU', 'Descrição do perfil de Teresinha Sabrina', 14),
+('Bento Kauê Bernardo Moraes', 'M', 21,'555.444.333-22', 'bentokauemoraes@imobideal.com', 'hxg57L2oIc', 'Descrição do perfil de Kauê Bernardo', 1),
+('Vitor Noah Gael Moraes', 'M', 34, '490.182.514-37', 'vitor-moraes94@fcfar.unesp.br', 'RgprzyXBRR', 'Descrição do perfil de Vitor Noah', 2),
+('Carlos Eduardo Renato Thiago Nascimento', 'M', 28, '349.664.120-72', 'carlos.eduardo.nascimento@krika.com.br', '0nYWSoJazc', 'Descrição do perfil de Carlos Eduardo', 17),
+('Simone Marlene Corte Real', 'F', 29,'868.430.800-06', 'simone-cortereal90@supercleanlav.com.br', 'EmubhoDRIR', 'Descrição do perfil de Simone Marlene', 15),
+('Filipe Francisco Ribeiro', 'M', 36,'564.346.373-30', 'filipe_francisco_ribeiro@amoamar.com.br', 'e9ynxzXKMq', 'Descrição do perfil de Filipe Francisco', 14);
 
 select * from tb_usuario;
 
@@ -293,6 +329,7 @@ select * from tb_localizacaoRepublica;
 select * from tb_republica;
 select * from tb_aluguel;
 select * from tb_regrasrepublica;
+
 select nm_estadoOrigem, COUNT(*) as 'QTD usuarios por nacionalidade'
 	from tb_usuario 
 		join tb_estadoOrigem
@@ -304,7 +341,7 @@ select nm_usu, id_estadoOrigem
 	from tb_usuario as usu
 		order by id_estadoOrigem;	
 
-select nm_usu, sx_sexoUsu, qt_idade, ds_cpfUsu, ds_rgUsu 
+select nm_usu, sx_sexoUsu, qt_idade, ds_cpfUsu
 	from tb_usuario
 		order by qt_idade;		
 

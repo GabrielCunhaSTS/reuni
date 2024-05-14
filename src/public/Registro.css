@@ -68,7 +68,7 @@ body, html {
   text-align: center ;
   background-color: #fff;
   width: 678px;
-  height: 658px;
+  height: 778px;
   border-radius: 12%;
   position: absolute;
   top: 50%;
@@ -109,6 +109,14 @@ body, html {
   color: #215487;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
+  unicode-bidi: normal;
+}
+
 .input-login{
     width: 70%;
     height: 10%;
@@ -116,7 +124,41 @@ body, html {
     border: 1px solid #c7c7c7;
     font-family: "Poppins", sans-serif;
     padding: 12px;
-    margin-bottom: 3%;
+
+}
+
+.align-sex-idade {
+  display: flex;
+  gap: 3%;
+  margin-bottom: 4%;
+  align-items: center;
+}
+
+.align-descricao-estado{
+  display: flex;
+  align-items: center;
+  gap: 20%;
+  width: 71%;
+}
+
+.idade {
+  width: 28%;
+}
+
+.cpf {
+width: 40%;
+}
+
+.select-sex {
+  width: 20%;
+  border: none;
+  box-shadow: 2px 2px 4.3px 4px rgba(0, 0, 0, 0.05);  
+  border: 2px solid #ccc;
+  height: 70%;
+}
+
+.descricao {
+  width: 50%;
 }
 
 .input-login1{

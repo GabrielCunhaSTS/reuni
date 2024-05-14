@@ -27,25 +27,26 @@
             <p class="txt-fazer-login">Já possui conta? <a href="/entrar">Login</a></p>
         </div>
         <div class="loginform" id="myform">
-            <form id="cadastroForm" action="/auth/signIn" method="POST">
+            <form class="form" id="cadastroForm" action="/auth/signIn" method="POST">
                 <input class="input-login" type="text" id="nm_usu" name="nm_usu" placeholder= "Digite seu nome" required><br><br>
                 <input class="input-login" type="email" id="ds_emailUsu" name="ds_emailUsu" placeholder= "Digite seu e-mail" required><br><br>
                 <input class="input-login" type="password" id="ds_senhaUSu" name="ds_senhaUSu" placeholder= "Digite sua senha" required><br><br>
                 <input class="input-login1" type="password" id="ds_senhaUSuConfirmar" name="ds_senhaUSuConfirmar" placeholder= "Confirme sua senha" required><br><br>
 
-              
-                <input type="text" name="idade">
-              
-                <input type="text" name="cpf">
-             
-                <input type="text" name="descricao">
-
-                <select name="sexo" id="">
+                <div class="align-sex-idade">
+                    <input class="input-login idade" type="text" name="idade" placeholder="Digite a sua Idade">
+                    <input class="input-login cpf" type="text" name="cpf" placeholder="Digite Seu CPF">
+                 <select class="select-sex" name="sexo" id="">
                     <option value="M">Masculino</option>
                     <option value="F">Feminino</option>
                 </select>
+                
+                </div>
+              <div class="align-descricao-estado">
+                <input class="input-login descricao" type="text" name="descricao" placeholder="Descrição">
 
-                <select name="estado" id="">
+               
+                <select class="select-estado" name="estado" id="">
                     <option value="1">Acre (AC)</option>
                     <option value="2">Alagoas (AL)</option>
                     <option value="3">Amapá (AP)</option>
@@ -74,6 +75,10 @@
                     <option value="26">Sergipe (SE)</option>
                     <option value="27">Tocantins (TO)</option>
                 </select>
+              </div>
+                
+             
+                
 
                 <button type="submit" class="btn-registrar">Cadastrar</a></button>
             </form>

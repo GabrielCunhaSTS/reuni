@@ -5,6 +5,7 @@ const { ModelDadosRepublica } =  require('../models/ModelDadosRepublicas')
 const { ModelTipoRepublica } = require('../models/ModelTipoRepublica')
 const { ModelAlguel} = require('../models/ModelAluguel')
 const { ModelLocalizacaoRepublica } = require('../models/ModelLocalizacaoRepublica')
+const { ModelAnunciante } =require('../models/ModelAnunciante')
 
 const ModelRepublica = conecBanco.define('tb_republica',{
     id_republica:{
@@ -13,42 +14,49 @@ const ModelRepublica = conecBanco.define('tb_republica',{
         primaryKey:true,
         allowNull:false
     },
-    id_dadoRepublica:{   //editar foreign key(quando descobrir)
+    id_dadoRepublica:{
         type:DataTypes.INTEGER.UNSIGNED,
         references:{
             model:'tb_DadosRepublicas',
             key: 'id_dadoRepublica'
         }
     },
-    id_localizacao:{   //editar foreign key(quando descobrir)
+    id_anunciante:{
+        type:DataTypes.INTEGER.UNSIGNED,
+        references:{
+            model:'tb_anunciante',
+            key: 'id_anunciante'
+        }
+    },
+    id_localizacao:{
         type:DataTypes.INTEGER.UNSIGNED,
         references:{
             model:'tb_localizacaoRepublica',
             key: 'id_localizacao'
         }
     },
-    id_tipoRepublica:{   //editar foreign key(quando descobrir)
+    id_tipoRepublica:{
         type:DataTypes.INTEGER.UNSIGNED,
         references:{
             model:'tb_tipoRepublica',
             key: 'id_tipoRepublica'
         }
     },
-    id_regraRepublica:{   //editar foreign key(quando descobrir)
+    id_regraRepublica:{
         type:DataTypes.INTEGER.UNSIGNED,
         references:{
             model:'tb_regrasRepublica',
             key: 'id_regraRepublica'
         }
     },
-    id_valorAlguel:{   //editar foreign key(quando descobrir)
+    id_valorAlguel:{
         type:DataTypes.INTEGER.UNSIGNED,
         references:{
             model:'tb_aluguel',
             key: 'id_valorAlguel'
         }
     },
-    id_comodidade:{   //editar foreign key(quando descobrir)
+    id_comodidade:{
         type:DataTypes.INTEGER.UNSIGNED,
         references:{
             model:'tb_comodidades',
@@ -65,6 +73,9 @@ const ModelRepublica = conecBanco.define('tb_republica',{
     }
 }, _padraoTableBDExistente('tb_republica')
 )
+
+ModelAnunciante.hasMany(ModelRepublica, {foreignKey: 'id_anunciante'})
+ModelRepublica.belongsTo(ModelAnunciante, {foreignKey: 'id_anunciante'})
 
 ModelDadosRepublica.hasMany(ModelRepublica, {foreignKey: 'id_dadoRepublica'})
 ModelRepublica.belongsTo(ModelDadosRepublica, {foreignKey: 'id_dadoRepublica'})

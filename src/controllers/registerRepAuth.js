@@ -26,8 +26,10 @@ module.exports = {
                 wifi, tv, cozinha, estacionamento, ar_condicionado
             } = req.body
 
+            const idAnunciante = req.session.user.id_anunciante
+
             let anuncianteProposto = await ModelDadosRepublica.findOne({
-                where: { ds_emailAnfitriao: ds_emailAnfitriao }
+                where: { ds_emailContato: ds_emailAnfitriao }
             })
             
             if(anuncianteProposto){
@@ -39,8 +41,8 @@ module.exports = {
 
                 const anuncianteCriado = await ModelDadosRepublica.create({
                     ds_nomeAnfitriao: ds_nomeAnfitriao,
-                    ds_emailAnfitriao: ds_emailAnfitriao,
-                    nmr_telefoneAnfitriao: nmr_telefoneAnfitriao,
+                    ds_emailContato: ds_emailAnfitriao,
+                    nmr_telefoneContato: nmr_telefoneAnfitriao,
                     an_anoCriacao: an_anoCriacao
                 })
 
@@ -76,6 +78,7 @@ module.exports = {
 
                 const republicaCriada =  await ModelRepublica.create({
                     id_dadoRepublica: anuncianteCriado.id_dadoRepublica,
+                    id_anunciante: idAnunciante,
                     id_localizacao:  locRepublica.id_localizacao,
                     id_tipoRepublica: tipo.id_tipoRepublica,
                     id_regraRepublica: regra.id_regraRepublica,

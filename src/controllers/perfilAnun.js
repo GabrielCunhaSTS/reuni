@@ -4,10 +4,10 @@ const { Sequelize, Op, where } = require('sequelize');
 module.exports = {
     getPerfilAnunciante: async (req, res) => {
         try {
-            const idPerfil = req.session.user.id_anunciante
-            console.log("ID do usuário:", idPerfil);
+            const idAnunciante = req.session.user.id_anunciante
+            console.log("ID do usuário:", idAnunciante);
     
-            const perfil = await ModelAnunciante.findByPk(idPerfil, {
+            const perfil = await ModelAnunciante.findByPk(idAnunciante, {
                 attributes: [
                     [Sequelize.literal('id_usu'), 'id'],
                     [Sequelize.literal('nm_anunciante'), 'nome'],
@@ -25,33 +25,33 @@ module.exports = {
         }
     },
 
-    // editPerfil: async (req, res) => {
-    //     const { nome, email, descricao } = req.body;
-    //     const idUsuario = req.session.user.id_usu;
+    editPerfil: async (req, res) => {
+        const { nome, email } = req.body;
+        const idAnunciante = req.session.user.id_anunciante
 
-    //     try {
-    //         await ModelUsuario.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao}, { where: { id_usu: idUsuario } });
+        try {
+            await ModelAnunciante.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao}, { where: { id_usu: idAnunciante } });
             
-    //         res.redirect('/perfil');
-    //     } catch (error) {
-    //         console.error("Erro ao editar perfil:", error);
-    //         res.status(500).send('Erro ao editar perfil');
-    //     }
-    // },
+            res.redirect('/perfil');
+        } catch (error) {
+            console.error("Erro ao editar perfil:", error);
+            res.status(500).send('Erro ao editar perfil');
+        }
+    },
 
-    // deletePerfil: async(req,res) =>{
-    //     const idUsuario = req.session.user.id_usu
+    deletePerfil: async(req,res) =>{
+        const idAnunciante = req.session.user.id_anunciante
 
-    //     try{
+        try{
 
-    //         await ModelUsuario.destroy({ where: { id_usu: idUsuario}})
+            await ModelAnunciante.destroy({ where: { id_anunciante: idAnunciante}})
 
-    //         res.redirect('/')
+            res.redirect('/')
 
-    //     }catch(error){
-    //         console.error("Erro ao editar perfil:", error);
-    //         res.status(500).send('Erro ao editar perfil');
-    //     }
-    // }
+        }catch(error){
+            console.error("Erro ao editar perfil:", error);
+            res.status(500).send('Erro ao editar perfil');
+        }
+    }
 
 };

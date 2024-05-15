@@ -5,22 +5,24 @@ const { Sequelize, Op, where } = require('sequelize');
 module.exports = {
     getPerfil: async (req, res) => {
         try {
-            const idPerfil = req.session.user.id_usu;
-            console.log("ID do usuário:", idPerfil);
+            const idUsuario = req.session.user.id_usu;
+            console.log("ID do usuário:", idUsuario);
     
-            const perfil = await ModelUsuario.findByPk(idPerfil, {
+            const perfil = await ModelUsuario.findByPk(idUsuario, {
                 attributes: [
-                    'nm_usu',
-                    'sx_sexoUsu',
-                    'qt_idade',
-                    'ds_cpfUsu',
-                    'ds_emailUsu',
-                    'ds_descricaoPerfil',
-                    'id_estadoOrigem'
+                    [Sequelize.literal('id_usu'), 'id'],
+                    [Sequelize.literal('nm_usu'), 'nome'],
+                    [Sequelize.literal('sx_sexoUsu'), 'sexo'],
+                    [Sequelize.literal('ds_emailUsu'), 'email'],
+                    [Sequelize.literal('qt_idade'), 'idade'],
+                    [Sequelize.literal('ds_cpfUsu'), 'cpf'],
+                    [Sequelize.literal('ds_descricaoPerfil'), 'descricao'],
+                    [Sequelize.literal('nm_estadoOrigem'), 'estado']
                 ],
-                include: {
+                include:  {
                     model: ModelEstado,
-                    attributes: ['nm_estadoOrigem']
+                    attributes: [],
+                    required: true
                 }
             });
             console.log("Perfil do usuário:", perfil); 
@@ -38,7 +40,7 @@ module.exports = {
         try {
             await ModelUsuario.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao}, { where: { id_usu: idUsuario } });
             
-            res.redirect('/perfil');
+            res.redirect('/perfil-Usuario');
         } catch (error) {
             console.error("Erro ao editar perfil:", error);
             res.status(500).send('Erro ao editar perfil');

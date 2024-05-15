@@ -31,7 +31,7 @@ router.get('/pesquisaUsu/:nm_digit', search.getRepByName);
 router.get('/pesquisaUsu', checkAuth, search.getAllRep);
 
 
-router.get('/perfilU', checkAuth, perfilU.getPerfil);
+router.get('/perfil', checkAuth, perfilU.getPerfil);
 router.post('/perfil/editar', perfilU.editPerfil);
 router.get('/perfil/delete', perfilU.deletePerfil);
 

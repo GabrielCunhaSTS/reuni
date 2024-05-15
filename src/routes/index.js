@@ -1,41 +1,45 @@
-const express = require('express')
-const router = express.Router()
-const logout = require('../controllers/logout')
-const login = require('../controllers/login')
-const registrar = require('../controllers/registerUsuAuth')
-const search = require('../controllers/search')
-const registrarRep = require('../controllers/registerRepAuth')
-const perfilU = require('../controllers/perfilUsu')
+const express = require('express');
+const router = express.Router();
+const logout = require('../controllers/logout');
+const login = require('../controllers/login');
+const registrar = require('../controllers/registerUsuAuth');
+const search = require('../controllers/search');
+const registrarRep = require('../controllers/registerRepAuth');
+const perfilU = require('../controllers/perfilUsu');
+const perfilA = require('../controllers/perfilAnun');
 
-function checkAuth(req, resp, next){
-    if(req.session.user){
-        next()
-    } else{
-        resp.redirect('/')
+
+function checkAuth(req, res, next) {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect('/');
     }
 }
 
-//registro de ambos tipos de usuario
-router.post('/auth/signInU', registrar.registerUsuario)
-router.post('/auth/signInA', registrar.registerAnunciante)
+// Registro de ambos tipos de usuário
+router.post('/auth/signInU', registrar.registerUsuario);
+router.post('/auth/signInA', registrar.registerAnunciante);
 
-//login de ambos os tipos de usuarios
-router.post('/auth/loginU', login.log)
-router.post('/auth/loginA', login.logAnunciante)
+// Login de ambos os tipos de usuários
+router.post('/auth/loginU', login.log);
+router.post('/auth/loginA', login.logAnunciante);
 
-router.get('/auth/logout', logout.logout)
+router.get('/auth/logout', logout.logout);
 
-router.post('/auth/cadRep', registrarRep.registerRepublica)
+router.post('/auth/cadRep', registrarRep.registerRepublica);
 
 router.get('/pesquisaUsu/:nm_digit', search.getRepByName);
 router.get('/pesquisaUsu', checkAuth, search.getAllRep);
 
+router.get('/perfil-Usuario', checkAuth, perfilU.getPerfil);
+router.get('/perfil-Anunciante', checkAuth, perfilA.getPerfilAnunciante);
 
-router.get('/perfil', checkAuth, perfilU.getPerfil);
+
+
 router.post('/perfil/editar', perfilU.editPerfil);
-router.get('/perfil/delete', perfilU.deletePerfil);
+router.post('/perfil/delete', perfilU.deletePerfil);
 
-router.get('/perfil-Republica', checkAuth, search.getPerfilUrl)
-   
+router.get('/perfil-Republica', checkAuth, search.getPerfilUrl);
 
-module.exports = router
+module.exports = router;

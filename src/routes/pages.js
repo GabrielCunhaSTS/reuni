@@ -52,6 +52,10 @@ router.get('/perfil-Usuario', checkAuth, (req, resp) => {
     resp.render('perfilUsu')
 })
 
+router.get('/perfil-Anunciante',  (req, resp) => {
+    resp.render('perfilAnun')
+})
+
 router.get('/editar-perfil', checkAuth,(req, resp) => {
     resp.render('editar-perfil')
 })

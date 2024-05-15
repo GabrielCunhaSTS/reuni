@@ -31,8 +31,12 @@ const ModelUsuario = conecBanco.define('tb_usuario', {
     ds_descricaoPerfil: {
         type: DataTypes.STRING(500),
     },
-    id_estadoOrigem: { 
-        type: DataTypes.INTEGER.UNSIGNED, 
+    id_estadoOrigem: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        references: {
+            model: 'tb_estadoOrigem', // Nome da tabela referenciada
+            key: 'id_estadoOrigem'
+        }
     }
 }, _padraoTableBDExistente('tb_usuario')) 
 

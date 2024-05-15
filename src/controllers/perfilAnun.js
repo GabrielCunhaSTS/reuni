@@ -9,7 +9,7 @@ module.exports = {
     
             const perfil = await ModelAnunciante.findByPk(idAnunciante, {
                 attributes: [
-                    [Sequelize.literal('id_usu'), 'id'],
+                    [Sequelize.literal('id_anunciante'), 'id'],
                     [Sequelize.literal('nm_anunciante'), 'nome'],
                     [Sequelize.literal('sg_sexoAnunci'), 'sexo'],
                     [Sequelize.literal('ds_emailAunci'), 'email'],

@@ -40,7 +40,7 @@ module.exports= {
                     req.flash("success_msg", `Seja Bem-vindo(a) ${dadosUsu.nm_usu}`)
                     console.log(token)
                     
-                    console.log("ID do usuário na sessão:", req.session.user);   
+                    console.log("ID do usuário na sessão:", req.session.user.id_usu);   
                     return resp.redirect('/pesquisaUsu')
                 }catch(erro){
                     console.error(erro)

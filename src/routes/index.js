@@ -36,8 +36,7 @@ router.get('/perfil-Usuario', checkAuth, perfilU.getPerfil);
 router.get('/perfil-Anunciante', checkAuth, perfilA.getPerfilAnunciante);
 
 
-
-router.post('/perfil/editar', perfilU.editPerfil);
+router.post('/perfilUsu/editar', perfilU.editPerfil);
 router.post('/perfil/delete', perfilU.deletePerfil);
 
 router.get('/perfil-Republica', checkAuth, search.getPerfilUrl);

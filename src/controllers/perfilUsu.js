@@ -42,7 +42,7 @@ module.exports = {
         try {
             await ModelUsuario.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao }, { where: { id_usu: idUsuario } });
 
-            res.redirect('/perfil');
+            res.redirect('/perfil-Usuario');
         } catch (error) {
             console.error("Erro ao editar perfil:", error);
             res.status(500).send('Erro ao editar perfil');

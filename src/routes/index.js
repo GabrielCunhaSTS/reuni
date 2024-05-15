@@ -7,7 +7,7 @@ const search = require('../controllers/search');
 const registrarRep = require('../controllers/registerRepAuth');
 const perfilU = require('../controllers/perfilUsu');
 const perfilA = require('../controllers/perfilAnun');
-
+const mrepublicas = require('../controllers/minhasRepublicas')
 
 function checkAuth(req, res, next) {
     if (req.session.user) {
@@ -35,6 +35,8 @@ router.get('/pesquisaUsu', checkAuth, search.getAllRep);
 router.get('/perfil-Usuario', checkAuth, perfilU.getPerfil);
 router.get('/perfil-Anunciante', checkAuth, perfilA.getPerfilAnunciante);
 
+
+router.get('/minhas-republicas', mrepublicas.getAllRep)
 
 router.post('/perfilUsu/editar', perfilU.editPerfil);
 router.post('/perfil/delete', perfilU.deletePerfil);

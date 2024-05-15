@@ -60,5 +60,9 @@ router.get('/editar-perfil', checkAuth,(req, resp) => {
     resp.render('editar-perfil')
 })
 
+router.get('/minhas-republicas', checkAuth,(req, resp) => {
+    resp.render('minhasrepublicas')
+})
+
 
 module.exports = router

@@ -31,9 +31,7 @@ getAllRep: async(req, res) => {
                 [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
                 [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],
             ],
-            where: {
-                idAnunciante: idAnunciante
-            },
+            where: { id_anunciante: idAnunciante },
             raw: true,
             include: [
                 {
@@ -54,7 +52,7 @@ getAllRep: async(req, res) => {
                 }
             ]
         });
-        res.render('pesquisaUsu',{ republicas: resultados });
+        res.render('minhasrepublicas',{ Mrepublicas: resultados });
 
             
     } catch (error) {

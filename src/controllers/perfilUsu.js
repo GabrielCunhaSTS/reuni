@@ -21,7 +21,7 @@ module.exports = {
                 ],
                 include: {
                     model: ModelEstado,
-                    attributes: [], // Não selecionar atributos adicionais de ModelEstado
+                    attributes: [],
                     required: true
                 }
             });

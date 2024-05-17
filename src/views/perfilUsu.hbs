@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="perfilusuario.css">
 </head>
 <body>
 
@@ -15,14 +16,20 @@
     <p>Descrição do Perfil: {{perfil.descricao}}</p>
     <p>Estado de Origem: {{perfil.estado}}</p>
 
-    <form action="/perfil/delete" method="post">
-        <button type="submit">Excluir conta</button>
+   <form id="deleteForm" action="/perfil/delete" method="post">
+        <button type="button" id="deleteButton">Excluir conta</button>
     </form>
-    <form action="/auth/perfil" method="post">
-        <button type="submit">Editar perfil</button>
-    </form>
+    
+<div id="confirmModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Você tem certeza que deseja excluir a sua conta? Esta ação não pode ser desfeita.</p>
+        <button id="confirmDeleteButton">Excluir</button>
+        <button id="cancelButton">Cancelar</button>
+    </div>
+</div>
 
-
+<script src="/confirmacaoDelete.js"></script>
 
     <a href="/editar-perfil"><button>Editar Perfil</button></a>
 </body>

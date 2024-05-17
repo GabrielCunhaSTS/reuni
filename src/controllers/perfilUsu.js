@@ -1,6 +1,7 @@
 const { ModelUsuario } = require('../models/ModelUsuario');
 const { ModelEstado } = require('../models/ModelEstado');
 const { Sequelize } = require('sequelize');
+const { ModelImagem } = require('../models/ModelImage');
 
 module.exports = {
     getPerfil: async (req, res) => {
@@ -10,15 +11,20 @@ module.exports = {
 
             const perfil = await ModelUsuario.findByPk(idUsuario, {
                 attributes: [
-                    ['id_usu', 'id'],
-                    ['nm_usu', 'nome'],
-                    ['sx_sexoUsu', 'sexo'],
-                    ['ds_emailUsu', 'email'],
-                    ['qt_idade', 'idade'],
-                    ['ds_cpfUsu', 'cpf'],
-                    ['ds_descricaoPerfil', 'descricao'],
-                    [Sequelize.col('tb_estadoOrigem.nm_estadoOrigem'), 'estado']
+                    [Sequelize.literal('id_usu'), 'id'],
+                    [Sequelize.literal('nm_usu'), 'nome'],
+                    [Sequelize.literal('sx_sexoUsu'), 'sexo'],
+                    [Sequelize.literal('ds_emailUsu'), 'email'],
+                    [Sequelize.literal('qt_idade'), 'idade'],
+                    [Sequelize.literal('ds_cpfUsu'), 'cpf'],
+                    [Sequelize.literal('ds_descricaoPerfil'), 'descricao'],
+                    [Sequelize.literal('nm_estadoOrigem'), 'estado']
                 ],
+                include: {
+                    model: ModelImagem,
+                    attributes: [],
+                    required: true
+                },
                 include: {
                     model: ModelEstado,
                     attributes: [],

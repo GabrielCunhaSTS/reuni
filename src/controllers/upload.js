@@ -1,18 +1,24 @@
 const { ModelImagem } = require('../models/ModelImage');
+const { ModelUsuario } = require('../models/ModelUsuario');
 
 module.exports = {
     uploadImage: async (req, res) => {
         try {
-            // Verifica se o arquivo foi carregado
             if (!req.file) {
                 return res.status(400).send('Nenhum arquivo foi carregado.');
             }
     
-            // Salva as informações da imagem no banco de dados
             const newImage = await ModelImagem.create({
                 nome_imagem: req.file.filename,
                 nome_arquivo: req.file.path
             });
+
+            const idUsuario = req.session.user.id_usu;
+            
+            await ModelUsuario.update(
+                { id_imagem: newImage.id_imagem },
+                { where: { id_usu: idUsuario } }
+            );
     
             res.redirect('/perfil-Usuario');
         } catch (error) {

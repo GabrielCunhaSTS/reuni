@@ -36,6 +36,10 @@ router.get('/pesquisa', checkAuth, (req, resp) => {
     resp.render('pesquisaUsu')
 })
 
+router.get('/teste', (req, resp) => {
+    resp.render('teste')
+})
+
 router.get('/pesquisaAnun', checkAuth, (req, resp) => {
     resp.render('pesquisaAnun')
 })

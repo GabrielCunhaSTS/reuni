@@ -1,10 +1,12 @@
-const { conecBanco, bd } = require('./src/config/bdConec')
 const express = require('express')
-const session = require('express-session')
+const { conecBanco, bd } = require('./src/config/bdConec')
 const appWeb = express()
 const bodyParser = require('body-parser')
 const path = require('path')
 const routes = require('./src/routes/index')
+
+const session = require('express-session')
+const multer = require('multer');
 const cookieParser =  require('cookie-parser')
 const { json } = require('sequelize')
 const flash =  require ('connect-flash')
@@ -13,6 +15,7 @@ appWeb.use(bodyParser.urlencoded({ extended: false }));
 appWeb.use(express.json())
 appWeb.use(cookieParser())
 appWeb.use(flash())
+
 //criando uma seção com cookies 
 appWeb.use(session({
     secret:'ReUni',
@@ -30,11 +33,14 @@ appWeb.use((req,resp,next) => {
 appWeb.use('/', routes)
 appWeb.use(express.static('public'));
 
+const UpDirectory = path.join(__dirname, 'src/uploads')
+appWeb.use(express.static(UpDirectory))
+
 appWeb.set('view engine', 'hbs')// setando o padrao de vizualização para aquivos views
 appWeb.set('views', path.join(__dirname, 'src/views'))
 
-const PublicDirecty = path.join(__dirname, 'src/public') //diretorio de css
-appWeb.use(express.static(PublicDirecty))
+const PublicDirectory = path.join(__dirname, 'src/public') //diretorio de css
+appWeb.use(express.static(PublicDirectory))
 
 const imgDirectory = path.join(__dirname, 'src/res') //diretorio de imagem
 appWeb.use(express.static(imgDirectory))

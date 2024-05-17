@@ -9,6 +9,17 @@ create table tb_estadoOrigem(
     nm_estadoOrigem varchar(100)
 );
 
+create table tb_imagem(
+id_imagem int auto_increment primary key,
+nome_imagem varchar(200),
+nome_arquivo varchar(200)
+);
+
+select * from tb_imagem;
+	
+DESCRIBE tb_imagem;
+
+
 create table tb_usuario(
 	id_usu int auto_increment not null primary key,
     nm_usu varchar(100) not null,
@@ -18,7 +29,11 @@ create table tb_usuario(
     ds_emailUsu varchar(150) not null,
     ds_senhaUsu varchar(100) not null,
     ds_descricaoPerfil varchar(500),
+    id_imagem int,
     id_estadoOrigem int,
+    
+    constraint foreign key (id_imagem)
+    references tb_imagem(id_imagem),
     
     constraint foreign key (id_estadoOrigem)
     references tb_estadoOrigem(id_estadoOrigem)
@@ -47,6 +62,8 @@ create table tb_DadosRepublicas(
 
 select * from tb_DadosRepublicas;
 
+select nm_usu, nome_imagem from tb_usuario
+	join tb_imagem on (tb_usuario.id_imagem = tb_imagem.id_imagem);
 
 create table tb_localizacaoRepublica(
 	id_localizacao int auto_increment not null primary key,

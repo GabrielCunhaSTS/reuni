@@ -8,7 +8,7 @@ const registrarRep = require('../controllers/registerRepAuth');
 const perfilU = require('../controllers/perfilUsu');
 const perfilA = require('../controllers/perfilAnun');
 const mrepublicas = require('../controllers/minhasRepublicas')
-const imagem = require('../controllers/upload')
+const image = require('../controllers/upload')
 const multer = require('../middleware/multer')
 
 function checkAuth(req, res, next) {
@@ -43,7 +43,7 @@ router.get('/minhas-republicas', mrepublicas.getAllRep)
 router.post('/perfilUsu/editar', perfilU.editPerfil);
 router.post('/perfil/delete', perfilU.deletePerfil);
 
-router.post('/upload', multer.single('image'), imagem.uploadImage);
+router.post('/upload', multer.single('image'), image.uploadImage);
 
 router.get('/perfil-Republica', checkAuth, search.getPerfilUrl);
 

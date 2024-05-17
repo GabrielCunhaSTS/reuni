@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { conecBanco } = require('../config/bdConec');
+const { _padraoTableBDExistente } = require('../config/configTabelasBD');
+const { ModelUsuario } = require('./ModelUsuario');
 
 const ModelImagem = conecBanco.define('tb_imagem', {
     id_imagem: {
@@ -14,8 +16,14 @@ const ModelImagem = conecBanco.define('tb_imagem', {
     nome_arquivo: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    id_usu:{
+        type:DataTypes.INTEGER
     }
-});
+}, _padraoTableBDExistente('tb_imagem'));
+
+ModelUsuario.hasMany(ModelImagem, {foreignKey: 'id_usu'})
+ModelImagem.belongsTo(ModelUsuario, {foreignKey: 'id_usu'})
 
 module.exports = {
     ModelImagem

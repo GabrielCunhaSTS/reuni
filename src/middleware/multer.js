@@ -1,29 +1,33 @@
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
 
-// Diretório de destino para salvar os uploads
-const uploadDirectory = path.join(__dirname, '..', 'uploads');
-
-// Configuração do multer para armazenar arquivos localmente
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, uploadDirectory); // Usar o diretório de uploads
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname)); // Nome do arquivo único
-    }
-});
-
-// Filtro para permitir apenas uploads de imagens
 const fileFilter = (req, file, cb) => {
-    if (file.mimetype.startsWith('image/')) {
+    if (file.mimetype.startsWith('image')) {
         cb(null, true);
     } else {
-        cb(new Error('Apenas arquivos de imagem são permitidos'), false);
+        cb('Apenas arquivos de imagem são permitidos', false);
     }
 };
 
-const upload = multer({ storage: storage, fileFilter: fileFilter });
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+
+        const pathDestino = path.join(__dirname, "../uploads/");
+        if (!fs.existsSync(pathDestino)) {
+            fs.mkdirSync(pathDestino, { recursive: true });
+        }
+        cb(null, pathDestino);
+    },
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}_projImgTest_${file.originalname}`); // Nome do arquivo único
+    }
+});
+
+
+const upload = multer({
+    storage: storage, 
+    fileFilter: fileFilter });
 
 module.exports = upload;
         

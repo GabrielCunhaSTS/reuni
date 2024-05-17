@@ -4,7 +4,7 @@ const appWeb = express()
 const bodyParser = require('body-parser')
 const path = require('path')
 const routes = require('./src/routes/index')
-
+const { imgPerfil } =require('./src/controllers/upload')
 const session = require('express-session')
 const multer = require('multer');
 const cookieParser =  require('cookie-parser')
@@ -16,6 +16,7 @@ appWeb.use(express.json())
 appWeb.use(cookieParser())
 appWeb.use(flash())
 
+
 //criando uma seção com cookies 
 appWeb.use(session({
     secret:'ReUni',
@@ -23,6 +24,8 @@ appWeb.use(session({
     saveUninitialized:true,
     cookie: {maxAge: 60 * 60 * 2300}
 }))
+
+appWeb.use(imgPerfil)
 
 appWeb.use((req,resp,next) => {
     resp.locals.success_msg =  req.flash("success_msg")
@@ -33,8 +36,9 @@ appWeb.use((req,resp,next) => {
 appWeb.use('/', routes)
 appWeb.use(express.static('public'));
 
-const UpDirectory = path.join(__dirname, 'src/uploads')
-appWeb.use(express.static(UpDirectory))
+
+const Img = path.join(__dirname, 'src/uploads')
+appWeb.use( '/up',express.static(Img))
 
 appWeb.set('view engine', 'hbs')// setando o padrao de vizualização para aquivos views
 appWeb.set('views', path.join(__dirname, 'src/views'))

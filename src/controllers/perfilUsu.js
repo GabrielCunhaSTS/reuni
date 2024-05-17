@@ -21,11 +21,6 @@ module.exports = {
                     [Sequelize.literal('nm_estadoOrigem'), 'estado']
                 ],
                 include: {
-                    model: ModelImagem,
-                    attributes: [],
-                    required: true
-                },
-                include: {
                     model: ModelEstado,
                     attributes: [],
                     required: true

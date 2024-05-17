@@ -2,6 +2,7 @@ const { ModelRepublica } = require('../models/modelRepublica');
 const { ModelTipoRepublica } = require('../models/ModelTipoRepublica');
 const { ModelAlguel } = require('../models/ModelAluguel');
 const { ModelLocalizacaoRepublica } = require('../models/ModelLocalizacaoRepublica');
+const { ModelDadosRepublica} = require('../models/ModelDadosRepublicas')
 const { Sequelize, Op } = require('sequelize');
 
 
@@ -107,7 +108,7 @@ module.exports = {
                 ]
             });
     
-            res.render('pesquisaUsu',{ republicas: resultados });
+            res.render('pesquisa',{ republicas: resultados });
             
         } catch (error) {
             console.error("Erro ao pesquisar repúblicas:", error);
@@ -122,9 +123,12 @@ module.exports = {
                 attributes:[
                     [Sequelize.literal('id_republica'), 'id'],
                     [Sequelize.literal('ds_nomeRepublica'), 'nome'],
+                    [Sequelize.literal('ds_descricaoRepublica'), 'descricao'],
+                    [Sequelize.literal('an_anoCriacao'), 'anoDeCriacao'],
                     [Sequelize.literal('ds_tipoRepublica'), 'tipo'],
                     [Sequelize.literal('vl_valorMensal'), 'aluguel'],
                     [Sequelize.literal('ds_cidade'), 'cidade'],
+                    [Sequelize.literal('ds_bairro'), 'bairro'],
                     [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
                     [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],
                 ],
@@ -132,6 +136,11 @@ module.exports = {
                 include: [
                     {
                         model: ModelAlguel,
+                        attributes: [],
+                        required: true
+                    },
+                    {
+                        model: ModelDadosRepublica,
                         attributes: [],
                         required: true
                     },

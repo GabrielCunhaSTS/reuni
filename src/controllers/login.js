@@ -41,7 +41,7 @@ module.exports= {
                     console.log(token)
                     
                     console.log("ID do usuário na sessão:", req.session.user.id_usu);   
-                    return resp.redirect('/pesquisaUsu')
+                    return resp.redirect('/pesquisa')
                 }catch(erro){
                     console.error(erro)
                     console.log(req.body)

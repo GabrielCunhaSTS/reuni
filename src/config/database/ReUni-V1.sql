@@ -93,6 +93,7 @@ create table tb_aluguel(
 create table tb_republica(
 	id_republica int auto_increment not null primary key,
     id_dadoRepublica int,
+    id_anunciante int,
     id_localizacao int,
     id_tipoRepublica int,
     id_regraRepublica int,
@@ -101,6 +102,9 @@ create table tb_republica(
     ds_nomeRepublica varchar(50) not null,
     ds_descricaoRepublica varchar(500) not null,
     
+    constraint foreign key (id_anunciante)
+    references tb_anunciante(id_anunciante),
+
     constraint foreign key (id_dadoRepublica)
     references tb_DadosRepublicas(id_dadoRepublica),
     

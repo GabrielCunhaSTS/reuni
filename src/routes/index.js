@@ -29,8 +29,8 @@ router.get('/auth/logout', logout.logout);
 
 router.post('/auth/cadRep', registrarRep.registerRepublica);
 
-router.get('/pesquisaUsu/:nm_digit', search.getRepByName);
-router.get('/pesquisaUsu', checkAuth, search.getAllRep);
+router.get('/pesquisa/:nm_digit', search.getRepByName);
+router.get('/pesquisa', checkAuth, search.getAllRep);
 
 router.get('/perfil-Usuario', checkAuth, perfilU.getPerfil);
 router.get('/perfil-Anunciante', checkAuth, perfilA.getPerfilAnunciante);

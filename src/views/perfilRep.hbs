@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,13 @@
     <link rel="stylesheet" href="perfil.css">
     <link rel="icon" href="/reuni.png">
 </head>
+
 <body>
     <header>
-        <a href="/pesquisa"><img src="/Voltar.png" alt="" srcset=""></a> 
-        <a href="/perfil" class="title">Re<span>Uni</span></a>
+        <a href="/pesquisa"><img src="/Voltar.png" alt="" srcset=""></a>
+        <a href="#" class="title">Re<span>Uni</span></a>
     </header>
-    <main class="galery" >
+    <main class="galery">
         <div class="content">
             <div class="slides">
                 <input type="radio" name="slide" id="slide1" checked>
@@ -49,15 +51,15 @@
     <section class="tittle-fav">
         <div>
             <h1>{{ republica.nome }}</h1>
-            <p>{{ republica.cidade }}, <p>{{ republica.cidade }}</p></p>
+            <p>{{ republica.cidade }}, {{ republica.bairro }}</p>
         </div>
         <div>
             <button><img src="/icon-coracao 1.png" alt="" srcset=""></button>
         </div>
     </section>
     <svg class="hr-maior" xmlns="http://www.w3.org/2000/svg" width="582" height="2" viewBox="0 0 582 2" fill="none">
-        <path d="M0.015625 1H581.016" stroke="#6EB6FF" stroke-width="2"/>
-      </svg>
+        <path d="M0.015625 1H581.016" stroke="#6EB6FF" stroke-width="2" />
+    </svg>
     <main class="container-desc">
         <div class="desc">
             <div class="tittle">
@@ -65,11 +67,11 @@
                 <hr>
             </div>
             <div class="text">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500sLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500sLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500sLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500sLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                <p>{{ republica.descricao }}</p>
             </div>
             <hr class="hr-maior-2">
         </div>
-        
+
         <div class="contact">
             <div class="box">
                 <div class="icon-nome">
@@ -78,20 +80,25 @@
                 </div>
                 <div class="container-infos">
                     <div>
-                        <img src="/Vector 1.png" alt="" srcset=""> <p>Desde 17/11/2019</p>
+                        <img src="/Vector 1.png" alt="" srcset="">
+                        <p>Desde {{ republica.anoDeCriacao }}</p>
                     </div>
                     <div>
-                        <img src="/Vector.png" alt="" srcset=""> <p>{{ republica.banheiro }} Banheiros</p>
-                    </div>  
+                        <img src="/Vector.png" alt="" srcset="">
+                        <p>{{ republica.banheiro }} Banheiros</p>
+                    </div>
                     <div>
-                        <img src="/Vector (1).png" alt="" srcset=""><p>{{ republica.quarto }} Quartos</p>
-                    </div>  
+                        <img src="/Vector (1).png" alt="" srcset="">
+                        <p>{{ republica.quarto }} Quartos</p>
+                    </div>
                     <div>
-                        <img src="/image 4.png" alt="" srcset=""> <p>{{ republica.tipo }}</p>
-                    </div>  
-                    <div>
-                        <img src="/icon.png" alt="" srcset=""> <p>2 Vagas Disponíveis</p>
-                    </div>                      
+                        <img src="/image 4.png" alt="" srcset="">
+                        <p>{{ republica.tipo }}</p>
+                    </div>
+                    {{!-- <div>
+                        <img src="/icon.png" alt="" srcset="">
+                        <p>2 Vagas Disponíveis</p>
+                    </div> --}}
                 </div>
                 <div class="button">
                     <button>Entrar em contato</button>
@@ -104,7 +111,7 @@
             <h1>Comodidas oferecidas</h1>
             <hr class="hr-menor">
         </div>
-        <div class="grid-container">        
+        <div class="grid-container">
             <img src="/Wifi.png" alt="">
             <img src="/Cozinha.png" alt="">
             <img src="/Mobiliado.png" alt="">
@@ -114,15 +121,15 @@
         </div>
     </section>
     <svg class="hr-maior" xmlns="http://www.w3.org/2000/svg" width="1164" height="3" viewBox="0 0 1164 3" fill="none">
-        <path d="M0 1.25L1163.03 1.25" stroke="#6EB6FF" stroke-width="2"/>
-      </svg>
+        <path d="M0 1.25L1163.03 1.25" stroke="#6EB6FF" stroke-width="2" />
+    </svg>
     <section class="regras">
         <div class="tittle">
             <h1>Regras do Local</h1>
             <hr class="hr-menor">
         </div>
 
-        <div class="grid-container">        
+        <div class="grid-container">
             <img src="/Permitido.png" alt="">
             <img src="/Permitido (1).png" alt="">
             <img src="/Permitido (2).png" alt="">
@@ -148,20 +155,20 @@
                             <img src="/mista.png">
                             Mista
                         </div>
-                            
+
                         <div>
                             <img src="/cama.png">
                             4
                         </div>
-                            
+
                         <div>
                             <img src="/banheiro.png">
                             3
-                        </div>    
+                        </div>
                     </div>
                 </div>
             </section>
-    
+
             <section class="card">
                 <div>
                     <img src="/quarto08.JPG" alt="Quarto de uma república" class="imgQuarto ">
@@ -174,20 +181,21 @@
                             <img src="/mista.png">
                             Mista
                         </div>
-                            
+
                         <div>
                             <img src="/cama.png">
                             3
                         </div>
-                            
+
                         <div>
                             <img src="/banheiro.png">
                             2
-                        </div>    
+                        </div>
                     </div>
                 </div>
             </section>
         </container>
     </section>
 </body>
+
 </html>

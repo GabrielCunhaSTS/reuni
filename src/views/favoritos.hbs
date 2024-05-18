@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Repúblicas Favoritas</title>
+</head>
+
+<body>
+    {{#each favoritos}}
+    <div>
+        <p>Nome: {{dataValues.nome}}</p> 
+        <p>Descrição: {{dataValues.descricao}}</p>
+    </div>
+    {{/each}}
+</body>
+
+
+</html>

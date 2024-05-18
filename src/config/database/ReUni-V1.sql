@@ -4,13 +4,13 @@ create database db_ReUni;
 
 use db_ReUni;
 
-create table tb_estadoOrigem(
-	id_estadoOrigem int auto_increment not null primary key,
+create table if not exists tb_estadoOrigem(
+	id_estadoOrigem int auto_increment primary key,
     nm_estadoOrigem varchar(100)
 );
 
-create table tb_usuario(
-	id_usu int auto_increment not null primary key,
+create table if not exists tb_usuario(
+	id_usu int auto_increment primary key,
     nm_usu varchar(100) not null,
     sx_sexoUsu char(1),
     qt_idade int(2),
@@ -24,8 +24,8 @@ create table tb_usuario(
     references tb_estadoOrigem(id_estadoOrigem)
 );
 
-create table tb_anunciante(
-	id_anunciante int auto_increment not null primary key,
+create table if not exists tb_anunciante(
+	id_anunciante int auto_increment primary key,
     nm_anunciante varchar(100),
     sg_sexoAnunci char(2),		
     ds_emailAunci varchar(100),
@@ -34,22 +34,22 @@ create table tb_anunciante(
     qt_idadeAnunci char(2)
 );
 
-create table tb_imagem(
-id_imagem int auto_increment primary key,
-id_usu int,
-nome_imagem varchar(200),
-nome_arquivo varchar(200),
+create table if not exists tb_imagem(
+	id_imagem int auto_increment primary key,
+	id_usu int,
+	nome_imagem varchar(200),
+	nome_arquivo varchar(200),
 
-constraint foreign key(id_usu)
-references tb_usuario(id_usu)
+	constraint foreign key(id_usu)
+	references tb_usuario(id_usu)
 );
 
 select * from tb_imagem;
 	
 DESCRIBE tb_imagem;
 
-create table tb_DadosRepublicas(
-	id_dadoRepublica int auto_increment not null primary key,
+create table if not exists tb_DadosRepublicas(
+	id_dadoRepublica int auto_increment primary key,
     id_anunciante int,
     ds_emailContato varchar(200),
 	nmr_telefoneContato varchar(20), 
@@ -61,8 +61,8 @@ create table tb_DadosRepublicas(
 
 select * from tb_DadosRepublicas;
 
-create table tb_localizacaoRepublica(
-	id_localizacao int auto_increment not null primary key,
+create table if not exists tb_localizacaoRepublica(
+	id_localizacao int auto_increment primary key,
     ds_cep varchar(9),
     ds_estado varchar(3),
     ds_cidade varchar(100),
@@ -71,24 +71,24 @@ create table tb_localizacaoRepublica(
     ds_numero varchar(5)
 );
 
-create table tb_tipoRepublica(
-	id_tipoRepublica int auto_increment not null primary key,
+create table if not exists tb_tipoRepublica(
+	id_tipoRepublica int auto_increment primary key,
     ds_tipoRepublica varchar(200) not null,
     ds_tipoImovel varchar(200) not null,
     qtd_quartoRepublica int(3),
     qtd_banheiroRepublica int(3)
 );
 
-create table tb_regrasRepublica(
-	id_regraRepublica int auto_increment not null primary key,
+create table if not exists tb_regrasRepublica(
+	id_regraRepublica int auto_increment primary key,
 	ds_permissaoFumar boolean,
     ds_permissaoPets  boolean,
     ds_permissaoBebidasAlc  boolean,
 	ds_permissaoVisitas  boolean
 );
 
-create table tb_comodidades(
-	id_comodidade int auto_increment not null primary key,
+create table if not exists tb_comodidades(
+	id_comodidade int auto_increment primary key,
     ds_wifi boolean,
     ds_tv boolean,
     ds_cozinha boolean,
@@ -96,15 +96,15 @@ create table tb_comodidades(
     ds_arcondicionado boolean
 );
 
-create table tb_aluguel(
-	id_valorAlguel int auto_increment not null primary key,
+create table if not exists tb_aluguel(
+	id_valorAlguel int auto_increment primary key,
     ds_estadiaMin boolean,
     vl_valorMensal decimal(10,2) not null,
     ds_contasInclusas boolean
 );
 
-create table tb_republica(
-	id_republica int auto_increment not null primary key,
+create table if not exists tb_republica(
+	id_republica int auto_increment primary key,
     id_dadoRepublica int,
     id_anunciante int,
     id_localizacao int,
@@ -137,7 +137,19 @@ create table tb_republica(
     references tb_comodidades(id_comodidade)
 );
 
+create table if not exists tb_favoritos(
+	id_favorito int auto_increment primary key,
+    id_usu int,
+    id_republica int,
+    
+    constraint foreign key (id_usu)
+    references tb_usuario(id_usu),
+    
+    constraint foreign key (id_republica)
+    references tb_republica (id_republica)
+);
 
+select * from tb_favoritos;	
 #INSERTS
 
 -- inserir na tb_estadoOrigem
@@ -352,7 +364,6 @@ select nm_estadoOrigem, COUNT(*) as 'QTD usuarios por nacionalidade'
 		join tb_estadoOrigem
 			 on (tb_estadoOrigem.id_estadoOrigem = tb_usuario.id_estadoOrigem)	
 				group by nm_estadoOrigem;	
-			
 
 select nm_usu, id_estadoOrigem 
 	from tb_usuario as usu

@@ -33,7 +33,7 @@ function exibirResultado(data) {
         li.innerHTML = `
         <div class ="lista" >
             <div class="section-item">
-                <a href="/perfil?id=${republica.id}">
+                <a href="/perfil-Republica?id=${republica.id}">
                     <div class="img">
                         <img href="/perfil" src="/pexels-timesaverhacks-1080721.jpg" alt="">
                     </div>

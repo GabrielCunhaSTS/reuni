@@ -84,7 +84,7 @@ ModelTipoRepublica.hasMany(ModelRepublica, { foreignKey: 'id_tipoRepublica' })
 ModelRepublica.belongsTo(ModelTipoRepublica, { foreignKey: 'id_tipoRepublica' })
 
 ModelAlguel.hasMany(ModelRepublica, { foreignKey: 'id_valorAlguel' })
-ModelRepublica.belongsTo(ModelAlguel, { foreignKey: 'id_valorAlguel' })
+ModelRepublica.belongsTo(ModelAlguel, { foreignKey: 'id_valorAlguel' });
 
 ModelLocalizacaoRepublica.hasMany(ModelRepublica, { foreignKey: 'id_localizacao' })
 ModelRepublica.belongsTo(ModelLocalizacaoRepublica, { foreignKey: 'id_localizacao' })

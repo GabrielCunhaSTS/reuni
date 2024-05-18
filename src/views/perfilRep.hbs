@@ -54,7 +54,10 @@
             <p>{{ republica.cidade }}, {{ republica.bairro }}</p>
         </div>
         <div>
-            <button><img src="/icon-coracao 1.png" alt="" srcset=""></button>
+            <form action="/favoritos" method="POST">
+                <input type="hidden" name="republica_id" value="{{ republica.id }}">
+                <button type="submit"><img src="/icon-coracao 1.png" alt="" srcset=""></button>
+            </form>
         </div>
     </section>
     <svg class="hr-maior" xmlns="http://www.w3.org/2000/svg" width="582" height="2" viewBox="0 0 582 2" fill="none">

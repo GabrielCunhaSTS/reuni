@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -23,7 +24,7 @@ body, html {
 
 .alert {
   z-index: 4;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -33,10 +34,12 @@ body, html {
   left: 50%;
   top: 10%;
   transform: translate(-50%, -50%);
-  transition: opacity 2s; 
+  transition: opacity 2s;
 }
+
 .fade-out {
-  opacity: 0; /* Opacidade reduzida para 0 */
+  opacity: 0;
+  /* Opacidade reduzida para 0 */
 }
 
 .success {
@@ -45,8 +48,8 @@ body, html {
   justify-content: center;
   width: 100%;
   background-color: #b2e2fc;
-  color: #215487; 
-  border: 1px solid #86cdff; 
+  color: #215487;
+  border: 1px solid #86cdff;
   padding: 15px;
   border-radius: 4px;
 }
@@ -57,15 +60,15 @@ body, html {
   justify-content: center;
   width: 100%;
   background-color: #e7747a;
-  color: #000000; 
-  border: 1px solid #dd6060; 
+  color: #000000;
+  border: 1px solid #dd6060;
   padding: 15px;
   border-radius: 4px;
 }
 
 
 .box-login {
-  text-align: center ;
+  text-align: center;
   background-color: #fff;
   width: 678px;
   height: 778px;
@@ -75,7 +78,9 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-}/*# sourceMappingURL=sass-styleRegistro.css.map */
+}
+
+/*# sourceMappingURL=sass-styleRegistro.css.map */
 
 .logo_a {
   margin: 0;
@@ -117,13 +122,13 @@ body, html {
   unicode-bidi: normal;
 }
 
-.input-login{
-    width: 70%;
-    height: 10%;
-    border-radius: 12px;
-    border: 1px solid #c7c7c7;
-    font-family: "Poppins", sans-serif;
-    padding: 12px;
+.input-login {
+  width: 70%;
+  height: 10%;
+  border-radius: 12px;
+  border: 1px solid #c7c7c7;
+  font-family: "Poppins", sans-serif;
+  padding: 12px;
 
 }
 
@@ -134,7 +139,7 @@ body, html {
   align-items: center;
 }
 
-.align-descricao-estado{
+.align-descricao-estado {
   display: flex;
   align-items: center;
   gap: 20%;
@@ -146,13 +151,13 @@ body, html {
 }
 
 .cpf {
-width: 40%;
+  width: 40%;
 }
 
 .select-sex {
   width: 20%;
   border: none;
-  box-shadow: 2px 2px 4.3px 4px rgba(0, 0, 0, 0.05);  
+  box-shadow: 2px 2px 4.3px 4px rgba(0, 0, 0, 0.05);
   border: 2px solid #ccc;
   height: 70%;
 }
@@ -161,7 +166,7 @@ width: 40%;
   width: 50%;
 }
 
-.input-login1{
+.input-login1 {
   width: 70%;
   height: 10%;
   border-radius: 12px;
@@ -170,7 +175,7 @@ width: 40%;
   padding: 12px;
 }
 
-.btn-registrar{
+.btn-registrar {
   width: 70%;
   height: 10%;
   color: #fff;
@@ -186,7 +191,7 @@ width: 40%;
   padding: 12px;
 }
 
-.btn-registrar:hover{
+.btn-registrar:hover {
   width: 74%;
   height: 12%;
   color: #fff;

@@ -115,7 +115,8 @@ module.exports = {
             res.status(500).json({ message: 'Erro interno do servidor' });
         }
 
-    }, getPerfilUrl: async (req,resp) =>{
+    },
+    getPerfilUrl: async (req,resp) =>{
         try {
             const republicaId = req.query.id;
             const republica = await ModelRepublica.findOne({

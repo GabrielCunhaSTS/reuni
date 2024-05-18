@@ -21,22 +21,23 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+}
+
 header .logo_a {
     font-family: sans-serif;
     font-size: 40px;
     padding-left: 35px;
     text-decoration: none;
     color: #000;
-  }
-  
+}
+
 
 header .logo_a span {
     color: #215487;
 }
 
 .alert {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -45,31 +46,32 @@ header .logo_a span {
     margin-bottom: 10px;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: opacity 2s; 
-  }
-  .fade-out {
+    transition: opacity 2s;
+}
+
+.fade-out {
     opacity: 0;
-  }
-  
-  .success {
+}
+
+.success {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     background-color: #b2e2fc;
-    color: #215487; 
-    border: 1px solid #86cdff; 
+    color: #215487;
+    border: 1px solid #86cdff;
     padding: 15px;
     border-radius: 4px;
-  }
-  
-.navLeft{
+}
+
+.navLeft {
     width: 85%;
     display: flex;
     align-items: center;
 }
 
-input{
+input {
     width: 100%;
     height: 30px;
     padding-left: 10px;
@@ -79,7 +81,7 @@ input{
     border-radius: 7px;
 }
 
-#resultado {    
+#resultado {
     z-index: 6;
 }
 
@@ -95,6 +97,7 @@ input{
     gap: 2vw;
     padding-right: 4%;
 }
+
 .navRight p {
     display: flex;
     align-items: center;
@@ -102,7 +105,7 @@ input{
     gap: 0.3vw;
 }
 
-.navRight p img{
+.navRight p img {
     width: 1.8vw;
     height: 1.8vw;
 }
@@ -113,7 +116,7 @@ input{
 }
 
 .navRight p:hover {
-    color:red;
+    color: red;
     transition: 1s;
 }
 
@@ -130,7 +133,7 @@ input{
     justify-content: center;
 }
 
-.sectionLeft div p{
+.sectionLeft div p {
     font-size: 1.7vw;
     align-items: center;
     display: flex;
@@ -199,7 +202,7 @@ input{
     justify-content: space-around;
 }
 
-.btnpesquisar{
+.btnpesquisar {
     width: 4.5vw;
     height: 2.7vw;
     border-radius: 1.5vw;
@@ -210,7 +213,7 @@ input{
     cursor: pointer;
 }
 
-.btnpesquisar:hover{
+.btnpesquisar:hover {
     background-color: #215487;
 }
 
@@ -250,7 +253,8 @@ aside {
     margin: 1vw 0vw 1vw 0vw;
     text-decoration: none;
 }
-.procurar p{
+
+.procurar p {
     font-size: 19px;
 }
 
@@ -276,7 +280,7 @@ aside {
     gap: 11vw;
 }
 
-.opc ul{
+.opc ul {
     display: flex;
     border: solid 1px;
     height: 2.5vw;
@@ -359,7 +363,7 @@ section h2 {
 }
 
 .card {
-    width: calc(25% - 20px); 
+    width: calc(25% - 20px);
     margin-bottom: 20px;
 }
 
@@ -370,15 +374,16 @@ section h2 {
 
 @media screen and (max-width: 768px) {
     .card {
-        width: calc(50% - 20px); 
+        width: calc(50% - 20px);
     }
 }
 
 @media screen and (max-width: 480px) {
     .card {
-        width: 100%; 
+        width: 100%;
     }
 }
+
 .card {
     width: 400px;
     background-color: #ffffff;
@@ -432,11 +437,11 @@ section h2 {
     font-size: 1.1vw;
 }
 
-.procurar > div {
+.procurar>div {
     position: relative;
 }
 
-.procurar > div > ul{
+.procurar>div>ul {
     background-color: #f1f1f1;
     position: absolute;
     top: 70%;
@@ -445,11 +450,11 @@ section h2 {
     left: -20px;
 }
 
-.procurar > div > ul li {
+.procurar>div>ul li {
     cursor: pointer;
 }
 
-.titulo-rep{
+.titulo-rep {
     display: flex;
     justify-content: center;
 }

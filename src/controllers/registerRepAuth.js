@@ -8,21 +8,21 @@ const { ModelComodidades } = require('../models/ModelComodidades')
 const { Sequelize, Op } = require('sequelize');
 
 module.exports = {
-    registerRepublica: async(req,resp) => {
-        try{
-            const { 
+    registerRepublica: async (req, resp) => {
+        try {
+            const {
                 ds_nomeAnfitriao, ds_emailAnfitriao, nmr_telefoneAnfitriao, an_anoCriacao,
 
-                ds_cep, ds_cidade, ds_estado, ds_rua, ds_bairro, ds_numero,  
+                ds_cep, ds_cidade, ds_estado, ds_rua, ds_bairro, ds_numero,
 
                 ValorMensal, estad_min, contas_inclu,
 
                 ds_nomeRepublica, ds_descricaoRepublica,
 
-                tipoRep, imovel,qtd_banheiro ,qtd_quarto,
+                tipoRep, imovel, qtd_banheiro, qtd_quarto,
 
                 fumar, pets, visitas, bebidas,
-                
+
                 wifi, tv, cozinha, estacionamento, ar_condicionado
             } = req.body
 
@@ -31,13 +31,13 @@ module.exports = {
             let anuncianteProposto = await ModelDadosRepublica.findOne({
                 where: { ds_emailContato: ds_emailAnfitriao }
             })
-            
-            if(anuncianteProposto){
+
+            if (anuncianteProposto) {
                 req.flash("error_msg", `Esse email já esta cadastrado em outra republica`)
                 return resp.redirect('/anunciar')
             }
 
-            async function criarRepublica(){
+            async function criarRepublica() {
 
                 const anuncianteCriado = await ModelDadosRepublica.create({
                     ds_nomeAnfitriao: ds_nomeAnfitriao,
@@ -50,7 +50,7 @@ module.exports = {
                     ds_cep: ds_cep,
                     ds_cidade: ds_cidade,
                     ds_estado: ds_estado,
-                    ds_rua:  ds_rua,
+                    ds_rua: ds_rua,
                     ds_bairro: ds_bairro,
                     ds_numero: ds_numero
                 })
@@ -66,20 +66,20 @@ module.exports = {
                     ds_permissaoFumar: fumar,
                     ds_permissaoPets: pets,
                     ds_permissaoBebidasAlc: bebidas,
-	                ds_permissaoVisitas: visitas
+                    ds_permissaoVisitas: visitas
                 })
 
                 const aluguel = await ModelAlguel.create({
-                    vl_valorMensal:  ValorMensal,
-                    ds_estadiaMin:  estad_min,
+                    vl_valorMensal: ValorMensal,
+                    ds_estadiaMin: estad_min,
                     ds_contasInclusas: contas_inclu
                 })
 
 
-                const republicaCriada =  await ModelRepublica.create({
+                const republicaCriada = await ModelRepublica.create({
                     id_dadoRepublica: anuncianteCriado.id_dadoRepublica,
                     id_anunciante: id_anunciante,
-                    id_localizacao:  locRepublica.id_localizacao,
+                    id_localizacao: locRepublica.id_localizacao,
                     id_tipoRepublica: tipo.id_tipoRepublica,
                     id_regraRepublica: regra.id_regraRepublica,
                     id_valorAlguel: aluguel.id_valorAlguel,
@@ -88,20 +88,20 @@ module.exports = {
                     ds_descricaoRepublica: ds_descricaoRepublica
                 })
 
-                if(republicaCriada){
+                if (republicaCriada) {
                     return resp.redirect('/pesquisaAnun')
-                }else{
-                    resp.render('anunciar', {msg: 'erro'})
+                } else {
+                    resp.render('anunciar', { msg: 'erro' })
                 }
             }
 
             criarRepublica()
 
             console.log(criarRepublica)
-        }catch(error){
+        } catch (error) {
             console.log(error)
             resp.status(500).send('erro')
+        }
     }
-}
 }
 

@@ -1,6 +1,7 @@
 document.getElementById('inputSearch').addEventListener('input', async () => {
+
     const searchTerm = document.getElementById('inputSearch').value.trim();
-    const resultadoDiv = document.getElementById('resultado');
+const resultadoDiv = document.getElementById('resultado');
 
     if (searchTerm !== '') {
         try {
@@ -22,7 +23,7 @@ function exibirResultado(data) {
 
     // <p>Descrição da República: ${republica.Descricao}</p>    
     // <p>Bairro: ${republica.Bairro}</p>
- 
+
     //----------------teste ja funcionando linakndo com o perfil da rep especifica
     //<a href="/perfil?id=${republica.id}" class="link-perfil">
 

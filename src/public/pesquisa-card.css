@@ -1,4 +1,4 @@
-ul{
+ul {
     list-style: none;
 }
 
@@ -6,7 +6,7 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.section-item a{
+.section-item a {
     width: 450px;
     max-height: 150px;
     background-color: white;
@@ -18,11 +18,11 @@ body {
     border-radius: 10px;
 }
 
-.lista{
-    width: 100%; 
-    height: 22vh; 
+.lista {
+    width: 100%;
+    height: 22vh;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     display: flex;
 }
 
@@ -72,7 +72,8 @@ body {
     font-family: inter;
     font-style: normal;
     font-weight: 700;
-    line-height: 100%; /* 30px */
+    line-height: 100%;
+    /* 30px */
     margin: 0;
 }
 
@@ -92,13 +93,14 @@ body {
     margin-top: 6%;
 }
 
-.section-item .content .valor p{
+.section-item .content .valor p {
     color: #000;
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 100%; /* 30px */
+    line-height: 100%;
+    /* 30px */
 }
 
 .section-item .content .cards {
@@ -136,5 +138,5 @@ body {
     font-weight: 700;
     line-height: 100%;
     width: 50%;
-    text-align:center;
+    text-align: center;
 }

@@ -44,9 +44,9 @@ module.exports = {
 
             const hashedPassword = await bcrypt.hash(ds_senhaUSu, 10)
 
-            async function insertUsuario(){
+            async function insertUsuario() {
                 try {
-                    
+
                     const usuario = await ModelUsuario.create({
                         nm_usu: nm_usu,
                         ds_emailUsu: ds_emailUsu,
@@ -75,7 +75,7 @@ module.exports = {
             return resp.status(500).json({ msg: 'Erro no servidor...' })
         }
     },
-    registerAnunciante: async(req, res) =>{
+    registerAnunciante: async (req, res) => {
         const {
             nm_anunciante,
             ds_emailAunci,
@@ -108,9 +108,9 @@ module.exports = {
 
             const hashedPassword = await bcrypt.hash(ds_senhaAnunci, 10)
 
-            async function insertAnunciante(){
+            async function insertAnunciante() {
                 try {
-                    
+
                     const anunciante = await ModelAnunciante.create({
                         nm_anunciante: nm_anunciante,
                         ds_emailAunci: ds_emailAunci,

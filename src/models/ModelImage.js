@@ -17,13 +17,13 @@ const ModelImagem = conecBanco.define('tb_imagem', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    id_usu:{
-        type:DataTypes.INTEGER
+    id_usu: {
+        type: DataTypes.INTEGER
     }
 }, _padraoTableBDExistente('tb_imagem'));
 
-ModelUsuario.hasMany(ModelImagem, {foreignKey: 'id_usu'})
-ModelImagem.belongsTo(ModelUsuario, {foreignKey: 'id_usu'})
+ModelUsuario.hasMany(ModelImagem, { foreignKey: 'id_usu' })
+ModelImagem.belongsTo(ModelUsuario, { foreignKey: 'id_usu' })
 
 module.exports = {
     ModelImagem

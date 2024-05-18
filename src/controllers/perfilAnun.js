@@ -6,7 +6,7 @@ module.exports = {
         try {
             const idAnunciante = req.session.user.id_anunciante
             console.log("ID do usuário:", idAnunciante);
-    
+
             const perfil = await ModelAnunciante.findByPk(idAnunciante, {
                 attributes: [
                     [Sequelize.literal('id_anunciante'), 'id'],
@@ -15,9 +15,9 @@ module.exports = {
                     [Sequelize.literal('ds_emailAunci'), 'email'],
                     [Sequelize.literal('qt_idadeAnunci'), 'idade'],
                     [Sequelize.literal('ds_cpfAnunci'), 'cpf'],
-                ], raw:true,
+                ], raw: true,
             });
-            console.log("Perfil do usuário:", perfil); 
+            console.log("Perfil do usuário:", perfil);
             res.render('perfilAnun', { perfil: perfil });
         } catch (error) {
             console.error("Erro ao obter perfil do usuário:", error);
@@ -30,8 +30,8 @@ module.exports = {
         const idAnunciante = req.session.user.id_anunciante
 
         try {
-            await ModelAnunciante.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao}, { where: { id_usu: idAnunciante } });
-            
+            await ModelAnunciante.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao }, { where: { id_usu: idAnunciante } });
+
             res.redirect('/perfil');
         } catch (error) {
             console.error("Erro ao editar perfil:", error);
@@ -39,16 +39,16 @@ module.exports = {
         }
     },
 
-    deletePerfil: async(req,res) =>{
+    deletePerfil: async (req, res) => {
         const idAnunciante = req.session.user.id_anunciante
 
-        try{
+        try {
 
-            await ModelAnunciante.destroy({ where: { id_anunciante: idAnunciante}})
+            await ModelAnunciante.destroy({ where: { id_anunciante: idAnunciante } })
 
             res.redirect('/')
 
-        }catch(error){
+        } catch (error) {
             console.error("Erro ao editar perfil:", error);
             res.status(500).send('Erro ao editar perfil');
         }

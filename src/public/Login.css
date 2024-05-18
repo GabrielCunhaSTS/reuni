@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -14,7 +15,7 @@ body, html {
 }
 
 .alert {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -23,10 +24,12 @@ body, html {
   margin-bottom: 10px;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: opacity 2s; 
+  transition: opacity 2s;
 }
+
 .fade-out {
-  opacity: 0; /* Opacidade reduzida para 0 */
+  opacity: 0;
+  /* Opacidade reduzida para 0 */
 }
 
 .success {
@@ -35,8 +38,8 @@ body, html {
   justify-content: center;
   width: 100%;
   background-color: #b2e2fc;
-  color: #215487; 
-  border: 1px solid #86cdff; 
+  color: #215487;
+  border: 1px solid #86cdff;
   padding: 15px;
   border-radius: 4px;
 }
@@ -47,15 +50,15 @@ body, html {
   justify-content: center;
   width: 100%;
   background-color: #e7747a;
-  color: #a82626; 
-  border: 1px solid #dd6060; 
+  color: #a82626;
+  border: 1px solid #dd6060;
   padding: 15px;
   border-radius: 4px;
 }
 
 
 .box-login {
-  text-align: center ;
+  text-align: center;
   background-color: #fff;
   width: 678px;
   height: 588px;
@@ -63,125 +66,127 @@ body, html {
   border-radius: 12%;
   margin-top: 10vh;
   margin-bottom: 10vh;
-}/*# sourceMappingURL=sass-styleRegistro.css.map */
+}
 
-  .box-login .txt-login .logo_a {
-    margin: 0;
-    margin-top: 6%;
-    font-family: sans-serif;
-    font-size: 40px;
-    color: #000;
-  }
-  
-  /* Estilo do texto destacado no logotipo */
-  .box-login .txt-login .logo_a span {
-    color: #215487;
-  }
-  
-  .box-login .txt-login .txt-registre-se {
-    margin: 0;
-    margin-top: 3%;
-    font-size: 190%;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-  }
-  
-  .box-login .txt-login .txt-fazer-login {
-    margin: 0;
-    margin-top: 2%;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .box-login .txt-login .txt-fazer-login a {
-    color: #215487;
-  }
-  
-  .box-login .radio-check {
-    margin-top: 5%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  
-  
-  
-  
-  .box-login .login-form {
-    padding: 5% 15% 5% 15%;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .box-login .login-form input {
-    width: 100%;
-    height: 10%;
-    border-radius: 12px;
-    border: 1px solid #c7c7c7;
-    font-family: "Poppins", sans-serif;
-    padding-left: 3%;
-    padding-top: 0;
-  }
-  
-  .box-login .login-form span {
-    color: #8F8F8F;
-    font-family: "Poppins", sans-serif;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    align-self: stretch;
-    padding-bottom: 0;
-    margin-top: 6%;
-  }
-  
-  .box-login .login-form span img {
-    margin-right: 1.5%;
-    width: 25px;
-  }
-  
-  .box-login .login-form .btn-login {
-    width: 100%;
-    height: 10%;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-    font-size: 110%;
-    border: none;
-    border-radius: 32px;
-    background-color: #c7c7c7;
-    margin-top: 10%;
-  
-  }
-  
-  .box-login .login-form .btn-login:hover {
-   cursor: no-drop;
-  
-  }
-  
-  .box-login .login-form .btn-login1 {
-    width: 100%;
-    height: 10%;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-    font-size: 110%;
-    border: none;
-    border-radius: 32px;
-    background-color: #215487;
-    margin-top: 10%;
-    cursor: pointer;
-    transition: 1s;
-  }
-  
-  .box-login .login-form .btn-login1:hover {
-    width: 104%;
-    height: 12%;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-    font-size: 125%;
-    border: none;
-    border-radius: 32px;
-    background-color: #215487;
-    margin-top: 10%;
-    cursor: pointer;
-    transition: 0.5s;
-  }
+/*# sourceMappingURL=sass-styleRegistro.css.map */
+
+.box-login .txt-login .logo_a {
+  margin: 0;
+  margin-top: 6%;
+  font-family: sans-serif;
+  font-size: 40px;
+  color: #000;
+}
+
+/* Estilo do texto destacado no logotipo */
+.box-login .txt-login .logo_a span {
+  color: #215487;
+}
+
+.box-login .txt-login .txt-registre-se {
+  margin: 0;
+  margin-top: 3%;
+  font-size: 190%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.box-login .txt-login .txt-fazer-login {
+  margin: 0;
+  margin-top: 2%;
+  font-family: "Poppins", sans-serif;
+}
+
+.box-login .txt-login .txt-fazer-login a {
+  color: #215487;
+}
+
+.box-login .radio-check {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
+.box-login .login-form {
+  padding: 5% 15% 5% 15%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box-login .login-form input {
+  width: 100%;
+  height: 10%;
+  border-radius: 12px;
+  border: 1px solid #c7c7c7;
+  font-family: "Poppins", sans-serif;
+  padding-left: 3%;
+  padding-top: 0;
+}
+
+.box-login .login-form span {
+  color: #8F8F8F;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-self: stretch;
+  padding-bottom: 0;
+  margin-top: 6%;
+}
+
+.box-login .login-form span img {
+  margin-right: 1.5%;
+  width: 25px;
+}
+
+.box-login .login-form .btn-login {
+  width: 100%;
+  height: 10%;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 110%;
+  border: none;
+  border-radius: 32px;
+  background-color: #c7c7c7;
+  margin-top: 10%;
+
+}
+
+.box-login .login-form .btn-login:hover {
+  cursor: no-drop;
+
+}
+
+.box-login .login-form .btn-login1 {
+  width: 100%;
+  height: 10%;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 110%;
+  border: none;
+  border-radius: 32px;
+  background-color: #215487;
+  margin-top: 10%;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.box-login .login-form .btn-login1:hover {
+  width: 104%;
+  height: 12%;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 125%;
+  border: none;
+  border-radius: 32px;
+  background-color: #215487;
+  margin-top: 10%;
+  cursor: pointer;
+  transition: 0.5s;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
@@ -7,7 +8,8 @@
     <link rel="icon" href="/reuni.png">
     <link rel="stylesheet" href="/Registro.css">
 </head>
-<body>   
+
+<body>
     <div class="img-background"></div>
 
     <div class="alert {{#if success_msg}}show{{/if}}{{#if error_msg}}show{{/if}}">
@@ -30,55 +32,60 @@
         </div>
         <div class="loginform" id="myform">
             <form class="form" id="cadastroForm" action="/auth/signInU" method="POST">
-                <input class="input-login" type="text" id="nm_usu" name="nm_usu" placeholder= "Digite seu nome" required><br><br>
-                <input class="input-login" type="email" id="ds_emailUsu" name="ds_emailUsu" placeholder= "Digite seu e-mail" required><br><br>
-                <input class="input-login" type="password" id="ds_senhaUSu" name="ds_senhaUSu" placeholder= "Digite sua senha" required><br><br>
-                <input class="input-login1" type="password" id="ds_senhaUSuConfirmar" name="ds_senhaUSuConfirmar" placeholder= "Confirme sua senha" required><br><br>
+                <input class="input-login" type="text" id="nm_usu" name="nm_usu" placeholder="Digite seu nome"
+                    required><br><br>
+                <input class="input-login" type="email" id="ds_emailUsu" name="ds_emailUsu"
+                    placeholder="Digite seu e-mail" required><br><br>
+                <input class="input-login" type="password" id="ds_senhaUSu" name="ds_senhaUSu"
+                    placeholder="Digite sua senha" required><br><br>
+                <input class="input-login1" type="password" id="ds_senhaUSuConfirmar" name="ds_senhaUSuConfirmar"
+                    placeholder="Confirme sua senha" required><br><br>
 
                 <div class="align-sex-idade">
                     <input class="input-login idade" type="text" name="idade" placeholder="Digite a sua Idade">
                     <input class="input-login cpf" type="text" name="cpf" placeholder="Digite Seu CPF">
-                 <select class="select-sex" name="sexo" id="">
-                    <option value="M">Masculino</option>
-                    <option value="F">Feminino</option>
-                </select>
-                
+                    <select class="select-sex" name="sexo" id="">
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+
                 </div>
-              <div class="align-descricao-estado">                 
-                 <select class="select-estado" name="estado" id="">
-                    <option value="1">Acre (AC)</option>
-                    <option value="2">Alagoas (AL)</option>
-                    <option value="3">Amapá (AP)</option>
-                    <option value="4">Amazonas (AM)</option>
-                    <option value="5">Bahia (BA)</option>
-                    <option value="6">Ceará (CE)</option>
-                    <option value="7">Distrito Federal (DF)</option>
-                    <option value="8">Espírito Santo (ES)</option>
-                    <option value="9">Goiás (GO)</option>
-                    <option value="10">Maranhão (MA)</option>
-                    <option value="11">Mato Grosso (MT)</option>
-                    <option value="12">Mato Grosso do Sul (MS)</option>
-                    <option value="13">Minas Gerais (MG)</option>
-                    <option value="14">Pará (PA)</option>
-                    <option value="15">Paraíba (PB)</option>
-                    <option value="16">Paraná (PR)</option>
-                    <option value="17">Pernambuco (PE)</option>
-                    <option value="18">Piauí (PI)</option>
-                    <option value="19">Rio de Janeiro (RJ)</option>
-                    <option value="20">Rio Grande do Norte (RN)</option>
-                    <option value="21">Rio Grande do Sul (RS)</option>
-                    <option value="22">Rondônia (RO)</option>
-                    <option value="23">Roraima (RR)</option>
-                    <option value="24">Santa Catarina (SC)</option>
-                    <option value="25">São Paulo (SP)</option>
-                    <option value="26">Sergipe (SE)</option>
-                    <option value="27">Tocantins (TO)</option>
-                </select>
-              </div>
-                <button type="submit" class="btn-registrar">Cadastrar</a></button>     
+                <div class="align-descricao-estado">
+                    <select class="select-estado" name="estado" id="">
+                        <option value="1">Acre (AC)</option>
+                        <option value="2">Alagoas (AL)</option>
+                        <option value="3">Amapá (AP)</option>
+                        <option value="4">Amazonas (AM)</option>
+                        <option value="5">Bahia (BA)</option>
+                        <option value="6">Ceará (CE)</option>
+                        <option value="7">Distrito Federal (DF)</option>
+                        <option value="8">Espírito Santo (ES)</option>
+                        <option value="9">Goiás (GO)</option>
+                        <option value="10">Maranhão (MA)</option>
+                        <option value="11">Mato Grosso (MT)</option>
+                        <option value="12">Mato Grosso do Sul (MS)</option>
+                        <option value="13">Minas Gerais (MG)</option>
+                        <option value="14">Pará (PA)</option>
+                        <option value="15">Paraíba (PB)</option>
+                        <option value="16">Paraná (PR)</option>
+                        <option value="17">Pernambuco (PE)</option>
+                        <option value="18">Piauí (PI)</option>
+                        <option value="19">Rio de Janeiro (RJ)</option>
+                        <option value="20">Rio Grande do Norte (RN)</option>
+                        <option value="21">Rio Grande do Sul (RS)</option>
+                        <option value="22">Rondônia (RO)</option>
+                        <option value="23">Roraima (RR)</option>
+                        <option value="24">Santa Catarina (SC)</option>
+                        <option value="25">São Paulo (SP)</option>
+                        <option value="26">Sergipe (SE)</option>
+                        <option value="27">Tocantins (TO)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-registrar">Cadastrar</a></button>
             </form>
         </div>
     </div>
     <script src="/msgBemvindo.js"></script>
 </body>
+
 </html>

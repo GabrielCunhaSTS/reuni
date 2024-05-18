@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,18 @@
     <link rel="icon" href="/reuni.png">
     <link rel="stylesheet" href="/Registro.css">
 </head>
+
 <body>
     <div class="img-background"></div>
 
-     <div class="alert {{#if success_msg}}show{{/if}}{{#if error_msg}}show{{/if}}">
-            {{#if success_msg}}
-                <div class="success">{{success_msg}}</div>
-            {{else}}
-                {{#if error_msg}}
-                    <div class="error">{{error_msg}}</div>
-                {{/if}}
-            {{/if}}
+    <div class="alert {{#if success_msg}}show{{/if}}{{#if error_msg}}show{{/if}}">
+        {{#if success_msg}}
+        <div class="success">{{success_msg}}</div>
+        {{else}}
+        {{#if error_msg}}
+        <div class="error">{{error_msg}}</div>
+        {{/if}}
+        {{/if}}
     </div>
 
     <div class="box-login">
@@ -29,14 +31,17 @@
         <div class="loginform" id="myform">
             <form id="loginForm" action="/auth/loginA" method="POST">
                 <div class="inputs">
-                    <input  class="input-login" type="email" id="ds_emailAunci" name="ds_emailAunci"  placeholder="Digite seu e-mail" ><br><br>
-                    <input class="input-login1" type="password" id="ds_senhaAnunci" name="ds_senhaAnunci" placeholder="Digite sua senha" required><br><br>
+                    <input class="input-login" type="email" id="ds_emailAunci" name="ds_emailAunci"
+                        placeholder="Digite seu e-mail"><br><br>
+                    <input class="input-login1" type="password" id="ds_senhaAnunci" name="ds_senhaAnunci"
+                        placeholder="Digite sua senha" required><br><br>
                 </div>
-                <button type="submit" class="btn-registrar">Login</button>     
-            </form> 
+                <button type="submit" class="btn-registrar">Login</button>
+            </form>
         </div>
     </div>
 
     <script src="/msgBemvindo.js"></script>
 </body>
+
 </html>

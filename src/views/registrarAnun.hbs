@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
@@ -7,7 +8,8 @@
     <link rel="icon" href="/reuni.png">
     <link rel="stylesheet" href="/Registro.css">
 </head>
-<body>   
+
+<body>
     <div class="img-background"></div>
 
     <div class="alert {{#if success_msg}}show{{/if}}{{#if error_msg}}show{{/if}}">
@@ -25,26 +27,31 @@
             <p class="logo_a">Re<span>Uni</span></p>
             <p class="txt-registre-se">Registre-se</p>
             <p class="txt-fazer-login">Já possui conta? <a href="/entrar-Anunciante">Login</a></p>
-            <p ><a href="/registrar-Usuario">Se registrar como estudante</a></p>
+            <p><a href="/registrar-Usuario">Se registrar como estudante</a></p>
         </div>
         <div class="loginform" id="myform">
             <form class="form" id="cadastroForm" action="/auth/signInA" method="POST">
-                <input class="input-login" type="text" id="nm_anunciante" name="nm_anunciante" placeholder= "Digite seu nome" required><br><br>
-                <input class="input-login" type="email" id="ds_emailAunci" name="ds_emailAunci" placeholder= "Digite seu e-mail" required><br><br>
-                <input class="input-login" type="password" id="ds_senhaAnunci" name="ds_senhaAnunci" placeholder= "Digite sua senha" required><br><br>
-                <input class="input-login1" type="password" id="ds_senhaAnunciConfirmar" name="ds_senhaAnunciConfirmar" placeholder= "Confirme sua senha" required><br><br>
+                <input class="input-login" type="text" id="nm_anunciante" name="nm_anunciante"
+                    placeholder="Digite seu nome" required><br><br>
+                <input class="input-login" type="email" id="ds_emailAunci" name="ds_emailAunci"
+                    placeholder="Digite seu e-mail" required><br><br>
+                <input class="input-login" type="password" id="ds_senhaAnunci" name="ds_senhaAnunci"
+                    placeholder="Digite sua senha" required><br><br>
+                <input class="input-login1" type="password" id="ds_senhaAnunciConfirmar" name="ds_senhaAnunciConfirmar"
+                    placeholder="Confirme sua senha" required><br><br>
 
                 <div class="align-sex-idade">
                     <input class="input-login idade" type="text" name="idade" placeholder="Digite a sua Idade">
                     <input class="input-login cpf" type="text" name="cpf" placeholder="Digite Seu CPF">
-                 <select class="select-sex" name="sexo" id="">
-                    <option value="M">Masculino</option>
-                    <option value="F">Feminino</option>
-                </select>
-                <button type="submit" class="btn-registrar">Cadastrar</a></button>
+                    <select class="select-sex" name="sexo" id="">
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                    <button type="submit" class="btn-registrar">Cadastrar</a></button>
             </form>
         </div>
     </div>
     <script src="/msgBemvindo.js"></script>
 </body>
+
 </html>

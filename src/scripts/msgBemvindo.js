@@ -4,5 +4,5 @@ setTimeout(() => {
 
     setTimeout(() => {
         alertElement.remove();
-    }, 2000); 
+    }, 2000);
 }, 3000);

@@ -28,7 +28,7 @@ module.exports = {
         
                 console.log('Registro de imagem criado ou atualizado no banco de dados:', imagemPerfil);
                 
-                return res.redirect('/perfil-usuario');
+                return res.redirect('/editar-perfil');
             } catch (erro) {
                 console.error('Erro ao tentar fazer upload de imgs:', erro);
                 return res.status(500).send(`Erro ao tentar fazer upload de imgs: ${erro}`);
@@ -44,17 +44,29 @@ module.exports = {
                     if (imagemPerfil) {
                         res.locals.fotoPerfilUrl = `/up/${imgCerta}`;
                     } else {
-                        res.locals.fotoPerfilUrl = '/add.png';
+                        res.locals.fotoPerfilUrl = '/up/add.png';
                     }
                 } catch (error) {
                     console.error('Erro ao carregar foto de perfil:', error);
-                    res.locals.fotoPerfilUrl = '/ImageDefault.jpg';
+                    res.locals.fotoPerfilUrl = '/up/ImageDefault.jpg';
                 }
             } else {
-                res.locals.fotoPerfilUrl = '/ImageDefault.jpg';
+                res.locals.fotoPerfilUrl = '/up/ImageDefault.jpg';
             }
-            
             next();
         },
+        DeleteImage: async (req, res) => {
+            const idUsuario = req.session.user.id_usu
+    
+            try {
+                await ModelImagem.destroy({ where: { id_usu: idUsuario } })
+                
+                console.log('Imagem excluída com sucesso.')
+                return res.redirect('/editar-perfil')
+            } catch (error) {
+                console.error('Erro ao excluir imagem:', error)
+                return res.status(500).json({ error: 'Erro ao excluir imagem.' })
+            }
+        }
     } 
 

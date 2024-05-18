@@ -8,12 +8,16 @@
 </head>
 <body>
 
-     <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image" required>
-        <button type="submit">Upload</button>
-    </form>
+    <style>
+    #ImgEdit {
+    margin-top: 2vw;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 100%;   
+  }
+    </style>
     
-    <img src="{{fotoPerfilUrl}}" alt="Imagem de Perfil" id="ImgEdit" width="150px" height="150">
+    <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
 
     <img src="{{perfil.imagem}}" alt="">
     <p>Nome: {{perfil.nome}}</p>
@@ -24,7 +28,7 @@
     <p>Descrição do Perfil: {{perfil.descricao}}</p>
     <p>Estado de Origem: {{perfil.estado}}</p>
 
-   <form id="deleteForm" action="/perfil/delete" method="post">
+    <form id="deleteForm" action="/perfilUsu/delete" method="post">
         <button type="button" id="deleteButton">Excluir conta</button>
     </form>
             

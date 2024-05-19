@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,11 +11,14 @@
 <body>
     {{#each favoritos}}
     <div>
-        <p>Nome: {{dataValues.nome}}</p> 
+        <a href="/perfil-Republica?id={{id_republica}}">
+        <p>Nome:{{dataValues.nome}}</p> 
         <p>Descrição: {{dataValues.descricao}}</p>
+        <img src="/foto 1.jpg" alt="Quarto de uma república" class="imgQuarto" width="150px" height="200px">
+        </a>
     </div>
     {{/each}}
 </body>
 
-
 </html>
+

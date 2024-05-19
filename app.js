@@ -25,6 +25,8 @@ appWeb.use(session({
     cookie: {maxAge: 60 * 60 * 2300}
 }))
 
+
+
 appWeb.use(imgPerfil)
 
 appWeb.use((req,resp,next) => {

@@ -11,9 +11,20 @@ module.exports = {
             if (!usuarioId) {
                 return res.status(401).send('Usuário não logado.')
             }
+
+            const favoritoExistente = await ModelFavoritos.findOne({
+                where: {
+                    id_usu: usuarioId,
+                    id_republica: republica_id
+                }
+            });
+
+            if (favoritoExistente) {
+                return res.status(400).send('Esta república já está nos seus favoritos.');
+            }
     
             await ModelFavoritos.create({ id_usu: usuarioId, id_republica: republica_id })
-            res.redirect('/favoritos')
+            res.redirect('favoritos')
 
         } catch (error) {
             console.error('Erro ao adicionar favorito:', error)
@@ -26,6 +37,7 @@ module.exports = {
         try {
             const favoritos = await ModelFavoritos.findAll({
                 attributes: [
+                    'id_republica',
                     [Sequelize.literal('ds_nomeRepublica'), 'nome'],
                     [Sequelize.literal('ds_descricaoRepublica'), 'descricao'],
                 ],  

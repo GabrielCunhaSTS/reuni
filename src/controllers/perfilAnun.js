@@ -5,7 +5,7 @@ module.exports = {
     getPerfilAnunciante: async (req, res) => {
         try {
             const idAnunciante = req.session.user.id_anunciante
-            console.log("ID do usuário:", idAnunciante);
+            console.log("ID do usuário:", idAnunciante)
 
             const perfil = await ModelAnunciante.findByPk(idAnunciante, {
                 attributes: [
@@ -17,25 +17,25 @@ module.exports = {
                     [Sequelize.literal('ds_cpfAnunci'), 'cpf'],
                 ], raw: true,
             });
-            console.log("Perfil do usuário:", perfil);
-            res.render('perfilAnun', { perfil: perfil });
+            console.log("Perfil do usuário:", perfil)
+            res.render('perfilAnun', { perfil: perfil })
         } catch (error) {
-            console.error("Erro ao obter perfil do usuário:", error);
-            res.status(500).send('Erro interno do servidor');
+            console.error("Erro ao obter perfil do usuário:", error)
+            res.status(500).send('Erro interno do servidor')
         }
     },
 
     editPerfil: async (req, res) => {
-        const { nome, email } = req.body;
+        const { nome, email } = req.body
         const idAnunciante = req.session.user.id_anunciante
 
         try {
-            await ModelAnunciante.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao }, { where: { id_usu: idAnunciante } });
+            await ModelAnunciante.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao }, { where: { id_usu: idAnunciante } })
 
-            res.redirect('/perfil');
+            res.redirect('/perfil')
         } catch (error) {
-            console.error("Erro ao editar perfil:", error);
-            res.status(500).send('Erro ao editar perfil');
+            console.error("Erro ao editar perfil:", error)
+            res.status(500).send('Erro ao editar perfil')
         }
     },
 
@@ -49,8 +49,8 @@ module.exports = {
             res.redirect('/')
 
         } catch (error) {
-            console.error("Erro ao editar perfil:", error);
-            res.status(500).send('Erro ao editar perfil');
+            console.error("Erro ao editar perfil:", error)
+            res.status(500).send('Erro ao editar perfil')
         }
     }
 

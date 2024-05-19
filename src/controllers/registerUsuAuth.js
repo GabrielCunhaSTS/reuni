@@ -131,10 +131,10 @@ module.exports = {
 
             await insertAnunciante();
             req.flash("success_msg", `${nm_anunciante} cadastrado com sucesso!`)
-            return res.redirect('/entrar-Anunciante');
+            return res.redirect('/entrar-Anunciante')
         } catch (error) {
-            console.error("Erro no servidor:", error);
-            return res.status(500).json({ msg: 'Erro no servidor...' });
+            console.error("Erro no servidor:", error)
+            return res.status(500).json({ msg: 'Erro no servidor...' })
         }
     }
 }

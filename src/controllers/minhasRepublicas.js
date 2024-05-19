@@ -51,13 +51,13 @@ getAllRep: async(req, res) => {
                     required: true
                 }
             ]
-        });
-        res.render('minhasrepublicas',{ Mrepublicas: resultados });
+        })
+        res.render('minhasrepublicas',{ Mrepublicas: resultados })
 
             
     } catch (error) {
-        console.error("Erro ao pesquisar repúblicas:", error);
-        res.status(500).json({ message: 'Erro interno do servidor' });
+        console.error("Erro ao pesquisar repúblicas:", error)
+        res.status(500).json({ message: 'Erro interno do servidor' })
     }
     }
 }

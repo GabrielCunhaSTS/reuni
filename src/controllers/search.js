@@ -1,18 +1,18 @@
-const { ModelRepublica } = require('../models/modelRepublica');
-const { ModelTipoRepublica } = require('../models/ModelTipoRepublica');
-const { ModelAlguel } = require('../models/ModelAluguel');
-const { ModelLocalizacaoRepublica } = require('../models/ModelLocalizacaoRepublica');
+const { ModelRepublica } = require('../models/modelRepublica')
+const { ModelTipoRepublica } = require('../models/ModelTipoRepublica')
+const { ModelAlguel } = require('../models/ModelAluguel')
+const { ModelLocalizacaoRepublica } = require('../models/ModelLocalizacaoRepublica')
 const { ModelDadosRepublica} = require('../models/ModelDadosRepublicas')
-const { Sequelize, Op } = require('sequelize');
+const { Sequelize, Op } = require('sequelize')
 
 
 module.exports = {
     getRepByName: async (req, res) => {
-        console.log("Rota de pesquisa acionada");
+        console.log("Rota de pesquisa acionada")
         
         try {
-            const nm_digit = req.params.nm_digit;
-            console.log("Termo de pesquisa:", nm_digit);
+            const nm_digit = req.params.nm_digit
+            console.log("Termo de pesquisa:", nm_digit)
     
             const resultados = await ModelRepublica.findAll({
                 attributes:[
@@ -47,19 +47,19 @@ module.exports = {
                         required: true
                     }
                 ]
-            });
+            })
     
-            console.log("Resultados da pesquisa:", resultados);
+            console.log("Resultados da pesquisa:", resultados)
     
             if (resultados && resultados.length > 0) {
                 res.json(resultados);
             } else {
-                console.log("Nenhum resultado encontrado.");
-                res.status(404).json({ message: 'República não encontrada' });
+                console.log("Nenhum resultado encontrado.")
+                res.status(404).json({ message: 'República não encontrada' })
             }
         } catch (error) {
-            console.error("Erro ao pesquisar repúblicas:", error);
-            res.status(500).json({ message: 'Erro interno do servidor' });
+            console.error("Erro ao pesquisar repúblicas:", error)
+            res.status(500).json({ message: 'Erro interno do servidor' })
         }
     },
     getAllRep: async(req, res) =>{
@@ -108,17 +108,17 @@ module.exports = {
                 ]
             });
     
-            res.render('pesquisa',{ republicas: resultados });
+            res.render('pesquisa',{ republicas: resultados })
             
         } catch (error) {
-            console.error("Erro ao pesquisar repúblicas:", error);
-            res.status(500).json({ message: 'Erro interno do servidor' });
+            console.error("Erro ao pesquisar repúblicas:", error)
+            res.status(500).json({ message: 'Erro interno do servidor' })
         }
 
     },
     getPerfilUrl: async (req,resp) =>{
         try {
-            const republicaId = req.query.id;
+            const republicaId = req.query.id
             const republica = await ModelRepublica.findOne({
                 where: { id_republica: republicaId },
                 attributes:[
@@ -158,12 +158,12 @@ module.exports = {
                 ]
             });
             if (!republica) {
-                return resp.status(404).send('República não encontrada');
+                return resp.status(404).send('República não encontrada')
             }
-            resp.render('perfilRep', { republica });
+            resp.render('perfilRep', { republica })
         } catch (error) {
-            console.error("Erro ao buscar república:", error);
-            resp.status(500).send('Erro interno do servidor');
+            console.error("Erro ao buscar república:", error)
+            resp.status(500).send('Erro interno do servidor')
         }
     }
     

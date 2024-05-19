@@ -3,15 +3,15 @@ const { ModelImagem } = require('../models/ModelImage');
 module.exports = {
     uploadImage: async (req, res) => {
         try {
-            console.log('Arquivo encontrado no corpo da Requisição:', req.file);
+            console.log('Arquivo encontrado no corpo da Requisição:', req.file)
 
             if (!req.file) {
-                return res.status(400).send('Você deve selecionar um arquivo! Não havia nenhum!');
+                return res.status(400).send('Você deve selecionar um arquivo! Não havia nenhum!')
             }
 
             const usuarioId = req.session.user.id_usu
 
-            let imagemPerfil = await ModelImagem.findOne({ where: { id_usu: usuarioId } });
+            let imagemPerfil = await ModelImagem.findOne({ where: { id_usu: usuarioId } })
 
             if (imagemPerfil) {
                 imagemPerfil.nome_arquivo = req.file.mimetype;
@@ -26,32 +26,32 @@ module.exports = {
                 });
             }
 
-            console.log('Registro de imagem criado ou atualizado no banco de dados:', imagemPerfil);
+            console.log('Registro de imagem criado ou atualizado no banco de dados:', imagemPerfil)
 
-            return res.redirect('/editar-perfil');
+            return res.redirect('/editar-perfil')
         } catch (erro) {
-            console.error('Erro ao tentar fazer upload de imgs:', erro);
-            return res.status(500).send(`Erro ao tentar fazer upload de imgs: ${erro}`);
+            console.error('Erro ao tentar fazer upload de imgs:', erro)
+            return res.status(500).send(`Erro ao tentar fazer upload de imgs: ${erro}`)
         }
     },
     imgPerfil: async (req, res, next) => {
         if (req.session.user && req.session.user.id_usu) {
             try {
-                const imagemPerfil = await ModelImagem.findOne({ where: { id_usu: req.session.user.id_usu } });
+                const imagemPerfil = await ModelImagem.findOne({ where: { id_usu: req.session.user.id_usu } })
 
                 const imgCerta = imagemPerfil.nome_imagem
 
                 if (imagemPerfil) {
-                    res.locals.fotoPerfilUrl = `/up/${imgCerta}`;
+                    res.locals.fotoPerfilUrl = `/up/${imgCerta}`
                 } else {
-                    res.locals.fotoPerfilUrl = '/up/add.png';
+                    res.locals.fotoPerfilUrl = '/up/add.png'
                 }
             } catch (error) {
-                console.error('Erro ao carregar foto de perfil:', error);
-                res.locals.fotoPerfilUrl = '/up/ImageDefault.jpg';
+                console.error('Erro ao carregar foto de perfil:', error)
+                res.locals.fotoPerfilUrl = '/up/ImageDefault.jpg'
             }
         } else {
-            res.locals.fotoPerfilUrl = '/up/ImageDefault.jpg';
+            res.locals.fotoPerfilUrl = '/up/ImageDefault.jpg'
         }
         next();
     },

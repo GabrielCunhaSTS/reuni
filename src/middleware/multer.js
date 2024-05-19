@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
         cb(null, pathDestino);
     },
     filename: (req, file, cb) => {
-        cb(null, `${Date.now()}_projImgTest_${file.originalname}`); // Nome do arquivo único
+        cb(null, `${Date.now()}_projImgTest_${file.originalname}`);
     }
 });
 

@@ -140,6 +140,8 @@
             <img src="/Permitido7.png" alt="">
         </div>
     </section>
+
+
     <section class="sugestoes">
         <div class="tittle">
             <h1>Sugestões</h1>
@@ -199,6 +201,27 @@
             </section>
         </container>
     </section>
+        <section>
+     {{#if republica.comentarios}}
+    <h2>Comentários:</h2>
+    <ul>
+        {{#each republica.comentarios}}
+    <p>Autor: {{ Usuario.nm_usu }}</p>
+    <p>Comentário: {{ ds_texto }}</p>
+{{/each}}
+
+    </ul>
+{{else}}
+    <p>Nenhum comentário encontrado.</p>
+{{/if}}
+
+    <form action="/comentarios/adicionar" method="POST">
+    <input type="hidden" name="id_republica" value="{{ republica.id }}">
+    <textarea name="texto" placeholder="Digite seu comentário"></textarea>
+    <button type="submit">Enviar</button>
+</form>
+</section>
+
 </body>
 
 </html>

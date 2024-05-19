@@ -10,7 +10,9 @@ const perfilU = require('../controllers/perfilUsu');
 const perfilA = require('../controllers/perfilAnun');
 const mrepublicas = require('../controllers/minhasRepublicas')
 const image = require('../controllers/upload')
-const favoritos = require('../controllers/favoritos')
+const favoritos = require('../controllers/favoritos');
+const comentarios = require('../controllers/comentarios');
+
 
 
 function checkAuth(req, res, next) {
@@ -52,9 +54,10 @@ router.post('/upload', multer.single('image'), image.uploadImage);
 router.get('/perfil-Republica', checkAuth, search.getPerfilUrl);
 
 
-router.post('/favoritos', favoritos.addFavorito);
+router.post('/favoritos', checkAuth, favoritos.addFavorito);
+router.get('/favoritos', checkAuth, favoritos.getFavoritosByUsuario);
 
-router.get('/favoritos', favoritos.getFavoritosByUsuario);
-
+router.post('/comentarios/adicionar', checkAuth, comentarios.adicionarComentario);
+router.get('/comentarios/listar', checkAuth, comentarios.listarComentarios);
 
 module.exports = router;

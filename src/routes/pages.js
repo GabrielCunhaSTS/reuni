@@ -72,5 +72,4 @@ router.get('/favoritos', checkAuth, (req, res) => {
     res.render('favoritos')
 })
 
-
 module.exports = router

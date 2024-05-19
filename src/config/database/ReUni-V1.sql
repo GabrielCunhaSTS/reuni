@@ -9,13 +9,6 @@ create table if not exists tb_estadoOrigem(
     nm_estadoOrigem varchar(100)
 );
 
-select* from tb_republica;
-SELECT * FROM tb_republica WHERE JSON_CONTAINS(usuarios_favoritaram, '"20"');
-SELECT * FROM tb_republica WHERE JSON_CONTAINS(usuarios_favoritaram, '20');
-
-SELECT usuarios_favoritaram FROM tb_republica;
-
-
 create table if not exists tb_usuario(
 	id_usu int auto_increment primary key,
     nm_usu varchar(100) not null,
@@ -145,6 +138,22 @@ create table if not exists tb_republica(
     references tb_comodidades(id_comodidade)
 );
 
+create table tb_comentarios(
+	id_comentario int auto_increment primary key,
+    id_usu int,
+    id_republica int,
+    ds_texto text,
+	data_criacao timestamp default current_timestamp,
+    
+    constraint foreign key (id_usu)
+    references tb_usuario(id_usu),
+    
+    constraint foreign key (id_republica)
+    references tb_republica (id_republica)
+);
+
+select * from tb_comentarios;
+select * from tb_republica;
 #INSERTS
 
 -- inserir na tb_estadoOrigem

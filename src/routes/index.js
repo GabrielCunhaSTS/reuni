@@ -51,13 +51,12 @@ router.post('/perfilUsu/delete', perfilU.deletePerfil);
 router.post('/perfilUsu/deleteImage', image.DeleteImage);
 router.post('/upload', multer.single('image'), image.uploadImage);
 
-router.get('/perfil-Republica', checkAuth, search.getPerfilUrl);
-
+router.get('/perfil-Republica', checkAuth, search.getPerfilUrl, );
 
 router.post('/favoritos', checkAuth, favoritos.addFavorito);
 router.get('/favoritos', checkAuth, favoritos.getFavoritosByUsuario);
 
 router.post('/comentarios/adicionar', checkAuth, comentarios.adicionarComentario);
-router.get('/comentarios/listar', checkAuth, comentarios.listarComentarios);
+router.get('/perfil-Republica', checkAuth, comentarios.listarComentarios);
 
 module.exports = router;

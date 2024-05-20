@@ -13,17 +13,9 @@ const ModelComentario = conecBanco.define('tb_comentarios',{
     },
     id_usu:{
         type: DataTypes.INTEGER.UNSIGNED,
-        references: {
-            model: 'tb_usuario',
-            key: 'id_usu'
-        }
     },
     id_republica:{
         type: DataTypes.INTEGER.UNSIGNED,
-        references: {
-            model: 'tb_republica',
-            key: 'id_republica'
-        }
     },
     ds_texto:{
         type: DataTypes.TEXT
@@ -39,8 +31,8 @@ const ModelComentario = conecBanco.define('tb_comentarios',{
 ModelComentario.belongsTo(ModelUsuario, { foreignKey: 'id_usu' });
 ModelUsuario.hasMany(ModelComentario, { foreignKey: 'id_usu' });
 
-ModelComentario.belongsTo(ModelUsuario, { foreignKey: 'id_republica' }); // Este deve ser ModelRepublica
-ModelRepublica.hasMany(ModelComentario, { foreignKey: 'id_republica' }); // Este deve ser ModelComentario
+ModelComentario.belongsTo(ModelRepublica, { foreignKey: 'id_republica' }); // Correto
+ModelRepublica.hasMany(ModelComentario, { foreignKey: 'id_republica' }); // Correto
 
 
 module.exports = {

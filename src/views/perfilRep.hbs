@@ -202,18 +202,22 @@
         </container>
     </section>
         <section>
-     {{#if republica.comentarios}}
+<!-- perfilRep.hbs -->
+
+{{#if comentarios.length}}
     <h2>Comentários:</h2>
     <ul>
-        {{#each republica.comentarios}}
-    <p>Autor: {{ Usuario.nm_usu }}</p>
-    <p>Comentário: {{ ds_texto }}</p>
-{{/each}}
-
+        {{#each comentarios}}
+            <li>{{this.ds_texto}}</li>
+        {{/each}}
     </ul>
 {{else}}
     <p>Nenhum comentário encontrado.</p>
 {{/if}}
+
+
+
+
 
     <form action="/comentarios/adicionar" method="POST">
     <input type="hidden" name="id_republica" value="{{ republica.id }}">

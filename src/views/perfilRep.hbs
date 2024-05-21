@@ -202,22 +202,19 @@
         </container>
     </section>
         <section>
-<!-- perfilRep.hbs -->
 
 {{#if comentarios.length}}
     <h2>Comentários:</h2>
     <ul>
         {{#each comentarios}}
+            <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
             <li>{{this.ds_texto}}</li>
+            <li>{{this.ds_cpfUsu}}</li>
         {{/each}}
     </ul>
 {{else}}
     <p>Nenhum comentário encontrado.</p>
 {{/if}}
-
-
-
-
 
     <form action="/comentarios/adicionar" method="POST">
     <input type="hidden" name="id_republica" value="{{ republica.id }}">

@@ -12,6 +12,8 @@ const mrepublicas = require('../controllers/minhasRepublicas')
 const image = require('../controllers/upload')
 const favoritos = require('../controllers/favoritos');
 const comentarios = require('../controllers/comentarios');
+const get = require('../controllers/getperfil');
+
 
 
 
@@ -51,12 +53,14 @@ router.post('/perfilUsu/delete', perfilU.deletePerfil);
 router.post('/perfilUsu/deleteImage', image.DeleteImage);
 router.post('/upload', multer.single('image'), image.uploadImage);
 
-router.get('/perfil-Republica', checkAuth, search.getPerfilUrl, );
+router.get('/perfil-Republica', checkAuth, get.getPerfilRepublica);
+router.post('/comentarios/adicionar', checkAuth, comentarios.adicionarComentario);
+
 
 router.post('/favoritos', checkAuth, favoritos.addFavorito);
 router.get('/favoritos', checkAuth, favoritos.getFavoritosByUsuario);
 
-router.post('/comentarios/adicionar', checkAuth, comentarios.adicionarComentario);
-router.get('/perfil-Republica', checkAuth, comentarios.listarComentarios);
+
+
 
 module.exports = router;

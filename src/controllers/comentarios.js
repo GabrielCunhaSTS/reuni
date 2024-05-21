@@ -5,20 +5,18 @@ const { ModelRepublica } = require("../models/modelRepublica");
 module.exports = {
     adicionarComentario: async (req, res) => {
         try {
-            // Lógica para adicionar um novo comentário
-            const { id_republica, texto } = req.body;
-            const id_usuario = req.session.user.id_usu;
+            console.log(req.body);
+            const {texto } = req.body;
+            const id_usuario = req.session.user.id_usu
+            const id_republica = req.body.id_republica || req.query.id_republica; // Tenta obter do corpo da requisição ou da query string
 
             await ModelComentario.create({
                 id_republica: id_republica,
                 id_usu: id_usuario,
-                ds_texto: texto
+                ds_texto:texto
             });
 
-            console.log(`O comentário foi adicionado: ${texto}`);
-
-            // Após adicionar o comentário com sucesso, redirecione ou envie uma resposta
-            res.redirect(`/perfil-Republica?id=${id_republica}`); // Redireciona para a rota que lista os comentários
+            res.redirect(`/perfil-Republica?id=${id_republica}`);
         } catch (error) {
             console.error('Erro ao adicionar comentário:', error);
             res.status(500).send('Erro interno do servidor');
@@ -44,7 +42,8 @@ module.exports = {
                         model: ModelUsuario,
                         attributes: ['nm_usu'] // Inclui o nome do usuário associado ao comentário
                     }
-                ]
+                ],
+                raw: true
             });
     
             console.log('Comentários encontrados:', comentarios);

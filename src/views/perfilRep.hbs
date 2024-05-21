@@ -98,10 +98,6 @@
                         <img src="/image 4.png" alt="" srcset="">
                         <p>{{ republica.tipo }}</p>
                     </div>
-                    {{!-- <div>
-                        <img src="/icon.png" alt="" srcset="">
-                        <p>2 Vagas Disponíveis</p>
-                    </div> --}}
                 </div>
                 <div class="button">
                     <button>Entrar em contato</button>
@@ -207,9 +203,9 @@
     <h2>Comentários:</h2>
     <ul>
         {{#each comentarios}}
-            <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
-            <li>{{this.ds_texto}}</li>
-            <li>{{this.ds_cpfUsu}}</li>
+            <li>{{this.nome}}</li>
+            <li>{{this.texto}}</li>
+            <li>{{this.data}}</li>
         {{/each}}
     </ul>
 {{else}}

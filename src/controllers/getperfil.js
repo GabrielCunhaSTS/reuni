@@ -57,20 +57,24 @@ const getPerfilRepublica = async (req, res) => {
 
         // Listar comentários
         const comentarios = await ModelComentario.findAll({           
-            where: {
-                id_republica: republicaId
-            },
+            where: {id_republica: republicaId},
+            attributes:[
+                [Sequelize.literal('nm_usu'), 'nome'],
+                [Sequelize.literal('ds_texto'), 'texto'],
+                [Sequelize.literal('data_criacao'), 'data'],
+            ],
             include: [
                 {
                     model: ModelUsuario,
-                    attributes: []
+                    attributes: [],
+                    required:true
                 }
             ],
             raw: true
         });
 
         // Renderizar a página com perfil e comentários
-        res.render('perfilRep', { republica, comentarios });
+        res.render('perfilRep', { republica, comentarios: comentarios });
     } catch (error) {
         console.error('Erro ao carregar perfil da república:', error);
         res.status(500).send('Erro interno do servidor');

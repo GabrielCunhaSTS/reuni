@@ -62,6 +62,61 @@ module.exports = {
             res.status(500).json({ message: 'Erro interno do servidor' })
         }
     },
+    getRepByEstado: async (req, res) => {
+        console.log("Rota de pesquisa por estado acionada");
+        
+        try {
+            const estado_digit = req.params.nm_digit;
+            console.log("Estado digitado:", estado_digit);
+
+            const resultados = await ModelRepublica.findAll({
+                attributes:[
+                    [Sequelize.literal('id_republica'), 'id'],
+                    [Sequelize.literal('ds_nomeRepublica'), 'nome'],
+                    [Sequelize.literal('ds_tipoRepublica'), 'tipo'],
+                    [Sequelize.literal('vl_valorMensal'), 'aluguel'],
+                    [Sequelize.literal('ds_cidade'), 'cidade'],
+                    [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
+                    [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],
+                ],
+                where: {
+                    ds_estado:{
+                        [Op.like]: `${estado_digit}%`
+                    }
+                },
+                raw: true,
+                include: [
+                    {
+                        model: ModelAlguel,
+                        attributes: [],
+                        required: true
+                    },
+                    {
+                        model: ModelTipoRepublica,
+                        attributes: [],
+                        required: true
+                    },
+                    {
+                        model: ModelLocalizacaoRepublica,
+                        attributes: [],
+                        required: true
+                    }
+                ]
+            });
+
+            console.log("Resultados da pesquisa por estado:", resultados);
+
+            if (resultados && resultados.length > 0) {
+                res.json(resultados);
+            } else {
+                console.log("Nenhum resultado encontrado.");
+                res.status(404).json({ message: 'República não encontrada' });
+            }
+        } catch (error) {
+            console.error("Erro ao pesquisar repúblicas por estado:", error);
+            res.status(500).json({ message: 'Erro interno do servidor' });
+        }
+    },
     getAllRep: async(req, res) =>{
         try {
             const { femininas, masculinas, mistas } = req.query
@@ -115,56 +170,5 @@ module.exports = {
             res.status(500).json({ message: 'Erro interno do servidor' })
         }
 
-    },
-    getPerfilUrl: async (req,resp) =>{
-        try {
-            const republicaId = req.query.id
-            const republica = await ModelRepublica.findOne({
-                where: { id_republica: republicaId },
-                attributes:[
-                    [Sequelize.literal('id_republica'), 'id'],
-                    [Sequelize.literal('ds_nomeRepublica'), 'nome'],
-                    [Sequelize.literal('ds_descricaoRepublica'), 'descricao'],
-                    [Sequelize.literal('an_anoCriacao'), 'anoDeCriacao'],
-                    [Sequelize.literal('ds_tipoRepublica'), 'tipo'],
-                    [Sequelize.literal('vl_valorMensal'), 'aluguel'],
-                    [Sequelize.literal('ds_cidade'), 'cidade'],
-                    [Sequelize.literal('ds_bairro'), 'bairro'],
-                    [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
-                    [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],
-                ],
-                raw: true,
-                include: [
-                    {
-                        model: ModelAlguel,
-                        attributes: [],
-                        required: true
-                    },
-                    {
-                        model: ModelDadosRepublica,
-                        attributes: [],
-                        required: true
-                    },
-                    {
-                        model: ModelTipoRepublica,
-                        attributes: [],
-                        required: true,
-                    },
-                    {
-                        model: ModelLocalizacaoRepublica,
-                        attributes: [],
-                        required: true
-                    }
-                ]
-            });
-            if (!republica) {
-                return resp.status(404).send('República não encontrada')
-            }
-            resp.render('perfilRep', { republica })
-        } catch (error) {
-            console.error("Erro ao buscar república:", error)
-            resp.status(500).send('Erro interno do servidor')
-        }
     }
-    
 }

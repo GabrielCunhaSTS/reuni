@@ -53,7 +53,22 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        #profile{
+            display: none;
+        }
+
+        .profile_label img{
+            cursor: pointer;
+            margin-top: 2vw;
+            border-radius: 100%;
+            overflow: hidden;
+
+
+        }
+
     </style>
+
 </head>
 
 <body>
@@ -65,10 +80,14 @@
 
     <a href="/perfil-usuario"><button>Voltar</button></a>
 
-    <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
+   
 
     <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image" required>
+    <label for="profile" class="profile_label">
+        <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
+    </label>
+
+        <input type="file" name="image" id="profile" required>
         <button type="submit">Salvar</button>
     </form>
 

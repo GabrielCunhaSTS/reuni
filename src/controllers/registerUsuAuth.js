@@ -10,7 +10,7 @@ module.exports = {
             ds_emailUsu,
             ds_senhaUSu,
             ds_senhaUSuConfirmar,
-            idade,
+            dt_nascimento,
             cpf,
             descricao,
             sexo,
@@ -20,44 +20,60 @@ module.exports = {
         try {
             if (!ds_emailUsu || !ds_senhaUSu) {
                 req.flash("error_msg", `Preencha os campos obrigatórios`)
-                return resp.redirect('/registrar')
+                return resp.redirect('/registrar-Usuario')
             }
 
             const usuarioproposto = await ModelUsuario.findOne({
                 where: { ds_emailUsu: ds_emailUsu }
             })
 
+            const cpfproposto = await ModelUsuario.findOne({
+                where: { ds_cpfUsu: cpf }
+            })
+
+            if(cpfproposto){
+                req.flash("error_msg", `Esse cpf já está sendo utilizado`)
+                return resp.redirect('/registrar-Usuario')
+            }
+
             if (usuarioproposto) {
                 req.flash("error_msg", `Esse email já está sendo utilizado`)
-                return resp.redirect('/registrar')
+                return resp.redirect('/registrar-Usuario')
             }
 
             if (ds_senhaUSu.length < 8) {
                 req.flash("error_msg", `A senha precisa ter pelo menos 8 caracteres`)
-                return resp.redirect('/registrar')
+                return resp.redirect('/registrar-Usuario')
             }
 
             if (ds_senhaUSu !== ds_senhaUSuConfirmar) {
                 req.flash("error_msg", `As senhas não correspondem`)
-                return resp.redirect('/registrar')
+                return resp.redirect('/registrar-Usuario')
             }
 
             const hashedPassword = await bcrypt.hash(ds_senhaUSu, 10)
 
+            const dataNasc = new Date(dt_nascimento);
+            const dataAtual = new Date();
+            let idadeFormatada = dataAtual.getFullYear() - dataNasc.getFullYear();
+
+            const mes = dataAtual.getMonth() - dataNasc.getMonth();
+            if (mes < 0 || (mes === 0 && mes.getDate() < dataNasc.getDate())) {
+                idadeFormatada--;
+            }
+
             async function insertUsuario() {
                 try {
-
                     const usuario = await ModelUsuario.create({
                         nm_usu: nm_usu,
                         ds_emailUsu: ds_emailUsu,
                         ds_senhaUSu: hashedPassword,
-                        qt_idade: idade,
+                        qt_idade: idadeFormatada,
                         ds_cpfUsu: cpf,
                         ds_descricaoPerfil: descricao,
                         sx_sexoUsu: sexo,
                         id_estadoOrigem: estado
                     })
-
 
                     if (usuario) {
                         console.log("Usuário criado")
@@ -81,7 +97,7 @@ module.exports = {
             ds_emailAunci,
             ds_senhaAnunci,
             ds_senhaAnunciConfirmar,
-            idade,
+            dt_nascimento,
             cpf,
             sexo,
         } = req.body
@@ -91,8 +107,17 @@ module.exports = {
                 where: { ds_emailAunci: ds_emailAunci }
             });
 
+            const cpfproposto  = await ModelAnunciante.findOne({
+                where: { ds_cpfAnunci: cpf }
+            });
+
             if (anuncianteproposto) {
                 req.flash("error_msg", `Esse email já está sendo utilizado`)
+                return res.redirect('/registrar-Anunciante')
+            }
+
+            if (cpfproposto) {
+                req.flash("error_msg", `Esse CPF já está sendo utilizado`)
                 return res.redirect('/registrar-Anunciante')
             }
 
@@ -108,6 +133,15 @@ module.exports = {
 
             const hashedPassword = await bcrypt.hash(ds_senhaAnunci, 10)
 
+            const dataNasc = new Date(dt_nascimento);
+            const dataAtual = new Date();
+            let idadeFormatada = dataAtual.getFullYear() - dataNasc.getFullYear();
+
+            const mes = dataAtual.getMonth() - dataNasc.getMonth();
+            if (mes < 0 || (mes === 0 && mes.getDate() < dataNasc.getDate())) {
+                idadeFormatada--;
+            }
+
             async function insertAnunciante() {
                 try {
 
@@ -115,7 +149,7 @@ module.exports = {
                         nm_anunciante: nm_anunciante,
                         ds_emailAunci: ds_emailAunci,
                         ds_senhaAnunci: hashedPassword,
-                        qt_idadeAnunci: idade,
+                        qt_idadeAnunci: idadeFormatada,
                         ds_cpfAnunci: cpf,
                         sg_sexoAnunci: sexo,
                     })

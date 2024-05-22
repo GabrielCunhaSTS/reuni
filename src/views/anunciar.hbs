@@ -210,7 +210,7 @@
           </div>
           <div class="dados-2">
             <p>Telefone ou Celular para contato</p>
-            <input class="input-dados" type="text" id="nmr_telefoneAnfitriao" name="nmr_telefoneAnfitriao">
+            <input class="input-dados" type="tel" placeholder="(XX) XXXXX-XXXX" id="nmr_telefoneAnfitriao" name="nmr_telefoneAnfitriao" maxlength="15" oninput="mascaraTelefone(this)">                  
             <p>Ano de Criação da república:</p>
             <input class="input-dados" id="an_anoCriacao" type="text" name="an_anoCriacao" maxlength="4">
           </div>
@@ -361,7 +361,19 @@
           </div>
           <div class="valor-mensal">
             <p>Valor Mensal</p>
-            <input type="text" placeholder="R$0,00" id="valorMensal" name="ValorMensal">
+                <input type="text" id="valor" name="ValorMensal" placeholder="R$ 0,00" oninput="formatarValor(this)">
+
+        <script>
+           function formatarValor(input) {
+            let valor = input.value.replace(/\D/g, '');
+            valor = (valor / 100).toFixed(2) + '';
+            valor = valor.replace('.', ',');
+            valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            input.value = 'R$ ' + valor;
+        }
+    </script>
+
+
           </div>
           <div class="radios">
             <div class="contas">

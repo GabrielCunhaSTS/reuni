@@ -41,8 +41,8 @@
                     placeholder="Confirme sua senha" required><br><br>
 
                 <div class="align-sex-idade">
-                    <input class="input-login idade" type="text" name="idade" placeholder="Digite a sua Idade">
-                    <input class="input-login cpf" type="text" name="cpf" placeholder="Digite Seu CPF">
+                  <input type="date" id="dt_nascimento" name="dt_nascimento" required>  
+                  <input class="input-login cpf" type="text" name="cpf"  maxlength="14"  oninput="mascaraCPF(this)" placeholder="Digite Seu CPF">
                     <select class="select-sex" name="sexo" id="">
                         <option value="M">Masculino</option>
                         <option value="F">Feminino</option>
@@ -52,6 +52,7 @@
         </div>
     </div>
     <script src="/msgBemvindo.js"></script>
+    <script src="/limitarCampos.js"></script>
 </body>
 
 </html>

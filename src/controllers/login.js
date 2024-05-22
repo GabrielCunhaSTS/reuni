@@ -76,7 +76,7 @@ module.exports= {
                 
                 const token = jwt.sign({ id: ds_senhaAnunci.id }, 'JANX7AWB12BAKX')
                     resp.cookie('token', token, { httpOnly:true, secure: true })
-                    req.session.user = dadosAnunciante
+                    req.session.user = dadosAnunciante.id_anunciante
                     req.flash("success_msg", `Seja Bem-vindo(a) ${dadosAnunciante.nm_anunciante}`)
                     console.log(token)
                     

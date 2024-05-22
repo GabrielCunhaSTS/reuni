@@ -55,7 +55,6 @@ const getPerfilRepublica = async (req, res) => {
             return res.status(404).send('República não encontrada');
         }
 
-        // Listar comentários
         const comentarios = await ModelComentario.findAll({           
             where: {id_republica: republicaId},
             attributes:[

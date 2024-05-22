@@ -19,14 +19,14 @@
             <a href="/pesquisa" class="logo_a">Re<span>Uni</span></a>
         </div>
 
-        <div class="navRight">
-            <div class="buttons-log">
-                <a href="/favoritos"><button class="registro">Favoritos</button></a>
-                <a href="/perfil-Usuario"><button class="registro">Perfil</button></a>
-                <a href="/auth/logout"><button class="registro">Sair</button></a>
-            </div>
-
-        </div>
+        <li class="navRight"><a href="/perfil-Usuario"><img src="/Group 5.png" alt=""> </a>
+            <ul class="submenu">
+                <li>
+                    <a href="/favoritos"><button class="registro">Favoritos</button></a>
+                    <a href="/auth/logout"><button class="registro">Sair</button></a>
+                </li>
+            </ul>
+        </li>
     </header>
 
     <div class="alert {{#if success_msg}}show{{/if}}">

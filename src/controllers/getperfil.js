@@ -72,7 +72,6 @@ const getPerfilRepublica = async (req, res) => {
             raw: true
         });
 
-        // Renderizar a página com perfil e comentários
         res.render('perfilRep', { republica, comentarios: comentarios });
     } catch (error) {
         console.error('Erro ao carregar perfil da república:', error);

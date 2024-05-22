@@ -41,12 +41,11 @@ router.get('/pesquisa/:nm_digit', search.getRepByName);
 router.get('/pesquisa', checkAuth, search.getAllRep);
 
 
+router.get('/perfil-Usuario', checkAuth, perfilU.getPerfil);
 router.get('/perfil-Anunciante', checkAuth, perfilA.getPerfilAnunciante);
-
 
 router.get('/minhas-republicas', mrepublicas.getAllRep)
 
-router.get('/perfil-Usuario', checkAuth, perfilU.getPerfil);
 router.post('/perfilUsu/editar', perfilU.editPerfil);
 router.post('/perfilUsu/delete', perfilU.deletePerfil);
 

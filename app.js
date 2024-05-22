@@ -10,6 +10,7 @@ const multer = require('multer');
 const cookieParser =  require('cookie-parser')
 const { json } = require('sequelize')
 const flash =  require ('connect-flash')
+const hbs = require('hbs');
 
 appWeb.use(bodyParser.urlencoded({ extended: false }));
 appWeb.use(express.json())

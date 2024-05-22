@@ -10,14 +10,16 @@
 <body>
 
     <h1>Perfil do Usuário</h1>
+
+    <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
+
     <p>Nome: {{perfil.nome}}</p>
     <p>Sexo: {{perfil.sexo}}</p>
     <p>Idade: {{perfil.idade}}</p>
     <p>CPF: {{perfil.cpf}}</p>
     <p>Email: {{perfil.email}}</p>
     <p>Descrição do Perfil: {{perfil.descricao}}</p>
-    <p>Estado de Origem: {{perfil.estado}}</p>
-
+    
     <form action="/perfil/delete" method="delete">
         <button type="submit">Excluir conta</button>
     </form>

@@ -5,7 +5,7 @@ module.exports = {
     getPerfilAnunciante: async (req, res) => {
         try {
             const idAnunciante = req.session.user.id_anunciante
-            console.log("ID do usuário:", idAnunciante)
+            console.log("ID do ANUNCIANTE:", idAnunciante)
 
             const perfil = await ModelAnunciante.findByPk(idAnunciante, {
                 attributes: [
@@ -15,9 +15,9 @@ module.exports = {
                     [Sequelize.literal('ds_emailAunci'), 'email'],
                     [Sequelize.literal('qt_idadeAnunci'), 'idade'],
                     [Sequelize.literal('ds_cpfAnunci'), 'cpf'],
-                ], raw: true,
+                ], raw:true,
             });
-            console.log("Perfil do usuário:", perfil)
+            console.log("Perfil do anunciante:", perfil)
             res.render('perfilAnun', { perfil: perfil })
         } catch (error) {
             console.error("Erro ao obter perfil do usuário:", error)

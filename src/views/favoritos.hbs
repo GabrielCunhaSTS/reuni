@@ -6,18 +6,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minhas Repúblicas Favoritas</title>
+    <link rel="stylesheet" href="/favoritos.css">
 </head>
 
 <body>
-    {{#each favoritos}}
-    <div>
+    <header>
+        <a href="/pesquisa"><img src="/Voltar.png" alt="" srcset=""></a>
+        <a href="#" class="title">Re<span>Uni</span></a>
+    </header>
+   
+    {{!-- <div>
         <a href="/perfil-Republica?id={{id_republica}}">
         <p>Nome:{{dataValues.nome}}</p> 
         <p>Descrição: {{dataValues.descricao}}</p>
         <img src="/foto 1.jpg" alt="Quarto de uma república" class="imgQuarto" width="150px" height="200px">
         </a>
+    </div> --}}
+
+<div class="grid-container">
+     {{#each favoritos}}
+    <div class="card">
+        <div class="img-card">
+            <img src="/foto 1.jpg" alt="">
+        </div>
+        <div class="content-card">
+            <div class="name">
+                <h1>Republicas xotas</h1>
+            </div>
+            <div class="desc">
+                <h2>Sobre</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt quae explicabo animi, quod accusantium perferendis enim error dolore libero exercitationem esse vel porro nam, beatae quibusdam voluptates saepe pariatur quisquam!</p>
+            </div>
+        </div>
     </div>
-    {{/each}}
+     {{/each}}
+</div>
+
+    
+   
 </body>
 
 </html>

@@ -433,9 +433,7 @@ section h2 {
 }
 
 @media screen and (max-width: 768px) {
-    .card {
-        width: calc(50% - 20px);
-    }
+  
 
 }
 
@@ -455,13 +453,17 @@ section h2 {
     }
 }
 
+.card a {
+    width: 100%;
+    display: flex;
+}
+
 .card {
-    width: 400px;
+    width: 450px;
     background-color: #ffffff;
-    box-shadow: 0.5vw 0.5vw 0.5vw rgb(0, 0, 0, 0.35);
     border-radius: 1vw;
     margin-top: 3vw;
-    height: 400px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -482,7 +484,7 @@ section h2 {
 }
 
 .imgQuarto {
-    width: 100%;
+    width: 120%;
     position: relative;
 }
 

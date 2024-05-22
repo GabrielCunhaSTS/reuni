@@ -469,6 +469,8 @@ section h2 {
     justify-content: end;
     text-align: center;
     overflow: hidden;
+    border: 2px solid #D9D9D9;
+    box-shadow: 0.5vw 0.5vw 0.5vw rgb(0, 0, 0, 0.35);
 }
 .text-content {
     display: flex;

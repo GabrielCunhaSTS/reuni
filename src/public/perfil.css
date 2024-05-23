@@ -481,3 +481,22 @@ header .title span {
     margin-left: 2vw;
     font-size: 1.1vw;
 }
+
+.imagem {
+    width: 64px;
+    height: 64px;
+    background-size: cover;
+    transition: background-image 0.2s ease; /* Adiciona transição suave */
+}
+
+#imagem1 {
+    background-image: url('/favorito.png'); /* URL da primeira imagem */
+}
+
+#imagem1:hover {
+    background-image: url('/favorito (1).png'); /* URL da segunda imagem */
+}
+
+#imagem1.favoritada {
+    background-image: url('/favorito (1).png'); /* URL da segunda imagem */
+}

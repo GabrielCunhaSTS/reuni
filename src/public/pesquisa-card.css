@@ -140,3 +140,127 @@ body {
     width: 50%;
     text-align: center;
 }
+
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.text-content p, .text-content h4 {
+    margin: 10px;
+    text-align: left;
+    padding-left: 5%;
+}
+
+.imgQuarto {
+    width: 120%;
+    position: relative;
+}
+
+.imgQuarto img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.detalhes {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.detalhes div {
+    width: 3vw;
+    display: flex;
+    justify-content: center;
+    box-shadow: -0.3vw -0.1vw 1vw rgb(0, 0, 0, 0.15);
+    height: 1.5vw;
+    align-items: center;
+    padding: 0.4vw 1vw;
+    border-radius: 0.5vw;
+    gap: 0.3vw;
+    margin-bottom: 1vw;
+}
+
+.card h4 {
+    font-size: 1.1vw;
+}
+
+.card p {
+    font-size: 1.1vw;
+}
+
+
+
+.card a {
+    width: 100%;
+    display: flex;
+}
+
+.card {
+    width: 450px;
+    background-color: #ffffff;
+    border-radius: 1vw;
+    padding: 8px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: center;
+    overflow: hidden;
+    border: 2px solid #D9D9D9;
+    box-shadow: 0.5vw 0.5vw 0.5vw rgb(0, 0, 0, 0.35);
+}
+
+.imgQuarto-div {
+    display: flex;
+    width: 100%;
+    height: 55%;
+}
+
+.imgQuarto-div a {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    
+}
+
+.imgQuarto-div img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px 12px 0px 0px;
+    object-fit: cover;
+}
+
+.imagem {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 5%;
+    left: 82%;
+    background-size: cover;
+    transition: background-image 0.2s ease; /* Adiciona transição suave */
+}
+
+#imagem1 {
+    background-image: url('/favorito.png'); /* URL da primeira imagem */
+}
+
+#imagem1:hover {
+    background-image: url('/favorito (1).png'); /* URL da segunda imagem */
+}
+
+#imagem1.favoritada {
+    background-image: url('/favorito (1).png'); /* URL da segunda imagem */
+}
+
+.content {
+    display: flex;
+    height: 45%;
+    flex-direction: column;
+}

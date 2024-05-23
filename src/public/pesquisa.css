@@ -567,5 +567,25 @@ section h2 {
 
 .titulo-rep {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+}
+
+.imagem {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    background-size: cover;
+    transition: background-image 0.2s ease; /* Adiciona transição suave */
+}
+
+#imagem1 {
+    background-image: url('/favorito.png'); /* URL da primeira imagem */
+}
+
+#imagem1:hover {
+    background-image: url('/favorito (1).png'); /* URL da segunda imagem */
+}
+
+#imagem1.favoritada {
+    background-image: url('/favorito (1).png'); /* URL da segunda imagem */
 }

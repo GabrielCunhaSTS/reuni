@@ -18,14 +18,25 @@
         <div class="navLeft">
             <a href="/pesquisa" class="logo_a">Re<span>Uni</span></a>
         </div>
-        <li class="navRight"><a href="/perfil-Usuario"><img src="/Group 5.png" alt=""> </a>
+        {{!-- <li class="navRight"><a href="/perfil-Usuario"><img src="/Group 5.png" alt=""> </a>
             <ul class="submenu">
                 <li>
                     <a href="/favoritos"><button class="registro">Favoritos</button></a>
                     <a href="/auth/logout"><button class="registro">Sair</button></a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
+        <div class="navbar">
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <a href=""><img src="Group 5.png" alt=""></a>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/favoritos">Link 1</a>
+                    <a href="/auth/logout">Link 2</a>
+                </div>
+            </div>
+      </div>
     </header>
 
     <div class="alert {{#if success_msg}}show{{/if}}">

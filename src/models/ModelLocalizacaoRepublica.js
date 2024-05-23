@@ -17,6 +17,10 @@ const ModelLocalizacaoRepublica = conecBanco.define('tb_localizacaoRepublica', {
         type: DataTypes.TEXT,
         allowNull: true
     },
+    ds_estado:{
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
     ds_rua: {
         type: DataTypes.TEXT,
         allowNull: true

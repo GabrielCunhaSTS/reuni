@@ -117,27 +117,33 @@ module.exports = {
             res.status(500).json({ message: 'Erro interno do servidor' });
         }
     },
-    getAllRep: async(req, res) =>{
+    getAllRep: async (req, res) => {
         try {
-            const { femininas, masculinas, mistas } = req.query
-            const filtragem = {}
-
+            const { femininas, masculinas, mistas, estado} = req.query;
+            const filtragem = {};
+    
             if (femininas) {
-                filtragem.ds_tipoRepublica = 'fem'
+                filtragem.ds_tipoRepublica = 'fem';
             }
             if (masculinas) {
-                filtragem.ds_tipoRepublica = 'masc'
+                filtragem.ds_tipoRepublica = 'masc';
             }
             if (mistas) {
-                filtragem.ds_tipoRepublica = 'mista'
+                filtragem.ds_tipoRepublica = 'mista';
             }
-
+    
+            const whereClause = {};
+            if (estado) {
+                whereClause.ds_estado = estado;
+            }         
+    
             const resultados = await ModelRepublica.findAll({
-                attributes:[
+                attributes: [
                     [Sequelize.literal('id_republica'), 'id'],
                     [Sequelize.literal('ds_nomeRepublica'), 'nome'],
                     [Sequelize.literal('ds_tipoRepublica'), 'tipo'],
                     [Sequelize.literal('vl_valorMensal'), 'aluguel'],
+                    [Sequelize.literal('ds_estado'), 'estado'],
                     [Sequelize.literal('ds_cidade'), 'cidade'],
                     [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
                     [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],
@@ -158,17 +164,17 @@ module.exports = {
                     {
                         model: ModelLocalizacaoRepublica,
                         attributes: [],
-                        required: true
+                        required: true,
+                        where: whereClause
                     }
-                ]
+                ],
             });
     
-            res.render('pesquisa',{ republicas: resultados })
-            
+            res.render('pesquisa', { republicas: resultados });
+    
         } catch (error) {
-            console.error("Erro ao pesquisar repúblicas:", error)
-            res.status(500).json({ message: 'Erro interno do servidor' })
+            console.error("Erro ao pesquisar repúblicas:", error);
+            res.status(500).json({ message: 'Erro interno do servidor' });
         }
-
     }
 }

@@ -49,3 +49,8 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+#ImgEdit {
+    margin-top: 2vw;
+    border-radius: 100%;
+}

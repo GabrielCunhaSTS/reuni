@@ -29,11 +29,11 @@
         <div class="navbar">
             <div class="dropdown">
                 <button class="dropbtn">
-                    <a href=""><img src="Group 5.png" alt=""></a>
+                    <a href="/perfil-Usuario"> <img src="{{fotoPerfilUrl}}" id="ImgEdit"></a>
                 </button>
                 <div class="dropdown-content">
-                    <a href="/favoritos">Link 1</a>
-                    <a href="/auth/logout">Link 2</a>
+                    <a href="/favoritos">Favoritos</a>
+                    <a href="/auth/logout">Sair</a>
                 </div>
             </div>
       </div>
@@ -50,18 +50,6 @@
             <div>
                 <div class="titulo">
                     <h1> Encontre a república ideal para você </h1>
-                </div>
-                <div class="pesquisa">
-                    <div class="box">
-                        <div class="localizacao">
-                            <p><img src="/localizacao.png" alt="localização"> Cidade</p>
-                        </div>
-                        <div class="preco">
-                            <p><img src="/ajuste.png" alt="Preço" class="imgPreco"> Preço</p> <button
-                                class="btnpesquisar"><img src="/lupa.png" alt="Lupa de pesquisa"
-                                    class="imglupa"></button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -95,6 +83,40 @@
                         <li class="brd"><a href="/pesquisa?masculinas=true">Repúblicas masculinas</a></li>
                         <li><a href="/pesquisa?mistas=true">Repúblicas mistas</a></li>
                     </ul>
+                    <form action="/pesquisa" method="GET" id="filtroForm">
+    <select name="estado">
+         <option value="">Estado</option>
+    <option value="AC">Acre (AC)</option>
+    <option value="AL">Alagoas (AL)</option>
+    <option value="AP">Amapá (AP)</option>
+    <option value="AM">Amazonas (AM)</option>
+    <option value="BA">Bahia (BA)</option>
+    <option value="CE">Ceará (CE)</option>
+    <option value="DF">Distrito Federal (DF)</option>
+    <option value="ES">Espírito Santo (ES)</option>
+    <option value="GO">Goiás (GO)</option>
+    <option value="MA">Maranhão (MA)</option>
+    <option value="MT">Mato Grosso (MT)</option>
+    <option value="MS">Mato Grosso do Sul (MS)</option>
+    <option value="MG">Minas Gerais (MG)</option>
+    <option value="PA">Pará (PA)</option>
+    <option value="PB">Paraíba (PB)</option>
+    <option value="PR">Paraná (PR)</option>
+    <option value="PE">Pernambuco (PE)</option>
+    <option value="PI">Piauí (PI)</option>
+    <option value="RJ">Rio de Janeiro (RJ)</option>
+    <option value="RN">Rio Grande do Norte (RN)</option>
+    <option value="RS">Rio Grande do Sul (RS)</option>
+    <option value="RO">Rondônia (RO)</option>
+    <option value="RR">Roraima (RR)</option>
+    <option value="SC">Santa Catarina (SC)</option>
+    <option value="SP">São Paulo (SP)</option>
+    <option value="SE">Sergipe (SE)</option>
+    <option value="TO">Tocantins (TO)</option>
+    </select>
+    <button type="button" onclick="filtrarEstado()">Filtrar</button>
+</form>
+
                 </div>
             </section>
         </div>
@@ -216,6 +238,7 @@
 
     <script src="/msgBemvindo.js"></script>
     <script src="/pesquisaAuth.js"></script>
+    <script src="/filtragem.js"></script>
 </body>
 
 </html>

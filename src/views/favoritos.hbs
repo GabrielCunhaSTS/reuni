@@ -16,7 +16,7 @@
     </header>
    
     {{!-- <div>
-        <a href="/perfil-Republica?id={{id_republica}}">
+       
         <p>Nome:{{dataValues.nome}}</p> 
         <p>Descrição: {{dataValues.descricao}}</p>
         <img src="/foto 1.jpg" alt="Quarto de uma república" class="imgQuarto" width="150px" height="200px">
@@ -24,22 +24,28 @@
     </div> --}}
 
 <div class="grid-container">
-     {{#each favoritos}}
-    <div class="card">
+     {{#if favoritos.length}}
+  {{#each favoritos}}
+    <a href="/perfil-Republica?id={{id_republica}}">
+      <div class="card">
         <div class="img-card">  
-            <img src="/foto 1.jpg" alt="">
+          <img src="/foto 1.jpg" alt="">
         </div>
         <div class="content-card">
-            <div class="name">
-                <h1>{{dataValues.nome}}</h1>
-            </div>
-            <div class="desc">
-                <h2>Sobre</h2>
-                <p>{{dataValues.descricao}}</p>
-            </div>
+          <div class="name">
+            <h1>{{dataValues.nome}}</h1>
+          </div>
+          <div class="desc">
+            <h2>Sobre</h2>
+            <p>{{dataValues.descricao}}</p>
+          </div>
         </div>
-    </div>
-     {{/each}}
+      </div>
+    </a>
+  {{/each}}
+{{else}}
+  <p>Nenhuma república favoritada.</p>
+{{/if}}
 </div>
 
     

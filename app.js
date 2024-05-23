@@ -26,7 +26,9 @@ appWeb.use(session({
     cookie: {maxAge: 60 * 60 * 2300}
 }))
 
-
+hbs.registerHelper('eq', function(a,b){
+    return a === b
+})
 
 appWeb.use(imgPerfil)
 

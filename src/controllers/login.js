@@ -34,7 +34,7 @@ module.exports= {
                     return resp.redirect('/entrar-Usuario') 
                 }
                 
-                const token = jwt.sign({ id: dadosUsu.id_usu }, 'JANX7AWB12BAKX')
+                const token = jwt.sign({ id: dadosUsu.id }, 'JANX7AWB12BAKX')
                     resp.cookie('token', token, { httpOnly:true, secure: true })
                     req.session.user = dadosUsu
                     req.flash("success_msg", `Seja Bem-vindo(a) ${dadosUsu.nm_usu}`)
@@ -80,7 +80,7 @@ module.exports= {
                     req.flash("success_msg", `Seja Bem-vindo(a) ${dadosAnunciante.nm_anunciante}`)
                     console.log(token)
                     
-                    console.log("ID do usuário na sessão:", req.session.user);   
+                    console.log("ID do usuário na sessão:", req.session.user.id_anunciante);   
                     return resp.redirect('/pesquisaAnun')
                 }catch(erro){
                     console.error(erro)

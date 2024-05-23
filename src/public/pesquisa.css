@@ -53,6 +53,14 @@ header .buttons-log  button:hover {
   /* Links inside the navbar *
   
   /* The dropdown container */
+
+  #ImgEdit{
+    width: 100px;
+    height: 100px;
+    margin-top: 2vw;
+    border-radius: 100%;
+  }
+
   .dropdown {
     float: left;
     overflow: hidden;

@@ -106,11 +106,14 @@ html {
 .box-login .txt-login .txt-fazer-login {
   margin: 0;
   margin-top: 3%;
-  margin-bottom: 10%;
   font-family: "Poppins", sans-serif;
 }
 
 .box-login .txt-login .txt-fazer-login a {
+  color: #215487;
+}
+
+.box-login .txt-login .txt-registro-anunciante a {
   color: #215487;
 }
 
@@ -152,6 +155,7 @@ html {
 
 .cpf {
   width: 40%;
+  height: 50%;
 }
 
 .select-sex {

@@ -20,6 +20,10 @@ router.get('/registrar-Usuario', (req, res) => {
     res.render('registrarUsu')
 })
 
+router.get('/registrar-Usuario2', (req, res) => {
+    res.render('registrarUsuPt2')
+})
+
 router.get('/registrar-Anunciante', (req, res) => {
     res.render('registrarAnun')
 })

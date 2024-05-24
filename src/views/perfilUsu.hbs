@@ -10,22 +10,44 @@
 
 <body>
 
-    <a href="/pesquisa"><button>Voltar</button></a>
-
-    <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
+    <header>
+        <a href="/pesquisa"><img src="/Voltar.png" alt="" srcset=""></a>
+        <a href="#" class="title">Re<span>Uni</span></a>
+    </header>
+    <div class="background">
+        <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
+    </div>
 
     <img src="{{perfil.imagem}}" alt="">
-    <p>Nome: {{perfil.nome}}</p>
-    <p>Sexo: {{perfil.sexo}}</p>
-    <p>Idade: {{perfil.idade}}</p>
-    <p>CPF: {{perfil.cpf}}</p>
-    <p>Email: {{perfil.email}}</p>
-    <p>Descrição do Perfil: {{perfil.descricao}}</p>
-    <p>Estado de Origem: {{perfil.estado}}</p>
+    <div class="align-itens">
+        <div class="info-perfil">
+            <div>
+                <p>Nome: {{perfil.nome}}</p>
+                <p id="sexo">Sexo: {{perfil.sexo}}</p>
+            </div>
 
-    <form id="deleteForm" action="/perfilUsu/delete" method="post">
-        <button type="button" id="deleteButton">Excluir conta</button>
-    </form>
+            <p>Idade: {{perfil.idade}}</p>
+            <div>
+                <p>CPF: {{perfil.cpf}}</p>
+                <p>Email: {{perfil.email}}</p>
+            </div>
+        </div>
+
+        <div class="desc">
+            <div class="box">
+                <p class="letra">Descrição do Perfil: {{perfil.descricao}}</p>
+                <p class="letra">Estado de Origem: {{perfil.estado}}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="buttons">
+        <form id="deleteForm" action="/perfilUsu/delete" method="post">
+            <button type="button" id="deleteButton">Excluir conta</button>
+        </form>
+
+        <a href="/editar-perfil"><button>Editar Perfil</button></a>
+    </div>
 
     <div id="confirmModal" class="modal">
         <div class="modal-content">
@@ -38,7 +60,7 @@
 
     <script src="/confirmacaoDelete.js"></script>
 
-    <a href="/editar-perfil"><button>Editar Perfil</button></a>
+    
 </body>
 
 </html>

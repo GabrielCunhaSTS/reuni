@@ -119,8 +119,10 @@ module.exports = {
     },
     getAllRep: async (req, res) => {
         try {
-            const { femininas, masculinas, mistas, estado} = req.query;
+            const { femininas, masculinas, mistas, estado, preco } = req.query;
             const filtragem = {};
+            const whereClause = {};
+            const filtrovalor = {}
     
             if (femininas) {
                 filtragem.ds_tipoRepublica = 'fem';
@@ -131,11 +133,14 @@ module.exports = {
             if (mistas) {
                 filtragem.ds_tipoRepublica = 'mista';
             }
-    
-            const whereClause = {};
+            
             if (estado) {
                 whereClause.ds_estado = estado;
-            }         
+            }        
+            
+            if (preco) {
+                filtrovalor.vl_valorMensal = preco; 
+            }
     
             const resultados = await ModelRepublica.findAll({
                 attributes: [
@@ -153,7 +158,8 @@ module.exports = {
                     {
                         model: ModelAlguel,
                         attributes: [],
-                        required: true
+                        required: true,
+                        where: filtrovalor
                     },
                     {
                         model: ModelTipoRepublica,

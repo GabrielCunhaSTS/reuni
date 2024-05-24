@@ -6,6 +6,8 @@ const { ModelTipoRepublica } = require('../models/ModelTipoRepublica');
 const { ModelUsuario } = require('../models/ModelUsuario');
 const { ModelRepublica } = require('../models/modelRepublica');
 const { Sequelize, Op } = require('sequelize')
+const dateFns  = require('date-fns')
+const ptBR = require('../controllers/formataçãoData')
 
 const getPerfilRepublica = async (req, res) => {
     try {
@@ -70,6 +72,10 @@ const getPerfilRepublica = async (req, res) => {
                 }
             ],
             raw: true
+        });
+
+        comentarios.forEach(comentario => {
+            comentario.dataFormatada = dateFns.formatDistanceToNow(new Date(comentario.data), { locale: ptBR ,addSuffix: true });
         });
 
         res.render('perfilRep', { republica, comentarios: comentarios });

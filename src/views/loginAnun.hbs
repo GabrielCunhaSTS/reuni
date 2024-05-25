@@ -22,19 +22,21 @@
         {{/if}}
     </div>
 
-    <div class="box-login">
+    <div class="box-login box-dif">
         <div class="txt-login">
             <p class="logo_a">Re<span>Uni</span></p>
             <p class="txt-registre-se">Login</p>
             <p class="txt-fazer-login">Não possui conta? <a href="/registrar-Anunciante">Registra-se</a></p>
         </div>
         <div class="loginform" id="myform">
-            <form id="loginForm" action="/auth/loginA" method="POST">
-                <div class="inputs">
-                    <input class="input-login" type="email" id="ds_emailAunci" name="ds_emailAunci"
-                        placeholder="Digite seu e-mail"><br><br>
-                    <input class="input-login1" type="password" id="ds_senhaAnunci" name="ds_senhaAnunci"
-                        placeholder="Digite sua senha" required><br><br>
+            <form class="form" id="loginForm" action="/auth/loginA" method="POST">
+                 <div class="input-group dif-group">
+                    <p>Digite seu e-mail</p>
+                    <input class="input-login" type="email" id="ds_emailAunci" name="ds_emailAunci" placeholder="johndoe@example.com">
+                </div>
+                <div class="input-group dif-group">
+                    <p>Digite sua senha</p>
+                    <input class="input-login1" type="password" id="ds_senhaAnunci" name="ds_senhaAnunci" placeholder="*******" required>
                 </div>
                 <button type="submit" class="btn-registrar">Login</button>
             </form>

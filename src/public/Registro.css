@@ -92,6 +92,10 @@ body, html {
   z-index: 2;
 }
 
+.box-dif {
+  height: 500px;
+}
+
 .logo_a {
   margin: 0;
   margin-top: 6%;
@@ -126,12 +130,17 @@ body, html {
   color: #215487;
 }
 
+.loginform {
+  height: 526px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 0px;
   unicode-bidi: normal;
+  height: 100%;
 }
 
 .input-login,
@@ -142,6 +151,14 @@ body, html {
   border: 1px solid #c7c7c7;
   font-family: "Poppins", sans-serif;
   padding: 12px;
+}
+
+.login {
+  margin-top: 5%;
+}
+
+.dif-group {
+  margin-top: 4%;
 }
 
 .align-sex-idade {

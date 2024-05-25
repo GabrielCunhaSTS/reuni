@@ -59,18 +59,17 @@ create table if not exists tb_DadosRepublicas(
     references tb_anunciante(id_anunciante)
 );
 
-select * from tb_DadosRepublicas;
-
 create table if not exists tb_localizacaoRepublica(
 	id_localizacao int auto_increment primary key,
     ds_cep varchar(9),
-    ds_estado varchar(3),
+    ds_estado varchar(2),
     ds_cidade varchar(100),
     ds_rua varchar(200),
     ds_bairro varchar(100),
     ds_numero varchar(5)
 );
 
+select * from tb_localizacaorepublica;
 create table if not exists tb_tipoRepublica(
 	id_tipoRepublica int auto_increment primary key,
     ds_tipoRepublica varchar(200) not null,
@@ -114,7 +113,6 @@ create table if not exists tb_republica(
     id_comodidade int,
     ds_nomeRepublica varchar(50) not null,
     ds_descricaoRepublica varchar(500) not null,
-    usuarios_favoritaram JSON,
     
     constraint foreign key (id_anunciante)
     references tb_anunciante(id_anunciante),
@@ -152,8 +150,6 @@ create table tb_comentarios(
     references tb_republica (id_republica)
 );
 
-select * from tb_comentarios;
-select * from tb_republica;
 #INSERTS
 
 -- inserir na tb_estadoOrigem
@@ -234,19 +230,19 @@ INSERT INTO tb_DadosRepublicas (id_anunciante, ds_emailContato, nmr_telefoneCont
 (21, 'allana_dacosta@steadyoffice.com.br', '(13) 98218-1084', 2020);
 
 -- Inserir na tb_localizacaoRepublica
-INSERT INTO tb_localizacaoRepublica (ds_cep, ds_cidade, ds_rua, ds_bairro) VALUES
-('66843-880', 'Belém', 'Água Boa', 'Jassanã'),
-('69906-630', 'Rio Branco', 'Avenida Fortaleza do Abunã', 'Humaíta'),
-('01234-567', 'São Paulo', 'Rua Oscar Freire', 'Centro'),
-('12345-678', 'Rio de Janeiro', 'Rua Gonçalo de Carvalho', 'Copacabana'),
-('23456-789', 'Belo Horizonte', 'Avenida Amazonas', 'Savassi'),
-('34567-890', 'Curitiba', 'Rua João Alfredo', 'Batel'),
-('45678-901', 'Porto Alegre', 'Rua João Alfredo', 'Moinhos de Vento'),
-('56789-012', 'Salvador', 'Rua da Aurora', 'Barra'),
-('67890-123', 'Brasília', 'Eixo Rodoviário de Brasília', 'Asa Sul'),
-('78901-234', 'Fortaleza', 'Avenida Caxangá', 'Meireles'),
-('89012-345', 'Recife', 'Avenida Governador Agamenon Magalhães', 'Boa Viagem'),
-('90123-456', 'Manaus', 'Avenida Mário Ypiranga Monteiro', 'Adrianópolis');	
+INSERT INTO tb_localizacaoRepublica (ds_cep, ds_estado, ds_cidade, ds_rua, ds_bairro) VALUES
+('66843-880', 'SP', 'Belém', 'Água Boa', 'Jassanã'),
+('69906-630', 'AP','Rio Branco', 'Avenida Fortaleza do Abunã', 'Humaíta'),
+('01234-567', 'PI', 'São Paulo', 'Rua Oscar Freire', 'Centro'),
+('12345-678', 'RN', 'Rio de Janeiro', 'Rua Gonçalo de Carvalho', 'Copacabana'),
+('23456-789', 'AL','Belo Horizonte', 'Avenida Amazonas', 'Savassi'),
+('34567-890','AM','Curitiba', 'Rua João Alfredo', 'Batel'),
+('45678-901', 'PR','Porto Alegre', 'Rua João Alfredo', 'Moinhos de Vento'),
+('56789-012', 'PA','Salvador', 'Rua da Aurora', 'Barra'),
+('67890-123', 'TO', 'Brasília', 'Eixo Rodoviário de Brasília', 'Asa Sul'),
+('78901-234', 'CE', 'Fortaleza', 'Avenida Caxangá', 'Meireles'),
+('89012-345', 'PB','Recife', 'Avenida Governador Agamenon Magalhães', 'Boa Viagem'),
+('90123-456', 'PE','Manaus', 'Avenida Mário Ypiranga Monteiro', 'Adrianópolis');	
 
 
 -- Inserir na tb_tipoRepublica
@@ -384,8 +380,4 @@ select ds_nomeRepublica, ds_descricaoRepublica, ds_tipoRepublica , ds_bairro
 		join tb_localizacaoRepublica as lr
 			on (lr.id_localizacao = r.id_localizacao);
             
-
-
-
-
     

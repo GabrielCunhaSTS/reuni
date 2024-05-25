@@ -21,34 +21,54 @@
             {{/if}}
         {{/if}}
     </div>
-
-    <div class="box-login">
+     <div class="box-login">
         <div class="txt-login">
             <p class="logo_a">Re<span>Uni</span></p>
             <p class="txt-registre-se">Registre-se</p>
-            <p class="txt-fazer-login">Já possui conta? <a href="/entrar-Anunciante">Login</a></p>
-            <p><a href="/registrar-Usuario">Se registrar como estudante</a></p>
+            <p class="txt-fazer-login">Já possui conta? <a href="/entrar-Usuario">Login</a></p>
+            <p class="txt-registro-anunciante"><a href="/registrar-Usuario">Se registrar como estudante</a></p>
+
         </div>
         <div class="loginform" id="myform">
-            <form class="form" id="cadastroForm" action="/auth/signInA" method="POST">
-                <input class="input-login" type="text" id="nm_anunciante" name="nm_anunciante"
-                    placeholder="Digite seu nome" required><br><br>
-                <input class="input-login" type="email" id="ds_emailAunci" name="ds_emailAunci"
-                    placeholder="Digite seu e-mail" required><br><br>
-                <input class="input-login" type="password" id="ds_senhaAnunci" name="ds_senhaAnunci"
-                    placeholder="Digite sua senha" required><br><br>
-                <input class="input-login1" type="password" id="ds_senhaAnunciConfirmar" name="ds_senhaAnunciConfirmar"
-                    placeholder="Confirme sua senha" required><br><br>
-
+            <form class="form" id="cadastroForm" action="/auth/signInU" method="POST">
+                <div class="input-group">
+                    <p>Nome</p>
+                    <input class="input-login" type="text" id="nm_usu" name="nm_usu" placeholder="John Doe" required>
+                </div>
+                <div class="input-group">
+                    <p>Email</p>
+                    <input class="input-login" type="email" id="ds_emailUsu" name="ds_emailUsu" placeholder="johndoe@example.com" required>
+                </div>
+                <div class="input-group">
+                    <p>Senha</p>
+                    <input class="input-login" type="password" id="ds_senhaUSu" name="ds_senhaUSu" placeholder="********" required>
+                </div>
+                <div class="input-group">
+                    <p>Confirme sua senha</p>
+                    <input class="input-login1" type="password" id="ds_senhaUSuConfirmar" name="ds_senhaUSuConfirmar" placeholder="********" required>
+                </div>
                 <div class="align-sex-idade">
-                  <input type="date" id="dt_nascimento" name="dt_nascimento" required>  
-                  <input class="input-login cpf" type="text" name="cpf"  maxlength="14"  oninput="mascaraCPF(this)" placeholder="Digite Seu CPF">
-                    <select class="select-sex" name="sexo" id="">
-                        <option value="M">Masculino</option>
-                        <option value="F">Feminino</option>
-                    </select>
-                    <button type="submit" class="btn-registrar">Cadastrar</a></button>
-            </form>
+                    <div class="input-group">
+                        <p>CPF</p>
+                        <input class="input-login cpf" type="text" name="cpf" maxlength="14" oninput="mascaraCPF(this)" placeholder="123.456.789-00">
+                    </div>
+                    <div class="input-group">
+                        <p>Data de Nascimento</p>
+                        <input class="data" type="date" id="dt_nascimento" name="dt_nascimento" required>
+                    </div>
+                </div>
+                <div class="align-descricao-estado">
+                    <div class="input-group">
+                        <p>Sexo</p>
+                        <select class="select-sex" name="sexo" id="">
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
+                        </select>
+                    </div>
+                </div>
+    <button type="submit" class="btn-registrar">Cadastrar</button>
+</form>
+
         </div>
     </div>
     <script src="/msgBemvindo.js"></script>

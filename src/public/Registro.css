@@ -1,5 +1,6 @@
-body,
-html {
+/* Mantendo os estilos existentes */
+
+body, html {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -10,6 +11,19 @@ html {
 * {
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  width: 70%;
+  text-align: left;
+}
+
+.input-group p {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  color: #333;
+  font-family: "Poppins", sans-serif;
 }
 
 .img-background {
@@ -39,7 +53,6 @@ html {
 
 .fade-out {
   opacity: 0;
-  /* Opacidade reduzida para 0 */
 }
 
 .success {
@@ -66,7 +79,6 @@ html {
   border-radius: 4px;
 }
 
-
 .box-login {
   text-align: center;
   background-color: #fff;
@@ -80,8 +92,6 @@ html {
   z-index: 2;
 }
 
-/*# sourceMappingURL=sass-styleRegistro.css.map */
-
 .logo_a {
   margin: 0;
   margin-top: 6%;
@@ -90,7 +100,6 @@ html {
   color: #000;
 }
 
-/* Estilo do texto destacado no logotipo */
 .logo_a span {
   color: #215487;
 }
@@ -125,63 +134,99 @@ html {
   unicode-bidi: normal;
 }
 
-.input-login {
-  width: 70%;
-  height: 10%;
+.input-login,
+.input-login1 {
+  width: 100%;
+  height: 40px;
   border-radius: 12px;
   border: 1px solid #c7c7c7;
   font-family: "Poppins", sans-serif;
   padding: 12px;
-
 }
 
 .align-sex-idade {
   display: flex;
   gap: 3%;
-  margin-bottom: 4%;
   align-items: center;
+  width: 70%;
 }
 
 .align-descricao-estado {
   display: flex;
   align-items: center;
   gap: 20%;
-  width: 71%;
-}
-
-.idade {
-  width: 28%;
+  width: 70%;
 }
 
 .cpf {
-  width: 40%;
-  height: 50%;
+  width: 100%;
+  height: 40px;
 }
 
-.select-sex {
-  width: 20%;
-  border: none;
-  box-shadow: 2px 2px 4.3px 4px rgba(0, 0, 0, 0.05);
+.select-sex,
+.select-estado,
+.data[type="date"] {
+  width: 100%;
+  height: 40px;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  padding: 10px;
   border: 2px solid #ccc;
-  height: 70%;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.descricao {
-  width: 50%;
+.data[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: #66afe9;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.input-login1 {
-  width: 70%;
-  height: 10%;
-  border-radius: 12px;
-  border: 1px solid #c7c7c7;
-  font-family: "Poppins", sans-serif;
-  padding: 12px;
+.data[type="date"]::-webkit-calendar-picker-indicator:hover {
+  background-color: #559fd3;
+}
+
+.data[type="date"]::-moz-calendar-picker-indicator {
+  background-color: #66afe9;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+.select-sex,
+.select-estado {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23333" d="M2 0L0 2h4zM2 5L0 3h4z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px;
+}
+
+.select-sex:focus,
+.select-estado:focus,
+.data[type="date"]:focus {
+  border-color: #66afe9;
+  box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+}
+
+.select-sex option,
+.select-estado option {
+  background-color: #f9f9f9;
+  color: #333;
 }
 
 .btn-registrar {
   width: 70%;
-  height: 10%;
+  height: 40px;
   color: #fff;
   font-weight: bold;
   font-family: "Poppins", sans-serif;
@@ -189,23 +234,17 @@ html {
   border: none;
   border-radius: 32px;
   background-color: #215487;
-  margin-top: 5%;
   cursor: pointer;
   transition: 1s;
   padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-registrar:hover {
   width: 74%;
-  height: 12%;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
+  height: 44px;
   font-size: 125%;
-  border: none;
-  border-radius: 32px;
-  background-color: #215487;
-  margin-top: 5%;
-  cursor: pointer;
   transition: 0.5s;
-  padding: 12px;
 }

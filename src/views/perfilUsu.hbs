@@ -45,8 +45,10 @@
                     <form id="deleteForm" action="/perfilUsu/delete" method="post">
                         <button type="button" id="deleteButton">Excluir conta</button>
                     </form>
-            
-                    <a href="/editar-perfil"><button>Editar Perfil</button></a>
+                    <form action="editForm" action="/perfilUsu/edit" method="post">
+                        <button type="button" id="editButton">Editar Perfil</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
@@ -62,7 +64,16 @@
             <button id="cancelButton">Cancelar</button>
         </div>
     </div>
+    <div id="confirmModal2" class="modal">
+        <div class="modal-content">
+            <span class="closeButton">&times;</span>
+            <p>Você tem certeza que deseja excluir a sua conta?</p>
+            <button id="confirmEditButton">Salvar</button>
+            <button id="cancelButton">Cancelar</button>
+        </div>
+    </div>
     <script src="/confirmacaoDelete.js"></script>
+    <script src="/confirmacaoEdit.js"></script>
 
     
 </body>

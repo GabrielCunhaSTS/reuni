@@ -163,6 +163,7 @@ header .title span {
     flex-direction: row;
     gap: 15px;
     margin-top: 6%;
+    margin-left: 3%;
 }
 
 .buttons button {
@@ -170,8 +171,9 @@ header .title span {
     height: 5.3vh;
     border-radius: 1.5vh;
     background: #215487;
-    margin-left: 10%;
-    margin-top: 3%;
+    
+  
+    
     color: #FFF;
     font-size: 20px;
     font-weight: 600;

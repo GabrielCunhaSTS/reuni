@@ -197,12 +197,19 @@
             </section>
         </container>
     </section>
-        <section>
+    <section>
+
+<form action="/comentarios/adicionar" method="POST">
+    <input type="hidden" name="id_republica" value="{{ republica.id }}">
+    <textarea name="texto" maxlength="100" placeholder="Digite seu comentário"></textarea>
+    <button type="submit">Publicar Comentário</button>
+</form>
 
 {{#if comentarios.length}}
     <h2>Comentários:</h2>
     <ul>
         {{#each comentarios}}
+        
             <li>{{this.nome}}</li>
             <li>{{this.texto}}</li>
             <li>{{this.dataFormatada}}</li>
@@ -212,11 +219,14 @@
     <p>Nenhum comentário encontrado.</p>
 {{/if}}
 
-    <form action="/comentarios/adicionar" method="POST">
-    <input type="hidden" name="id_republica" value="{{ republica.id }}">
-    <textarea name="texto" placeholder="Digite seu comentário"></textarea>
-    <button type="submit">Enviar</button>
-</form>
+<style>
+    textarea{
+        resize: none;
+        width: 500px;
+        height: 100px;
+    }
+</style>
+
 </section>
 
 </body>

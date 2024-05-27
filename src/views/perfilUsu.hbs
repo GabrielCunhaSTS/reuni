@@ -20,34 +20,39 @@
 
     <img src="{{perfil.imagem}}" alt="">
     <div class="align-itens">
-        <div class="info-perfil">
-            <div>
-                <p>Nome: {{perfil.nome}}</p>
-                <p id="sexo">Sexo: {{perfil.sexo}}</p>
-            </div>
 
-            <p>Idade: {{perfil.idade}}</p>
-            <div>
-                <p>CPF: {{perfil.cpf}}</p>
-                <p>Email: {{perfil.email}}</p>
+        <div class="title">
+            <div class="name">
+                <h1>{{perfil.nome}}</h1>
+                <hr>
+            </div>
+            <div class="desc">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt ab labore vitae tenetur aliquid ipsam doloremque minus provident quisquam fugiat modi porro in, molestias blanditiis? Sapiente animi deleniti minima nulla! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, suscipit saepe? Architecto sit perspiciatis sed similique, sequi cumque quas perferendis veritatis laboriosam iusto maxime voluptate incidunt magnam. Ipsa, at magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, molestias veniam ipsum enim reiciendis fugiat aperiam sint maiores rerum facere! Aliquam facere, nam eaque molestiae temporibus necessitatibus nulla iste ipsam!</p>
             </div>
         </div>
 
-        <div class="desc">
+        <div class="box-info">
             <div class="box">
-                <p class="letra">Descrição do Perfil: {{perfil.descricao}}</p>
-                <p class="letra">Estado de Origem: {{perfil.estado}}</p>
+                <div class="content">
+                    <h3>Informações</h3>
+                    <p>Email: {{perfil.email}}</p>
+                    <p>Idade: {{perfil.idade}}</p>
+                    <p>Sexo: {{perfil.sexo}}</p>
+                    <p>CPF: {{perfil.cpf}}</p>
+                    <p>Estado de Origem: {{perfil.estado}}</p>
+                </div>
+                <div class="buttons">
+                    <form id="deleteForm" action="/perfilUsu/delete" method="post">
+                        <button type="button" id="deleteButton">Excluir conta</button>
+                    </form>
+            
+                    <a href="/editar-perfil"><button>Editar Perfil</button></a>
+                </div>
             </div>
         </div>
     </div>
     
-    <div class="buttons">
-        <form id="deleteForm" action="/perfilUsu/delete" method="post">
-            <button type="button" id="deleteButton">Excluir conta</button>
-        </form>
-
-        <a href="/editar-perfil"><button>Editar Perfil</button></a>
-    </div>
+   
 
     <div id="confirmModal" class="modal">
         <div class="modal-content">
@@ -57,7 +62,6 @@
             <button id="cancelButton">Cancelar</button>
         </div>
     </div>
-
     <script src="/confirmacaoDelete.js"></script>
 
     

@@ -728,3 +728,74 @@ section h2 {
   font-size: 125%;
   transition: 0.5s;
 }
+
+
+
+
+.republicas-mts {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 55vh;
+}
+
+
+.repu-selec{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.repu-container {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.repu-grid {
+    display: grid;
+    grid-template-rows: 1fr; 
+    grid-auto-flow: column;
+    width: 70%;
+    height: 100%;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.repu-grid section {
+    position: relative;
+    transition: 0.5s ease;
+}
+
+.setaEsquerda, .setaDireita{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.setaDireita button, .setaEsquerda button {
+    background: transparent;
+    border: none;
+    width: 60px;
+    height: 50px;
+}
+
+.setaDireita img, .setaEsquerda img {
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.setaEsquerda img {
+    transform: rotate(180deg);
+}

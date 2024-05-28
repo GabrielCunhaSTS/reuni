@@ -13,22 +13,21 @@
 </head>
 
 <body>
-
     <header>
         <div class="navLeft">
             <a href="/pesquisa" class="logo_a">Re<span>Uni</span></a>
         </div>
-
-        <div class="navRight">
-            <div class="buttons">
-                <a href="/anunciar"><button class="registro">Anunciar</button></a>
-                <a href="/minhas-republicas"><button class="registro">Minhas Republicas</button></a>
-                <a href="/perfil-Anunciante"><button class="registro">Perfil</button></a>
-                <a href="/auth/logout"><button class="registro">Sair</button></a>
-               
+        <div class="navbar">
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <a href="/perfil-Anunciante"> <img src="{{fotoPerfilUrl}}" id="ImgEdit"></a>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/anunciar">Anunciar</a>
+                    <a href="/auth/logout">Sair</a>
+                </div>
             </div>
-
-        </div>
+      </div>
     </header>
 
     <div class="alert {{#if success_msg}}show{{/if}}">
@@ -37,70 +36,18 @@
         {{/if}}
     </div>
 
-    <section class="exposicao">
-        <div class="sectionLeft">
-            <div>
-                <div class="titulo">
-                    <h1> Encontre a república ideal para você </h1>
-                </div>
 
-                <div class="pesquisa">
-                    <div class="box">
-                        <div class="localizacao">
-                            <p><img src="/localizacao.png" alt="localização"> Cidade</p>
-                        </div>
-                        <div class="preco">
-                            <p><img src="/ajuste.png" alt="Preço" class="imgPreco"> Preço</p> <button
-                                class="btnpesquisar"><img src="/lupa.png" alt="Lupa de pesquisa"
-                                    class="imglupa"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="republicas-mts">
+        <div class="repu-selec">
+            <section class="card">
+        <div class="imgQuarto-div">
+            <a href="/perfil-Republica?id={{id}}">
+                <img src="/foto 1.jpg" alt="Quarto de uma república">
+                <div class="imagem" id="imagem1"></div>
+            </a>
         </div>
-
-        <div class="sectionRight">
-            <img src="/menina.png">
-        </div>
-    </section>
-
-    <div class="republicas">
-        <aside>
-            <div class="procurar">
-                <p>Procurar por nome</p>
-                <div>
-                    <input type="text" id="inputSearch" placeholder="Digite o nome da república">
-                    <ul id="resultado" style="display: none;"></ul>
-                    <img src="/lupaP.png" alt="Pesquisar por republicas" class="procurarRepublicas">
-                    <p></p>
-                </div>
-            </div>
-        </aside>
-        <div>
-            <section>
-                <div class="titulo-rep">
-                    <h2>2,582 Repúblicas encontradas em Santos </h2>
-                </div>
-                <div class="opc">
-                    <ul>
-                        <li id="firt"><a href="/pesquisa">Para você</a></li>
-                        <li class="brd"><a href="/pesquisa?femininas=true">Repúblicas femininas</a></li>
-                        <li class="brd"><a href="/pesquisa?masculinas=true">Repúblicas masculinas</a></li>
-                        <li><a href="/pesquisa?mistas=true">Repúblicas mistas</a></li>
-                    </ul>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <div class="card-container">
-        {{#each republicas}}
-        <section class="card">
-            <div>
-                <a href="/perfil-Republica?id={{id}}"><img src="/foto1.jpg" alt="Quarto de uma república"
-                        class="imgQuarto "></a>
-            </div>
-            <div>
+        <div class="content">
+            <div class="text-content">
                 <h4>{{nome}}</h4>
                 <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-geo-alt" viewBox="0 0 16 16">
@@ -109,102 +56,194 @@
                         <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                     </svg>{{cidade}}</p>
                 <p>R$ {{aluguel}} / mês</p>
+            </div>
                 <div class="detalhes">
                     <div>
                         <img src="/mista.png">
                         {{tipo}}
                     </div>
-
+    
                     <div>
                         <img src="/cama.png">
                         {{quarto}}
                     </div>
-
+    
                     <div>
                         <img src="/banheirob.png">
                         {{banheiro}}
                     </div>
                 </div>
+        </div>
+        <div class="sobre">
+
+        </div>
+    </section></div>
+        <div class="repu-container">
+            <div class="setaEsquerda"><button id="setaEsquerda" onclick="setaesquerda_trans()"><img src="/seta.png" alt="">
+            </button></div>
+            <div class="repu-grid">
+                <section class="card">
+        <div class="imgQuarto-div">
+            <a href="/perfil-Republica?id={{id}}">
+                <img src="/foto 1.jpg" alt="Quarto de uma república">
+                <div class="imagem" id="imagem1"></div>
+            </a>
+        </div>
+        <div class="content">
+            <div class="text-content">
+                <h4>{{nome}}</h4>
+                <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path
+                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg>{{cidade}}</p>
+                <p>R$ {{aluguel}} / mês</p>
             </div>
-        </section>
-        {{/each}}
-    </div>
-
-
-    <footer>
-        <div id="footer_content">
-            <div id="footer_contacts">
-                <a href="/pesquisa" class="logo_a_footer">Re<span>Uni</span></a>
-                <p>É tudo sobre os seus sonhos.</p>
-
-                <div id="footer_social_media">
-                    <a href="#" class="footer-link" id="instagram">
-                        <i class="fa-brands fa-instagram"><img src="/instagram.png" width="28px"></i>
-                    </a>
-
-                    <a href="#" class="footer-link" id="facebook">
-                        <i class="fa-brands fa-facebook-f"><img src="/facebook.png" width="28px"></i>
-                    </a>
-
-                    <a href="#" class="footer-link" id="whatsapp">
-                        <i class="fa-brands fa-whatsapp"> <img src="/whatsapp.png" width="28px"></i>
-                    </a>
+                <div class="detalhes">
+                    <div>
+                        <img src="/mista.png">
+                        {{tipo}}
+                    </div>
+    
+                    <div>
+                        <img src="/cama.png">
+                        {{quarto}}
+                    </div>
+    
+                    <div>
+                        <img src="/banheirob.png">
+                        {{banheiro}}
+                    </div>
                 </div>
+        </div>
+        <div class="sobre">
+
+        </div>
+        </section>
+        <section class="card">
+        <div class="imgQuarto-div">
+            <a href="/perfil-Republica?id={{id}}">
+                <img src="/foto 1.jpg" alt="Quarto de uma república">
+                <div class="imagem" id="imagem1"></div>
+            </a>
+        </div>
+        <div class="content">
+            <div class="text-content">
+                <h4>{{nome}}</h4>
+                <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path
+                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg>{{cidade}}</p>
+                <p>R$ {{aluguel}} / mês</p>
             </div>
-
-            <ul class="footer-list">
-                <li>
-                    <h3>Documentos</h3>
-                </li>
-                <li>
-                    <a href="MONOGRAFIA%20REUNI.pdf" class="footer-link">Monografia</a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Manual de identidade</a>
-                </li>
-            </ul>
-
-            <ul class="footer-list">
-                <li>
-                    <h3>Contato</h3>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Email</a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">FAQ</a>
-                </li>
-            </ul>
-
-            <ul class="footer-list">
-                <li>
-                    <h3>Termos</h3>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Termos de privacidade</a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Termos de uso</a>
-                </li>
-            </ul>
-            <ul class="footer-list">
-                <li>
-                    <h3>Sobre nós</h3>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Equipe</a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link"></a>
-                </li>
-            </ul>
+                <div class="detalhes">
+                    <div>
+                        <img src="/mista.png">
+                        {{tipo}}
+                    </div>
+    
+                    <div>
+                        <img src="/cama.png">
+                        {{quarto}}
+                    </div>
+    
+                    <div>
+                        <img src="/banheirob.png">
+                        {{banheiro}}
+                    </div>
+                </div>
         </div>
+        <div class="sobre">
 
-        <div id="footer_copyright">
-            @ 2024 all rights reserved
         </div>
-    </footer>
+        </section>
+        <section class="card">
+        <div class="imgQuarto-div">
+            <a href="/perfil-Republica?id={{id}}">
+                <img src="/foto 1.jpg" alt="Quarto de uma república">
+                <div class="imagem" id="imagem1"></div>
+            </a>
+        </div>
+        <div class="content">
+            <div class="text-content">
+                <h4>{{nome}}</h4>
+                <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path
+                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg>{{cidade}}</p>
+                <p>R$ {{aluguel}} / mês</p>
+            </div>
+                <div class="detalhes">
+                    <div>
+                        <img src="/mista.png">
+                        {{tipo}}
+                    </div>
+    
+                    <div>
+                        <img src="/cama.png">
+                        {{quarto}}
+                    </div>
+    
+                    <div>
+                        <img src="/banheirob.png">
+                        {{banheiro}}
+                    </div>
+                </div>
+        </div>
+        <div class="sobre">
 
+        </div>
+        </section>
+        <section class="card">
+        <div class="imgQuarto-div">
+            <a href="/perfil-Republica?id={{id}}">
+                <img src="/foto 1.jpg" alt="Quarto de uma república">
+                <div class="imagem" id="imagem1"></div>
+            </a>
+        </div>
+        <div class="content">
+            <div class="text-content">
+                <h4>{{nome}}</h4>
+                <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path
+                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg>{{cidade}}</p>
+                <p>R$ {{aluguel}} / mês</p>
+            </div>
+                <div class="detalhes">
+                    <div>
+                        <img src="/mista.png">
+                        {{tipo}}
+                    </div>
+    
+                    <div>
+                        <img src="/cama.png">
+                        {{quarto}}
+                    </div>
+    
+                    <div>
+                        <img src="/banheirob.png">
+                        {{banheiro}}
+                    </div>
+                </div>
+        </div>
+        <div class="sobre">
+
+        </div>
+        </section>
+            </div>
+            <div class="setaDireita"><button><img src="/seta.png" alt=""></button></div>
+        </div>
+    </div>
+    
+    <script src="/transicao.js"></script>
     <script src="/msgBemvindo.js"></script>
     <script src="/pesquisaAuth.js"></script>
 </body>

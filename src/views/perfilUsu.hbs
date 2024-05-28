@@ -27,7 +27,7 @@
                 <hr>
             </div>
             <div class="desc">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt ab labore vitae tenetur aliquid ipsam doloremque minus provident quisquam fugiat modi porro in, molestias blanditiis? Sapiente animi deleniti minima nulla! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, suscipit saepe? Architecto sit perspiciatis sed similique, sequi cumque quas perferendis veritatis laboriosam iusto maxime voluptate incidunt magnam. Ipsa, at magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, molestias veniam ipsum enim reiciendis fugiat aperiam sint maiores rerum facere! Aliquam facere, nam eaque molestiae temporibus necessitatibus nulla iste ipsam!</p>
+                <p>{{perfil.descricao}}</p>
             </div>
         </div>
 
@@ -45,9 +45,8 @@
                     <form id="deleteForm" action="/perfilUsu/delete" method="post">
                         <button type="button" id="deleteButton">Excluir conta</button>
                     </form>
-                    <form action="editForm" action="/perfilUsu/edit" method="post">
-                        <button type="button" id="editButton">Editar Perfil</button>
-                    </form>
+                        <a href="/editar-perfil"><button type="button" id="editButton">Editar Perfil</button></a>
+                  
                     
                 </div>
             </div>
@@ -64,16 +63,9 @@
             <button id="cancelButton">Cancelar</button>
         </div>
     </div>
-    <div id="confirmModal2" class="modal">
-        <div class="modal-content-2">
-             <div class="background">
-                <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
-                <span class="closeButton"><img src="/x_icon_150997.png" alt=""></span>
-            </div>
-        </div>
-    </div>
+   
     <script src="/confirmacaoDelete.js"></script>
-    <script src="/confirmacaoEdit.js"></script>
+    
 
     
 </body>

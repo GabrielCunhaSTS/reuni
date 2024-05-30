@@ -190,7 +190,7 @@
       </svg>Fotos e Descrição</button>
   </main>
 
-  <form id="cepForm" action="/auth/cadRep" method="POST">
+  <form id="cepForm" action="/auth/cadRep" method="POST" enctype="multipart/form-data">
     <main class="containers">
       <div class="container-cont">
         <div class="titulo">
@@ -395,11 +395,8 @@
 
         <div class="cont-fotos">
           <p>Adicione as melhores fotos de sua república.</p>
-          <form action="/submit" method="post">
-            <button type="submit" class="square-button">
-              <img src="/uppic.png" alt="">
-            </button>
-          </form>
+            <label for="images">Imagens da República:</label>
+            <input type="file" id="images" name="images" multiple ><br>
 
           <p>Título do Anúncio</p>
           <input type="text" id="ds_nomeRepublica" name="ds_nomeRepublica">

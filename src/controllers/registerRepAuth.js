@@ -6,6 +6,7 @@ const { ModelDadosRepublica } = require('../models/ModelDadosRepublicas')
 const { ModelRegrasRepublica } = require('../models/ModelRegrasRepublica')
 const { ModelComodidades } = require('../models/ModelComodidades')
 const { Sequelize, Op } = require('sequelize');
+const { ModelImagemRep } = require('../models/ModelImagemRep');
 
     module.exports = {
         registerRepublica: async (req, resp) => {
@@ -86,6 +87,16 @@ const { Sequelize, Op } = require('sequelize');
                     });
         
                     if (republicaCriada) {
+                        const imagens = req.files;
+                        if (imagens && imagens.length > 0) {
+                            for (const imagem of imagens) {
+                                await ModelImagemRep.create({
+                                    id_republica: republicaCriada.id_republica,
+                                    nome_arquivo: imagem.mimetype,
+                                    nome_imagem: imagem.filename
+                                });
+                            }
+                        }
                         return resp.redirect('/pesquisaAnun')
                     } else {
                         resp.render('anunciar', { msg: 'erro' })

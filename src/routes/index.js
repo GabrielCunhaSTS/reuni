@@ -16,7 +16,6 @@ const get = require('../controllers/getperfil');
 
 
 
-
 function checkAuth(req, res, next) {
     if (req.session.user) {
         next();
@@ -35,7 +34,7 @@ router.post('/auth/loginA', login.logAnunciante);
 
 router.get('/auth/logout', logout.logout);
 
-router.post('/auth/cadRep', registrarRep.registerRepublica);
+router.post('/auth/cadRep', multer.array('images', 5), registrarRep.registerRepublica);
 
 router.get('/pesquisa/:nm_digit', search.getRepByName);
 router.get('/pesquisa', checkAuth, search.getAllRep);

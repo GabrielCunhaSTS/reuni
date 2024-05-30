@@ -12,7 +12,6 @@ const fileFilter = (req, file, cb) => {
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-
         const pathDestino = path.join(__dirname, "../uploads/");
         if (!fs.existsSync(pathDestino)) {
             fs.mkdirSync(pathDestino, { recursive: true });
@@ -23,7 +22,6 @@ const storage = multer.diskStorage({
         cb(null, `${Date.now()}_projImgTest_${file.originalname}`);
     }
 });
-
 
 const upload = multer({
     storage: storage,

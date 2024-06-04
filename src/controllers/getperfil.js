@@ -78,10 +78,9 @@ const getPerfilRepublica = async (req, res) => {
         const imagemRep = await ModelImagemRep.findAll({
             where: {id_republica: republicaId },
             attributes:[
-                [Sequelize.literal('nome_imagem'), 'imagem'],
+                [Sequelize.literal('nome_imagem'), 'nome_imagem'],
             ]
         })
-
 
         comentarios.forEach(comentario => {
             comentario.dataFormatada = dateFns.formatDistanceToNow(new Date(comentario.data), { locale: ptBR ,addSuffix: true });

@@ -17,16 +17,22 @@
     <main class="galery">
         <div class="content">
             <div class="slides">
-                <input type="radio" name="slide" id="slide1" checked>
-                <input type="radio" name="slide" id="slide2">
-                <input type="radio" name="slide" id="slide3">
-                <input type="radio" name="slide" id="slide4">
-                <input type="radio" name="slide" id="slide5">
-
                 
+               
+
+                {{#if imagemRep.length}}
+                {{#each imagemRep}}
+                    <div class="slide s1"></div>
+                        <img src="/up/{{nome_imagem}}" alt="">
+                    </div>
+                {{/each}}
+            {{else}}
+                <p>erro</p>
+            {{/if}}
+
                 <div class="slide s1">
                     <img src="/foto 1.jpg" alt="">
-                </div>
+                
                 <div class="slide">
                     <img src="/foto 1.jpg" alt="">
                 </div>

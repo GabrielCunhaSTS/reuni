@@ -33,10 +33,14 @@ const { ModelImagemRep } = require('../models/ModelImagemRep');
                 }
         
                 async function criarRepublica() {
+
+                  let numeroInteiro = parseInt(nmr_telefoneAnfitriao.replace(/\D/g, ''), 10);
+ 
                     const anuncianteCriado = await ModelDadosRepublica.create({
+                        id_anunciante: id_anunciante,
                         ds_nomeAnfitriao: ds_nomeAnfitriao,
                         ds_emailContato: ds_emailAnfitriao,
-                        nmr_telefoneContato: nmr_telefoneAnfitriao,
+                        nmr_telefoneContato: numeroInteiro,
                         an_anoCriacao: an_anoCriacao
                     });
         

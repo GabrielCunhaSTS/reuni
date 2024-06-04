@@ -136,6 +136,7 @@ create table if not exists tb_republica(
     references tb_comodidades(id_comodidade)
 );
 
+
 create table tb_comentarios(
 	id_comentario int auto_increment primary key,
     id_usu int,
@@ -150,6 +151,16 @@ create table tb_comentarios(
     references tb_republica (id_republica)
 );
 
+
+create table tb_imagemRepublica(
+	id_imagem int auto_increment primary key,
+    id_republica int,
+    nome_imagem varchar(200),
+	nome_arquivo varchar(200),
+    
+    constraint foreign key (id_republica)
+    references tb_republica(id_republica)
+);
 #INSERTS
 
 -- inserir na tb_estadoOrigem
@@ -350,14 +361,17 @@ INSERT INTO tb_usuario (nm_usu, sx_sexoUsu, qt_idade, ds_cpfUsu, ds_emailUsu, ds
 ('Simone Marlene Corte Real', 'F', 29,'868.430.800-06', 'simone-cortereal90@supercleanlav.com.br', 'EmubhoDRIR', 'Descrição do perfil de Simone Marlene', 15),
 ('Filipe Francisco Ribeiro', 'M', 36,'564.346.373-30', 'filipe_francisco_ribeiro@amoamar.com.br', 'e9ynxzXKMq', 'Descrição do perfil de Filipe Francisco', 14);
 
+
 select * from tb_usuario;
 select * from tb_anunciante;
-
+select * from tb_favoritos;
 select * from tb_DadosRepublicas;
 select * from tb_localizacaoRepublica;
 select * from tb_republica;
 select * from tb_aluguel;
 select * from tb_regrasrepublica;
+select * from tb_imagemrepublica;
+
 
 select nm_estadoOrigem, COUNT(*) as 'QTD usuarios por nacionalidade'
 	from tb_usuario 

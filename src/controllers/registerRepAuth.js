@@ -62,8 +62,15 @@ const { ModelImagemRep } = require('../models/ModelImagemRep');
                         ds_permissaoBebidasAlc: bebidas,
                         ds_permissaoVisitas: visitas
                     });
-        
-                    // Verifica se ValorMensal está definido e processa o valor corretamente
+
+                    const comodidades =  await ModelComodidades.create({
+                        ds_wifi: wifi,
+                        ds_tv: tv,
+                        ds_cozinha: cozinha,
+                        ds_garagem: estacionamento,
+                        ds_arcondicionado: ar_condicionado
+                    })
+
                     let valorFinal = 0;
                     if (ValorMensal) {
                         valorFinal = parseFloat(ValorMensal.replace('R$', '').replace(/\./g, '').replace(',', '.'));
@@ -82,6 +89,7 @@ const { ModelImagemRep } = require('../models/ModelImagemRep');
                         id_tipoRepublica: tipo.id_tipoRepublica,
                         id_regraRepublica: regra.id_regraRepublica,
                         id_valorAlguel: aluguel.id_valorAlguel,
+                        id_comodidade: comodidades.id_comodidade,
                         ds_nomeRepublica: ds_nomeRepublica,
                         ds_descricaoRepublica: ds_descricaoRepublica
                     });

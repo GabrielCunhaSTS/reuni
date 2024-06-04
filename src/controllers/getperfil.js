@@ -7,7 +7,8 @@ const { ModelUsuario } = require('../models/ModelUsuario');
 const { ModelRepublica } = require('../models/modelRepublica');
 const { Sequelize, Op } = require('sequelize')
 const dateFns  = require('date-fns')
-const ptBR = require('../controllers/formataçãoData')
+const ptBR = require('../controllers/formataçãoData');
+const { ModelImagemRep } = require('../models/ModelImagemRep');
 
 const getPerfilRepublica = async (req, res) => {
     try {
@@ -26,6 +27,7 @@ const getPerfilRepublica = async (req, res) => {
                 [Sequelize.literal('ds_bairro'), 'bairro'],
                 [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
                 [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],
+                [Sequelize.literal('nmr_telefoneContato'), 'numero'],
             ],
             raw: true,
             include: [
@@ -73,11 +75,19 @@ const getPerfilRepublica = async (req, res) => {
             raw: true
         });
 
+        const imagemRep = await ModelImagemRep.findAll({
+            where: {id_republica: republicaId },
+            attributes:[
+                [Sequelize.literal('nome_imagem'), 'imagem'],
+            ]
+        })
+
+
         comentarios.forEach(comentario => {
             comentario.dataFormatada = dateFns.formatDistanceToNow(new Date(comentario.data), { locale: ptBR ,addSuffix: true });
         });
 
-        res.render('perfilRep', { republica, comentarios: comentarios });
+        res.render('perfilRep', { republica, imagemRep, comentarios: comentarios });
     } catch (error) {
         console.error('Erro ao carregar perfil da república:', error);
         res.status(500).send('Erro interno do servidor');

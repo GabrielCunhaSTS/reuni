@@ -45,8 +45,9 @@
                     <form id="deleteForm" action="/perfilUsu/delete" method="post">
                         <button type="button" id="deleteButton">Excluir conta</button>
                     </form>
-                        <a href="/editar-perfil"><button type="button" id="editButton">Editar Perfil</button></a>
-                  
+                    <form id="editForm" action="/perfilUsu/edit" method="post">
+                        <button type="button" id="editButton">Editar Perfil</button>
+                    </form>
                     
                 </div>
             </div>
@@ -54,7 +55,43 @@
     </div>
     
    
-
+    <div id="confirmModalEdit" class="modal">
+        <div class="modal-content-2">
+            <div class="image">
+                <div>
+                    <form action="/upload" method="POST" enctype="multipart/form-data">
+                      <input type="file" class="choose" name="image" id="profile" required>
+                        <label for="profile" class="profile_label">
+                            <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
+                        </label>
+                    </form>
+                </div>
+                <span class="closeButton">&times;</span>
+            </div>
+            <div class="inputs">
+                <div class="align-itens">
+                    <div>
+                        <label for="nome">Novo Nome:</label>
+                        <input type="text" id="nome" name="nome" value="{{perfil.nome}}" required>
+                    </div>
+                    <div>
+                        <label for="email">Novo Email:</label>
+                        <input type="email" id="email" name="email" value="{{perfil.email}}" required>
+                    </div>
+                </div>
+                <div class="align-itens-2">
+                    <div class="desc">
+                        <label for="descricao">Nova Descrição:</label>
+                        <textarea id="descricao" name="descricao" required>{{perfil.descricao}}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="confirmEditButton">Salvar</button>
+                <button id="cancelButtonEdit" class="cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
     <div id="confirmModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -65,7 +102,7 @@
     </div>
    
     <script src="/confirmacaoDelete.js"></script>
-    
+    <script src="/confirmacaoEdit.js"></script>
 
     
 </body>

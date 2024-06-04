@@ -9,7 +9,22 @@
 </head>
 
 <body>
-    <h1>Editar Perfil</h1>
+
+    <script>
+        //puxa os itens que estão no localstorage
+         document.addEventListener('DOMContentLoaded', function() {
+            var nome = localStorage.getItem('nome');
+            var email = localStorage.getItem('email');
+            var descricao = localStorage.getItem('descricao');
+            var fotoPerfilUrl = localStorage.getItem('profile');
+            
+         });
+            // Limpa os dados do localStorage
+                    localStorage.removeItem('nome');
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('descricao');
+                    localStorage.removeItem('profile');
+    </script>
 
     <form id="deleteForm" action="/perfilUsu/deleteImage" method="post">
         <button type="submit">Excluir Foto</button>
@@ -48,6 +63,7 @@
             <button id="cancelButton">Cancelar</button>
         </div>
     </div>
+    
 
     <script src="/confirmacaoEdit.js"></script>
 </body>

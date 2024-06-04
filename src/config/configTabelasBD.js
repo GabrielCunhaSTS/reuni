@@ -6,4 +6,6 @@ function _padraoTableBDExistente(typedTableNm) {
     }
 }
 
-module.exports = { _padraoTableBDExistente }
+module.exports = {
+    _padraoTableBDExistente
+}

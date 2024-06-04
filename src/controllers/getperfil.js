@@ -12,8 +12,7 @@ const ptBR = require('../controllers/formataçãoData')
 const getPerfilRepublica = async (req, res) => {
     try {
         const republicaId = req.query.id;
-
-        // Obter perfil da república
+        
         const republica = await ModelRepublica.findOne({
             where: { id_republica: republicaId },
             attributes: [

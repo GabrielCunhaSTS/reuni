@@ -206,7 +206,7 @@
     </section>
     <section>
 
-<form action="/comentarios/adicionar" method="POST">
+<form class="coment-pub" action="/comentarios/adicionar" method="POST">
     <input type="hidden" name="id_republica" value="{{ republica.id }}">
     <textarea name="texto" maxlength="100" placeholder="Digite seu comentário"></textarea>
     <button type="submit">Publicar Comentário</button>
@@ -215,12 +215,17 @@
 {{#if comentarios.length}}
     <h2>Comentários:</h2>
     <ul>
-        {{#each comentarios}}
-        
-            <li>{{this.nome}}</li>
-            <li>{{this.texto}}</li>
-            <li>{{this.dataFormatada}}</li>
-        {{/each}}
+        <div class="grid-container">
+            {{#each comentarios}}
+            <div class="coment">
+                <div class="title">
+                    <p>{{this.nome}}</p>
+                    <p class="date">{{this.dataFormatada}}</p>
+                </div>
+                <p>{{this.texto}}</p>
+            </div>
+            {{/each}}
+        </div>
     </ul>
 {{else}}
     <p>Nenhum comentário encontrado.</p>

@@ -500,3 +500,77 @@ header .title span {
 #imagem1.favoritada {
     background-image: url('/favorito (1).png'); /* URL da segunda imagem */
 }
+
+.coment {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    border-radius: 20px;
+    border: 3px solid #d9d9d9;
+    box-shadow: 0.5vw 0.5vw 0.5vw rgb(0, 0, 0, 0.15);
+    width: 350px;
+    height: 170px;
+}
+
+.coment .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coment .title p {
+    color: black;
+    font-size: 20px;
+
+}
+
+.coment .title .date {
+    font-size: 12px;
+}
+
+.coment p {
+    color: black;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.coment-pub {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.coment-pub textarea {
+    border: 2px solid;
+    border-radius: 5px;
+    box-shadow: 0.5vw 0.5vw 0.5vw rgb(0, 0, 0, 0.15);
+    color: black;
+    font-size: 22px;
+}
+
+.coment-pub button {
+    color: white;
+    background-color: #215487;
+    border: 3px solid #215487;
+    font-size: 22px;
+    width: 230px;
+    height: 60px;
+    border-radius: 10px;
+    transition: 0.5s ease;
+}
+
+.coment-pub button:hover {
+    color: #215487;
+    background-color: white;
+}
+
+.grid-container {
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 35px;
+}

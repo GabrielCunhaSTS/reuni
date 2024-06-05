@@ -17,9 +17,6 @@
     <main class="galery">
         <div class="content">
             <div class="slides">
-                
-               
-
                 {{#if imagemRep.length}}
                 {{#each imagemRep}}
                     <div class="slide s1"></div>
@@ -118,12 +115,21 @@
             <hr class="hr-menor">
         </div>
         <div class="grid-container">
-            <img src="/Wifi.png" alt="">
-            <img src="/Cozinha.png" alt="">
-            <img src="/Mobiliado.png" alt="">
-            <img src="/lazer.png" alt="">
-            <img src="/Garagem.png" alt="">
-            <img src="/Piscina.png" alt="">
+            {{#if comodidades.wifi}}
+                <img src="/wi-fi.png" alt="Wi-Fi">
+            {{/if}}
+            {{#if comodidades.tv}}
+                <img src="/tv.png" alt="TV">
+            {{/if}}
+            {{#if comodidades.cozinha}}
+                <img src="/cozinhau.png" alt="Cozinha">
+            {{/if}}
+            {{#if comodidades.garagem}}
+                <img src="/vagas.png" alt="Garagem">
+            {{/if}}
+            {{#if comodidades.arcondicionado}}
+                <img src="/arcondicionado.png" alt="Ar-condicionado">
+            {{/if}}
         </div>
     </section>
     <svg class="hr-maior" xmlns="http://www.w3.org/2000/svg" width="1164" height="3" viewBox="0 0 1164 3" fill="none">
@@ -136,11 +142,37 @@
         </div>
 
         <div class="grid-container">
-            <img src="/Permitido.png" alt="">
-            <img src="/Permitido (1).png" alt="">
-            <img src="/Permitido (2).png" alt="">
-            <img src="/Permitido (3).png" alt="">
-            <img src="/Permitido7.png" alt="">
+            {{#if regras.fumar}}
+                <p>pode fumar</p>
+                <img src="/v.png">
+            {{else}}
+                <p>nao pode fumar</p>
+                <img src="/x.png">
+            {{/if}}
+            
+            {{#if regras.pets}}
+                <p>pode pets</p>
+                <img src="/v.png">
+            {{else}}
+                <p>nao pode pets</p>
+                <img src="/x.png">
+            {{/if}}
+
+            {{#if regras.bebidas}}
+                <p>pode bebidas</p>
+                <img src="/v.png">
+            {{else}}
+                <p>nao pode bebidas</p>
+                <img src="/x.png">
+            {{/if}}
+
+            {{#if regras.visitas}}
+                <p>pode visitas</p>
+                <img src="/v.png">
+            {{else}}
+                <p>nao pode visitas</p>
+                <img src="/x.png">
+            {{/if}}        
         </div>
     </section>
 

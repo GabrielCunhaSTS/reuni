@@ -6,6 +6,9 @@ const { ModelTipoRepublica } = require('../models/ModelTipoRepublica')
 const { ModelAlguel } = require('../models/ModelAluguel')
 const { ModelLocalizacaoRepublica } = require('../models/ModelLocalizacaoRepublica')
 const { ModelAnunciante } = require('../models/ModelAnunciante')
+const { ModelComodidades } = require('../models/ModelComodidades')
+const { ModelRegrasRepublica } = require('../models/ModelRegrasRepublica')
+
 
 const ModelRepublica = conecBanco.define('tb_republica', {
     id_republica: {
@@ -76,6 +79,12 @@ const ModelRepublica = conecBanco.define('tb_republica', {
 
 ModelAnunciante.hasMany(ModelRepublica, { foreignKey: 'id_anunciante' })
 ModelRepublica.belongsTo(ModelAnunciante, { foreignKey: 'id_anunciante' })
+
+ModelComodidades.hasMany(ModelRepublica, { foreignKey: 'id_comodidade' })
+ModelRepublica.belongsTo(ModelComodidades, { foreignKey: 'id_comodidade' })
+
+ModelRegrasRepublica.hasMany(ModelRepublica, { foreignKey: 'id_regraRepublica' })
+ModelRepublica.belongsTo(ModelRegrasRepublica, { foreignKey: 'id_regraRepublica' })
 
 ModelDadosRepublica.hasMany(ModelRepublica, { foreignKey: 'id_dadoRepublica' })
 ModelRepublica.belongsTo(ModelDadosRepublica, { foreignKey: 'id_dadoRepublica' })

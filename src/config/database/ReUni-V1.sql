@@ -39,7 +39,6 @@ create table if not exists tb_imagem(
 	id_usu int,
 	nome_imagem varchar(200),
 	nome_arquivo varchar(200),
-
 	constraint foreign key(id_usu)
 	references tb_usuario(id_usu)
 );
@@ -116,7 +115,6 @@ create table if not exists tb_republica(
     
     constraint foreign key (id_anunciante)
     references tb_anunciante(id_anunciante),
-
     constraint foreign key (id_dadoRepublica)
     references tb_DadosRepublicas(id_dadoRepublica),
     

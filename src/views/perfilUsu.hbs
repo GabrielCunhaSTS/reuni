@@ -60,10 +60,12 @@
             <div class="image">
                 <div>
                     <form action="/upload" method="POST" enctype="multipart/form-data">
-                      <input type="file" class="choose" name="image" id="profile" required>
+                    <input class="input-File"type="file" name="image" id="profile" required>
                         <label for="profile" class="profile_label">
                             <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
                         </label>
+                        
+                        <button id="submitFoto" type="submit">Salvar</button>
                     </form>
                 </div>
                 <span class="closeButton">&times;</span>
@@ -87,7 +89,7 @@
                 </div>
             </div>
             <div class="buttons">
-                <button id="confirmEditButton">Salvar</button>
+                <a href="/editar-perfil"><button id="confirmEditButton">Salvar</button></a>
                 <button id="cancelButtonEdit" class="cancel">Cancelar</button>
             </div>
         </div>

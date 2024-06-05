@@ -10,21 +10,20 @@
 
 <body>
 
-    <script>
-        //puxa os itens que estão no localstorage
-         document.addEventListener('DOMContentLoaded', function() {
-            var nome = localStorage.getItem('nome');
-            var email = localStorage.getItem('email');
-            var descricao = localStorage.getItem('descricao');
-            var fotoPerfilUrl = localStorage.getItem('profile');
-            
-         });
-            // Limpa os dados do localStorage
-                    localStorage.removeItem('nome');
-                    localStorage.removeItem('email');
-                    localStorage.removeItem('descricao');
-                    localStorage.removeItem('profile');
-    </script>
+    <style>
+        form {
+            display: none;
+        }
+
+        a {
+            display: none;
+        }
+
+        div {
+            display: none;
+        }
+    </style>
+    
 
     <form id="deleteForm" action="/perfilUsu/deleteImage" method="post">
         <button type="submit">Excluir Foto</button>
@@ -34,7 +33,7 @@
 
    
 
-    <form action="/upload" method="POST" enctype="multipart/form-data">
+    <form id="upload" action="/upload" method="POST" enctype="multipart/form-data">
     <label for="profile" class="profile_label">
         <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
     </label>
@@ -66,6 +65,29 @@
     
 
     <script src="/confirmacaoEdit.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Puxa os itens que estão no localStorage
+            var nome = localStorage.getItem('nome');
+            var email = localStorage.getItem('email');
+            var descricao = localStorage.getItem('descricao');
+
+            // Preenche os campos do formulário com os valores do localStorage
+            if (nome) document.getElementById('nome').value = nome;
+            if (email) document.getElementById('email').value = email;
+            if (descricao) document.getElementById('descricao').value = descricao;
+
+                // Submeter o formulário automaticamente ao carregar a página     
+                document.getElementById('editForm').submit();
+        });
+
+        //Função para redirecionar para a página anterior
+        function redirectToPreviousPage() {
+           window.history.back();
+           return false; // Impede o envio padrão do formulário
+        }
+    </script>
 </body>
 
 </html>

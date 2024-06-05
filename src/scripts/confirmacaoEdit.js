@@ -21,18 +21,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
         modal.style.display = "none";
     }
 
-    // Quando o usuário clicar no botão "Salvar", envia o formulário
+   
     document.getElementById('confirmEditButton').addEventListener('click', function() {
         var nome = document.getElementById('nome').value;
         var email = document.getElementById('email').value;
         var descricao = document.getElementById('descricao').value;
-        var image = document.getElementById('profile').value
         localStorage.setItem('nome', nome);
         localStorage.setItem('email', email);
         localStorage.setItem('descricao', descricao);
-        localStorage.setItem('profile', image)
-        // Redireciona para a página intermediária
-        // window.location.href = '/pagina que ele vai depois que apertar salvar';
+        
     });
 
     // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal

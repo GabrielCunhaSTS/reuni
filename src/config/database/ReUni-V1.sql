@@ -216,27 +216,27 @@ INSERT INTO tb_anunciante (nm_anunciante, ds_emailAunci, ds_senhaAnunci, ds_cpfA
 
 -- Inserir na tb_DadosRepublicas 		
 INSERT INTO tb_DadosRepublicas (id_anunciante, ds_emailContato, nmr_telefoneContato, an_anoCriacao) VALUES 		
-(1, 'silvajoão00@gmail.com', '(68) 98687-4851', '2019'),
-(2, 'mariaOlira@gmail.com', '(88) 98227-2421', '2021'),
-(3, 'Anasilvaa@gmail.com', '(11) 1234-5678', '2020'),
-(4, 'pedroSouzinha@gmail.com', '(11) 9876-5432', '2018'),
-(5, 'carlaOliveira708@gmail.com', '(11) 1111-2222', '2019'),
-(6, 'joaoSant@gmail.com', '(21) 99836-3047', '2021'),
-(7, 'marianaAtsac@gmail.com', '(11) 5555-6666', '2017'),
-(8, 'lucasArtes2021@gmail.com', '(31) 99766-3031', '2022'),
-(9, 'fernandaMontesLim@gmail.com', '(11) 9999-0000', '2016'),
-(10, 'gustavoGuanabaraAl@gmail.com', '(11) 1234-5678', '2015'),
-(11, 'julianaSaantos@gmail.com', '(67) 98636-7880', '2014'),
-(12, 'rafaelOliVeira@gmail.com', '(27) 98591-9806', '2013'),
+(1, 'silvajoão00@gmail.com', '68986874851', '2019'),
+(2, 'mariaOlira@gmail.com', '88982272421', '2021'),
+(3, 'Anasilvaa@gmail.com', '1112345678', '2020'),
+(4, 'pedroSouzinha@gmail.com', '119876-5432', '2018'),
+(5, 'carlaOliveira708@gmail.com', '1111112222', '2019'),
+(6, 'joaoSant@gmail.com', '21998363047', '2021'),
+(7, 'marianaAtsac@gmail.com', '1155556666', '2017'),
+(8, 'lucasArtes2021@gmail.com', '31997663031', '2022'),
+(9, 'fernandaMontesLim@gmail.com', '1199990000', '2016'),
+(10, 'gustavoGuanabaraAl@gmail.com', '1112345678', '2015'),
+(11, 'julianaSaantos@gmail.com', '67986367880', '2014'),
+(12, 'rafaelOliVeira@gmail.com', '27985919806', '2013'),
 (13, 'gabriel@teste.com', '13991266579', 2020),
 (14, 'david@teste.com', '13991266589', 2020),
 (15, 'livia@teste.com', '13991266599', 2020),
-(16, 'vitor_dias@celiosilva.com', '(53) 99627-9045', 2020),
-(17, 'marcos_bernardes@carreira.com.br', '(64) 99575-4495', 2020),
-(18, 'carloskauemoraes@inglesasset.com.br', '(13) 98266-6805', 2020),
-(19, 'nina.vitoria.freitas@demasi.com.br', '(85) 98830-0696', 2020),
-(20, 'daniela_dacruz@comdados.com', '(63) 98512-7080', 2020),
-(21, 'allana_dacosta@steadyoffice.com.br', '(13) 98218-1084', 2020);
+(16, 'vitor_dias@celiosilva.com', '53996279045', 2020),
+(17, 'marcos_bernardes@carreira.com.br', '6499575-495', 2020),
+(18, 'carloskauemoraes@inglesasset.com.br', '13982666805', 2020),
+(19, 'nina.vitoria.freitas@demasi.com.br', '85988300696', 2020),
+(20, 'daniela_dacruz@comdados.com', '63985127080', 2020),
+(21, 'allana_dacosta@steadyoffice.com.br', '13982181084', 2020);
 
 -- Inserir na tb_localizacaoRepublica
 INSERT INTO tb_localizacaoRepublica (ds_cep, ds_estado, ds_cidade, ds_rua, ds_bairro) VALUES

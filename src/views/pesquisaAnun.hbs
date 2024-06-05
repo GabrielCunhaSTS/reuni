@@ -13,6 +13,45 @@
 </head>
 
 <body>
+    <script>
+     document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.repu-grid section');
+    const moveLeftButton = document.getElementById('setaEsquerda');
+    const moveRightButton = document.getElementById('setaDireita');
+    const moveAmountPercentage = 100; // Altere conforme necessário
+    const leftLimitPercentage = 0; // Limite à esquerda em porcentagem
+    const rightLimitPercentage = -160; // Limite à direita em porcentagem
+    const sectionWidthPercentage = 20; // Largura de cada seção em porcentagem
+
+    const gridWidth = sections.length * sectionWidthPercentage; // Largura total do grid
+    const moveAmount = (moveAmountPercentage / 100) * gridWidth; // Converter para pixels
+    const leftLimit = (leftLimitPercentage / 100) * gridWidth; // Converter para pixels
+    const rightLimit = (rightLimitPercentage / 100) * gridWidth; // Converter para pixels
+
+    moveLeftButton.addEventListener('click', function() {
+        sections.forEach(function(section) {
+            let currentLeft = parseInt(section.style.left || 0);
+            if (currentLeft - moveAmount >= leftLimit) {
+                section.style.left = currentLeft - moveAmount + '%';
+            } else {
+                section.style.left = leftLimit + '%';
+            }
+        });
+    });
+
+    moveRightButton.addEventListener('click', function() {
+        sections.forEach(function(section) {
+            let currentLeft = parseInt(section.style.left || 0);
+            if (currentLeft + moveAmount <= rightLimit) {
+                section.style.left = currentLeft - moveAmount + '%';
+            } else {
+                section.style.left = rightLimit + '%';
+            }
+        });
+    });
+});
+
+    </script>
     <header>
         <div class="navLeft">
             <a href="/pesquisa" class="logo_a">Re<span>Uni</span></a>
@@ -240,7 +279,7 @@
         </div>
         </section>
             </div>
-            <div class="setaDireita"><button><img src="/seta.png" alt=""></button></div>
+            <div class="setaDireita" id="setaDireita"><button><img src="/seta.png" alt=""></button></div>
         </div>
     </div>
     

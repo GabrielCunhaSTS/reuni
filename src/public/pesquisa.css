@@ -769,7 +769,8 @@ section h2 {
 
 .repu-grid section {
     position: relative;
-    transition: 0.5s ease;
+    transition: 0.8s ease;
+    left: 0%;
 }
 
 .setaEsquerda, .setaDireita{

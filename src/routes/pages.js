@@ -36,9 +36,6 @@ router.get('/pesquisa', checkAuth, (req, res) => {
     res.render('pesquisaUsu')
 })
 
-router.get('/teste', (req, res) => {
-    res.render('teste')
-})
 
 router.get('/pesquisaAnun', checkAuth, (req, res) => {
     res.render('pesquisaAnun')
@@ -56,7 +53,7 @@ router.get('/perfil-Usuario', checkAuth, (req, res) => {
     res.render('perfilUsu')
 })
 
-router.get('/perfil-Anunciante',  (req, res) => {
+router.get('/perfil-Anunciante', checkAuth, (req, res) => {
     res.render('perfilAnun')
 })
 

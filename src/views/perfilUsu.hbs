@@ -59,17 +59,18 @@
         <div class="modal-content-2">
             <div class="image">
                 <div>
+                     <form id="deleteForm" action="/perfilUsu/deleteImage" method="post">
+                        <button class="delete-foto" type="submit">Excluir Foto</button>
+                    </form>
                     <form action="/upload" method="POST" enctype="multipart/form-data">
-                    <input class="input-File"type="file"  style="opacity: 0;" name="image" id="profile" required>
+                    <input class="input-File"type="file"  style="display: none;" name="image" id="profile" required>
                         <label for="profile" class="profile_label">
                             <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
                         </label>
                         
                         <button id="submitFoto" type="submit">Salvar</button>
                     </form>
-                    <form id="deleteForm" action="/perfilUsu/deleteImage" method="post">
-                        <button type="submit">Excluir Foto</button>
-                    </form>
+                   
                 </div>
                 <span class="closeButton">&times;</span>
             </div>

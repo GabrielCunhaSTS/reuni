@@ -116,8 +116,8 @@ const { ModelImagemRep } = require('../models/ModelImagemRep');
                     return resp.redirect('/anunciar');
                 }
             }
-                criarRepublica();
-                console.log(criarRepublica)
+                await criarRepublica();
+                
             } catch (error) {
                 console.error("Erro no servidor:", error);
                 req.flash("error_msg", `Erro no servidor: ${error.message}`);

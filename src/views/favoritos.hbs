@@ -16,6 +16,12 @@
     </header>
     <h1 style="margin-left: 5%;">Favoritos</h1>
 
+    <div class="alert {{#if success_msg}}show{{/if}}">
+      {{#if success_msg}}
+    <div class="success">{{success_msg}}</div>
+      {{/if}}
+    </div>
+
 <div class="grid-container">
      {{#if favoritos.length}}
   {{#each favoritos}}
@@ -37,11 +43,9 @@
     </a>
   {{/each}}
 {{else}}
-  <p>Nenhuma república favoritada.</p>
+  <p class="nenhuma" style="font-size: 35px;">Nenhuma república favoritada.</p>
 {{/if}}
 </div>
-
-    
    
 </body>
 

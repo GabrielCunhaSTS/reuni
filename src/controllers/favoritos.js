@@ -20,10 +20,15 @@ module.exports = {
             });
 
             if (favoritoExistente) {
-                return res.status(400).send('Esta república já está nos seus favoritos.');
+                req.flash("error_msg", `A República já esta na sua lista de favoritos`)
+                return res.redirect('favoritos')
             }
     
-            await ModelFavoritos.create({ id_usu: usuarioId, id_republica: republica_id })
+            async function criarFav (){
+                await ModelFavoritos.create({ id_usu: usuarioId, id_republica: republica_id })
+            } 
+            await criarFav()
+            req.flash("success_msg", `republica favoritada com sucesso`)
             res.redirect('favoritos')
 
         } catch (error) {

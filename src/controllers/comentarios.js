@@ -14,6 +14,7 @@
                     ds_texto:texto
                 });
 
+                console.log(texto)
                 res.redirect(`/perfil-Republica?id=${id_republica}`)
             } catch (error) {
                 console.error('Erro ao adicionar comentário:', error)

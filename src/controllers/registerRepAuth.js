@@ -111,7 +111,7 @@ const { ModelImagemRep } = require('../models/ModelImagemRep');
                         }
                         return resp.redirect('/pesquisaAnun')
                     } else {
-                        resp.render('anunciar', { msg: 'erro' })
+                    resp.render('anunciar', { msg: 'erro' })
                     req.flash("success_msg", `República ${ds_nomeRepublica} criada com sucesso!`);
                     return resp.redirect('/anunciar');
                 }

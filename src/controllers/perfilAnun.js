@@ -5,7 +5,6 @@ module.exports = {
     getPerfilAnunciante: async (req, res) => {
         try {
             const idAnunciante = req.session.user.id_anunciante
-            console.log("ID do ANUNCIANTE:", idAnunciante)
 
             const perfil = await ModelAnunciante.findByPk(idAnunciante, {
                 attributes: [

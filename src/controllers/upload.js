@@ -28,7 +28,7 @@ module.exports = {
 
             console.log('Registro de imagem criado ou atualizado no banco de dados:', imagemPerfil)
 
-            return res.redirect('/editar-perfil')
+            return res.redirect('/perfil-Usuario')
         } catch (erro) {
             console.error('Erro ao tentar fazer upload de imgs:', erro)
             return res.status(500).send(`Erro ao tentar fazer upload de imgs: ${erro}`)
@@ -62,7 +62,7 @@ module.exports = {
             await ModelImagem.destroy({ where: { id_usu: idUsuario } })
 
             console.log('Imagem excluída com sucesso.')
-            return res.redirect('/editar-perfil')
+            return res.redirect('/perfil-Usuario')
         } catch (error) {
             console.error('Erro ao excluir imagem:', error)
             return res.status(500).json({ error: 'Erro ao excluir imagem.' })

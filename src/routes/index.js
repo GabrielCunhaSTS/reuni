@@ -38,7 +38,6 @@ router.post('/auth/cadRep', multer.array('images', 5), registrarRep.registerRepu
 
 router.get('/pesquisa/:nm_digit', search.getRepByName);
 router.get('/pesquisa', checkAuth, search.getAllRep);
-
 router.get('/pesquisaAnun', checkAuth, search.getAllRepAnun)
 
 
@@ -55,8 +54,7 @@ router.post('/upload', multer.single('image'), image.uploadImage);
 
 router.get('/perfil-Republica', checkAuth, get.getPerfilRepublica);
 
-router.get('/perfil-RepublicaAnun', checkAuth, get.getPerfilRepublicaAnun);
-
+router.get('/perfil-RepublicaAnun', checkAuth, get.getPerfilRepublica);
 router.post('/comentarios/adicionar', checkAuth, comentarios.adicionarComentario);
 
 

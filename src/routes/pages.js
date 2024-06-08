@@ -49,6 +49,10 @@ router.get('/perfil-Republica', checkAuth, (req, res) => {
     res.render('perfilRep')
 })
 
+router.get('/perfil-RepublicaAnun', checkAuth, (req, res) => {
+    res.render('perfilRepAnun')
+})
+
 router.get('/perfil-Usuario', checkAuth, (req, res) => {
     res.render('perfilUsu')
 })

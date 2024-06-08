@@ -43,6 +43,15 @@ create table if not exists tb_imagem(
 	references tb_usuario(id_usu)
 );
 
+create table if not exists tb_imagemA(
+	id_imagem int auto_increment primary key,
+	id_anunciante int,
+	nome_imagem varchar(200),
+	nome_arquivo varchar(200),
+	constraint foreign key(id_anunciante)
+	references tb_anunciante(id_anunciante)
+);
+
 select * from tb_imagem;
 	
 DESCRIBE tb_imagem;
@@ -212,7 +221,16 @@ INSERT INTO tb_anunciante (nm_anunciante, ds_emailAunci, ds_senhaAnunci, ds_cpfA
 ('Camila Costa Oliveira', 'camila.oliveira@example.com', '123456', '868.430.800-06', '29'),
 ('Vinícius Silva Lima', 'vinicius.lima@example.com', 'senhaabc', '564.346.373-30', '36'),
 ('Ana Carolina Almeida', 'ana.carolina@example.com', 'password123', '111.111.111-11', '25'),
-('Marcos Oliveira Santos', 'marcos.santos@example.com', 'abc123def', '222.222.222-22', '30');
+('Marcos Oliveira Santos', 'marcos.santos@example.com', 'abc123def', '222.222.222-21', '19'),
+('Marcus Almeida Oliveira', 'marcus.almeida@example.com', 'abc123def', '222.222.222-23', '18'),
+('Antonio Costa', 'antonio.costa@example.com', 'abc123def', '222.222.222-24', '22'),
+('Alexandre Morais', 'Morais@example.com', 'abc123def', '222.222.222-25', '27'),
+('Pietro Silva', 'silva.pietro@example.com', 'abc123def', '222.222.222-26', '22'),
+('Ameli Souza', 'Amelis@example.com', 'abc123def', '222.222.222-27', '29'),
+('Ana lua Rocha', 'alua@example.com', 'abc123def', '222.222.222-28', '25'),
+('André de Paula', 'depaula@example.com', 'abc123def', '222.222.222-29', '24'),
+('Pedro Henrique pereira', 'pereirahenrique@example.com', 'abc123def', '222.222.222-29', '21'),
+('Pedro bastos', 'bastos@example.com', 'abc123def', '222.222.222-29', '21');
 
 -- Inserir na tb_DadosRepublicas 		
 INSERT INTO tb_DadosRepublicas (id_anunciante, ds_emailContato, nmr_telefoneContato, an_anoCriacao) VALUES 		
@@ -236,23 +254,49 @@ INSERT INTO tb_DadosRepublicas (id_anunciante, ds_emailContato, nmr_telefoneCont
 (18, 'carloskauemoraes@inglesasset.com.br', '13982666805', 2020),
 (19, 'nina.vitoria.freitas@demasi.com.br', '85988300696', 2020),
 (20, 'daniela_dacruz@comdados.com', '63985127080', 2020),
-(21, 'allana_dacosta@steadyoffice.com.br', '13982181084', 2020);
+(21, 'allana_dacosta@steadyoffice.com.br', '13982181084', 2020),
+(22, 'maria.silvaaa@example.com', '13982181081', 2020),
+(23, 'afernanda.martins@example.com', '13982181084', 2020),
+(24, 'leticia.mendes@example.com', '13982181083', 2020),
+(25, 'isabela.moura@example.com', '13982181085', 2020),
+(26, 'andre.lopes@example.com', '13982181086', 2020),
+(27, 'vanessa.cunha@example.com', '13982181087', 2020),
+(28, 'marcos.nascimento@example.com', '13982181088', 2020),
+(29, 'renata.barros@example.com', '13982181089', 2020),
+(30, 'ajulia.rocha@example.com', '13982181014', 2020);
 
 -- Inserir na tb_localizacaoRepublica
 INSERT INTO tb_localizacaoRepublica (ds_cep, ds_estado, ds_cidade, ds_rua, ds_bairro) VALUES
-('66843-880', 'SP', 'Belém', 'Água Boa', 'Jassanã'),
-('69906-630', 'AP','Rio Branco', 'Avenida Fortaleza do Abunã', 'Humaíta'),
-('01234-567', 'PI', 'São Paulo', 'Rua Oscar Freire', 'Centro'),
-('12345-678', 'RN', 'Rio de Janeiro', 'Rua Gonçalo de Carvalho', 'Copacabana'),
-('23456-789', 'AL','Belo Horizonte', 'Avenida Amazonas', 'Savassi'),
-('34567-890','AM','Curitiba', 'Rua João Alfredo', 'Batel'),
-('45678-901', 'PR','Porto Alegre', 'Rua João Alfredo', 'Moinhos de Vento'),
-('56789-012', 'PA','Salvador', 'Rua da Aurora', 'Barra'),
-('67890-123', 'TO', 'Brasília', 'Eixo Rodoviário de Brasília', 'Asa Sul'),
+('66843-880', 'PA', 'Belém', 'Água Boa', 'Jassanã'),
+('69906-630', 'AC', 'Rio Branco', 'Avenida Fortaleza do Abunã', 'Humaíta'),
+('01234-567', 'SP', 'São Paulo', 'Rua Oscar Freire', 'Centro'),
+('12345-678', 'RJ', 'Rio de Janeiro', 'Rua Gonçalo de Carvalho', 'Copacabana'),
+('23456-789', 'MG', 'Belo Horizonte', 'Avenida Amazonas', 'Savassi'),
+('34567-890', 'PR', 'Curitiba', 'Rua João Alfredo', 'Batel'),
+('45678-901', 'RS', 'Porto Alegre', 'Rua João Alfredo', 'Moinhos de Vento'),
+('56789-012', 'BA', 'Salvador', 'Rua da Aurora', 'Barra'),
+('67890-123', 'DF', 'Brasília', 'Eixo Rodoviário de Brasília', 'Asa Sul'),
 ('78901-234', 'CE', 'Fortaleza', 'Avenida Caxangá', 'Meireles'),
-('89012-345', 'PB','Recife', 'Avenida Governador Agamenon Magalhães', 'Boa Viagem'),
-('90123-456', 'PE','Manaus', 'Avenida Mário Ypiranga Monteiro', 'Adrianópolis');	
-
+('89012-345', 'PE', 'Recife', 'Avenida Governador Agamenon Magalhães', 'Boa Viagem'),
+('90123-456', 'AM', 'Manaus', 'Avenida Mário Ypiranga Monteiro', 'Adrianópolis'),
+('70040-010', 'DF', 'Brasília', 'SBS Quadra 2', 'Asa Sul'),
+('30190-002', 'MG', 'Belo Horizonte', 'Avenida Afonso Pena', 'Centro'),
+('40150-140', 'BA', 'Salvador', 'Rua da Graça', 'Graça'),
+('40060-001', 'BA', 'Salvador', 'Rua Chile', 'Centro Histórico'),
+('80010-000', 'PR', 'Curitiba', 'Rua XV de Novembro', 'Centro'),
+('90010-110', 'RS', 'Porto Alegre', 'Avenida Borges de Medeiros', 'Centro Histórico'),
+('50030-230', 'PE', 'Recife', 'Avenida Conde da Boa Vista', 'Boa Vista'),
+('20010-000', 'RJ', 'Rio de Janeiro', 'Avenida Rio Branco', 'Centro'),
+('30130-010', 'MG', 'Belo Horizonte', 'Rua Professor Moraes', 'Funcionários'),
+('30441-153', 'MG', 'Belo Horizonte', 'Rua Rio Pomba', 'Prado'),
+('30130-150', 'MG', 'Belo Horizonte', 'Rua Gonçalves Dias', 'Funcionários'),
+('01046-001', 'SP', 'São Paulo', 'Avenida São Luís', 'República'),
+('01311-200', 'SP', 'São Paulo', 'Rua Augusta', 'Consolação'),
+('04533-010', 'SP', 'São Paulo', 'Rua Funchal', 'Vila Olímpia'),
+('04538-133', 'SP', 'São Paulo', 'Rua Ramos Batista', 'Vila Olímpia'),
+('22775-040', 'RJ', 'Rio de Janeiro', 'Avenida Ayrton Senna', 'Barra da Tijuca'),
+('22441-120', 'RJ', 'Rio de Janeiro', 'Rua Dias Ferreira', 'Leblon'),
+('22640-102', 'RJ', 'Rio de Janeiro', 'Rua Armando Lombardi', 'Barra da Tijuca');
 
 -- Inserir na tb_tipoRepublica
 INSERT INTO tb_tipoRepublica (ds_tipoRepublica, ds_tipoImovel, qtd_quartoRepublica, qtd_banheiroRepublica) VALUES
@@ -267,7 +311,26 @@ INSERT INTO tb_tipoRepublica (ds_tipoRepublica, ds_tipoImovel, qtd_quartoRepubli
 ('Mista', 'Casa', 7, 3),
 ('Mista', 'Apartamento', 3, 2),
 ('Fem', 'Casa', 6, 4),
-('Fem', 'Apartamento', 4, 2);
+('Fem', 'Apartamento', 4, 2),
+('Masc', 'Casa', 4, 2),
+('Mista', 'Apartamento', 5, 3),
+('Fem', 'Casa', 4, 2),
+('Masc', 'Casa', 5, 2),
+('Mista', 'Apartamento', 6, 3),
+('Fem', 'Casa', 3, 2),
+('Masc', 'Apartamento', 4, 1),
+('Fem', 'Casa', 5, 3),
+('Mista', 'Apartamento', 4, 2),
+('Masc', 'Casa', 6, 4),
+('Fem', 'Apartamento', 2, 1),
+('Mista', 'Casa', 7, 3),
+('Masc', 'Apartamento', 5, 2),
+('Fem', 'Casa', 8, 4),
+('Mista', 'Apartamento', 3, 1),
+('Masc', 'Casa', 6, 3),
+('Fem', 'Apartamento', 4, 2),
+('Mista', 'Casa', 5, 3);
+
 
 
 -- Inserir na tb_regrasRepublica
@@ -283,8 +346,25 @@ INSERT INTO tb_regrasRepublica (ds_permissaoFumar, ds_permissaoPets, ds_permissa
 (0, 0, 1, 1),
 (1, 0, 0, 1),
 (0, 1, 1, 1),
+(0, 0, 0, 1),
+(1, 1, 1, 1),
+(0, 0, 1, 0),
+(1, 0, 0, 0),
+(0, 1, 0, 1),
+(1, 1, 1, 0),
+(0, 1, 0, 0),
+(1, 0, 1, 1),
+(0, 0, 1, 0),
+(1, 1, 0, 0),
+(0, 1, 1, 0),
+(1, 0, 0, 1),
+(0, 0, 0, 0),
+(1, 1, 1, 1),
+(0, 0, 1, 1),
+(1, 1, 0, 1),
+(0, 1, 1, 0),
+(1, 0, 1, 0),
 (0, 0, 0, 1);
-
 
 -- Inserir na tb_comodidades
 INSERT INTO tb_comodidades (ds_wifi, ds_tv, ds_cozinha, ds_garagem, ds_arcondicionado) VALUES 
@@ -299,7 +379,25 @@ INSERT INTO tb_comodidades (ds_wifi, ds_tv, ds_cozinha, ds_garagem, ds_arcondici
 (1, 0, 1, 1, 1),
 (1, 1, 0, 0, 0),
 (1, 0, 1, 0, 1),
-(1, 1, 1, 1, 0);
+(1, 1, 1, 1, 0),
+(1, 1, 1, 1, 1),
+(0, 0, 1, 1, 1),
+(1, 0, 0, 1, 0),
+(0, 1, 1, 1, 0),
+(1, 1, 0, 0, 1),
+(0, 1, 0, 1, 1),
+(1, 0, 1, 0, 0),
+(0, 0, 1, 1, 1),
+(1, 1, 1, 0, 1),
+(0, 1, 0, 0, 0),
+(1, 0, 1, 1, 0),
+(0, 1, 1, 0, 1),
+(1, 1, 1, 1, 0),
+(0, 0, 0, 1, 1),
+(1, 1, 0, 1, 0),
+(0, 0, 1, 1, 0),
+(1, 1, 1, 0, 1),
+(0, 1, 0, 0, 1);
 
 -- Inserir na tb_aluguel
 INSERT INTO tb_aluguel (ds_estadiaMin, vl_valorMensal, ds_contasInclusas) VALUES 
@@ -314,27 +412,58 @@ INSERT INTO tb_aluguel (ds_estadiaMin, vl_valorMensal, ds_contasInclusas) VALUES
 (1, 1100.00, 1),
 (0, 950.00, 0),
 (1, 1300.00, 1),
-(0, 1000.00, 1);
+(0, 1000.00, 1),
+(1, 1050.00, 0),
+(0, 920.00, 1),
+(1, 1250.00, 1),
+(0, 890.00, 0),
+(1, 1400.00, 1),
+(0, 980.00, 1),
+(1, 1350.00, 0),
+(0, 870.00, 1),
+(1, 1100.00, 0),
+(0, 950.00, 1),
+(1, 1450.00, 1),
+(0, 960.00, 0),
+(1, 1300.00, 1),
+(0, 1010.00, 1),
+(1, 1200.00, 0),
+(0, 950.00, 1),
+(1, 1400.00, 1),
+(0, 990.00, 0);
 
 -- Inserir na tb_republica
 INSERT INTO tb_republica (id_dadoRepublica, id_localizacao, id_tipoRepublica, id_regraRepublica, id_valorAlguel, id_comodidade, ds_nomeRepublica, ds_descricaoRepublica) VALUES 
-(1, 1, 1, 1, 1, 1, '100 Noção', 'Um apartamento compartilhado no centro'),
-(2, 2, 2, 2, 2, 2, 'Oásis Verde', 'Casa privativa com um jardim'),
-(1, 1, 1, 1, 1, 1, 'Café com Leite', 'Excelente localização, próximo a universidades.'),
-(2, 2, 2, 2, 2, 2, 'Maloka dos Malucos', 'Vista para o mar, ambiente aconchegante.'),
-(3, 3, 3, 3, 3, 3, 'Das Vizinhas', 'Casa ampla, com jardim e churrasqueira.'),
-(4, 4, 4, 4, 4, 4, 'República dos Livros', 'Apartamento moderno, próximo ao centro.'),
-(5, 5, 5, 5, 5, 5, 'República Baiana', 'Ambiente tranquilo, com fácil acesso ao transporte público.'),
-(6, 6, 6, 6, 6, 6, 'Chalé dos Churrasqueiros', 'Localização privilegiada, próximo a shoppings e restaurantes.'),
-(7, 7, 7, 7, 7, 7, 'Comunidade do Saber', 'Casa espaçosa, com área de lazer.'),
-(8, 8, 8, 8, 8, 8, 'Babilônia', 'Apartamento confortável, com vista para o mar.'),
-(9, 9, 9, 9, 9, 9, 'Centro de Aprendizado', 'Casa charmosa, com decoração vintage.'),
-(10, 10, 10, 10, 10, 10, 'Instituto Cultural', 'Ambiente acolhedor, cercado pela natureza.'),
-(9, 7, 4, 9, 8, 5, 'REPUBLICA CHECA', 'Ambiente acolhedor, cercado pela natureza.'),
-(9, 7, 4, 9, 8, 5, 'REPUBLICA CHECA 4', 'Ambiente acolhedor, cercado pela natureza.');
-
- INSERT INTO tb_republica (id_dadoRepublica, id_localizacao, id_tipoRepublica, id_regraRepublica, id_valorAlguel, id_comodidade, ds_nomeRepublica, ds_descricaoRepublica) VALUES 
-(9, 7, 4, 9, 8, 5, 'Republica costa Marfim', 'Ambiente acolhedor, cercado pela natureza.');
+(1, 1, 1, 1, 1, 1, '100 Noção', 'Um apartamento compartilhado no centro, perfeito para estudantes e jovens profissionais que buscam um local acessível e prático para morar. Ambientes bem iluminados e arejados.'),
+(2, 2, 2, 2, 2, 2, 'Oásis Verde', 'Casa privativa com um jardim exuberante, ideal para quem aprecia a natureza e a tranquilidade. Inclui horta comunitária e espaço para pets.'),
+(3, 3, 3, 3, 3, 3, 'Café com Leite', 'Excelente localização, próximo a universidades, centros comerciais e culturais. Quartos espaçosos e bem decorados, com todos os confortos modernos.'),
+(4, 4, 4, 4, 4, 4, 'Maloka dos Malucos', 'Vista para o mar, ambiente aconchegante e descontraído. Perfeito para quem quer relaxar e aproveitar a vida ao máximo.'),
+(5, 5, 5, 5, 5, 5, 'Das Vizinhas', 'Casa ampla, com jardim e churrasqueira, ideal para festas e confraternizações. Localizada em bairro tranquilo e seguro.'),
+(6, 6, 6, 6, 6, 6, 'República dos Livros', 'Apartamento moderno, próximo ao centro, com uma vasta biblioteca comunitária. Ideal para estudantes e amantes da leitura.'),
+(7, 7, 7, 7, 7, 7, 'República Baiana', 'Ambiente tranquilo, com fácil acesso ao transporte público e mercados locais. Perfeito para quem busca uma vida mais simples e prática.'),
+(8, 8, 8, 8, 8, 8, 'Chalé dos Churrasqueiros', 'Localização privilegiada, próximo a shoppings e restaurantes. Ideal para quem gosta de socializar e aproveitar a vida noturna.'),
+(9, 9, 9, 9, 9, 9, 'Comunidade do Saber', 'Casa espaçosa, com área de lazer completa, incluindo piscina e salão de jogos. Perfeito para grupos de estudantes e jovens profissionais.'),
+(10, 10, 10, 10, 10, 10, 'Babilônia', 'Apartamento confortável, com vista para o mar, totalmente mobiliado. Ideal para quem busca conforto e praticidade.'),
+(11, 11, 11, 11, 11, 11, 'Centro de Aprendizado', 'Casa charmosa, com decoração vintage e ambientes aconchegantes. Ideal para estudantes e profissionais que buscam um ambiente inspirador.'),
+(12, 12, 12, 12, 12, 12, 'Instituto Cultural', 'Ambiente acolhedor, cercado pela natureza. Perfeito para quem busca um refúgio tranquilo para estudar e trabalhar.'),
+(13, 13, 13, 13, 13, 13, 'República do Sol', 'Casa ensolarada, com amplos jardins e espaços ao ar livre. Ideal para quem gosta de atividades ao ar livre e contato com a natureza.'),
+(14, 14, 14, 14, 14, 14, 'República dos Amigos', 'Ambiente amigável e acolhedor, com áreas comuns para socialização e estudos. Perfeito para quem busca fazer novas amizades.'),
+(15, 15, 15, 15, 15, 15, 'Recanto dos Estudantes', 'Casa próxima a universidades, com ambiente tranquilo e propício para estudos. Quartos bem equipados e confortáveis.'),
+(16, 16, 16, 16, 16, 16, 'República das Artes', 'Ambiente inspirador, decorado com obras de arte e espaços para atividades culturais. Ideal para artistas e estudantes de artes.'),
+(17, 17, 17, 17, 17, 17, 'República do Esporte', 'Casa com espaço para atividades físicas, incluindo academia e quadra de esportes. Perfeito para atletas e amantes do esporte.'),
+(18, 18, 18, 18, 18, 18, 'Vila dos Acadêmicos', 'Ambiente estudantil, próximo a bibliotecas e centros de pesquisa. Ideal para acadêmicos e pesquisadores.'),
+(19, 19, 19, 19, 19, 19, 'Casa da Harmonia', 'Casa com ambiente zen, ideal para quem busca tranquilidade e paz. Inclui espaço para meditação e yoga.'),
+(20, 20, 20, 20, 20, 20, 'República dos Engenheiros', 'Localizada próxima a faculdades de engenharia, com ambientes propícios para estudos e projetos acadêmicos.'),
+(21, 21, 21, 21, 21, 21, 'República das Ciências', 'Ambiente voltado para estudantes de ciências, com espaços para estudos e laboratórios. Próximo a universidades e centros de pesquisa.'),
+(22, 22, 22, 22, 22, 22, 'República dos Viajantes', 'Casa decorada com souvenirs de viagens, ambiente multicultural e acolhedor. Ideal para quem ama viajar e conhecer novas culturas.'),
+(23, 23, 23, 23, 23, 23, 'República do Rock', 'Ambiente descolado, decorado com temas de rock. Ideal para músicos e amantes da música. Inclui estúdio de música.'),
+(24, 24, 24, 24, 24, 24, 'República das Flores', 'Casa com jardim florido, ambientes aconchegantes e bem decorados. Ideal para quem aprecia a beleza e tranquilidade das flores.'),
+(25, 25, 25, 25, 25, 25, 'República das Luzes', 'Apartamento iluminado, com decoração moderna e aconchegante. Próximo a centros comerciais e culturais.'),
+(26, 26, 26, 26, 26, 26, 'República dos Sonhos', 'Ambiente acolhedor e inspirador, com espaços para leitura e estudos. Ideal para estudantes e jovens profissionais.'),
+(27, 27, 27, 27, 27, 27, 'República do Mar', 'Casa com vista para o mar, ambiente relaxante e confortável. Ideal para quem gosta de praia e atividades ao ar livre.'),
+(28, 28, 28, 28, 28, 28, 'República do Céu', 'Ambiente tranquilo e acolhedor, com vista panorâmica da cidade. Ideal para quem busca paz e tranquilidade.'),
+(29, 29, 29, 29, 29, 29, 'República das Estrelas', 'Casa decorada com temas astronômicos, ambientes aconchegantes e inspiradores. Ideal para estudantes e amantes da astronomia.'),
+(30, 30, 30, 30, 30, 30, 'República do Vento', 'Casa arejada, com amplos espaços ao ar livre e jardins. Ideal para quem busca um ambiente tranquilo e saudável.');
 
 
 -- Inserir na tb_usuario
@@ -358,7 +487,6 @@ INSERT INTO tb_usuario (nm_usu, sx_sexoUsu, qt_idade, ds_cpfUsu, ds_emailUsu, ds
 ('Carlos Eduardo Renato Thiago Nascimento', 'M', 28, '349.664.120-72', 'carlos.eduardo.nascimento@krika.com.br', '0nYWSoJazc', 'Descrição do perfil de Carlos Eduardo', 17),
 ('Simone Marlene Corte Real', 'F', 29,'868.430.800-06', 'simone-cortereal90@supercleanlav.com.br', 'EmubhoDRIR', 'Descrição do perfil de Simone Marlene', 15),
 ('Filipe Francisco Ribeiro', 'M', 36,'564.346.373-30', 'filipe_francisco_ribeiro@amoamar.com.br', 'e9ynxzXKMq', 'Descrição do perfil de Filipe Francisco', 14);
-
 
 select * from tb_usuario;
 select * from tb_anunciante;

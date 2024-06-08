@@ -52,7 +52,7 @@ getAllRep: async(req, res) => {
                 }
             ]
         })
-        res.render('minhasrepublicas',{ Mrepublicas: resultados })
+        res.render('pesquisaAnun',{ Mrepublicas: resultados })
 
             
     } catch (error) {

@@ -64,6 +64,7 @@
                 <div class="dropdown-content">
                     <a href="/anunciar">Anunciar</a>
                     <a href="/auth/logout">Sair</a>
+                    <a href="/auth/logout">Sair</a>
                 </div>
             </div>
       </div>
@@ -74,91 +75,48 @@
         <div class="success">{{success_msg}}</div>
         {{/if}}
     </div>
-
-
-    <div class="republicas-mts">
-        <div class="repu-selec">
-            <section class="card">
-        <div class="imgQuarto-div">
-            <a href="/perfil-RepublicaAnun?id={{id}}">
-                <img src="/foto 1.jpg" alt="Quarto de uma república">
-                <div class="imagem" id="imagem1"></div>
-            </a>
-        </div>
-        <div class="content">
-            <div class="text-content">
-                <h4>{{nome}}</h4>
-                <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-geo-alt" viewBox="0 0 16 16">
-                        <path
-                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                    </svg>{{cidade}}</p>
-                <p>R$ {{aluguel}} / mês</p>
-            </div>
-                <div class="detalhes">
-                    <div>
-                        <img src="/mista.png">
-                        {{tipo}}
-                    </div>
     
-                    <div>
-                        <img src="/cama.png">
-                        {{quarto}}
-                    </div>
-    
-                    <div>
-                        <img src="/banheirob.png">
-                        {{banheiro}}
-                    </div>
-                </div>
-        </div>
-        <div class="sobre">
-
-        </div>
     </section></div>
         <div class="repu-container">
             <div class="setaEsquerda"><button id="setaEsquerda" onclick="setaesquerda_trans()"><img src="/seta.png" alt="">
             </button></div>
             <div class="repu-grid">
               <div class="card-container">
-        {{#each republicas}}
-        <section class="card">
-        <div class="imgQuarto-div">
-            <a href="/perfil-RepublicaAnun?id={{id}}">
-                <img src="/foto 1.jpg" alt="Quarto de uma república">
-                <div class="imagem" id="imagem1"></div>
-            </a>
+
+                {{#each Mrepublicas}}
+    <section class="card">
+        <div>
+            <a href="/perfil-RepublicaAnun?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república"
+                    class="imgQuarto"></a>
         </div>
-        <div class="content">
-            <div class="text-content">
-                <h4>{{nome}}</h4>
-                <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-geo-alt" viewBox="0 0 16 16">
-                        <path
-                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                    </svg>{{cidade}}</p>
-                <p>R$ {{aluguel}} / mês</p>
-            </div>
-                <div class="detalhes">
-                    <div>
-                        <img src="/mista.png">
-                        {{tipo}}
-                    </div>
-    
-                    <div>
-                        <img src="/cama.png">
-                        {{quarto}}
-                    </div>
-    
-                    <div>
-                        <img src="/banheirob.png">
-                        {{banheiro}}
-                    </div>
+        <div>
+            <h4>{{nome}}</h4>
+            <p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                </svg>{{cidade}}
+            </p>
+            <p>R$ {{aluguel}} / mês</p>
+            <div class="detalhes">
+                <div>
+                    <img src="/mista.png">
+                    {{tipo}}
                 </div>
-        </div>  
-         {{/each}}
+                <div>
+                    <img src="/cama.png">
+                    {{quarto}}
+                </div>
+                <div>
+                    <img src="/banheirob.png">
+                    {{banheiro}}
+                </div>
+            </div>
+        </div>
+    </section>
+    {{/each}}   
             </div>
             <div class="setaDireita" id="setaDireita"><button><img src="/seta.png" alt=""></button></div>
         </div>

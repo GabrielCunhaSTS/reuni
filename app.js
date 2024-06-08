@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const routes = require('./src/routes/index')
 const { imgPerfil } =require('./src/controllers/upload')
+const { imgPerfilA } =require('./src/controllers/uploadAnun')
 const session = require('express-session')
 const multer = require('multer');
 const cookieParser =  require('cookie-parser')
@@ -18,7 +19,7 @@ appWeb.use(cookieParser())
 appWeb.use(flash())
 
 
-//criando uma seção com cookies 
+
 appWeb.use(session({
     secret:'ReUni',
     resave:true,
@@ -31,6 +32,8 @@ hbs.registerHelper('eq', function(a,b){
 })
 
 appWeb.use(imgPerfil)
+
+
 
 appWeb.use((req,resp,next) => {
     resp.locals.success_msg =  req.flash("success_msg")

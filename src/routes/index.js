@@ -10,6 +10,7 @@ const perfilU = require('../controllers/perfilUsu');
 const perfilA = require('../controllers/perfilAnun');
 const mrepublicas = require('../controllers/minhasRepublicas')
 const image = require('../controllers/upload')
+const imageA = require('../controllers/uploadAnun')
 const favoritos = require('../controllers/favoritos');
 const comentarios = require('../controllers/comentarios');
 const get = require('../controllers/getperfil');
@@ -38,13 +39,11 @@ router.post('/auth/cadRep', multer.array('images', 5), registrarRep.registerRepu
 
 router.get('/pesquisa/:nm_digit', search.getRepByName);
 router.get('/pesquisa', checkAuth, search.getAllRep);
-router.get('/pesquisaAnun', checkAuth, search.getAllRepAnun)
+router.get('/pesquisaAnun', checkAuth, mrepublicas.getAllRep    )
 
 
 router.get('/perfil-Usuario', checkAuth, perfilU.getPerfil);
 router.get('/perfil-Anunciante', checkAuth, perfilA.getPerfilAnunciante);
-
-router.get('/minhas-republicas', mrepublicas.getAllRep)
 
 router.post('/perfilUsu/editar', perfilU.editPerfil);
 router.post('/perfilUsu/delete', perfilU.deletePerfil);
@@ -52,9 +51,12 @@ router.post('/perfilUsu/delete', perfilU.deletePerfil);
 router.post('/perfilUsu/deleteImage', image.DeleteImage);
 router.post('/upload', multer.single('image'), image.uploadImage);
 
-router.get('/perfil-Republica', checkAuth, get.getPerfilRepublica);
+router.post('/perfilAnun/deleteImage', imageA.DeleteImageA);
+router.post('/uploadA', multer.single('image'), imageA.uploadImageA);
 
-router.get('/perfil-RepublicaAnun', checkAuth, get.getPerfilRepublica);
+router.get('/perfil-Republica', checkAuth, get.getPerfilRepublica);
+router.get('/perfil-RepublicaAnun', checkAuth, get.getPerfilRepublicaAnun);
+
 router.post('/comentarios/adicionar', checkAuth, comentarios.adicionarComentario);
 
 

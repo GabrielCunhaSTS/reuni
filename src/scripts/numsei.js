@@ -13,3 +13,30 @@ document.querySelectorAll('.btnEsc').forEach((button, index) => {
         document.getElementById(`conteudo${index + 1}`).style.display = 'flex';
     });
 });
+
+document.getElementById('editarnome').addEventListener('click', function() {
+    var input = document.getElementById('nome');
+    if (input.hasAttribute('readonly')) {
+        input.removeAttribute('readonly');
+    } else {
+        input.setAttribute('readonly', 'readonly');
+    }
+});
+
+document.getElementById('editaremail').addEventListener('click', function() {
+    var input = document.getElementById('email');
+    if (input.hasAttribute('readonly')) {
+        input.removeAttribute('readonly');
+    } else {
+        input.setAttribute('readonly', 'readonly');
+    }
+});
+
+document.getElementById('editarsenha').addEventListener('click', function() {
+    var input = document.getElementById('senha');
+    if (input.hasAttribute('readonly')) {
+        input.removeAttribute('readonly');
+    } else {
+        input.setAttribute('readonly', 'readonly');
+    }
+});

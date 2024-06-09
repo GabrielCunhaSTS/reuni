@@ -21,7 +21,7 @@ getAllRep: async(req, res) => {
                 [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
                 [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],
                 [Sequelize.fn('MIN', Sequelize.col('nome_imagem')), 'nome_imagem'] // Seleciona a primeira imagem
-            ],
+            ],  
             where: { id_anunciante: idAnunciante },
             raw: true,
             include: [

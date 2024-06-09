@@ -15,14 +15,16 @@ module.exports = {
             console.log("Termo de pesquisa:", nm_digit)
     
             const resultados = await ModelRepublica.findAll({
-                attributes:[
-                    [Sequelize.literal('id_republica'), 'id'],
+                attributes: [
+                    [Sequelize.col('tb_republica.id_republica'), 'id'],
                     [Sequelize.literal('ds_nomeRepublica'), 'nome'],
                     [Sequelize.literal('ds_tipoRepublica'), 'tipo'],
                     [Sequelize.literal('vl_valorMensal'), 'aluguel'],
+                    [Sequelize.literal('ds_estado'), 'estado'],
                     [Sequelize.literal('ds_cidade'), 'cidade'],
                     [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
                     [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],
+                    [Sequelize.fn('MIN', Sequelize.col('nome_imagem')), 'nome_imagem'] // Seleciona a primeira imagem
                 ],
                 where: {
                     ds_nomeRepublica:{
@@ -45,8 +47,14 @@ module.exports = {
                         model: ModelLocalizacaoRepublica,
                         attributes: [],
                         required: true
+                    },
+                    {
+                        model: ModelImagemRep,
+                        attributes: [],
+                        required: true
                     }
-                ]
+                ],
+                group: ['tb_republica.id_republica', 'ds_nomeRepublica', 'ds_tipoRepublica', 'vl_valorMensal', 'ds_estado', 'ds_cidade', 'qtd_banheiroRepublica', 'qtd_quartoRepublica']
             })
     
             console.log("Resultados da pesquisa:", resultados)

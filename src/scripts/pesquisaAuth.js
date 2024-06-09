@@ -35,7 +35,7 @@ function exibirResultado(data) {
             <div class="section-item">
                 <a href="/perfil-Republica?id=${republica.id}">
                     <div class="img">
-                        <img href="/perfil" src="/pexels-timesaverhacks-1080721.jpg" alt="">
+                        <img src="/up/${republica.nome_imagem}">
                     </div>
                     <div class="content">
                         <div class="title-local">

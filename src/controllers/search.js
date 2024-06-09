@@ -4,7 +4,7 @@ const { ModelAlguel } = require('../models/ModelAluguel')
 const { ModelLocalizacaoRepublica } = require('../models/ModelLocalizacaoRepublica')
 const { ModelDadosRepublica} = require('../models/ModelDadosRepublicas')
 const { Sequelize, Op } = require('sequelize')
-
+const {ModelImagemRep} =  require('../models/ModelImagemRep')
 
 module.exports = {
     getRepByName: async (req, res) => {
@@ -172,10 +172,25 @@ module.exports = {
                         attributes: [],
                         required: true,
                         where: whereClause
+                    },
+                    {
+                        model: ModelImagemRep,
+                        attributes: ['nome_arquivo'],
+                        required: false,
+                        limit: 1
                     }
                 ],
+            })
+
+            const resultadosComImagens = resultados.map(republica => {
+                const imagem = republica['tb_imagemRepublica.nome_arquivo'];
+                return {
+                    ...republica,
+                    imagem: imagem ? `/up/${imagem}` : null // Caminho correto para acessar as imagens
+                };
             });
-    
+
+        res.render('pesquisa', { republicas: resultadosComImagens });
             res.render('pesquisa', { republicas: resultados });
     
         } catch (error) {

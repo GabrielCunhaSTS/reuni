@@ -39,11 +39,14 @@ router.post('/auth/cadRep', multer.array('images', 5), registrarRep.registerRepu
 
 router.get('/pesquisa/:nm_digit', search.getRepByName);
 router.get('/pesquisa', checkAuth, search.getAllRep);
-router.get('/pesquisaAnun', checkAuth, mrepublicas.getAllRep    )
+router.get('/pesquisaAnun', checkAuth, mrepublicas.getAllRep)
 
 
 router.get('/perfil-Usuario', checkAuth, perfilU.getPerfil);
 router.get('/perfil-Anunciante', checkAuth, perfilA.getPerfilAnunciante);
+
+router.post('/perfilAnun/editar', perfilA.editPerfil);
+router.post('/perfilAnun/delete', perfilA.deletePerfil);
 
 router.post('/perfilUsu/editar', perfilU.editPerfil);
 router.post('/perfilUsu/delete', perfilU.deletePerfil);

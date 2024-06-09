@@ -29,9 +29,9 @@ module.exports = {
         const idAnunciante = req.session.user.id_anunciante
 
         try {
-            await ModelAnunciante.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao }, { where: { id_usu: idAnunciante } })
+            await ModelAnunciante.update({ nm_anunciante: nome, ds_emailAunci: email }, { where: { id_anunciante: idAnunciante } })
 
-            res.redirect('/perfil')
+            res.redirect('/perfil-Anunciante')
         } catch (error) {
             console.error("Erro ao editar perfil:", error)
             res.status(500).send('Erro ao editar perfil')

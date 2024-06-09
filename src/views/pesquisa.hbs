@@ -121,14 +121,14 @@
     </div>
 
     <div class="card-container">
-        {{#each republicas}}
+       {{#each republicas}}
     <section class="card">
         <div class="imgQuarto-div">
             <a href="/perfil-Republica?id={{id}}">
-                {{#if imagem}}
-                    <img src="{{imagem}}" alt="Imagem da República">
+                {{#if nome_imagem}}
+                    <img src="/up/{{nome_imagem}}">
                 {{else}}
-                    <p>Sem imagem disponível</p>
+                    <img src="/up/ImageDefault.jpg" alt="Imagem padrão">
                 {{/if}}
             </a>
         </div>
@@ -163,6 +163,7 @@
         </div>
     </section>
 {{/each}}
+
 
     </div>
 

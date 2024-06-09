@@ -144,7 +144,7 @@ module.exports = {
     
             const resultados = await ModelRepublica.findAll({
                 attributes: [
-                    [Sequelize.literal('id_republica'), 'id'],
+                    [Sequelize.col('tb_republica.id_republica'), 'id'],
                     [Sequelize.literal('ds_nomeRepublica'), 'nome'],
                     [Sequelize.literal('ds_tipoRepublica'), 'tipo'],
                     [Sequelize.literal('vl_valorMensal'), 'aluguel'],
@@ -152,6 +152,7 @@ module.exports = {
                     [Sequelize.literal('ds_cidade'), 'cidade'],
                     [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
                     [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],
+                    [Sequelize.fn('MIN', Sequelize.col('nome_imagem')), 'nome_imagem'] // Seleciona a primeira imagem
                 ],
                 raw: true,
                 include: [
@@ -175,22 +176,13 @@ module.exports = {
                     },
                     {
                         model: ModelImagemRep,
-                        attributes: ['nome_arquivo'],
-                        required: false,
-                        limit: 1
+                        attributes: [],
+                        required: true
                     }
                 ],
-            })
-
-            const resultadosComImagens = resultados.map(republica => {
-                const imagem = republica['tb_imagemRepublica.nome_arquivo'];
-                return {
-                    ...republica,
-                    imagem: imagem ? `/up/${imagem}` : null // Caminho correto para acessar as imagens
-                };
+                group: ['tb_republica.id_republica', 'ds_nomeRepublica', 'ds_tipoRepublica', 'vl_valorMensal', 'ds_estado', 'ds_cidade', 'qtd_banheiroRepublica', 'qtd_quartoRepublica']
             });
 
-        res.render('pesquisa', { republicas: resultadosComImagens });
             res.render('pesquisa', { republicas: resultados });
     
         } catch (error) {

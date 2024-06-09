@@ -23,7 +23,7 @@
         </nav>
 
         <section class="conteudo caixa" id="conteudo1" style="display:ruby;">
-            <form action="/upload" method="POST" enctype="multipart/form-data">
+            <form class="image" action="/upload" method="POST" enctype="multipart/form-data">
                 <input class="input-File"type="file"  style="display: none;" name="image" id="profile" required>
                     <label for="profile" class="profile_label">
                         <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
@@ -32,20 +32,53 @@
                     <button id="submitFoto" type="submit">Salvar Foto</button>
             </form>
 
-            <form id="editForm" action="/perfilUsu/editar" method="POST" class="form">
-                <input class="nome" type="text" id="nome" name="nome" value="{{perfil.nome}}" readonly>
-                    <div><img id="editarnome" src="img/edit.png" class="pincel"></div>
-                <input class="email" type="email" id="email" name="email" value="{{perfil.email}}" readonly>
-                    <div><img id="editaremail" src="img/edit.png" class="pincel"></div>
-                <input class="senha" type="password" name="" id="senha" readonly><button class="btnImg" ><img src="img/edit.png" class="pincel"></button>
-                    <div><img id="editarsenha" src="img/edit.png" class="pincel"></div>
-                <textarea class="testeando" id="descricao" name="descricao">{{perfil.descricao}}</textarea>
-
-                <button type="submit" class="save">Salvar alterações</button>
+            <form id="editForm" action="/perfilUsu/editar" method="POST" class="form-edit">
+                <div class="name-ex">
+                    <p>Nome:</p>
+                    {{!-- <input class="nome" type="text" id="nome" name="nome" value="{{perfil.nome}}" readonly> --}}
+                    <div class="input-container">
+                        <input class="nome" type="text" id="nome" name="nome" value="{{perfil.nome}}" readonly>
+                        <img id="editarnome" src="/edit.png" class="pincel">
+                    </div>
+                </div>
+                
+                    {{!-- <div><img id="editarnome" src="/edit.png" class="pincel"></div> --}}
+                <div class="email-ex">
+                    <p>E-mail:</p>
+                    {{!-- <input class="email" type="email" id="email" name="email" value="{{perfil.email}}" readonly> --}}
+                    <div class="input-container">
+                        <input class="email" type="email" id="email" name="email" value="{{perfil.email}}" readonly>
+                        <img id="editaremail" src="/edit.png" class="pincel">
+                    </div>
+                </div>
+                
+                    {{!-- <div><img id="editaremail" src="/edit.png" class="pincel"></div> --}}
+                <div class="senha-ex">
+                    <p>Senha:</p>
+                    {{!-- <input class="senha" type="password" name="" id="senha" readonly> --}}
+                    <div class="input-container">
+                        <input class="senha" type="password" name="" id="senha" readonly>
+                        <img id="editarsenha" src="/edit.png" class="pincel">
+                    </div>
+                </div>
+                    {{!-- <div><img id="editarsenha" src="/edit.png" class="pincel"></div> --}}
+                <div class="desc-ex">
+                    <p>Descrição:</p>
+                    <textarea class="testeando" id="descricao" name="descricao" required>{{perfil.descricao}}</textarea>
+                </div>
+                <div class="button-class">
+                    <button type="submit" class="save">Salvar alterações</button>
+                    <button class="delete" type="button" id="deleteButton">Excluir conta</button>
+                </div>
             </form>
-            <form id="deleteForm" action="/perfilUsu/delete" method="post">
-                        <button type="button" id="deleteButton">Excluir conta</button>
+            <form style="display: none;" id="deleteForm" action="/perfilUsu/delete" method="post">
+                <button class="delete" type="button" id="deleteButton2">Excluir conta</button>
             </form>
+            <script>
+                document.getElementById('deleteButton').addEventListener('click', function() {
+                    document.getElementById('deleteButton2').submit();
+                });
+            </script>
         </section>
 
         <div id="confirmModal" class="modal">

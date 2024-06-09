@@ -4,107 +4,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Usuário</title>
-    <link rel="stylesheet" href="perfilusuario.css">
-    <link rel="stylesheet" href="perfilUsu.css">
+    <title>Perfil Anunciante</title>
+    <link rel="stylesheet" href="/perfilusuario.css">
 </head>
 
 <body>
-    <header>
+
+      <header>
         <a href="/pesquisaAnun"><img src="/Voltar.png" alt="" srcset=""></a>
         <a href="#" class="title">Re<span>Uni</span></a>
     </header>
-    
-    <section class="corpo">
-        <nav class="menuzin">
-            <button class="btnEsc" id="btn1">Meu Perfil</button>
-            <button class="btnEsc" id="btn3">Suporte</button>
-            <button class="btnEsc" id="btn4">Privacidade</button>
-        </nav>
+    <div class="background">
+        <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
+    </div>
 
-        <section class="conteudo caixa" id="conteudo1" style="display:ruby;">
-            <form action="/uploadA" method="POST" enctype="multipart/form-data">
-                <input class="input-File"type="file"  style="display: none;" name="image" id="profile" required>
-                    <label for="profile" class="profile_label">
-                        <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
-                    </label>
-                        
-                    <button id="submitFoto" type="submit">Salvar Foto</button>
-            </form>
+    <img src="{{perfil.imagem}}" alt="">
+    <div class="align-itens">
 
-            <form id="editForm" action="/perfilAnun/editar" method="POST" class="form">
-                <input class="nome" type="text" id="nome" name="nome" value="{{perfil.nome}}" readonly>
-                    <div><img id="editarnome" src="img/edit.png" class="pincel"></div>
-                <input class="email" type="email" id="email" name="email" value="{{perfil.email}}" readonly>
-                    <div><img id="editaremail" src="img/edit.png" class="pincel"></div>
-                <input class="senha" type="password" name="" id="senha" readonly><button class="btnImg" ><img src="img/edit.png" class="pincel"></button>
-
-                <button type="submit" class="save">Salvar alterações</button>
-            </form>
-            <form id="deleteForm" action="/perfilAnun/delete" method="post">
-                        <button type="button" id="deleteButton">Excluir conta</button>
-            </form>
-        </section>
-
-        <div id="confirmModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>Você tem certeza que deseja excluir a sua conta?</p>
-                <button id="confirmDeleteButton">Excluir</button>
-                <button id="cancelButton">Cancelar</button>
+        <div class="title">
+            <div class="name">
+                <h1>{{perfil.nome}}</h1>
+                <hr>
+            </div>
+            <div class="desc">
+                <p>{{perfil.descricao}}</p>
             </div>
         </div>
 
-        <section class="conteudo caixa" id="conteudo3" style="display: none;">
-            
-                <h1 class="title">Termos de Uso</h1>
-                <textarea class="termos" name="descricao" id="descricao" rows="4" required placeholder="Descrição" readonly>
-Termos de Uso
-
-Aceitação dos Termos
-Ao acessar e utilizar o ReUni, você concorda em cumprir integralmente estes Termos de Uso. Estes termos representam um acordo legal entre você e o ReUni. Se você não concordar com alguma parte destes termos, solicitamos que não utilize nosso site. Ao continuar a utilizar o ReUni, você expressa sua aceitação e concordância com todas as cláusulas e condições descritas neste documento.
-
-Uso do Site
-Você concorda em utilizar nosso site exclusivamente para fins legais e de acordo com estes Termos de Uso. O uso do site está sujeito às seguintes restrições:
-
-- Publicação de Conteúdo: Você se compromete a não publicar conteúdo falso, enganoso, ofensivo, difamatório, obsceno, pornográfico, indecente, profano, ameaçador, invasivo da privacidade de outras pessoas, odioso ou discriminatório.
-- Atividades Fraudulentas ou Ilegais: É estritamente proibido usar o site para atividades fraudulentas, ilegais ou não autorizadas. Isso inclui, mas não se limita a, fraude de identidade, esquemas de pirâmide, phishing, ou qualquer forma de violação de leis e regulamentos aplicáveis.
-- Interferência e Segurança: Você não deve interferir no funcionamento do site, incluindo a transmissão de qualquer vírus, worm, bug ou qualquer outro elemento de natureza destrutiva. Além disso, é proibido tentar obter acesso não autorizado a qualquer parte do site, outras contas, sistemas de computadores ou redes conectadas ao site, através de hacking, extração de senha ou qualquer outro meio.
-
-Conteúdo do Usuário
-Você é o único responsável por todo o conteúdo que publica no ReUni. Isso inclui, mas não se limita a, textos, imagens, vídeos, links e qualquer outra forma de material. Ao enviar conteúdo, você declara e garante que possui todos os direitos necessários sobre ele, e que tal conteúdo não viola direitos de terceiros, incluindo direitos autorais, marcas registradas, privacidade ou outros direitos pessoais ou proprietários. 
-
-Ao publicar conteúdo no ReUni, você concede ao nosso site uma licença não exclusiva, mundial, isenta de royalties, perpétua, irrevogável e sublicenciável para usar, reproduzir, modificar, adaptar, publicar, traduzir, criar trabalhos derivados, distribuir, exibir e executar tal conteúdo em qualquer mídia ou método de distribuição atualmente conhecido ou futuramente desenvolvido.
-
-Limitação de Responsabilidade
-O ReUni é fornecido "como está" e "conforme disponível", sem garantias de qualquer tipo, expressas ou implícitas, incluindo, mas não se limitando a, garantias de comercialização, adequação a um propósito específico, não infração, ou disponibilidade contínua e ininterrupta do site. 
-
-Não garantimos que o site estará sempre disponível, que será seguro ou que não haverá erros ou falhas no funcionamento. O uso do site é de sua própria responsabilidade, e você reconhece que é totalmente responsável por qualquer dano ao seu sistema de computador ou perda de dados que resulte do download de qualquer material.
-
-Em nenhuma circunstância o ReUni, seus diretores, empregados ou agentes serão responsáveis por quaisquer danos diretos, indiretos, incidentais, especiais, consequenciais ou punitivos decorrentes do uso ou incapacidade de uso do site, incluindo, mas não se limitando a, lucros cessantes, perda de dados ou interrupção de negócios, mesmo se tivermos sido avisados da possibilidade de tais danos.
-
-Modificações nos Termos
-Reservamo-nos o direito de modificar estes Termos de Uso a qualquer momento. Tais modificações entrarão em vigor imediatamente após a publicação no site. É sua responsabilidade revisar periodicamente estes Termos de Uso para se informar sobre quaisquer alterações. O uso contínuo do site após a publicação de alterações constitui sua aceitação de tais mudanças.
-
-Disposições Gerais
-- Legislação Aplicável: Estes Termos de Uso serão regidos e interpretados de acordo com as leis do país onde o ReUni está estabelecido, sem considerar conflitos de disposições legais.
-- Resolução de Disputas: Qualquer disputa ou reclamação decorrente ou relacionada a estes Termos de Uso será resolvida através de arbitragem vinculativa, de acordo com as regras de arbitragem comercial da jurisdição aplicável.
-- Independência das Cláusulas: Se qualquer disposição destes Termos de Uso for considerada inválida ou inexequível, tal disposição será aplicada na máxima extensão permitida, e as demais disposições permanecerão em pleno vigor e efeito.
-- Integralidade do Acordo: Estes Termos de Uso constituem o acordo completo entre você e o ReUni em relação ao uso do site, substituindo quaisquer acordos anteriores, escritos ou orais, relacionados ao mesmo assunto.
-
-Agradecemos por escolher o ReUni. Se você tiver quaisquer perguntas ou preocupações sobre estes Termos de Uso, por favor, entre em contato conosco através dos canais apropriados.
-                   </textarea>
-            
-        </section>
-    </section>
-
+        <div class="box-info">
+            <div class="box" style="height: 325px;">
+                <div class="content">
+                    <h3>Informações</h3>
+                    <p>Email: {{perfil.email}}</p>
+                    <p>Idade: {{perfil.idade}}</p>
+                    <p>Sexo: {{perfil.sexo}}</p>
+                    <p>CPF: {{perfil.cpf}}</p>
+                </div>
+                <div class="buttons">
+                    <form id="deleteForm" action="/perfilUsu/delete" method="post">
+                        <button type="button" id="deleteButton">Excluir conta</button>
+                    </form>
+                    <form id="editForm" action="/perfilUsu/edit" method="post">
+                        <button type="button" id="editButton">Editar Perfil</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
     
-
-    <script src="/numsei.js"></script>
+   
+    <div id="confirmModalEdit" class="modal">
+        <div class="modal-content-2">
+            <div class="image">
+                <div>
+                     <form id="deleteForm" action="/perfilAnun/deleteImage" method="post">
+                        <button class="delete-foto" type="submit">Excluir Foto</button>
+                    </form>
+                    <form action="/uploadA" method="POST" enctype="multipart/form-data">
+                    <input class="input-File"type="file"  style="display: none;" name="image" id="profile" required>
+                        <label for="profile" class="profile_label">
+                            <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
+                        </label>
+                        
+                        <button id="submitFoto" type="submit">Salvar</button>
+                    </form>
+                   
+                </div>
+                <span class="closeButton">&times;</span>
+            </div>
+            <div class="inputs">
+                <div class="align-itens">
+                    <div>
+                        <label for="nome">Novo Nome:</label>
+                        <input type="text" id="nome" name="nome" value="{{perfil.nome}}" required>
+                    </div>
+                    <div>
+                        <label for="email">Novo Email:</label>
+                        <input type="email" id="email" name="email" value="{{perfil.email}}" required>
+                    </div>
+                </div>
+                <div class="align-itens-2">
+                    <div class="desc">
+                        <label for="descricao">Nova Descrição:</label>
+                        <textarea id="descricao" name="descricao" required>{{perfil.descricao}}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <a href="/perfil-Usuario"><button id="confirmEditButton">Salvar</button></a>
+                <button id="cancelButtonEdit" class="cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Você tem certeza que deseja excluir a sua conta?</p>
+            <button id="confirmDeleteButton">Excluir</button>
+            <button id="cancelButton">Cancelar</button>
+        </div>
+    </div>
+   
     <script src="/confirmacaoDelete.js"></script>
     <script src="/confirmacaoEdit.js"></script>
 
+    {{!-- <a href="/pesquisa"><button>Voltar</button></a>
+
+    <img src="{{fotoPerfilUrl}}" id="ImgEdit" width="150px" height="150">
+
+    <p>Nome: {{perfil.nome}}</p>
+    <p>Sexo: {{perfil.sexo}}</p>
+    <p>Idade: {{perfil.idade}}</p>
+    <p>CPF: {{perfil.cpf}}</p>
+    <p>Email: {{perfil.email}}</p>
+    <p>Descrição do Perfil: {{perfil.descricao}}</p>
     
+    <form action="/perfil/delete" method="delete">
+        <button type="submit">Excluir conta</button>
+    </form>
+
+
+    <a href="/editar-perfil"><button>Editar Perfil</button></a> --}}
+</body>
+
+</html>
+
 </body>
 
 </html>

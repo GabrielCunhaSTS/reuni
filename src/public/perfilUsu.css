@@ -23,6 +23,7 @@ body {
     z-index: 3;
     gap: 2vw;
     width: 15vw;
+    margin-top: 5%;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
@@ -38,15 +39,21 @@ body {
     border-radius: 0.3vw;
     color: #FFF;
     padding: 0.4vw 0.5vw;
-    width: 9vw;
+    width: 10vw;
+    transition: 0.6s ease;
+    font-size: 22px;
 }
 
 .btnEsc:hover {
-    background-color: aquamarine;
+    background-color: white;
+    border: 2px solid black;
+    color: black;
 }
 
 .clicked {
-    background-color: crimson;
+    background-color: white;
+    border: 2px solid black;
+    color: black;
 }
 
 .foto {
@@ -59,15 +66,25 @@ body {
 
 .caixa {
     height: 50vw;
-    border: #215487 solid 2px;
+    border: 3px solid #d9d9d9;
+    box-shadow: -0.3vw -0.1vw 1vw rgb(0, 0, 0, 0.35);
     border-radius: 1vw;
     padding: 1vw;
-    background-color: rgba(242, 242, 242, 0.3);
+    background-color: transparent;
     width: 50vw;
     display: none;
     flex-direction: column;
-    
+    margin-top: 3%;
 }
+
+.image {
+    width: 100%;
+    align-items: end;
+    justify-content: center;
+    display: flex;
+    padding-left: 5%;
+}
+
 
 .form {
    
@@ -87,9 +104,7 @@ body {
     flex-direction: column;
 }
 
-.nome {
-    margin-top: 2vw;
-}
+
 
 .testeando {
     overflow: auto;
@@ -152,6 +167,86 @@ body {
     color: #FFF;
     font-weight: 600;
     border: none;
-    margin-top: 2vw;
     cursor: pointer;
 }
+
+.form-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    align-items: flex-start;
+    margin-top: 5%;
+}
+
+.button-class {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-container input {
+    width: 100%;
+    padding-right: 30px; /* espaço para a imagem */
+}
+
+.input-container img {
+    position: absolute;
+    right: 10px; /* ajuste conforme necessário */
+    cursor: pointer;
+}
+
+.button-class button {
+    transition: 0.6s ease;
+}
+
+.button-class .delete {
+    width: 10vw;
+    height: 2vw;
+    border-radius: 0.5vw;
+    background-color: red;
+    color: #FFF;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.button-class .save:hover {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+}
+
+.button-class .delete:hover {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+}
+
+.form-edit .name-ex, .form-edi .email-ex, .form-edit .senha-ex, .form-edit .desc-ex {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-edit p {
+    margin: 0;
+    color: black;
+    font-size: 22px;
+}
+
+.form-edit input {
+    border-radius: 0.4vw;
+    border: solid 0.15vw rgba(0, 0, 0, 10%);
+    outline: none;
+    width: 48vw;
+    height: 2vw;
+    flex-direction: column;
+}
+

@@ -74,4 +74,12 @@ router.get('/favoritos', checkAuth, (req, res) => {
     res.render('favoritos')
 })
 
+router.get('/escolha-login', (req, res) => {
+    res.render('escolhaLogin')
+})
+
+router.get('/escolha-registro', (req, res) => {
+    res.render('escolhaRegistro')
+})
+
 module.exports = router

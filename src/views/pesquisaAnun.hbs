@@ -64,6 +64,7 @@
                 <div class="dropdown-content">
                     <a href="/anunciar">Anunciar</a>
                     <a href="/auth/logout">Sair</a>
+                    <a href="/auth/logout">Sair</a>
                 </div>
             </div>
       </div>
@@ -85,13 +86,8 @@
                 {{#each Mrepublicas}}
     <section class="card">
         <div>
-            <a href="/perfil-RepublicaAnun?id={{id}}">
-                {{#if nome_imagem}}
-                    <img src="/up/{{nome_imagem}}">
-                {{else}}
-                    <img src="/up/ImageDefault.jpg" alt="Imagem padrão">
-                {{/if}}
-            </a>
+            <a href="/perfil-RepublicaAnun?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república"
+                    class="imgQuarto"></a>
         </div>
         <div>
             <h4>{{nome}}</h4>

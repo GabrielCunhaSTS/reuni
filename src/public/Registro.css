@@ -96,6 +96,88 @@ body, html {
   height: 500px;
 }
 
+.box-dif-2 {
+  width: 1020px;
+  height: 630px;
+}
+
+.escolha-login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: row;
+}
+
+.estudante {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+
+.anunciante {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+
+.escolha-login .estudante a{
+  background-color: #215487;
+  width: 100%;
+  height: 100%;
+  border-radius: 12% 0% 0% 12%;
+  border: 3px solid black;
+  transition: 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+}
+
+.escolha-login .anunciante a:hover, .escolha-login .estudante a:hover{
+  background-color: white;
+  color: black;
+}
+
+.escolha-login .anunciante a:hover .anunciante-img {
+  content: url('/predio.png'); /* Substitua pelo caminho da nova imagem para o estado hover */
+}
+
+.escolha-login .estudante a:hover .estudante-img {
+  content: url('/estudar.png'); /* Substitua pelo caminho da nova imagem para o estado hover */
+}
+
+.escolha-login .anunciante a{
+  background-color: #215487;
+  width: 100%;
+  height: 100%;
+  border-radius: 0% 12% 12% 0%;
+  border: 3px solid black;
+  transition: 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+}
+
+.escolha-login .anunciante p, .escolha-login .estudante p{
+  font-weight: bold;
+  font-size: 28px;
+}
+
+
+.escolha-login li {
+  font-size: 26px;
+}
+
+.escolha-login p {
+  width: 75%;
+}
+
 .logo_a {
   margin: 0;
   margin-top: 6%;

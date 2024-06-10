@@ -15,16 +15,24 @@
         <a href="/pesquisa"><img src="/Voltar.png" alt="" srcset=""></a>
         <a href="#" class="title">Re<span>Uni</span></a>
     </header>
-    <div class="grid-galley">
+    {{!-- <div class="grid-galley">
         <div class="grid-item"
-                {{#each imagemRep}}
-                <a href="/up{{nome_imagem}}"></a>
+                
+                <a href="/up/{{nome_imagem}}">
                     <img src="/up/{{nome_imagem}}">
-                {{/each}}
+                </a>
+    
+               
+            </div>  --}}
+    <div class="grid-galley">
+        {{#each imagemRep}}
+        <div class="grid-item"
+            <a href="/up/{{nome_imagem}}">
+                <img src="/up/{{nome_imagem}}">
             </a>
-        </div>     
+        </div>
+        {{/each}}
    </div>
-
 <script>
     
 document.addEventListener('DOMContentLoaded', () => {

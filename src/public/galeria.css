@@ -1,0 +1,97 @@
+.grid-galley{
+    width: 100%;
+    max-width: 50vw;
+    margin: 0 auto;
+    padding: 50px 20px;
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));     /* altera a largura do grid de fotos */
+    grid-auto-rows: 9vw;     /* altera o complimento do grid de fotos */
+    grid-auto-flow: dense;
+    grid-gap: 1vw;    /* espaço entre as fotos no grid */
+
+}
+
+.grid-galley .grid-item{
+    position: relative;
+    background-color: rgb(0, 136, 255);     /* cor de fundo qu não aparece e é meramente ilustrativo(fiz pra ir vendo a proporção de tamanho) */
+    overflow: hidden; 
+    
+}
+
+.grid-galley .grid-item img{
+    width: 100%; /* mexe no tamanho das imagens */
+    height: 100%;
+    object-fit:cover;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);     /* transition bonitinha pras imagens quando passa a setinha */
+}
+
+.grid-item img{
+    width: 100%;
+    height: 100%;   /* tambem mexe nas imagens pra enchaixarem bonitinha na div */
+   cursor: pointer; /* deixa o curso bonitinho quando passa na imagem(cutcut) */
+}
+
+.grid-item:target{
+    position: fixed;
+    width: 10vw;
+    top: 5vw;
+    left: 2.5vw;
+   
+}
+
+.grid-galley .grid-item:hover img{
+    transform: scale(1.1); 
+}
+
+.grid-galley .grid-item a{
+    cursor: zoom-in; /* quando o cursos passa pela imagem da zoom */
+}
+
+.grid-galley .grid-item:nth-child(3n - 2){
+    grid-column:  span 2;
+    grid-row: span 2 ;
+}
+
+/* ajeita a decoração do modal */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 19, 60, 0.593); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    margin: 10vw 10vw 10vw 28vw;  /* centraliza o modal pra "tentar" ficar no centro, pq no centro mesmo ele não fica */
+    width: 80%;
+    max-width: 700px;
+}
+
+/*  ajeita o X do modal */
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* muda a cor do X quando o mouse passa */
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}

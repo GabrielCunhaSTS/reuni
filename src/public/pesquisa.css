@@ -449,12 +449,15 @@ section h2 {
 
 .card-container-2 {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto ;
+    grid-auto-flow: column; /* Faz com que os itens fluam em uma linha */
+    grid-auto-columns: auto; /* Define a largura automática para as colunas */
+    /* grid-template-columns: repeat(auto-fill, auto); */
     gap: 20px;
     margin-left: 5%;
     margin-bottom: 5%;
     overflow: hidden;
 }
+
 
 .card {
     width: calc(25% - 20px);

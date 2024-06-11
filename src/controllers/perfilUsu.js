@@ -2,6 +2,7 @@ const { ModelUsuario } = require('../models/ModelUsuario');
 const { ModelEstado } = require('../models/ModelEstado');
 const { Sequelize } = require('sequelize');
 const { ModelImagem } = require('../models/ModelImage');
+const bcrypt =  require('bcrypt')
 
 module.exports = {
     getPerfil: async (req, res) => {
@@ -37,11 +38,25 @@ module.exports = {
     },
 
     editPerfil: async (req, res) => {
-        const { nome, email, descricao } = req.body
+        const { nome, email, descricao, senha } = req.body
         const idUsuario = req.session.user.id_usu
 
         try {
-            await ModelUsuario.update({ nm_usu: nome, ds_emailUsu: email, ds_descricaoPerfil: descricao }, { where: { id_usu: idUsuario } })
+            const updateData = { 
+                nm_usu: nome, 
+                ds_emailUsu: email, 
+                ds_descricaoPerfil: descricao 
+            };
+    
+            // Se a senha foi fornecida, criptografe-a e adicione ao objeto de atualização
+            if (senha) {
+                const salt = await bcrypt.genSalt(10);
+                const hashedSenha = await bcrypt.hash(senha, salt);
+                updateData.ds_senhaUSu = hashedSenha;
+            }
+    
+            // Atualize o usuário no banco de dados
+            await ModelUsuario.update(updateData, { where: { id_usu: idUsuario } });
 
             res.redirect('/perfil-Usuario')
         } catch (error) {

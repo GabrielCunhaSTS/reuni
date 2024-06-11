@@ -4,27 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil da República</title>
+    <title>Perfil República</title>
     <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="galeria.css">
     <link rel="icon" href="/reuni.png">
 </head>
 
 <body>
     <header>
-        <a href="/pesquisaAnun"><img src="/Voltar.png" alt="" srcset=""></a>
+        <a href="javascript:void(0);" onclick="history.back();"><img src="/Voltar.png" alt="" srcset=""></a>
         <a href="#" class="title">Re<span>Uni</span></a>
     </header>
-    <main class="galery">
-        <div class="content">
-            <div class="slides">
-                {{#if imagemRep.length}}
-                {{#each imagemRep}}
-                        <img src="/up/{{nome_imagem}}"  width="500px">
-                {{/each}}
-            {{else}}
-                <p>erro</p>
-            {{/if}}
-    </main>
+    {{!-- <div class="grid-galley">
+        <div class="grid-item"
+                
+                <a href="/up/{{nome_imagem}}">
+                    <img src="/up/{{nome_imagem}}">
+                </a>
+    
+               
+            </div>  --}}
+    <div class="grid-galley">
+        {{#each imagemRep}}
+        <div class="grid-item"
+            <a href="/up/{{nome_imagem}}">
+                <img src="/up/{{nome_imagem}}">
+            </a>
+        </div>
+        {{/each}}
+   </div>
+<script>
+    
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeModal = document.querySelector('.close');
+
+    // Seleciona todas as imagens dentro das divs .grid-item
+    const images = document.querySelectorAll('.grid-item img');
+
+    images.forEach(img => {
+        img.addEventListener('click', (e) => {
+            modal.style.display = 'block';
+            modalImg.src = e.target.src;
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+</script>
+
+<div id="modal" class="modal">
+    <span class="close">&times;</span>   <!-- &times; é o icon de X -->
+    <img class="modal-content" id="modal-img">
+</div>
     <section class="tittle-fav">
         <div>
             <h1>{{ republica.nome }}</h1>
@@ -33,7 +75,6 @@
         <div>
             <form action="/favoritos" method="POST">
                 <input type="hidden" name="republica_id" value="{{ republica.id }}">
-                <button type="submit"><div class="imagem" id="imagem1"></div></button>
             </form>
         </div>
     </section>
@@ -92,7 +133,7 @@
                 <img src="/wi-fi.png" alt="Wi-Fi">
             {{/if}}
             {{#if comodidades.tv}}
-                <img src="/tv.png" alt="TV">
+                <img src="/TV.png" alt="TV">
             {{/if}}
             {{#if comodidades.cozinha}}
                 <img src="/cozinhau.png" alt="Cozinha">
@@ -116,38 +157,101 @@
 
         <div class="grid-container">
             {{#if regras.fumar}}
+            <div>
                 <p>pode fumar</p>
                 <img src="/v.png">
+            </div>
             {{else}}
+            <div>
                 <p>nao pode fumar</p>
                 <img src="/x.png">
+            </div>
+               
             {{/if}}
             
             {{#if regras.pets}}
+            <div>
                 <p>pode pets</p>
                 <img src="/v.png">
+            </div>
             {{else}}
+            <div>
                 <p>nao pode pets</p>
                 <img src="/x.png">
+            </div>
             {{/if}}
 
             {{#if regras.bebidas}}
+            <div>
                 <p>pode bebidas</p>
                 <img src="/v.png">
+            </div>
             {{else}}
+            <div>
                 <p>nao pode bebidas</p>
                 <img src="/x.png">
+            </div>
             {{/if}}
 
             {{#if regras.visitas}}
+            <div>
                 <p>pode visitas</p>
                 <img src="/v.png">
+            </div>
             {{else}}
+            <div>
                 <p>nao pode visitas</p>
                 <img src="/x.png">
+            </div>
             {{/if}}        
         </div>
-    </section>
+
+
+<form class="coment-pub" action="/comentarios/adicionar" method="POST">
+    <input type="hidden" name="id_republica" value="{{ republica.id }}">
+    <input type="hidden" name="rating" id="rating" value="0">
+    <textarea name="texto" style="resize: none;" maxlength="100" placeholder="Digite seu comentário" readonly></textarea>
+    <div class="inputs" style="padding-left: 120%; padding-top: 5%;
+    padding-bottom: 5%;">
+        <button   class="enviar" type="submit">Enviar comentario</button>
+    </div>
+    
+</form>
+
+{{!-- Não sei ainda onde colocar a data --}}
+{{#if comentarios.length}}
+    <ul>
+        <div class="grid-container-2">
+            {{#each comentarios}}
+            <div class="coment">
+                <div class="perfil">
+                    {{!-- Adcionar aqui o icon de foto de perfil do usuario --}}
+                </div>
+                <div class="infos-coment">
+                    <div class="titles-coment">
+                        <h1 style="padding-left: 20px; width:800px; padding-top:30px;">{{this.nome}}</h1>
+                        <p class="date" style="padding-top:30px;">{{this.dataFormatada}}</p>
+                    </div>
+                    <h3 style="padding-left: 20px;">{{this.texto}}</h3>
+                </div>
+                {{!-- <div class="title">
+                    <p>{{this.nome}}</p>
+                    <p class="date">{{this.dataFormatada}}</p>
+                </div>
+                <p>{{this.texto}}</p> --}}
+            </div>
+            {{/each}}
+        </div>
+    </ul>
+{{else}}
+    <h3 style="padding-left: 10%; padding-top: 40px;
+    padding-bottom: 20px;"
+    >Nenhum comentário encontrado.</h3>
+{{/if}}
+
+</section>
+
+<script src="/estrelas.js"></script>
 
 </body>
 

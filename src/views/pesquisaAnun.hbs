@@ -18,9 +18,9 @@
     const sections = document.querySelectorAll('.repu-grid section');
     const moveLeftButton = document.getElementById('setaEsquerda');
     const moveRightButton = document.getElementById('setaDireita');
-    const moveAmountPercentage = 100; // Altere conforme necessário
+    const moveAmountPercentage = 5; // Altere conforme necessário
     const leftLimitPercentage = 0; // Limite à esquerda em porcentagem
-    const rightLimitPercentage = -240; // Limite à direita em porcentagem
+    const rightLimitPercentage = -355; // Limite à direita em porcentagem
     const sectionWidthPercentage = 20; // Largura de cada seção em porcentagem
 
     const gridWidth = sections.length * sectionWidthPercentage; // Largura total do grid
@@ -75,17 +75,26 @@
     </div>
     
     </section></div>
+
+    {{#if Mrepublicas}}
+        <h1 style="padding-left: 10%;">Minhas Republicas</h1>
         <div class="repu-container">
             <div class="setaEsquerda"><button id="setaEsquerda" onclick="setaesquerda_trans()"><img src="/seta.png" alt="">
             </button></div>
             <div class="repu-grid">
-              <div class="card-container">
-
+              <div class="card-container-2">
+                
                 {{#each Mrepublicas}}
+                
     <section class="card">
         <div>
-            <a href="/perfil-RepublicaAnun?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república"
-                    class="imgQuarto"></a>
+            <a href="/perfil-RepublicaAnun?id={{id}}">
+                    {{#if nome_imagem}}
+                    <img src="/up/{{nome_imagem}}" class="imgQuarto">
+                {{else}}
+                    <img src="/up/ImageDefault.jpg" alt="Imagem padrão" class="imgQuarto">
+                {{/if}}     
+            </a>
         </div>
         <div>
             <h4>{{nome}}</h4>
@@ -114,11 +123,16 @@
             </div>
         </div>
     </section>
-    {{/each}}   
+    {{/each}}
+    
             </div>
             <div class="setaDireita" id="setaDireita"><button><img src="/seta.png" alt=""></button></div>
         </div>
-    </div>
+        {{else}}
+         <h1 style="padding-left: 10%;">Minhas Republicas</h1>
+         <h3 style="padding-left: 13%;">Nunhuma Republica Anunciada</h3>
+    {{/if}}
+        </div>
 
     <div class="dashboard">
         <div>

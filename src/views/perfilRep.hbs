@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="/wi-fi.png" alt="Wi-Fi">
             {{/if}}
             {{#if comodidades.tv}}
-                <img src="/tv.png" alt="TV">
+                <img src="/TV.png" alt="TV">
             {{/if}}
             {{#if comodidades.cozinha}}
                 <img src="/cozinhau.png" alt="Cozinha">
@@ -158,182 +158,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="grid-container">
             {{#if regras.fumar}}
+            <div>
                 <p>pode fumar</p>
                 <img src="/v.png">
+            </div>
             {{else}}
+            <div>
                 <p>nao pode fumar</p>
                 <img src="/x.png">
+            </div>
+               
             {{/if}}
             
             {{#if regras.pets}}
+            <div>
                 <p>pode pets</p>
                 <img src="/v.png">
+            </div>
             {{else}}
+            <div>
                 <p>nao pode pets</p>
                 <img src="/x.png">
+            </div>
             {{/if}}
 
             {{#if regras.bebidas}}
+            <div>
                 <p>pode bebidas</p>
                 <img src="/v.png">
+            </div>
             {{else}}
+            <div>
                 <p>nao pode bebidas</p>
                 <img src="/x.png">
+            </div>
             {{/if}}
 
             {{#if regras.visitas}}
+            <div>
                 <p>pode visitas</p>
                 <img src="/v.png">
+            </div>
             {{else}}
+            <div>
                 <p>nao pode visitas</p>
                 <img src="/x.png">
+            </div>
             {{/if}}        
         </div>
     </section>
-
-
-    <section class="sugestoes">
-        <div class="tittle">
-            <h1>Sugestões</h1>
-            <hr class="hr-menor">
-        </div>
-        <container id="cards">
-            <section class="card">
-                <div>
-                    <img src="/quarto.png" alt="Quarto de uma república" class="imgQuarto ">
-                </div>
-                <div>
-                    <h4>República Gonzaga</h4>
-                    <p>R$900-1100 / mês</p>
-                    <div class="detalhes">
-                        <div>
-                            <img src="/mista.png">
-                            Mista
-                        </div>
-
-                        <div>
-                            <img src="/cama.png">
-                            4
-                        </div>
-
-                        <div>
-                            <img src="/banheiro.png">
-                            3
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="card">
-                <div>
-                    <img src="/quarto08.JPG" alt="Quarto de uma república" class="imgQuarto ">
-                </div>
-                <div>
-                    <h4>República Ana Costa</h4>
-                    <p>R$1000-1300 / mês</p>
-                    <div class="detalhes">
-                        <div>
-                            <img src="/mista.png">
-                            Mista
-                        </div>
-
-                        <div>
-                            <img src="/cama.png">
-                            3
-                        </div>
-
-                        <div>
-                            <img src="/banheiro.png">
-                            2
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </container>
-    </section>
-    <section>
-
-        <div class="info-coments">
-            <div class="titles-coments">
-                <h1>4.8</h1>
-                <p>785 Comentarios</p>
-            </div>
-            <div class="stars">
-                <div class="numbers">
-                    <p>5</p>
-                    <p>4</p>
-                    <p>3</p>
-                    <p>2</p>
-                    <p>1</p>
-                </div>
-                <div class="stars-icon">
-                    <img src="/Star 46.png" alt="">
-                    <img src="/Star 46.png" alt="">
-                    <img src="/Star 46.png" alt="">
-                    <img src="/Star 46.png" alt="">
-                    <img src="/Star 46.png" alt="">
-                </div>
-                <div class="value-stars">
-                    <div class="stars-5"><div></div></div>
-                    <div class="stars-4"><div></div></div>
-                    <div class="stars-3"><div></div></div>
-                    <div class="stars-2"><div></div></div>
-                    <div class="stars-1"><div></div></div>
-                </div>
-            </div>
-        </div>
 
 <form class="coment-pub" action="/comentarios/adicionar" method="POST">
     <input type="hidden" name="id_republica" value="{{ republica.id }}">
     <input type="hidden" name="rating" id="rating" value="0">
     <textarea name="texto" style="resize: none;" maxlength="100" placeholder="Digite seu comentário"></textarea>
-    <div class="inputs">
-        <div class="stars-align">
-            <p>Estrelas:</p>
-            <button class="count"  data-value="1"><img src="/Star 4.png"  alt="Estrela 1"></button>
-            <button class="count" data-value="2"><img src="/Star 4.png" alt="Estrela 2"></button>
-            <button class="count" data-value="3"><img src="/Star 4.png"  alt="Estrela 3"></button>
-            <button class="count" data-value="4"><img src="/Star 4.png"  alt="Estrela 4"></button>
-            <button class="count" data-value="5"><img src="/Star 4.png"  alt="Estrela 5"></button>
-        </div>
+    <div class="inputs" style="padding-left: 120%; padding-top: 5%;
+    padding-bottom: 5%;">
         <button class="enviar" type="submit">Enviar comentario</button>
     </div>
     
 </form>
 
-{{!-- Não sei ainda onde colocar a data --}}
+
 {{#if comentarios.length}}
     <ul>
         <div class="grid-container-2">
             {{#each comentarios}}
             <div class="coment">
-                <div class="perfil">
-                    {{!-- Adcionar aqui o icon de foto de perfil do usuario --}}
-                </div>
                 <div class="infos-coment">
                     <div class="titles-coment">
-                        <h1>{{this.nome}}</h1>
-                        <div>
-                            <img src="/Star 46.png" alt="">
-                            <img src="/Star 46.png" alt="">
-                            <img src="/Star 46.png" alt="">
-                            <img src="/Star 46.png" alt="">
-                            <img src="/Star 46.png" alt="">
-                        </div>
+                        <h1 style="padding-left: 20px; width:800px; padding-top:30px;">{{this.nome}}</h1>
+                        <p class="date" style="padding-top:30px;">{{this.dataFormatada}}</p>
                     </div>
-                    <p>{{this.texto}}</p>
+                    <h3 style="padding-left: 20px;">{{this.texto}}</h3>
                 </div>
-                {{!-- <div class="title">
-                    <p>{{this.nome}}</p>
-                    <p class="date">{{this.dataFormatada}}</p>
-                </div>
-                <p>{{this.texto}}</p> --}}
             </div>
             {{/each}}
         </div>
     </ul>
 {{else}}
-    <p>Nenhum comentário encontrado.</p>
+    <h3 style="padding-left: 10%; padding-top: 40px;
+    padding-bottom: 20px;"
+    >Nenhum comentário encontrado.</h3>
 {{/if}}
 
 </section>

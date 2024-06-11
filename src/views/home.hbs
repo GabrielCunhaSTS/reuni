@@ -9,6 +9,7 @@
 
     <!-- Estilos -->
     <!-- Incluindo o arquivo de estilo principal -->
+    <link rel="stylesheet" href="/pesquisa.css">
     <link rel="stylesheet" href="/home.css">
 
     <!-- Fontes -->
@@ -26,6 +27,45 @@
 </head>
 
 <body>
+    <script>
+     document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.repu-grid section');
+    const moveLeftButton = document.getElementById('setaEsquerda');
+    const moveRightButton = document.getElementById('setaDireita');
+    const moveAmountPercentage = 5; // Altere conforme necessário
+    const leftLimitPercentage = 0; // Limite à esquerda em porcentagem
+    const rightLimitPercentage = -300; // Limite à direita em porcentagem
+    const sectionWidthPercentage = 19.5; // Largura de cada seção em porcentagem
+
+    const gridWidth = sections.length * sectionWidthPercentage; // Largura total do grid
+    const moveAmount = (moveAmountPercentage / 100) * gridWidth; // Converter para pixels
+    const leftLimit = (leftLimitPercentage / 100) * gridWidth; // Converter para pixels
+    const rightLimit = (rightLimitPercentage / 100) * gridWidth; // Converter para pixels
+
+    moveLeftButton.addEventListener('click', function() {
+        sections.forEach(function(section) {
+            let currentLeft = parseInt(section.style.left || 0);
+            if (currentLeft - moveAmount >= leftLimit) {
+                section.style.left = currentLeft - moveAmount + '%';
+            } else {
+                section.style.left = leftLimit + '%';
+            }
+        });
+    });
+
+    moveRightButton.addEventListener('click', function() {
+        sections.forEach(function(section) {
+            let currentLeft = parseInt(section.style.left || 0);
+            if (currentLeft + moveAmount <= rightLimit) {
+                section.style.left = currentLeft - moveAmount + '%';
+            } else {
+                section.style.left = rightLimit + '%';
+            }
+        });
+    });
+});
+
+    </script>
     <!-- SVG para o efeito de fundo -->
     <svg xmlns="http://www.w3.org/2000/svg" width="848" height="1277" fill="none" viewBox="0 0 848 1277"
         class="svg-blur">
@@ -154,10 +194,261 @@
             </div>
             <div class="img"><img src="/pesquisa.gif" alt=""></div>
         </div>
+        <div class="filtro1">
+            <div class="img"><img src="/pesquisa.gif" alt=""></div>
+            <div class="txt">
+                <h1>Barra de busca</h1>
+                <p>Oferecemos um sistema de busca por republicas dinamico, por meio de uma barra de navegação.</p>
+            </div>
+            
+        </div>
+        <div class="filtro1">
+            <div class="txt">
+                <h1>Barra de busca</h1>
+                <p>Oferecemos um sistema de busca por republicas dinamico, por meio de uma barra de navegação.</p>
+            </div>
+            <div class="img"><img src="/pesquisa.gif" alt=""></div>
+        </div>
     </main>
 
     <main class="republicas">
-        <div class="card-1">
+
+        <div class="repu-container" style="width: 100%;">
+            <div class="setaEsquerda" style="width: 10%;"><button id="setaEsquerda" onclick="setaesquerda_trans()"><img src="/seta.png" alt="">
+            </button></div>
+            <div class="repu-grid" style="width: 80%;">
+              <div class="card-container-2">
+                            <section class="card">
+                    <div>
+                        <a href="/perfil-RepublicaAnun?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república"
+                                class="imgQuarto"></a>
+                    </div>
+                    <div>
+                        <h4>{{nome}}</h4>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>{{cidade}}
+                        </p>
+                        <p>R$ {{aluguel}} / mês</p>
+                        <div class="detalhes">
+                            <div>
+                                <img src="/mista.png">
+                                {{tipo}}
+                            </div>
+                            <div>
+                                <img src="/cama.png">
+                                {{quarto}}
+                            </div>
+                            <div>
+                                <img src="/banheirob.png">
+                                {{banheiro}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                            <section class="card">
+                    <div>
+                        <a href="/perfil-RepublicaAnun?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república"
+                                class="imgQuarto"></a>
+                    </div>
+                    <div>
+                        <h4>{{nome}}</h4>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>{{cidade}}
+                        </p>
+                        <p>R$ {{aluguel}} / mês</p>
+                        <div class="detalhes">
+                            <div>
+                                <img src="/mista.png">
+                                <p>Mista</p>
+                            </div>
+                            <div>
+                                <img src="/cama.png">
+                                <p>5</p>
+                            </div>
+                            <div>
+                                <img src="/banheirob.png">
+                                <p>4</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="card">
+                    <div>
+                        <a href="/perfil-RepublicaAnun?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república"
+                                class="imgQuarto"></a>
+                    </div>
+                    <div>
+                        <h4>{{nome}}</h4>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>{{cidade}}
+                        </p>
+                        <p>R$ {{aluguel}} / mês</p>
+                        <div class="detalhes">
+                            <div>
+                                <img src="/mista.png">
+                                {{tipo}}
+                            </div>
+                            <div>
+                                <img src="/cama.png">
+                                {{quarto}}
+                            </div>
+                            <div>
+                                <img src="/banheirob.png">
+                                {{banheiro}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="card">
+                    <div>
+                        <a href="/perfil-RepublicaAnun?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república"
+                                class="imgQuarto"></a>
+                    </div>
+                    <div>
+                        <h4>{{nome}}</h4>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>{{cidade}}
+                        </p>
+                        <p>R$ {{aluguel}} / mês</p>
+                        <div class="detalhes">
+                            <div>
+                                <img src="/mista.png">
+                                {{tipo}}
+                            </div>
+                            <div>
+                                <img src="/cama.png">
+                                {{quarto}}
+                            </div>
+                            <div>
+                                <img src="/banheirob.png">
+                                {{banheiro}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="card">
+                    <div>
+                        <a href="/perfil-RepublicaAnun?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república"
+                                class="imgQuarto"></a>
+                    </div>
+                    <div>
+                        <h4>{{nome}}</h4>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>{{cidade}}
+                        </p>
+                        <p>R$ {{aluguel}} / mês</p>
+                        <div class="detalhes">
+                            <div>
+                                <img src="/mista.png">
+                                {{tipo}}
+                            </div>
+                            <div>
+                                <img src="/cama.png">
+                                {{quarto}}
+                            </div>
+                            <div>
+                                <img src="/banheirob.png">
+                                {{banheiro}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="card">
+                    <div>
+                        <a href="/perfil-RepublicaAnun?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república"
+                                class="imgQuarto"></a>
+                    </div>
+                    <div>
+                        <h4>{{nome}}</h4>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>{{cidade}}
+                        </p>
+                        <p>R$ {{aluguel}} / mês</p>
+                        <div class="detalhes">
+                            <div>
+                                <img src="/mista.png">
+                                {{tipo}}
+                            </div>
+                            <div>
+                                <img src="/cama.png">
+                                {{quarto}}
+                            </div>
+                            <div>
+                                <img src="/banheirob.png">
+                                {{banheiro}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="card">
+                    <div>
+                        <a href="/perfil-RepublicaAnun?id={{id}}"><img src="/foto 1.jpg" alt="Quarto de uma república"
+                                class="imgQuarto"></a>
+                    </div>
+                    <div>
+                        <h4>{{nome}}</h4>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>{{cidade}}
+                        </p>
+                        <p>R$ {{aluguel}} / mês</p>
+                        <div class="detalhes">
+                            <div>
+                                <img src="/mista.png">
+                                {{tipo}}
+                            </div>
+                            <div>
+                                <img src="/cama.png">
+                                {{quarto}}
+                            </div>
+                            <div>
+                                <img src="/banheirob.png">
+                                {{banheiro}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+           
+        </div>
+         <div class="setaDireita" id="setaDireita"><button><img src="/seta.png" alt=""></button></div>
+        </div>
+        {{!-- <div class="card-1">
             <div class="image"><a href="/entrar"><img src="/quarto1.png"></a></div>
             <div class="text">
                 <h1 class="nomeRepu">Café com Leite</h1>
@@ -232,7 +523,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     </main>
     <footer>

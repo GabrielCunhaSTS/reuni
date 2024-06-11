@@ -302,11 +302,19 @@ header .title span {
     line-height: normal;
 }
 
+.container-desc .button button:hover{
+    color: white;
+    background-color: #215487;
+    border: 1px solid #215487;
+    transition: 0.6s;
+}
+
+
 .comodidades {
     display: flex;
     flex-direction: column;
     width: 85%;
-    height: 180px;
+    height: 300px;
     margin-top: 1%;
     margin-left: 6.6%;
 }
@@ -384,8 +392,15 @@ header .title span {
     align-items: center;
     justify-content: center;
     margin-top: 3%;
-    gap: 125px;
+    gap: 185px;
     padding: 10px;
+}
+
+.regras .grid-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .sugestoes {
@@ -517,7 +532,7 @@ header .title span {
 }
 
 .coment .infos-coment {
-    width: 70%;
+    width: 100%;
 }
 
 .coment .infos-coment .titles-coment {
@@ -602,6 +617,7 @@ header .title span {
     font-weight: 700;
     line-height: normal;
     padding: 10px;
+    margin-top: 40px;
 }
 
 .coment-pub .inputs {
@@ -639,6 +655,7 @@ header .title span {
     margin: 0;
     cursor: pointer;
 }
+
 
 .coment-pub .enviar {
     border-radius: 5px;

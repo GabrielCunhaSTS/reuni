@@ -855,3 +855,19 @@ header .title span {
     width: 100%;
     height: 400px;
 }
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-container label img {
+    cursor: pointer;
+}
+
+.checkbox-container label img:hover {
+    content: attr(data-hover);
+}
+
+.checkbox-container input[type="checkbox"]:checked + label img {
+    content: attr(data-checked);
+}

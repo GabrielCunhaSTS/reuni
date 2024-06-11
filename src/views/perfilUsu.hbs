@@ -57,14 +57,14 @@
                     <p>Senha:</p>
                     {{!-- <input class="senha" type="password" name="" id="senha" readonly> --}}
                     <div class="input-container">
-                        <input class="senha" type="password" name="senha" id="senha" readonly>
+                        <input class="senha" type="password" name="" id="senha" readonly>
                         <img id="editarsenha" src="/edit.png" class="pincel">
                     </div>
                 </div>
                     {{!-- <div><img id="editarsenha" src="/edit.png" class="pincel"></div> --}}
                 <div class="desc-ex">
                     <p>Descrição:</p>
-                    <textarea class="testeando" id="descricao" name="descricao">{{perfil.descricao}}</textarea>
+                    <textarea class="testeando" id="descricao" name="descricao" required>{{perfil.descricao}}</textarea>
                 </div>
                 <div class="button-class">
                     <button type="submit" class="save">Salvar alterações</button>

@@ -12,7 +12,7 @@
 <body>
 
    <header>
-        <a href="/pesquisaAnun"><img src="/Voltar.png" alt="" srcset=""></a>
+        <a href="javascript:void(0);" onclick="history.back();"><img src="/Voltar.png" alt="" srcset=""></a>
         <a href="#" class="title">Re<span>Uni</span></a>
     </header>
 
@@ -311,22 +311,55 @@
           <h1>Comodidades</h1>
           
           
-          <div>
-            <input value="1" type="checkbox" style="opacity: 0;"name="wifi" id="wifi">
-            <label for="wifi"><img src="/wi-fi.png"></label>
+          <div class="checkbox-container">
+            <input value="1" type="checkbox" name="wifi" id="wifi">
+            <label for="wifi"><img src="/image 14.png" data-original="/image 14.png" data-checked="/wi-fi.png" data-hover="/wi-fi.png"></label>
 
-            <input value="1" type="checkbox" style="opacity: 0;" name="tv" id="tv">
-            <label for="tv"><img src="/tv.png"></label>
+            <input value="1" type="checkbox" name="tv" id="tv">
+            <label for="tv"><img src="/image 15.png" data-original="/image 15.png" data-checked="/tv.png" data-hover="/tv.png"></label>
 
-            <input value="1" type="checkbox" style="opacity: 0;" name="cozinha" id="cozinha">
-            <label for="cozinha"><img src="/cozinhau.png"></label>
+            <input value="1" type="checkbox" name="cozinha" id="cozinha">
+            <label for="cozinha"><img src="/image 17.png" data-original="/image 17.png" data-checked="/cozinhau.png" data-hover="/cozinhau.png"></label>
 
-            <input value="1" type="checkbox" style="opacity: 0;" name="estacionamento" id="estacionamento">
-            <label for="estacionamento"><img src="/vagas.png"></label>
+            <input value="1" type="checkbox" name="estacionamento" id="estacionamento">
+            <label for="estacionamento"><img src="/image 16.png" data-original="/image 16.png" data-checked="/vagas.png" data-hover="/vagas.png"></label>
 
-            <input value="1" type="checkbox" style="opacity: 0;" name="ar_condicionado" id="ar_condicionado">
-            <label for="ar_condicionado"><img src="/arcondicionado.png"></label>
-          </div>
+            <input value="1" type="checkbox" name="ar_condicionado" id="ar_condicionado">
+            <label for="ar_condicionado"><img src="/image 18.png" data-original="/image 18.png" data-checked="/arcondicionado.png" data-hover="/arcondicionado.png"></label>
+        </div>
+
+            <script>
+              document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                  const label = checkbox.nextElementSibling;
+                  const img = label.querySelector('img');
+
+                  // Ensure initial image src is set correctly
+                  img.setAttribute('data-original', img.src);
+
+                  checkbox.addEventListener('change', function() {
+                      if (this.checked) {
+                          img.src = img.getAttribute('data-checked');
+                      } else {
+                          img.src = img.getAttribute('data-original');
+                      }
+                  });
+
+                  label.addEventListener('mouseover', function() {
+                      if (!checkbox.checked) {
+                          img.src = img.getAttribute('data-hover');
+                      }
+                  });
+
+                  label.addEventListener('mouseout', function() {
+                      if (!checkbox.checked) {
+                          img.src = img.getAttribute('data-original');
+                      }
+                  });
+              });
+          </script>
+
+
+
         </div>
 
       </div>

@@ -198,34 +198,12 @@ module.exports = {
             res.status(500).json({ message: 'Erro interno do servidor' });
         }
     },
-    getAllRepAnun: async (req, res) => {
+    getAllRepHome: async (req, res) => {
         try {
-            const { femininas, masculinas, mistas, estado, preco } = req.query;
-            const filtragem = {};
-            const whereClause = {};
-            const filtrovalor = {}
-    
-            if (femininas) {
-                filtragem.ds_tipoRepublica = 'fem';
-            }
-            if (masculinas) {
-                filtragem.ds_tipoRepublica = 'masc';
-            }
-            if (mistas) {
-                filtragem.ds_tipoRepublica = 'mista';
-            }
-            
-            if (estado) {
-                whereClause.ds_estado = estado;
-            }        
-            
-            if (preco) {
-                filtrovalor.vl_valorMensal = preco; 
-            }
-    
+
             const resultados = await ModelRepublica.findAll({
                 attributes: [
-                    [Sequelize.literal('id_republica'), 'id'],
+                    [Sequelize.col('tb_republica.id_republica'), 'id'],
                     [Sequelize.literal('ds_nomeRepublica'), 'nome'],
                     [Sequelize.literal('ds_tipoRepublica'), 'tipo'],
                     [Sequelize.literal('vl_valorMensal'), 'aluguel'],
@@ -240,24 +218,24 @@ module.exports = {
                         model: ModelAlguel,
                         attributes: [],
                         required: true,
-                        where: filtrovalor
+                       
                     },
                     {
                         model: ModelTipoRepublica,
                         attributes: [],
                         required: true,
-                        where: filtragem
+                        
                     },
                     {
                         model: ModelLocalizacaoRepublica,
                         attributes: [],
                         required: true,
-                        where: whereClause
+                            
                     }
-                ],
+                ]
             });
-    
-            res.render('pesquisaAnun', { republicas: resultados });
+
+            res.render('home', { republicas: resultados });
     
         } catch (error) {
             console.error("Erro ao pesquisar repúblicas:", error);

@@ -38,7 +38,8 @@ router.get('/auth/logout', logout.logout);
 router.post('/auth/cadRep', multer.array('images', 6), registrarRep.registerRepublica);
 
 router.get('/pesquisa/:nm_digit', search.getRepByName);
-router.get('/pesquisa', checkAuth, search.getAllRep);
+router.get('/',search.getAllRepHome);
+router.get('/pesquisa', checkAuth, search.getAllRep);   
 router.get('/pesquisaAnun', checkAuth, mrepublicas.getAllRep)
 
 
@@ -59,6 +60,8 @@ router.post('/uploadA', multer.single('image'), imageA.uploadImageA);
 
 router.get('/perfil-Republica', checkAuth, get.getPerfilRepublica);
 router.get('/perfil-RepublicaAnun', checkAuth, get.getPerfilRepublicaAnun);
+router.get('/perfil-Home', get.getPerfilRepublicaHome);
+
 
 router.post('/comentarios/adicionar', checkAuth, comentarios.adicionarComentario);
 

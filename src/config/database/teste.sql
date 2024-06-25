@@ -120,7 +120,7 @@ create table if not exists tb_republica(
     id_valorAlguel int,
     id_comodidade int,
     ds_nomeRepublica varchar(50) not null,
-    ds_descricaoRepublica varchar(500) not null,
+    ds_descricaoRepublica varchar(2000) not null,
     
     constraint foreign key (id_anunciante)
     references tb_anunciante(id_anunciante),

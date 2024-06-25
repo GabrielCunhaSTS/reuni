@@ -72,9 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <h1>{{ republica.nome }}</h1>
             <p>{{ republica.cidade }}, {{ republica.bairro }}</p>
         </div>
-        <div>
-            <input type="hidden" name="republica_id" value="{{ republica.id }}">
-            <a href="/editar-Republica"><img id="editarnome" src="/edit.png" class="pincel"></a> 
+        <div>   
+            <a href="/editar-Republica?id={{republica.id}}"><img id="editarnome" src="/edit.png" class="pincel"></a> 
         </div>
     </section>
     <svg class="hr-maior" xmlns="http://www.w3.org/2000/svg" width="582" height="2" viewBox="0 0 582 2" fill="none">

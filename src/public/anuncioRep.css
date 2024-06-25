@@ -605,7 +605,7 @@ header .title span {
 
 .cont-regras .regras-radio {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-left: 5%;
 }
 

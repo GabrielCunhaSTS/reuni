@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/reuni.png">
-    <link rel="stylesheet" href="/pesquisa.css">
+     <link rel="stylesheet" href="/pesquisa.css">
     <link rel="stylesheet" href="/home.css">
     <link rel="stylesheet" href="/pesquisa-card.css">
 
@@ -83,17 +83,16 @@
             </button></div>
             <div class="repu-grid">
               <div class="card-container-2">
-                
-                {{#each Mrepublicas}}
-                
+               
+    {{#each Mrepublicas}}            
     <section class="card">
-        <div>
-            <a href="/perfil-RepublicaAnun?id={{id}}">
-                    {{#if nome_imagem}}
-                    <img src="/up/{{nome_imagem}}" class="imgQuarto">
+         <div class="imgQuarto-div">
+             <a href="/perfil-RepublicaAnun?id={{id}}">
+                {{#if nome_imagem}}
+                    <img src="/up/{{nome_imagem}}">
                 {{else}}
-                    <img src="/up/ImageDefault.jpg" alt="Imagem padrão" class="imgQuarto">
-                {{/if}}     
+                    <img src="/up/ImageDefault.jpg" alt="Imagem padrão">
+                {{/if}}            
             </a>
         </div>
         <div>
@@ -132,15 +131,7 @@
          <h1 style="padding-left: 10%;">Minhas Republicas</h1>
          <h3 style="padding-left: 13%;">Nunhuma Republica Anunciada</h3>
     {{/if}}
-        </div>
-
-    <div class="dashboard">
-        <div>
-            <p>Venha ter Informações mais detalhadas e que impulsionaram totalmente a sua república</p>
-            <button>Assine já</button>
-        </div>
-    </div>
-    
+        </div> 
     <script src="/transicao.js"></script>
     <script src="/msgBemvindo.js"></script>
     <script src="/pesquisaAuth.js"></script>

@@ -52,7 +52,7 @@ router.post('/perfilAnun/delete', perfilA.deletePerfil);
 router.post('/perfilUsu/editar', perfilU.editPerfil);
 router.post('/perfilUsu/delete', perfilU.deletePerfil);
 
-router.post('/editar', multer.array('images', 6), checkAuth, get.updatePerfilRepublica)
+router.post('/editar/:id', checkAuth, get.updatePerfilRepublica)
 
 router.post('/perfilUsu/deleteImage', image.DeleteImage);
 router.post('/upload', multer.single('image'), image.uploadImage);

@@ -176,7 +176,7 @@
       </svg>Fotos e Descrição</button>
   </main>
 
-  <form id="cepForm" action="/auth/cadRep" method="POST" enctype="multipart/form-data">
+  <form id="cepForm" action="/editar/{{republica.id}}" method="POST" enctype="multipart/form-data">
     <main class="containers">
       <div class="container-cont">
         <div class="titulo">
@@ -196,7 +196,7 @@
           </div>
           <div class="dados-2">
             <p>Telefone ou Celular para contato</p>
-            <input class="input-dados" type="tel" placeholder="(XX) XXXXX-XXXX" id="nmr_telefoneAnfitriao" name="nmr_telefoneAnfitriao" maxlength="15" oninput="mascaraTelefone(this)">                  
+            <input class="input-dados" type="tel" id="nmr_telefoneAnfitriao" name="nmr_telefoneAnfitriao" maxlength="15" oninput="mascaraTelefone(this)">                  
             <p>Ano de Criação da república:</p>
             <input class="input-dados" id="an_anoCriacao" type="text" name="an_anoCriacao" maxlength="4">
           </div>
@@ -221,6 +221,7 @@
             <input class="input-dados" type="text" id="ds_cidade" name="ds_cidade" readonly>
             <p>Estado:</p>
             <input class="input-dados" type="text" id="ds_estado" name="ds_estado" readonly>
+            <br>
             <p>Rua:</p>
             <input class="input-dados" type="text" id="ds_rua" name="ds_rua" readonly>
             <p>Bairro:</p>
@@ -242,7 +243,8 @@
         </div>
 
         <div class="cont-regras">
-          <div class="align-flex-regras">
+          <div class="teste">
+            <div class="align-flex-regras">
             <p>Tipos de República</p>
             <select name="tipoRep" id="option">
               <option value="Mista">Mista</option>
@@ -259,6 +261,8 @@
               <option value="Apto">Apartamento</option>
             </select>
           </div>
+          </div>
+          
 
           <div class="buttons-quantidade">
             <div class="quartos">
@@ -379,19 +383,6 @@
         </div>
 
         <div class="cont-valor">
-          <div class="estadia">
-            <input type="radio" value="1" name="estad_min" id="estad_min">
-            <p>Estadia Mínima</p>
-            <div class="meses">
-              <div>
-                <p>meses</p>
-              </div>
-              <div class="button-mes">
-                <button>-</button>
-                <p>0</p><button>+</button>
-              </div>
-            </div>
-          </div>
           <div class="valor-mensal">
             <p>Valor Mensal</p>
                 <input type="text" id="valor" name="ValorMensal" placeholder="R$ 0,00" oninput="formatarValor(this)">
@@ -428,8 +419,10 @@
 
         <div class="cont-fotos">
           <p>Adicione as melhores fotos de sua república.</p>
-            <label for="images">Imagens da República:</label>
-            <input type="file" id="images" name="images" multiple ><br>
+            <input type="file" id="images" style="display: none;" name="images" multiple ><br>
+            <label style="cursor: pointer;" for="images" class="profile_label">
+              <img src="/arrow.png" id="ImgEdit" width="150px" height="150">
+            </label>
 
           <p>Título do Anúncio</p>
           <input type="text" id="ds_nomeRepublica" name="ds_nomeRepublica">

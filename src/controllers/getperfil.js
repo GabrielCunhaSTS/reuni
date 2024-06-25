@@ -219,7 +219,9 @@ getPerfilRepublicaAnun: async (req, res) => {
 
 updatePerfilRepublica: async (req, res) => {
     try {
-        const republicaId = req.params.id;
+  // Renderiza o template e passa os dados da república para o front-end
+  res.render('editar-republica', { republica });
+    
         const {
             ds_nomeAnfitriao, ds_emailAnfitriao, nmr_telefoneAnfitriao, an_anoCriacao,
             ds_cep, ds_cidade, ds_estado, ds_rua, ds_bairro, ds_numero,
@@ -228,23 +230,31 @@ updatePerfilRepublica: async (req, res) => {
             tipoRep, imovel, qtd_banheiro, qtd_quarto,
             fumar, pets, visitas, bebidas,
             wifi, tv, cozinha, estacionamento, ar_condicionado
-        } = req.body;
+        } = req.body;   
 
-        let numeroInteiro = parseInt(nmr_telefoneAnfitriao.replace(/\D/g, ''), 10);
+        console.log("Atualizando república com ID:", republicaId);
+
+        // Verificar se republicaId está definido
+        if (!republicaId) {
+            throw new Error("ID da república não fornecido.");
+        }
 
         // Atualizar dados do anfitrião
-        await ModelDadosRepublica.update(
+        const dadosAnfitriaoAtualizados = await ModelDadosRepublica.update(
             {
                 ds_nomeAnfitriao: ds_nomeAnfitriao,
                 ds_emailContato: ds_emailAnfitriao,
                 nmr_telefoneContato: numeroInteiro,
                 an_anoCriacao: an_anoCriacao
             },
-            { where: { id_republica: republicaId } }
+            
         );
 
+        // Log para verificar se dados foram atualizados
+        console.log("Dados do anfitrião atualizados:", dadosAnfitriaoAtualizados);
+
         // Atualizar localização da república
-        await ModelLocalizacaoRepublica.update(
+        const localizacaoAtualizada = await ModelLocalizacaoRepublica.update(
             {
                 ds_cep: ds_cep,
                 ds_cidade: ds_cidade,
@@ -253,33 +263,42 @@ updatePerfilRepublica: async (req, res) => {
                 ds_bairro: ds_bairro,
                 ds_numero: ds_numero
             },
-            { where: { id_republica: republicaId } }
+            
         );
 
+        // Log para verificar se localização foi atualizada
+        console.log("Localização atualizada:", localizacaoAtualizada);
+
         // Atualizar tipo de república
-        await ModelTipoRepublica.update(
+        const tipoAtualizado = await ModelTipoRepublica.update(
             {
                 ds_tipoRepublica: tipoRep,
                 ds_tipoImovel: imovel,
                 qtd_quartoRepublica: qtd_quarto,
                 qtd_banheiroRepublica: qtd_banheiro
             },
-            { where: { id_republica: republicaId } }
+            
         );
 
+        // Log para verificar se tipo foi atualizado
+        console.log("Tipo de república atualizado:", tipoAtualizado);
+
         // Atualizar regras da república
-        await ModelRegrasRepublica.update(
+        const regrasAtualizadas = await ModelRegrasRepublica.update(
             {
                 ds_permissaoFumar: fumar,
                 ds_permissaoPets: pets,
                 ds_permissaoBebidasAlc: bebidas,
                 ds_permissaoVisitas: visitas
             },
-            { where: { id_republica: republicaId } }
+            
         );
 
+        // Log para verificar se regras foram atualizadas
+        console.log("Regras da república atualizadas:", regrasAtualizadas);
+
         // Atualizar comodidades
-        await ModelComodidades.update(
+        const comodidadesAtualizadas = await ModelComodidades.update(
             {
                 ds_wifi: wifi,
                 ds_tv: tv,
@@ -287,8 +306,11 @@ updatePerfilRepublica: async (req, res) => {
                 ds_garagem: estacionamento,
                 ds_arcondicionado: ar_condicionado
             },
-            { where: { id_republica: republicaId } }
+            
         );
+
+        // Log para verificar se comodidades foram atualizadas
+        console.log("Comodidades atualizadas:", comodidadesAtualizadas);
 
         let valorFinal = 0;
         if (ValorMensal) {
@@ -296,50 +318,38 @@ updatePerfilRepublica: async (req, res) => {
         }
 
         // Atualizar valor do aluguel
-        await ModelAlguel.update(
+        const aluguelAtualizado = await ModelAlguel.update(
             {
                 vl_valorMensal: valorFinal,
                 ds_estadiaMin: estad_min,
                 ds_contasInclusas: contas_inclu
             },
-            { where: { id_republica: republicaId } }
+            
         );
 
+        // Log para verificar se aluguel foi atualizado
+        console.log("Aluguel atualizado:", aluguelAtualizado);
+
         // Atualizar dados da república
-        await ModelRepublica.update(
+        const republicaAtualizada = await ModelRepublica.update(
             {
                 ds_nomeRepublica: ds_nomeRepublica,
                 ds_descricaoRepublica: ds_descricaoRepublica
-            },
-            { where: { id_republica: republicaId } }
+            }
         );
 
-        // Atualizar imagens da república
-        const imagens = req.files;
-        if (imagens && imagens.length > 0) {
-            // Remover imagens antigas associadas à república
-            await ModelImagemRep.destroy({ where: { id_republica: republicaId } });
-
-            // Adicionar novas imagens
-            for (const imagem of imagens) {
-                await ModelImagemRep.create({
-                    id_republica: republicaId,
-                    nome_arquivo: imagem.mimetype,
-                    nome_imagem: imagem.filename
-                });
-            }
-        }
+        // Log para verificar se dados da república foram atualizados
+        console.log("Dados da república atualizados:", republicaAtualizada);
 
         req.flash("success_msg", `República ${ds_nomeRepublica} atualizada com sucesso!`);
-        return res.redirect('/pesquisaAnun');
+        res.render('editar-republica');
     } catch (error) {
         console.error("Erro no servidor:", error);
         req.flash("error_msg", `Erro no servidor: ${error.message}`);
-        return res.redirect('/anunciar');
-    }
-},
+        return res.redirect('/editar-republica?{{i}}');
+    }},
 getPerfilRepublicaHome: async (req, res) => {
-    try {
+    try {   
         const republicaId = req.query.id;
         
         const republica = await ModelRepublica.findOne({
@@ -351,7 +361,7 @@ getPerfilRepublicaHome: async (req, res) => {
                 [Sequelize.literal('an_anoCriacao'), 'anoDeCriacao'],
                 [Sequelize.literal('ds_tipoRepublica'), 'tipo'],
                 [Sequelize.literal('vl_valorMensal'), 'aluguel'],
-                [Sequelize.literal('ds_cidade'), 'cidade'],
+                [Sequelize.literal('ds_cidade'), 'cidade'], 
                 [Sequelize.literal('ds_bairro'), 'bairro'],
                 [Sequelize.literal('qtd_banheiroRepublica'), 'banheiro'],
                 [Sequelize.literal('qtd_quartoRepublica'), 'quarto'],

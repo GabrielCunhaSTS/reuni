@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anunciar República</title>
+  <link rel="stylesheet" href="anuncioRep.css">
+  <link rel="icon" href="/reuni.png">
+</head>
+
+<body>
+
+   <header>
+        <a href="javascript:void(0);" onclick="history.back();"><img src="/Voltar.png" alt="" srcset=""></a>
+        <a href="#" class="title">Re<span>Uni</span></a>
+    </header>
+
+  <div class="alert {{#if success_msg}}show{{/if}}">
+    {{#if success_msg}}
+    <div class="success">{{success_msg}}</div>
+    {{/if}}
+  </div>
+
+  <main class="titles">
+    <svg xmlns="http://www.w3.org/2000/svg" class="polygn" width="260" height="124" viewBox="0 0 260 124" fill="none">
+      <path d="M0.341309 123.511L259.341 -1.41593e-06L199.794 123.511L0.341309 123.511Z" fill="#215487" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="pontos" width="176" height="80" viewBox="0 0 176 80" fill="none">
+      <path
+        d="M172 8.00001C169.791 8.00001 168 6.20915 168 4.00001C168 1.79087 169.791 7.43971e-06 172 7.53884e-06C174.209 7.63797e-06 176 1.79087 176 4.00001C176 6.20915 174.209 8.00001 172 8.00001Z"
+        fill="#183953" />
+      <path
+        d="M148 8.00001C145.791 8.00001 144 6.20915 144 4.00001C144 1.79087 145.791 6.36273e-06 148 6.46186e-06C150.209 6.56099e-06 152 1.79087 152 4.00001C152 6.20915 150.209 8.00001 148 8.00001Z"
+        fill="#183953" />
+      <path
+        d="M124 8.00001C121.791 8.00001 120 6.20914 120 4.00001C120 1.79087 121.791 5.28575e-06 124 5.38488e-06C126.209 5.48402e-06 128 1.79087 128 4.00001C128 6.20914 126.209 8.00001 124 8.00001Z"
+        fill="#183953" />
+      <path
+        d="M100 8C97.7909 8 96 6.20914 96 4C96 1.79087 97.7909 4.20877e-06 100 4.30791e-06C102.209 4.40704e-06 104 1.79087 104 4C104 6.20914 102.209 8 100 8Z"
+        fill="#183953" />
+      <path
+        d="M76 8C73.7909 8 72 6.20914 72 4C72 1.79086 73.7909 3.1318e-06 76 3.23093e-06C78.2091 3.33006e-06 80 1.79086 80 4C80 6.20914 78.2091 8 76 8Z"
+        fill="#183953" />
+      <path
+        d="M52 8C49.7909 8 48 6.20914 48 4C48 1.79086 49.7909 2.05482e-06 52 2.15395e-06C54.2091 2.25309e-06 56 1.79086 56 4C56 6.20914 54.2091 8 52 8Z"
+        fill="#183953" />
+      <path
+        d="M28 8C25.7909 8 24 6.20914 24 4C24 1.79086 25.7909 9.77844e-07 28 1.07698e-06C30.2091 1.17611e-06 32 1.79086 32 4C32 6.20914 30.2091 8 28 8Z"
+        fill="#183953" />
+      <path
+        d="M4 8C1.79086 8 2.97162e-06 6.20914 3.06568e-06 4C3.15974e-06 1.79086 1.79086 -9.9133e-08 4 0C6.20914 9.9133e-08 8 1.79086 8 4C8 6.20914 6.20914 8 4 8Z"
+        fill="#183953" />
+      <path
+        d="M172 32C169.791 32 168 30.2091 168 28C168 25.7909 169.791 24 172 24C174.209 24 176 25.7909 176 28C176 30.2091 174.209 32 172 32Z"
+        fill="#183953" />
+      <path
+        d="M148 32C145.791 32 144 30.2091 144 28C144 25.7909 145.791 24 148 24C150.209 24 152 25.7909 152 28C152 30.2091 150.209 32 148 32Z"
+        fill="#183953" />
+      <path
+        d="M124 32C121.791 32 120 30.2091 120 28C120 25.7909 121.791 24 124 24C126.209 24 128 25.7909 128 28C128 30.2091 126.209 32 124 32Z"
+        fill="#183953" />
+      <path
+        d="M100 32C97.7909 32 96 30.2091 96 28C96 25.7909 97.7909 24 100 24C102.209 24 104 25.7909 104 28C104 30.2091 102.209 32 100 32Z"
+        fill="#183953" />
+      <path
+        d="M76 32C73.7909 32 72 30.2091 72 28C72 25.7909 73.7909 24 76 24C78.2091 24 80 25.7909 80 28C80 30.2091 78.2091 32 76 32Z"
+        fill="#183953" />
+      <path
+        d="M52 32C49.7909 32 48 30.2091 48 28C48 25.7909 49.7909 24 52 24C54.2091 24 56 25.7909 56 28C56 30.2091 54.2091 32 52 32Z"
+        fill="#183953" />
+      <path
+        d="M28 32C25.7909 32 24 30.2091 24 28C24 25.7909 25.7909 24 28 24C30.2091 24 32 25.7909 32 28C32 30.2091 30.2091 32 28 32Z"
+        fill="#183953" />
+      <path
+        d="M4 32C1.79086 32 1.94972e-06 30.2091 2.04379e-06 28C2.13785e-06 25.7909 1.79086 24 4 24C6.20914 24 8 25.7909 8 28C8 30.2091 6.20914 32 4 32Z"
+        fill="#183953" />
+      <path
+        d="M172 56C169.791 56 168 54.2091 168 52C168 49.7909 169.791 48 172 48C174.209 48 176 49.7909 176 52C176 54.2091 174.209 56 172 56Z"
+        fill="#183953" />
+      <path
+        d="M148 56C145.791 56 144 54.2091 144 52C144 49.7909 145.791 48 148 48C150.209 48 152 49.7909 152 52C152 54.2091 150.209 56 148 56Z"
+        fill="#183953" />
+      <path
+        d="M124 56C121.791 56 120 54.2091 120 52C120 49.7909 121.791 48 124 48C126.209 48 128 49.7909 128 52C128 54.2091 126.209 56 124 56Z"
+        fill="#183953" />
+      <path
+        d="M100 56C97.7909 56 96 54.2091 96 52C96 49.7909 97.7909 48 100 48C102.209 48 104 49.7909 104 52C104 54.2091 102.209 56 100 56Z"
+        fill="#183953" />
+      <path
+        d="M76 56C73.7909 56 72 54.2091 72 52C72 49.7909 73.7909 48 76 48C78.2091 48 80 49.7909 80 52C80 54.2091 78.2091 56 76 56Z"
+        fill="#183953" />
+      <path
+        d="M52 56C49.7909 56 48 54.2091 48 52C48 49.7909 49.7909 48 52 48C54.2091 48 56 49.7909 56 52C56 54.2091 54.2091 56 52 56Z"
+        fill="#183953" />
+      <path
+        d="M28 56C25.7909 56 24 54.2091 24 52C24 49.7909 25.7909 48 28 48C30.2091 48 32 49.7909 32 52C32 54.2091 30.2091 56 28 56Z"
+        fill="#183953" />
+      <path
+        d="M4 56C1.79086 56 9.2783e-07 54.2091 1.02189e-06 52C1.11596e-06 49.7909 1.79086 48 4 48C6.20914 48 8 49.7909 8 52C8 54.2091 6.20914 56 4 56Z"
+        fill="#183953" />
+      <path
+        d="M172 80C169.791 80 168 78.2091 168 76C168 73.7909 169.791 72 172 72C174.209 72 176 73.7909 176 76C176 78.2091 174.209 80 172 80Z"
+        fill="#183953" />
+      <path
+        d="M148 80C145.791 80 144 78.2091 144 76C144 73.7909 145.791 72 148 72C150.209 72 152 73.7909 152 76C152 78.2091 150.209 80 148 80Z"
+        fill="#183953" />
+      <path
+        d="M124 80C121.791 80 120 78.2091 120 76C120 73.7909 121.791 72 124 72C126.209 72 128 73.7909 128 76C128 78.2091 126.209 80 124 80Z"
+        fill="#183953" />
+      <path
+        d="M100 80C97.7909 80 96 78.2091 96 76C96 73.7909 97.7909 72 100 72C102.209 72 104 73.7909 104 76C104 78.2091 102.209 80 100 80Z"
+        fill="#183953" />
+      <path
+        d="M76 80C73.7909 80 72 78.2091 72 76C72 73.7909 73.7909 72 76 72C78.2091 72 80 73.7909 80 76C80 78.2091 78.2091 80 76 80Z"
+        fill="#183953" />
+      <path
+        d="M52 80C49.7909 80 48 78.2091 48 76C48 73.7909 49.7909 72 52 72C54.2091 72 56 73.7909 56 76C56 78.2091 54.2091 80 52 80Z"
+        fill="#183953" />
+      <path
+        d="M28 80C25.7909 80 24 78.2091 24 76C24 73.7909 25.7909 72 28 72C30.2091 72 32 73.7909 32 76C32 78.2091 30.2091 80 28 80Z"
+        fill="#183953" />
+      <path
+        d="M4 80C1.79086 80 -9.40626e-08 78.2091 0 76C9.40626e-08 73.7909 1.79086 72 4 72C6.20914 72 8 73.7909 8 76C8 78.2091 6.20914 80 4 80Z"
+        fill="#183953" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="retangulo" width="662" height="126" viewBox="0 0 662 126"
+      fill="none">
+      <g filter="url(#filter0_d_69_438)">
+        <path d="M0 9H615C631.569 9 645 22.4315 645 39V79C645 95.5685 631.569 109 615 109H0V9Z" fill="#6EB6FF" />
+      </g>
+      <defs>
+        <filter id="filter0_d_69_438" x="-8.5" y="0.5" width="670" height="125" filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha" />
+          <feOffset dx="4" dy="4" />
+          <feGaussianBlur stdDeviation="6.25" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_69_438" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_69_438" result="shape" />
+        </filter>
+      </defs>
+    </svg>
+    <h1>Editar República</h1>
+  </main>
+
+  <main class="buttons-local">
+    <button class="dados-repu"><svg xmlns="http://www.w3.org/2000/svg" width="37" height="24" viewBox="0 0 37 24"
+        fill="none">
+        <path
+          d="M0.769531 22.8182C0.769531 18.7273 5.50847 18.7273 7.87793 16C9.06267 14.6364 5.50847 14.6364 5.50847 7.81818C5.50847 3.27318 7.08772 1 10.2474 1C13.4071 1 14.9863 3.27318 14.9863 7.81818C14.9863 14.6364 11.4321 14.6364 12.6169 16C14.9863 18.7273 19.7253 18.7273 19.7253 22.8182M18.1373 19.6238C19.033 18.9133 20.1957 18.4018 21.3082 17.785C22.1781 17.3028 23.0173 16.7563 23.6744 16C24.8591 14.6364 21.3049 14.6364 21.3049 7.81818C21.3049 3.27318 22.8842 1 26.0438 1C29.2035 1 30.7828 3.27318 30.7828 7.81818C30.7828 14.6364 27.2286 14.6364 28.4133 16C30.7828 18.7273 35.5217 18.7273 35.5217 22.8182"
+          stroke="white" stroke-width="1.5" stroke-linecap="round" />
+      </svg>Dados da República</button>
+    <button><svg xmlns="http://www.w3.org/2000/svg" width="37" height="29" viewBox="0 0 37 29" fill="none">
+        <path
+          d="M12.6667 1L1 4V28L12.6667 25M12.6667 1V25M12.6667 1L24.3333 4M12.6667 25L24.3333 28M24.3333 4L36 1V25L24.3333 28M24.3333 4V28"
+          stroke="#215487" stroke-width="1.5" stroke-linejoin="round" />
+      </svg>Localização</button>
+    <button><svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
+        <path
+          d="M10.2719 14.1928L1.37654 3.61586C0.50588 2.58061 1.24185 1 2.59455 1H24.4055C25.7582 1 26.4941 2.58061 25.6235 3.61586L16.6379 14.3V21.7343L10.2719 26.5087V14.1928Z"
+          stroke="#215487" stroke-width="1.5" stroke-linejoin="round" />
+      </svg>Regras e Comodidades</button>
+    <button><svg xmlns="http://www.w3.org/2000/svg" width="13" height="27" viewBox="0 0 13 27" fill="none">
+        <path
+          d="M6.46875 1V4.125M6.46875 4.125C11.1562 4.125 11.9375 7.25 11.9375 7.25M6.46875 4.125C1.78125 4.125 1 7.18207 1 8.8125C1 15.2818 11.9375 11.8827 11.9375 18.1875C11.9375 19.8179 11.1562 22.875 6.46875 22.875M6.46875 22.875V26M6.46875 22.875C1.78125 22.875 1 19.75 1 19.75"
+          stroke="#215487" stroke-width="1.5" stroke-linecap="round" />
+      </svg>Valor do Aluguel</button>
+    <button><svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+        <path
+          d="M26 1H26.75V0.25H26V1ZM26 26V26.75H26.75V26H26ZM1 26H0.25V26.75H1V26ZM1 1V0.25H0.25V1H1ZM0.46967 15.7474C0.176777 16.0403 0.176777 16.5152 0.46967 16.8081C0.762563 17.101 1.23744 17.101 1.53033 16.8081L0.46967 15.7474ZM6.55556 10.7222L7.08589 10.1919L6.55556 9.66156L6.02523 10.1919L6.55556 10.7222ZM21.303 26.5303C21.5959 26.8232 22.0708 26.8232 22.3637 26.5303C22.6566 26.2374 22.6566 25.7626 22.3637 25.4697L21.303 26.5303ZM25.25 1V26H26.75V1H25.25ZM26 25.25H1V26.75H26V25.25ZM1.75 26V1H0.25V26H1.75ZM1 1.75H26V0.25H1V1.75ZM1.53033 16.8081L7.08589 11.2526L6.02523 10.1919L0.46967 15.7474L1.53033 16.8081ZM6.02523 11.2526L21.303 26.5303L22.3637 25.4697L7.08589 10.1919L6.02523 11.2526ZM15.5833 11.4722C17.9152 11.4722 19.8056 9.58187 19.8056 7.25H18.3056C18.3056 8.75344 17.0868 9.97222 15.5833 9.97222V11.4722ZM19.8056 7.25C19.8056 4.91813 17.9152 3.02778 15.5833 3.02778V4.52778C17.0868 4.52778 18.3056 5.74656 18.3056 7.25H19.8056ZM15.5833 3.02778C13.2515 3.02778 11.3611 4.91813 11.3611 7.25H12.8611C12.8611 5.74656 14.0799 4.52778 15.5833 4.52778V3.02778ZM11.3611 7.25C11.3611 9.58187 13.2515 11.4722 15.5833 11.4722V9.97222C14.0799 9.97222 12.8611 8.75344 12.8611 7.25H11.3611ZM16.1137 20.2803L26.5303 9.86366L25.4697 8.803L15.053 19.2197L16.1137 20.2803Z"
+          fill="#215487" />
+      </svg>Fotos e Descrição</button>
+  </main>
+
+  <form id="cepForm" action="/editar" method="POST" enctype="multipart/form-data">
+    <main class="containers">
+      <div class="container-cont">
+        <div class="titulo">
+          <p>Preencha com os dados da República</p> <svg xmlns="http://www.w3.org/2000/svg" width="37" height="21"
+            viewBox="0 0 37 21" fill="none">
+            <path
+              d="M1 19.9926C1 16.5694 5.73893 16.5694 8.1084 14.2873C9.29314 13.1462 5.73893 13.1462 5.73893 7.44092C5.73893 3.63775 7.31818 1.7356 10.4779 1.7356C13.6376 1.7356 15.2168 3.63775 15.2168 7.44092C15.2168 13.1462 11.6626 13.1462 12.8473 14.2873C15.2168 16.5694 19.9557 16.5694 19.9557 19.9926M18.3678 17.3197C19.2634 16.7251 20.4261 16.2971 21.5387 15.781C22.4086 15.3775 23.2478 14.9201 23.9049 14.2873C25.0896 13.1462 21.5354 13.1462 21.5354 7.44092C21.5354 3.63775 23.1146 1.7356 26.2743 1.7356C29.434 1.7356 31.0133 3.63775 31.0133 7.44092C31.0133 13.1462 27.4591 13.1462 28.6438 14.2873C31.0133 16.5694 35.7522 16.5694 35.7522 19.9926"
+              stroke="#919191" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="cont-dados">
+          <div class="dados-1">
+            <p>Nome</p>
+            <input class="input-dados" type="text" id="ds_nomeAnfitriao" name="ds_nomeAnfitriao" maxlength="80">
+            <p>E-mail</p>
+            <input class="input-dados" type="text" id="ds_emailAnfitriao" name="ds_emailAnfitriao">
+          </div>
+          <div class="dados-2">
+            <p>Telefone ou Celular para contato</p>
+            <input class="input-dados" type="tel" placeholder="(XX) XXXXX-XXXX" id="nmr_telefoneAnfitriao" name="nmr_telefoneAnfitriao" maxlength="15" oninput="mascaraTelefone(this)">                  
+            <p>Ano de Criação da república:</p>
+            <input class="input-dados" id="an_anoCriacao" type="text" name="an_anoCriacao" maxlength="4">
+          </div>
+        </div>
+      </div>
+
+      <div class="container-cont">
+        <div class="titulo">
+          <p>Localização</p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="25" viewBox="0 0 37 25" fill="none">
+            <path
+              d="M12.6667 1.47534L1 3.98568V24.0684L12.6667 21.5581M12.6667 1.47534V21.5581M12.6667 1.47534L24.3333 3.98568M12.6667 21.5581L24.3333 24.0684M24.3333 3.98568L36 1.47534V21.5581L24.3333 24.0684M24.3333 3.98568V24.0684"
+              stroke="#909090" stroke-width="1.5" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <div class="cont-cep">
+          <div class="cep">
+            <p>Cep:</p>
+            <input class="input-dados" type="text" id="ds_cep" name="ds_cep" required maxlength="9">
+            <p>Cidade:</p>
+            <input class="input-dados" type="text" id="ds_cidade" name="ds_cidade" readonly>
+            <p>Estado:</p>
+            <input class="input-dados" type="text" id="ds_estado" name="ds_estado" readonly>
+            <p>Rua:</p>
+            <input class="input-dados" type="text" id="ds_rua" name="ds_rua" readonly>
+            <p>Bairro:</p>
+            <input class="input-dados" type="text" id="ds_bairro" name="ds_bairro" readonly>
+            <p>Numero:</p>
+            <input class="input-dados" type="text" id="ds_numero" name="ds_numero">
+          </div>
+        </div>
+      </div>
+
+      <div class="container-cont-desc">
+        <div class="titulo">
+          <p>Descrição e Regras</p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
+            <path
+              d="M10.2719 12.296L1.37654 3.44549C0.50588 2.57922 1.24185 1.25659 2.59455 1.25659H24.4055C25.7582 1.25659 26.4941 2.57922 25.6235 3.44549L16.6379 12.3857V18.6066L10.2719 22.6018V12.296Z"
+              stroke="#909090" stroke-width="1.5" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <div class="cont-regras">
+          <div class="align-flex-regras">
+            <p>Tipos de República</p>
+            <select name="tipoRep" id="option">
+              <option value="Mista">Mista</option>
+              <option value="Fem">Feminina</option>
+              <option value="Masc">Masculino</option>
+            </select>
+          </div>
+
+          
+          <div class="align-flex-regras">
+            <p>Tipos de Imóvel</p>
+            <select name="imovel" id="option">
+              <option value="Casa">Casa</option>
+              <option value="Apto">Apartamento</option>
+            </select>
+          </div>
+
+          <div class="buttons-quantidade">
+            <div class="quartos">
+              
+              <div class="button-mes">
+                <p>Quartos</p>
+                <input type="text" name="qtd_quarto" id="">
+              </div>
+            </div>
+            <div class="banheiros">
+              
+              <div class="button-mes">
+                <p>Banheiros</p>
+                <input type="text" name="qtd_banheiro" id="">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="regras-radio">
+          <h1>Regras da República</h1>
+          <div>
+            <p>Permitido Fumar?</p>
+            <select name="fumar" id="option">
+              <option value="1">Sim</option>
+              <option value="0">Nao</option>
+            </select>
+          </div>
+          <div>
+            <p>Permitido Pets?</p>
+            <select name="pets" id="option">
+              <option value="1">Sim</option>
+              <option value="0">Nao</option>
+            </select>
+          </div>
+          <div>
+            <p>Permitido Bebidas alcoólicas?</p>
+            <select name="bebidas" id="option">
+              <option value="1">Sim</option>
+              <option value="0">Nao</option>
+            </select>
+          </div>
+          <div>
+            <p>Permitido visitas?</p>
+            <select name="visitas" id="option">
+              <option value="1">Sim</option>
+              <option value="0">Nao</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="comodidades">
+          <h1>Comodidades</h1>
+          
+          
+          <div class="checkbox-container">
+            <input value="1" type="checkbox" name="wifi" id="wifi">
+            <label for="wifi"><img src="/image 14.png" data-original="/image 14.png" data-checked="/wi-fi.png" data-hover="/wi-fi.png"></label>
+
+            <input value="1" type="checkbox" name="tv" id="tv">
+            <label for="tv"><img src="/image 15.png" data-original="/image 15.png" data-checked="/TV.png" data-hover="/TV.png"></label>
+
+            <input value="1" type="checkbox" name="cozinha" id="cozinha">
+            <label for="cozinha"><img src="/image 17.png" data-original="/image 17.png" data-checked="/cozinhau.png" data-hover="/cozinhau.png"></label>
+
+            <input value="1" type="checkbox" name="estacionamento" id="estacionamento">
+            <label for="estacionamento"><img src="/image 16.png" data-original="/image 16.png" data-checked="/vagas.png" data-hover="/vagas.png"></label>
+
+            <input value="1" type="checkbox" name="ar_condicionado" id="ar_condicionado">
+            <label for="ar_condicionado"><img src="/image 18.png" data-original="/image 18.png" data-checked="/arcondicionado.png" data-hover="/arcondicionado.png"></label>
+        </div>
+
+            <script>
+              document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                  const label = checkbox.nextElementSibling;
+                  const img = label.querySelector('img');
+
+                  // Ensure initial image src is set correctly
+                  img.setAttribute('data-original', img.src);
+
+                  checkbox.addEventListener('change', function() {
+                      if (this.checked) {
+                          img.src = img.getAttribute('data-checked');
+                      } else {
+                          img.src = img.getAttribute('data-original');
+                      }
+                  });
+
+                  label.addEventListener('mouseover', function() {
+                      if (!checkbox.checked) {
+                          img.src = img.getAttribute('data-hover');
+                      }
+                  });
+
+                  label.addEventListener('mouseout', function() {
+                      if (!checkbox.checked) {
+                          img.src = img.getAttribute('data-original');
+                      }
+                  });
+              });
+          </script>
+
+
+
+        </div>
+
+      </div>
+
+      </div>
+      <div class="container-cont">
+        <div class="titulo">
+          <p>Valor do Aluguel</p><svg xmlns="http://www.w3.org/2000/svg" width="13" height="27" viewBox="0 0 13 27"
+            fill="none">
+            <path
+              d="M6.46875 1V4.125M6.46875 4.125C11.1562 4.125 11.9375 7.25 11.9375 7.25M6.46875 4.125C1.78125 4.125 1 7.18207 1 8.8125C1 15.2818 11.9375 11.8827 11.9375 18.1875C11.9375 19.8179 11.1562 22.875 6.46875 22.875M6.46875 22.875V26M6.46875 22.875C1.78125 22.875 1 19.75 1 19.75"
+              stroke="#707070" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </div>
+
+        <div class="cont-valor">
+          <div class="estadia">
+            <input type="radio" value="1" name="estad_min" id="estad_min">
+            <p>Estadia Mínima</p>
+            <div class="meses">
+              <div>
+                <p>meses</p>
+              </div>
+              <div class="button-mes">
+                <button>-</button>
+                <p>0</p><button>+</button>
+              </div>
+            </div>
+          </div>
+          <div class="valor-mensal">
+            <p>Valor Mensal</p>
+                <input type="text" id="valor" name="ValorMensal" placeholder="R$ 0,00" oninput="formatarValor(this)">
+
+        <script>
+           function formatarValor(input) {
+            let valor = input.value.replace(/\D/g, '');
+            valor = (valor / 100).toFixed(2) + '';
+            valor = valor.replace('.', ',');
+            valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            input.value = 'R$ ' + valor;
+        }
+    </script>
+
+
+          </div>
+          <div class="radios">
+            <div class="contas">
+              <input type="radio" value="1" name="contas_inclu" id="contas_inclu">
+              <p>Contas inclusas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-cont">
+        <div class="titulo">
+          <p>Fotos e Descrição</p><svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27"
+            fill="none">
+            <path
+              d="M26 1H26.75V0.25H26V1ZM26 26V26.75H26.75V26H26ZM1 26H0.25V26.75H1V26ZM1 1V0.25H0.25V1H1ZM0.46967 15.7474C0.176777 16.0403 0.176777 16.5152 0.46967 16.8081C0.762563 17.101 1.23744 17.101 1.53033 16.8081L0.46967 15.7474ZM6.55556 10.7222L7.08589 10.1919L6.55556 9.66156L6.02523 10.1919L6.55556 10.7222ZM21.303 26.5303C21.5959 26.8232 22.0708 26.8232 22.3637 26.5303C22.6566 26.2374 22.6566 25.7626 22.3637 25.4697L21.303 26.5303ZM25.25 1V26H26.75V1H25.25ZM26 25.25H1V26.75H26V25.25ZM1.75 26V1H0.25V26H1.75ZM1 1.75H26V0.25H1V1.75ZM1.53033 16.8081L7.08589 11.2526L6.02523 10.1919L0.46967 15.7474L1.53033 16.8081ZM6.02523 11.2526L21.303 26.5303L22.3637 25.4697L7.08589 10.1919L6.02523 11.2526ZM15.5833 11.4722C17.9152 11.4722 19.8056 9.58187 19.8056 7.25H18.3056C18.3056 8.75344 17.0868 9.97222 15.5833 9.97222V11.4722ZM19.8056 7.25C19.8056 4.91813 17.9152 3.02778 15.5833 3.02778V4.52778C17.0868 4.52778 18.3056 5.74656 18.3056 7.25H19.8056ZM15.5833 3.02778C13.2515 3.02778 11.3611 4.91813 11.3611 7.25H12.8611C12.8611 5.74656 14.0799 4.52778 15.5833 4.52778V3.02778ZM11.3611 7.25C11.3611 9.58187 13.2515 11.4722 15.5833 11.4722V9.97222C14.0799 9.97222 12.8611 8.75344 12.8611 7.25H11.3611ZM16.1137 20.2803L26.5303 9.86366L25.4697 8.803L15.053 19.2197L16.1137 20.2803Z"
+              fill="#707070" />
+          </svg>
+        </div>
+
+        <div class="cont-fotos">
+          <p>Adicione as melhores fotos de sua república.</p>
+            <label for="images">Imagens da República:</label>
+            <input type="file" id="images" name="images" multiple ><br>
+
+          <p>Título do Anúncio</p>
+          <input type="text" id="ds_nomeRepublica" name="ds_nomeRepublica">
+          <p>Descrição</p>
+          <input type="text" class="descricao" id="ds_descricaoRepublica" name="ds_descricaoRepublica">
+        </div>
+      </div>
+
+      <button class="Anunciar">Anunciar República</button>
+  </form>
+  </main>
+
+  <script src="/msgBemvindo.js"></script>
+  <script src="/cepAuth.js"></script>
+  <script src="/limitarCampos.js"></script>
+</body>
+
+</html>

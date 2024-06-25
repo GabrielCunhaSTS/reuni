@@ -61,6 +61,9 @@ router.get('/perfil-Anunciante', checkAuth, (req, res) => {
     res.render('perfilAnun')
 })
 
+router.get('/editar-Republica', checkAuth,(req, res) => {
+    res.render('editarRep')
+})
 
 router.get('/editar-Anun', checkAuth,(req, res) => {
     res.render('editar-Anun')

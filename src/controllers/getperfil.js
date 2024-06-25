@@ -216,6 +216,128 @@ getPerfilRepublicaAnun: async (req, res) => {
         res.status(500).send('Erro interno do servidor');
     }
 },
+
+updatePerfilRepublica: async (req, res) => {
+    try {
+        const republicaId = req.params.id;
+        const {
+            ds_nomeAnfitriao, ds_emailAnfitriao, nmr_telefoneAnfitriao, an_anoCriacao,
+            ds_cep, ds_cidade, ds_estado, ds_rua, ds_bairro, ds_numero,
+            ValorMensal, estad_min, contas_inclu,
+            ds_nomeRepublica, ds_descricaoRepublica,
+            tipoRep, imovel, qtd_banheiro, qtd_quarto,
+            fumar, pets, visitas, bebidas,
+            wifi, tv, cozinha, estacionamento, ar_condicionado
+        } = req.body;
+
+        let numeroInteiro = parseInt(nmr_telefoneAnfitriao.replace(/\D/g, ''), 10);
+
+        // Atualizar dados do anfitrião
+        await ModelDadosRepublica.update(
+            {
+                ds_nomeAnfitriao: ds_nomeAnfitriao,
+                ds_emailContato: ds_emailAnfitriao,
+                nmr_telefoneContato: numeroInteiro,
+                an_anoCriacao: an_anoCriacao
+            },
+            { where: { id_republica: republicaId } }
+        );
+
+        // Atualizar localização da república
+        await ModelLocalizacaoRepublica.update(
+            {
+                ds_cep: ds_cep,
+                ds_cidade: ds_cidade,
+                ds_estado: ds_estado,
+                ds_rua: ds_rua,
+                ds_bairro: ds_bairro,
+                ds_numero: ds_numero
+            },
+            { where: { id_republica: republicaId } }
+        );
+
+        // Atualizar tipo de república
+        await ModelTipoRepublica.update(
+            {
+                ds_tipoRepublica: tipoRep,
+                ds_tipoImovel: imovel,
+                qtd_quartoRepublica: qtd_quarto,
+                qtd_banheiroRepublica: qtd_banheiro
+            },
+            { where: { id_republica: republicaId } }
+        );
+
+        // Atualizar regras da república
+        await ModelRegrasRepublica.update(
+            {
+                ds_permissaoFumar: fumar,
+                ds_permissaoPets: pets,
+                ds_permissaoBebidasAlc: bebidas,
+                ds_permissaoVisitas: visitas
+            },
+            { where: { id_republica: republicaId } }
+        );
+
+        // Atualizar comodidades
+        await ModelComodidades.update(
+            {
+                ds_wifi: wifi,
+                ds_tv: tv,
+                ds_cozinha: cozinha,
+                ds_garagem: estacionamento,
+                ds_arcondicionado: ar_condicionado
+            },
+            { where: { id_republica: republicaId } }
+        );
+
+        let valorFinal = 0;
+        if (ValorMensal) {
+            valorFinal = parseFloat(ValorMensal.replace('R$', '').replace(/\./g, '').replace(',', '.'));
+        }
+
+        // Atualizar valor do aluguel
+        await ModelAlguel.update(
+            {
+                vl_valorMensal: valorFinal,
+                ds_estadiaMin: estad_min,
+                ds_contasInclusas: contas_inclu
+            },
+            { where: { id_republica: republicaId } }
+        );
+
+        // Atualizar dados da república
+        await ModelRepublica.update(
+            {
+                ds_nomeRepublica: ds_nomeRepublica,
+                ds_descricaoRepublica: ds_descricaoRepublica
+            },
+            { where: { id_republica: republicaId } }
+        );
+
+        // Atualizar imagens da república
+        const imagens = req.files;
+        if (imagens && imagens.length > 0) {
+            // Remover imagens antigas associadas à república
+            await ModelImagemRep.destroy({ where: { id_republica: republicaId } });
+
+            // Adicionar novas imagens
+            for (const imagem of imagens) {
+                await ModelImagemRep.create({
+                    id_republica: republicaId,
+                    nome_arquivo: imagem.mimetype,
+                    nome_imagem: imagem.filename
+                });
+            }
+        }
+
+        req.flash("success_msg", `República ${ds_nomeRepublica} atualizada com sucesso!`);
+        return res.redirect('/pesquisaAnun');
+    } catch (error) {
+        console.error("Erro no servidor:", error);
+        req.flash("error_msg", `Erro no servidor: ${error.message}`);
+        return res.redirect('/anunciar');
+    }
+},
 getPerfilRepublicaHome: async (req, res) => {
     try {
         const republicaId = req.query.id;

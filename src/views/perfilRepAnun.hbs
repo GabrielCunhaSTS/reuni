@@ -73,9 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>{{ republica.cidade }}, {{ republica.bairro }}</p>
         </div>
         <div>
-            <form action="/favoritos" method="POST">
-                <input type="hidden" name="republica_id" value="{{ republica.id }}">
-            </form>
+            <input type="hidden" name="republica_id" value="{{ republica.id }}">
+            <a href="/editar-Republica"><img id="editarnome" src="/edit.png" class="pincel"></a> 
         </div>
     </section>
     <svg class="hr-maior" xmlns="http://www.w3.org/2000/svg" width="582" height="2" viewBox="0 0 582 2" fill="none">
